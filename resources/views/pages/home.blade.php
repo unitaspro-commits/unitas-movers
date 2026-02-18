@@ -1,0 +1,796 @@
+@extends('layouts.app')
+
+@section('title', 'Alpine Movers Calgary — Professional Moving Company | Free Quotes')
+@section('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')
+
+@section('content')
+
+{{-- Section 1: Hero — Split layout: blob video + 4-step quote form --}}
+<section class="bg-gradient-hero relative overflow-hidden">
+    {{-- Decorative elements --}}
+    <div class="absolute top-20 right-[10%] w-72 h-72 bg-primary/10 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-10 left-[5%] w-56 h-56 bg-primary-light/10 rounded-full blur-[100px]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-19">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+
+            {{-- LEFT: Tagline + Blob Video --}}
+            <div class="order-2 lg:order-1">
+                {{-- Badge --}}
+                <div class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/5 border border-primary/15 mb-4">
+                    <span class="w-2 h-2 bg-accent rounded-full mr-2 animate-pulse"></span>
+                    <span class="text-gray-500 text-sm font-medium">Trusted by 2,500+ Calgary families</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-dark leading-[1.1] tracking-tight">
+                    Your Smoothest<br>
+                    <span class="bg-gradient-to-r from-primary-light via-primary to-accent bg-clip-text text-transparent">Move Yet.</span>
+                </h1>
+
+                <p class="mt-3 text-lg text-gray-500 leading-relaxed max-w-lg">
+                    Licensed and insured movers serving Calgary and area. We plan, pack, and move — so you can focus on what matters.
+                </p>
+
+                {{-- Phone CTA --}}
+                <div class="mt-5 flex items-center space-x-4">
+                    <a href="tel:+14038002747" class="inline-flex items-center bg-primary/10 hover:bg-primary/15 text-primary px-5 py-2.5 rounded-xl font-semibold text-sm transition">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        (403) 800-2747
+                    </a>
+                    <span class="text-gray-400 text-sm">Free estimate</span>
+                </div>
+
+                {{-- Blob-shaped video --}}
+                <div class="mt-8 relative animate-float-blob">
+                    <div class="video-blob-fallback w-full max-w-xl aspect-[16/10] shadow-2xl shadow-primary/15">
+                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                            <source src="{{ asset('videos/alpine-movers-hero.mp4') }}" type="video/mp4">
+                        </video>
+                    </div>
+                    {{-- Decorative ring around blob --}}
+                    <div class="absolute -inset-4 video-blob-fallback border-2 border-primary/10 pointer-events-none"></div>
+                    {{-- Glow effect behind video --}}
+                    <div class="absolute -inset-8 video-blob-fallback bg-primary/5 blur-2xl -z-10"></div>
+                </div>
+
+                {{-- Stats row --}}
+                <div class="mt-10 grid grid-cols-4 gap-4">
+                    <div>
+                        <div class="text-2xl font-extrabold text-dark">2,500+</div>
+                        <div class="text-gray-400 text-xs mt-0.5 font-medium">Moves Done</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold text-dark">4.9<span class="text-star">★</span></div>
+                        <div class="text-gray-400 text-xs mt-0.5 font-medium">Google</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold text-dark">10+</div>
+                        <div class="text-gray-400 text-xs mt-0.5 font-medium">Years Exp.</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-extrabold text-dark">$0</div>
+                        <div class="text-gray-400 text-xs mt-0.5 font-medium">Hidden Fees</div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- RIGHT: 4-Step Quote Form --}}
+            <div class="order-1 lg:order-2" x-data="quoteForm()">
+                <div class="bg-white rounded-3xl p-6 lg:p-8 shadow-xl shadow-gray-300/50 border border-gray-200 relative overflow-hidden">
+                    {{-- Decorative corner gradient --}}
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary-50 to-transparent rounded-bl-full"></div>
+
+                    <div class="relative">
+                        <h2 class="text-xl font-extrabold text-dark mb-1">Get Your Free Quote</h2>
+                        <p class="text-gray-600 text-sm mb-6">Fill in the details and we'll respond within 2 hours.</p>
+
+                        {{-- Step Indicators --}}
+                        <div class="flex items-center justify-between mb-8">
+                            <template x-for="(label, index) in stepLabels" :key="index">
+                                <div class="flex items-center" :class="index < stepLabels.length - 1 ? 'flex-1' : ''">
+                                    <button type="button" @click="goToStep(index + 1)"
+                                        class="step-dot w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all shrink-0"
+                                        :class="{
+                                            'active border-primary': step === index + 1,
+                                            'completed border-accent': step > index + 1,
+                                            'border-gray-200 text-gray-400 bg-white': step < index + 1
+                                        }">
+                                        <template x-if="step > index + 1">
+                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                                        </template>
+                                        <template x-if="step <= index + 1">
+                                            <span x-text="index + 1"></span>
+                                        </template>
+                                    </button>
+                                    <div x-show="index < stepLabels.length - 1"
+                                        class="step-connector flex-1 h-0.5 mx-2 rounded transition-colors"
+                                        :class="{
+                                            'completed bg-accent': step > index + 1,
+                                            'active bg-primary': step === index + 1,
+                                            'bg-gray-200': step < index + 1
+                                        }"></div>
+                                </div>
+                            </template>
+                        </div>
+                        <div class="text-xs text-gray-400 text-center -mt-5 mb-6">
+                            <span x-text="stepLabels[step - 1]" class="font-semibold text-primary"></span>
+                        </div>
+
+                        <form method="POST" action="{{ route('quote.store') }}" @submit.prevent="submitForm($event)">
+                            @csrf
+
+                            <div class="form-steps-container">
+                            {{-- Step 1: Move Type + Location + Date --}}
+                            <div class="form-step" :class="{ 'active': step === 1 }">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label class="block text-base font-semibold text-dark mb-2">Move Type</label>
+                                        <div class="grid grid-cols-2 gap-3">
+                                            <label class="relative cursor-pointer">
+                                                <input type="radio" name="move_size" value="home" x-model="formData.move_size" class="peer sr-only">
+                                                <div class="peer-checked:border-primary peer-checked:bg-primary-50 peer-checked:text-primary border-2 border-gray-300 rounded-xl px-3 py-3 text-center transition hover:border-gray-400">
+                                                    <svg class="w-6 h-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"></path></svg>
+                                                    <span class="text-sm font-bold text-dark">Home</span>
+                                                </div>
+                                            </label>
+                                            <label class="relative cursor-pointer">
+                                                <input type="radio" name="move_size" value="office" x-model="formData.move_size" class="peer sr-only">
+                                                <div class="peer-checked:border-primary peer-checked:bg-primary-50 peer-checked:text-primary border-2 border-gray-300 rounded-xl px-3 py-3 text-center transition hover:border-gray-400">
+                                                    <svg class="w-6 h-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                                                    <span class="text-sm font-bold text-dark">Office</span>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="hero_moving_from" class="block text-base font-semibold text-dark mb-2">Moving From</label>
+                                        <div class="relative">
+                                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                            <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
+                                                placeholder="Your current address"
+                                                class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="hero_moving_to" class="block text-base font-semibold text-dark mb-2">Moving To</label>
+                                        <div class="relative">
+                                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                            <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
+                                                placeholder="Your destination address"
+                                                class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="hero_move_date" class="block text-base font-semibold text-dark mb-2">Move Date</label>
+                                        <div class="relative cursor-pointer" @click="$refs.moveDateInput.showPicker()">
+                                            <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                            <input type="date" name="move_date" id="hero_move_date" x-ref="moveDateInput" x-model="formData.move_date" required
+                                                min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                                                class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 transition cursor-pointer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Step 2: Contact Info --}}
+                            <div class="form-step" :class="{ 'active': step === 2 }">
+                                <div class="space-y-4">
+                                    <div>
+                                        <label for="hero_full_name" class="block text-base font-semibold text-dark mb-2">Full Name</label>
+                                        <input type="text" name="full_name" id="hero_full_name" x-model="formData.full_name" required
+                                            placeholder="John Doe"
+                                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                    </div>
+                                    <div>
+                                        <label for="hero_phone" class="block text-base font-semibold text-dark mb-2">Phone Number</label>
+                                        <input type="tel" name="phone" id="hero_phone" x-model="formData.phone" required
+                                            placeholder="(403) 000-0000"
+                                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                    </div>
+                                    <div>
+                                        <label for="hero_email" class="block text-base font-semibold text-dark mb-2">Email Address</label>
+                                        <input type="email" name="email" id="hero_email" x-model="formData.email" required
+                                            placeholder="john@example.com"
+                                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- Step 3: Services Needed --}}
+                            <div class="form-step" :class="{ 'active': step === 3 }">
+                                <div class="space-y-3">
+                                    <label class="block text-base font-semibold text-dark mb-2">Services Needed <span class="font-normal text-gray-500">(select all that apply)</span></label>
+                                    @php
+                                        $serviceOptions = [
+                                            'moving' => ['label' => 'Moving', 'icon' => 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4'],
+                                            'packing' => ['label' => 'Packing', 'icon' => 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4'],
+                                            'unpacking' => ['label' => 'Unpacking', 'icon' => 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8'],
+                                            'junk_removal' => ['label' => 'Junk Removal', 'icon' => 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'],
+                                        ];
+                                    @endphp
+                                    <div class="grid grid-cols-2 gap-3">
+                                        @foreach($serviceOptions as $value => $svc)
+                                            <label class="relative cursor-pointer">
+                                                <input type="checkbox" name="services_needed[]" value="{{ $value }}" class="peer sr-only"
+                                                    @change="toggleService('{{ $value }}')">
+                                                <div class="peer-checked:border-primary peer-checked:bg-primary-50 border-2 border-gray-300 rounded-xl p-3.5 transition hover:border-gray-400 flex items-center space-x-2.5">
+                                                    <svg class="w-5 h-5 text-gray-600 peer-checked:text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $svc['icon'] }}"></path></svg>
+                                                    <span class="text-sm font-bold text-dark">{{ $svc['label'] }}</span>
+                                                </div>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                    <div class="mt-4">
+                                        <label for="hero_notes" class="block text-base font-semibold text-dark mb-2">Special Instructions or Notes</label>
+                                        <textarea name="additional_notes" id="hero_notes" x-model="formData.additional_notes" rows="2"
+                                            placeholder="Stairs, elevator, fragile items, etc."
+                                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition resize-none"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>{{-- /.form-steps-container --}}
+
+                            {{-- Navigation Buttons --}}
+                            <div class="mt-6 flex items-center" :class="step > 1 ? 'justify-between' : 'justify-end'">
+                                <button type="button" x-show="step > 1" @click="prevStep()"
+                                    class="flex items-center text-gray-500 hover:text-dark font-semibold text-sm transition">
+                                    <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                                    Back
+                                </button>
+                                <button type="button" x-show="step < 3" @click="nextStep()"
+                                    class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-bold text-sm transition-all shadow-[0_4px_20px_rgba(89,52,255,0.3)] hover:shadow-[0_6px_30px_rgba(89,52,255,0.4)] hover:-translate-y-0.5 flex items-center">
+                                    Continue
+                                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                </button>
+                                <button type="submit" x-show="step === 3"
+                                    class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-bold text-sm transition-all shadow-[0_4px_20px_rgba(89,52,255,0.3)] hover:shadow-[0_6px_30px_rgba(89,52,255,0.4)] hover:-translate-y-0.5 flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                    Get Free Quote
+                                </button>
+                            </div>
+                        </form>
+
+                        {{-- Trust note --}}
+                        <div class="mt-5 flex items-center justify-center text-xs text-gray-400 space-x-4">
+                            <span class="flex items-center">
+                                <svg class="w-3.5 h-3.5 mr-1 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                Secure & private
+                            </span>
+                            <span class="flex items-center">
+                                <svg class="w-3.5 h-3.5 mr-1 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                Response in 2 hours
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{{-- Alpine.js Quote Form Logic --}}
+<script>
+function quoteForm() {
+    return {
+        step: 1,
+        stepLabels: ['Move Details', 'Contact', 'Services'],
+        formData: {
+            moving_from: '',
+            moving_to: '',
+            move_date: '',
+            move_size: '',
+            full_name: '',
+            phone: '',
+            email: '',
+            services_needed: [],
+            additional_notes: ''
+        },
+        toggleService(value) {
+            const idx = this.formData.services_needed.indexOf(value);
+            if (idx > -1) {
+                this.formData.services_needed.splice(idx, 1);
+            } else {
+                this.formData.services_needed.push(value);
+            }
+        },
+        nextStep() {
+            if (this.validateStep()) {
+                this.step = Math.min(this.step + 1, 3);
+            }
+        },
+        prevStep() {
+            this.step = Math.max(this.step - 1, 1);
+        },
+        goToStep(target) {
+            if (target < this.step) {
+                this.step = target;
+            } else if (target === this.step + 1 && this.validateStep()) {
+                this.step = target;
+            }
+        },
+        validateStep() {
+            switch (this.step) {
+                case 1:
+                    if (!this.formData.move_size || !this.formData.moving_from || !this.formData.moving_to || !this.formData.move_date) {
+                        this.shake();
+                        return false;
+                    }
+                    return true;
+                case 2:
+                    if (!this.formData.full_name || !this.formData.phone || !this.formData.email) {
+                        this.shake();
+                        return false;
+                    }
+                    return true;
+                case 3:
+                    if (this.formData.services_needed.length === 0) {
+                        this.shake();
+                        return false;
+                    }
+                    return true;
+            }
+            return true;
+        },
+        shake() {
+            const form = this.$el.querySelector('.bg-white');
+            form.classList.add('animate-shake');
+            setTimeout(() => form.classList.remove('animate-shake'), 500);
+        },
+        submitForm(event) {
+            if (this.validateStep()) {
+                event.target.submit();
+            }
+        }
+    };
+}
+</script>
+
+{{-- Section 2: Trust Bar + Logo Marquee (#6) --}}
+<section class="border-b border-gray-100 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="flex flex-wrap justify-center gap-6 items-center text-center">
+            @php
+                $trustItems = [
+                    ['icon' => 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', 'label' => 'Fully Insured'],
+                    ['icon' => 'M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z', 'label' => '4.9★ Google'],
+                    ['icon' => 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', 'label' => 'Affordable Rates'],
+                    ['icon' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', 'label' => 'Same-Day Available'],
+                ];
+            @endphp
+            @foreach($trustItems as $item)
+                <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="flex flex-col items-center min-w-[100px]">
+                    <div class="w-10 h-10 bg-primary-50 rounded-xl flex items-center justify-center mb-2 animate-float-gentle" style="animation-delay: {{ $loop->index * 0.3 }}s">
+                        <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"></path></svg>
+                    </div>
+                    <span class="text-sm font-semibold text-dark">{{ $item['label'] }}</span>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- Section 3: How It Works --}}
+<section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">How It Works</div>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Three steps to your perfect move</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Simple, transparent, stress-free. Here's how we get you moved.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @php
+                $steps = [
+                    ['num' => '01', 'title' => 'Request a Quote', 'desc' => 'Fill out our quick form or call us. We\'ll provide a transparent, no-obligation quote within 2 hours.', 'icon' => 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'],
+                    ['num' => '02', 'title' => 'We Plan Everything', 'desc' => 'Our team handles logistics, scheduling, and preparation. We bring all equipment and professional supplies.', 'icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4'],
+                    ['num' => '03', 'title' => 'Move Day Magic', 'desc' => 'Our professional crew handles everything with care. Sit back while we safely transport your world to its new home.', 'icon' => 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3'],
+                ];
+            @endphp
+            @foreach($steps as $step)
+                <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="group relative bg-white rounded-3xl p-8 border border-gray-100 hover:border-primary/20 card-hover-tilt">
+                    <div class="text-primary/10 text-6xl font-extrabold absolute top-6 right-8">{{ $step['num'] }}</div>
+                    <div class="w-14 h-14 bg-primary-50 group-hover:bg-primary rounded-2xl flex items-center justify-center mb-6 transition-colors">
+                        <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $step['icon'] }}"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">{{ $step['title'] }}</h3>
+                    <p class="text-gray-500 leading-relaxed">{{ $step['desc'] }}</p>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- Section 4: Services Grid with Unique Icons (#8) --}}
+<section class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Our Services</div>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Everything you need for your move</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">From local apartment moves to long-distance relocations, we handle it all.</p>
+        </div>
+        @php
+            $serviceIcons = [
+                'local-moving' => 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4',
+                'residential-moving' => 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6',
+                'apartment-moving' => 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4',
+                'condo-moving' => 'M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z',
+                'commercial-moving' => 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+                'long-distance-moving' => 'M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7',
+                'packing-unpacking' => 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+                'piano-moving' => 'M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z',
+                'specialty-moving' => 'M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4',
+                'furniture-moving' => 'M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z',
+                'small-moves' => 'M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4',
+                'senior-moving' => 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+                'same-day-moving' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
+                'evening-weekend-moving' => 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
+                'eco-friendly-moving' => 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064',
+                'storage-solutions' => 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4',
+                'junk-removal' => 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16',
+                'affordable-moving' => 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+                'bilingual-movers' => 'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
+            ];
+        @endphp
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            @forelse($services as $service)
+                <a href="{{ route('services.show', $service) }}" x-reveal="scale" x-reveal-delay="{{ $loop->iteration }}" class="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/20 card-hover-tilt">
+                    <div class="w-12 h-12 bg-primary-50 group-hover:bg-primary rounded-xl flex items-center justify-center mb-4 transition-colors">
+                        <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $serviceIcons[$service->slug] ?? 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4' }}"></path></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-dark group-hover:text-primary transition-colors">{{ $service->name }}</h3>
+                    <p class="mt-2 text-gray-500 text-sm leading-relaxed">{{ Str::limit($service->meta_description, 100) }}</p>
+                    <div class="mt-4 flex items-center text-primary text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                        Learn more
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </div>
+                </a>
+            @empty
+                <div class="col-span-3 text-center py-8 text-gray-400">
+                    <p>Services coming soon.</p>
+                </div>
+            @endforelse
+        </div>
+        <div class="text-center mt-10">
+            <a href="{{ route('services.index') }}" class="inline-flex items-center text-primary hover:text-primary-dark font-semibold transition">
+                View all services
+                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+{{-- Section 5: Why Alpine (unchanged) --}}
+<section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div>
+                <div x-reveal="right" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Why Alpine Movers</div>
+                <h2 x-reveal="right" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight leading-tight">Moving should be exciting,<br><span class="text-primary">not stressful.</span></h2>
+                <p x-reveal="right" x-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We combine professional expertise with affordable pricing and genuine care for your belongings. That's the Alpine difference.</p>
+
+                <div class="mt-10 space-y-6">
+                    @php
+                        $features = [
+                            ['title' => 'Affordable Pricing', 'desc' => 'Competitive rates without compromising on quality or care.', 'color' => 'bg-accent/10 text-accent'],
+                            ['title' => 'Transparent Pricing', 'desc' => 'No hidden fees. What we quote is what you pay, guaranteed.', 'color' => 'bg-primary-50 text-primary'],
+                            ['title' => 'Fast & Flexible', 'desc' => 'Same-day, evening, and weekend moves available to fit your schedule.', 'color' => 'bg-star/10 text-star'],
+                        ];
+                    @endphp
+                    @foreach($features as $feat)
+                        <div x-reveal="right" x-reveal-delay="{{ $loop->iteration + 2 }}" class="flex items-start space-x-4">
+                            <div class="w-10 h-10 {{ $feat['color'] }} rounded-xl flex items-center justify-center shrink-0 mt-0.5">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-dark text-lg">{{ $feat['title'] }}</h3>
+                                <p class="text-gray-500 mt-1">{{ $feat['desc'] }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="relative" x-reveal="left">
+                <div class="bg-gradient-to-br from-primary/5 via-primary-50 to-accent/5 rounded-3xl p-8 lg:p-12 animate-gradient-bg">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div x-reveal="scale" x-reveal-delay="1" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                            <div class="text-3xl font-extrabold text-primary counter-glow">2,500+</div>
+                            <div class="text-gray-500 text-sm mt-1">Moves Done</div>
+                        </div>
+                        <div x-reveal="scale" x-reveal-delay="2" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                            <div class="text-3xl font-extrabold text-primary counter-glow">4.9<span class="text-star">★</span></div>
+                            <div class="text-gray-500 text-sm mt-1">Google Rating</div>
+                        </div>
+                        <div x-reveal="scale" x-reveal-delay="3" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                            <div class="text-3xl font-extrabold text-primary counter-glow">10+</div>
+                            <div class="text-gray-500 text-sm mt-1">Years Experience</div>
+                        </div>
+                        <div x-reveal="scale" x-reveal-delay="4" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                            <div class="text-3xl font-extrabold text-accent counter-glow">100%</div>
+                            <div class="text-gray-500 text-sm mt-1">Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Section 5.5: Before/After Parallax (#4) --}}
+<section class="relative overflow-hidden" x-data="{ side: 50 }">
+    <div class="bg-dark py-20 lg:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-primary-light text-sm font-semibold mb-4">The Alpine Difference</div>
+                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Moving stress? Not anymore.</h2>
+            </div>
+            <div x-reveal="scale" class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-white/10">
+                    {{-- Before --}}
+                    <div class="bg-gradient-to-br from-red-500/10 to-red-600/5 p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-red-500/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">Without Alpine</h3>
+                            <ul class="space-y-3 text-left">
+                                @foreach(['Hidden fees & surprise charges', 'Damaged furniture, no insurance', 'Late arrivals, no communication', 'Stressful, chaotic experience', 'No care for your belongings'] as $item)
+                                    <li class="flex items-center text-white/60 text-sm">
+                                        <svg class="w-5 h-5 text-red-400 mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                                        {{ $item }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    {{-- After --}}
+                    <div class="bg-gradient-to-br from-primary/10 to-accent/5 p-8 lg:p-12">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-accent/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">With Alpine Movers</h3>
+                            <ul class="space-y-3 text-left">
+                                @foreach(['Transparent pricing, no surprises', 'Fully insured, careful handling', 'On time, every time, with updates', 'Smooth, organized experience', 'Your belongings treated like our own'] as $item)
+                                    <li class="flex items-center text-white/80 text-sm">
+                                        <svg class="w-5 h-5 text-accent mr-2 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                        {{ $item }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Section 6: Areas Served with Animated Map (#5) --}}
+<section class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Coverage</div>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Areas we serve</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Proudly serving all of Calgary and surrounding communities.</p>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {{-- SVG Map --}}
+            <div x-reveal="right" class="relative">
+                <svg viewBox="0 0 400 400" class="w-full max-w-md mx-auto" xmlns="http://www.w3.org/2000/svg">
+                    {{-- Background circles --}}
+                    <circle cx="200" cy="200" r="180" fill="#EEE9FF" opacity="0.3"/>
+                    <circle cx="200" cy="200" r="120" fill="#EEE9FF" opacity="0.2"/>
+                    {{-- Quadrant lines --}}
+                    <line x1="200" y1="80" x2="200" y2="320" stroke="#5934ff" stroke-width="0.5" opacity="0.2"/>
+                    <line x1="80" y1="200" x2="320" y2="200" stroke="#5934ff" stroke-width="0.5" opacity="0.2"/>
+                    {{-- Connection lines from center --}}
+                    @php
+                        $mapAreas = [
+                            ['name' => 'NW', 'x' => 140, 'y' => 140],
+                            ['name' => 'NE', 'x' => 260, 'y' => 140],
+                            ['name' => 'SW', 'x' => 140, 'y' => 260],
+                            ['name' => 'SE', 'x' => 260, 'y' => 260],
+                            ['name' => 'Airdrie', 'x' => 200, 'y' => 55],
+                            ['name' => 'Cochrane', 'x' => 55, 'y' => 170],
+                            ['name' => 'Okotoks', 'x' => 180, 'y' => 345],
+                            ['name' => 'Chestermere', 'x' => 335, 'y' => 190],
+                        ];
+                    @endphp
+                    @foreach($mapAreas as $area)
+                        <line x1="200" y1="200" x2="{{ $area['x'] }}" y2="{{ $area['y'] }}" stroke="#5934ff" stroke-width="1" opacity="0.15"/>
+                        <circle cx="{{ $area['x'] }}" cy="{{ $area['y'] }}" r="5" fill="#5934ff" class="map-dot"/>
+                        <text x="{{ $area['x'] }}" y="{{ $area['y'] - 12 }}" text-anchor="middle" font-size="10" font-weight="600" fill="#22201f">{{ $area['name'] }}</text>
+                    @endforeach
+                    {{-- Center dot + label --}}
+                    <circle cx="200" cy="200" r="10" fill="#5934ff" opacity="0.2"/>
+                    <circle cx="200" cy="200" r="5" fill="#5934ff"/>
+                    <text x="200" y="220" text-anchor="middle" font-size="14" font-weight="800" fill="#5934ff">CALGARY</text>
+                </svg>
+            </div>
+            {{-- Area Cards --}}
+            <div>
+                <div class="grid grid-cols-2 gap-4">
+                    @forelse($areas as $area)
+                        <a href="{{ route('areas.show', $area) }}" x-reveal="scale" x-reveal-delay="{{ min($loop->iteration, 8) }}" class="group bg-white rounded-2xl p-5 border border-gray-100 hover:border-primary/20 card-hover-tilt text-center">
+                            <h3 class="font-bold text-dark group-hover:text-primary transition-colors">{{ $area->name }}</h3>
+                            <p class="text-gray-400 text-xs mt-1">{{ ucfirst($area->area_type) }}</p>
+                        </a>
+                    @empty
+                        @foreach(['NW Calgary', 'NE Calgary', 'SW Calgary', 'SE Calgary', 'Airdrie', 'Cochrane', 'Okotoks', 'Chestermere'] as $areaName)
+                            <div x-reveal="scale" x-reveal-delay="{{ $loop->iteration }}" class="bg-white rounded-2xl p-5 border border-gray-100 card-hover-tilt text-center">
+                                <h3 class="font-bold text-dark">{{ $areaName }}</h3>
+                            </div>
+                        @endforeach
+                    @endforelse
+                </div>
+                <div class="text-center mt-8">
+                    <a href="{{ route('areas.index') }}" class="inline-flex items-center text-primary hover:text-primary-dark font-semibold transition">
+                        View all areas
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Section 7: Video Testimonials (#2) --}}
+<section class="py-20 lg:py-28 bg-dark relative overflow-hidden">
+    <div class="absolute top-20 left-[10%] w-56 h-56 bg-primary/15 rounded-full blur-[100px]"></div>
+    <div class="absolute bottom-20 right-[10%] w-72 h-72 bg-primary-light/10 rounded-full blur-[120px]"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm font-semibold mb-4">Testimonials</div>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Loved by Calgary families</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/50 max-w-2xl mx-auto text-lg">Real reviews from real customers.</p>
+        </div>
+
+        {{-- Review Cards --}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @forelse($reviews as $review)
+                <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="bg-white/5 backdrop-blur-sm rounded-2xl p-7 border border-white/10 hover:border-white/20 transition animate-float-card-{{ $loop->iteration }}">
+                    <div class="flex items-center mb-4">
+                        @for($i = 1; $i <= 5; $i++)
+                            <svg class="w-5 h-5 {{ $i <= $review->rating ? 'text-star' : 'text-white/10' }}" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        @endfor
+                    </div>
+                    <p class="text-white/80 text-sm leading-relaxed mb-5">"{{ Str::limit($review->body, 200) }}"</p>
+                    <div class="flex items-center">
+                        <div class="w-9 h-9 bg-primary/30 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">{{ substr($review->customer_name, 0, 1) }}</div>
+                        <div>
+                            <p class="text-white font-semibold text-sm">{{ $review->customer_name }}</p>
+                            @if($review->source !== 'direct')
+                                <p class="text-white/40 text-xs">via {{ ucfirst($review->source) }}</p>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @empty
+                @foreach([
+                    ['name' => 'Sarah M.', 'text' => 'Alpine Movers made our move from NW Calgary completely stress-free. The crew was professional, careful with our furniture, and finished ahead of schedule. Highly recommend!'],
+                    ['name' => 'James P.', 'text' => 'They handled our piano with incredible care and finished ahead of schedule. The affordable pricing was a bonus we didn\'t expect. Highly recommend!'],
+                    ['name' => 'David & Karen T.', 'text' => 'Best movers in Calgary, period. Transparent pricing, no hidden fees, and the crew went above and beyond. Already recommending to all our friends.'],
+                ] as $placeholder)
+                    <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="bg-white/5 backdrop-blur-sm rounded-2xl p-7 border border-white/10 animate-float-card-{{ $loop->iteration }}">
+                        <div class="flex items-center mb-4">
+                            @for($i = 1; $i <= 5; $i++)
+                                <svg class="w-5 h-5 text-star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                            @endfor
+                        </div>
+                        <p class="text-white/80 text-sm leading-relaxed mb-5">"{{ $placeholder['text'] }}"</p>
+                        <div class="flex items-center">
+                            <div class="w-9 h-9 bg-primary/30 rounded-full flex items-center justify-center text-white font-bold text-sm mr-3">{{ substr($placeholder['name'], 0, 1) }}</div>
+                            <p class="text-white font-semibold text-sm">{{ $placeholder['name'] }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            @endforelse
+        </div>
+    </div>
+</section>
+
+{{-- Section 8: Photo Gallery --}}
+<section class="py-20 lg:py-28 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Gallery</div>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Our team in action</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">See how we handle every move with professionalism and care.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+            @php
+                $gallery = [
+                    ['alt' => 'Professional crew loading truck', 'span' => 'md:row-span-2', 'img' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80'],
+                    ['alt' => 'Careful furniture wrapping', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80'],
+                    ['alt' => 'Moving truck ready to go', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80'],
+                    ['alt' => 'Happy family in new home', 'span' => 'md:col-span-2', 'img' => 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80'],
+                    ['alt' => 'Professional packing materials', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80'],
+                    ['alt' => 'Team photo', 'span' => 'md:col-span-2 md:row-span-2', 'img' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80'],
+                    ['alt' => 'Piano being moved carefully', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=400&q=80'],
+                ];
+            @endphp
+            @foreach($gallery as $i => $photo)
+                <div x-reveal="scale" x-reveal-delay="{{ min($i + 1, 8) }}" class="gallery-item relative rounded-2xl overflow-hidden bg-gray-200 {{ $photo['span'] }}">
+                    <img src="{{ $photo['img'] }}" alt="{{ $photo['alt'] }}" class="w-full h-full object-cover" loading="lazy">
+                    <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent flex items-end p-4">
+                        <p class="text-white text-sm font-medium">{{ $photo['alt'] }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
+{{-- Section 10: Blog Preview --}}
+<section class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Resources</div>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Moving tips & guides</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            @forelse($blogPosts as $post)
+                <a href="{{ route('blog.show', $post) }}" x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-primary/20 card-hover-tilt">
+                    <div class="h-48 bg-gradient-to-br from-primary/5 to-primary-50 flex items-center justify-center">
+                        @if($post->featured_image)
+                            <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        @else
+                            <svg class="w-12 h-12 text-primary/15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path></svg>
+                        @endif
+                    </div>
+                    <div class="p-6">
+                        <span class="text-xs font-bold text-primary uppercase tracking-wider">{{ $post->category }}</span>
+                        <h3 class="mt-2 text-lg font-bold text-dark group-hover:text-primary transition-colors">{{ $post->title }}</h3>
+                        @if($post->excerpt)
+                            <p class="mt-2 text-gray-500 text-sm leading-relaxed">{{ Str::limit($post->excerpt, 100) }}</p>
+                        @endif
+                    </div>
+                </a>
+            @empty
+                @foreach([
+                    ['title' => 'Complete Guide to Moving in Calgary', 'cat' => 'guides', 'excerpt' => 'Everything you need to know about planning your Calgary move.'],
+                    ['title' => '10 Packing Tips to Save Time & Money', 'cat' => 'tips', 'excerpt' => 'Professional packing tips from our experienced crew.'],
+                    ['title' => 'Winter Moving in Calgary', 'cat' => 'seasonal', 'excerpt' => 'Special considerations for moving during Calgary\'s cold months.'],
+                ] as $placeholder)
+                    <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover-tilt">
+                        <div class="h-48 bg-gradient-to-br from-primary/5 to-primary-50 flex items-center justify-center">
+                            <svg class="w-12 h-12 text-primary/15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path></svg>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-primary uppercase tracking-wider">{{ $placeholder['cat'] }}</span>
+                            <h3 class="mt-2 text-lg font-bold text-dark">{{ $placeholder['title'] }}</h3>
+                            <p class="mt-2 text-gray-500 text-sm">{{ $placeholder['excerpt'] }}</p>
+                        </div>
+                    </div>
+                @endforeach
+            @endforelse
+        </div>
+    </div>
+</section>
+
+{{-- Section 11: Final CTA --}}
+<section class="py-20 lg:py-28">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div x-reveal="scale" class="bg-gradient-cta animate-gradient-bg rounded-3xl p-10 lg:p-16 text-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-[60px] translate-y-1/2 -translate-x-1/2"></div>
+
+            <div class="relative">
+                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Ready to move?</h2>
+                <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/70 text-lg max-w-xl mx-auto">Get your free, no-obligation quote in minutes. We respond within 2 hours during business hours.</p>
+                <div x-reveal="up" x-reveal-delay="3" class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="{{ route('quote.create') }}" class="bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-lg hover:-translate-y-0.5 animate-pulse-ring">
+                        Get Your Free Quote
+                    </a>
+                    <a href="tel:+14038002747" class="border-2 border-white/25 hover:border-white/50 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all hover:bg-white/5">
+                        Call (403) 800-2747
+                    </a>
+                </div>
+                <p class="mt-6 text-white/40 text-sm">No credit card required. No obligation. Just honest pricing.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+@endsection

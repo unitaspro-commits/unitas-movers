@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Enums\MoveSize;
+use App\Enums\ReferralSource;
+use App\Models\Quote;
+use App\Models\Service;
+use Illuminate\Http\Request;
+
+class QuoteController extends Controller
+{
+    public function create()
+    {
+        $services = Service::published()->ordered()->get();
+        $moveSizes = MoveSize::cases();
+        $referralSources = ReferralSource::cases();
+
+        return view('pages.quote', compact('services', 'moveSizes', 'referralSources'));
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'full_name' => 'required|string|max:150',
+            'phone' => 'required|string|max:20',
+            'email' => 'required|email|max:255',
+            'moving_from' => 'required|string|max:500',
+            'moving_to' => 'required|string|max:500',
+            'move_date' => 'required|date|after:today',
+            'move_size' => 'required|string',
+            'services_needed' => 'required|array|min:1',
+            'services_needed.*' => 'string',
+            'additional_notes' => 'nullable|string',
+            'preferred_language' => 'nullable|in:en,fr',
+            'referral_source' => 'nullable|string',
+        ]);
+
+        $validated['status'] = 'new';
+        $validated['source_page'] = url()->previous();
+        $validated['utm_source'] = $request->query('utm_source');
+        $validated['utm_medium'] = $request->query('utm_medium');
+        $validated['utm_campaign'] = $request->query('utm_campaign');
+
+        Quote::create($validated);
+
+        return redirect()->route('quote.create')
+            ->with('success', 'Thank you! Your quote request has been submitted. We\'ll contact you within 2 hours during business hours.');
+    }
+}

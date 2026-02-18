@@ -1,0 +1,666 @@
+﻿
+ALPINE MOVERS CALGARY
+────────────────────────────────────────
+Pre-Development Action Plan
+Branding  ·  Wireframes  ·  Content  ·  Admin Panel  ·  Launch Checklist
+February 2026
+1. Executive Summary
+This document bridges the gap between your three strategy documents (SEO keyword research, competitor blueprint, and technical blueprint) and actual development. It covers everything that must be decided or created before writing code: brand identity, page wireframes, content drafts for launch-critical pages, Filament admin panel architecture, and a day-by-day timeline to get from here to a live site.
+
+Goal: Complete all items in this plan within 2 weeks, then begin development in Week 3 with zero ambiguity about design, content, or technical decisions.
+
+2. Brand Identity System
+Every design decision flows from the brand. Locking these down first prevents cascading changes during development.
+2.1 Brand Positioning
+Alpine Movers Calgary needs to own a clear position in the market. Based on the competitor analysis, the strongest available positioning combines three differentiators no competitor occupies simultaneously:
+Differentiator
+Competitor Gap
+Brand Expression
+Eco-friendly moving
+Only EcoWay (national) competes locally
+Green practices, reusable materials, carbon-conscious
+Bilingual (French/English)
+Zero local competitors offer this
+Francophone-friendly, community-connected
+Transparent, modern brand
+Most competitors have dated branding
+Clean design, upfront pricing, tech-forward
+
+Proposed brand tagline options: 
+    1. "Moving Calgary Forward" — implies progress, community, and forward-thinking
+    2. "Your Move, Our Mountain" — plays on Alpine name, Calgary landscape
+    3. "Move Clean. Move Green." — eco positioning front and center
+    4. "Peak Moving Experience" — alpine wordplay with quality promise
+2.2 Color Palette
+The palette draws from the Canadian Rockies: deep evergreens, mountain slate, and warm earth tones. This avoids the generic blue-and-orange that dominates moving company branding (Paramount, Cactus, Two Men and a Truck all use blue or orange).
+
+Color
+Hex Code
+Tailwind Class
+Usage
+Alpine Green (Primary)
+#1B4D3E
+alpine-green / green-900
+Logo, headers, primary buttons, nav background
+Forest (Secondary)
+#2D6B4F
+forest / green-700
+Hover states, secondary accents, H2 headings
+Meadow (Accent)
+#4CAF50
+meadow / green-500
+CTAs, success states, eco badges
+Slate (Neutral Dark)
+#2C3E50
+slate-dark
+Body text, footer background
+Stone (Neutral Mid)
+#6B7B8D
+stone
+Muted text, borders, captions
+Snow (Background)
+#F8FAF9
+snow
+Page backgrounds, card backgrounds
+Cream (Warm White)
+#FDF8F0
+cream
+Hero sections, alternating section backgrounds
+Bark (Warm Accent)
+#8B6914
+bark
+Trust badges, review stars, warm emphasis
+Summit Red (Alert)
+#C0392B
+summit-red
+Errors, urgent CTAs, sale badges
+
+Decision needed: Confirm the palette works for your vision. If you want a different direction (e.g., more modern/minimal with blacks and whites, or bolder with mountain blues), flag it now before any design work begins.
+
+2.3 Typography
+Typography must be distinctive without sacrificing readability. Avoid the fonts every competitor uses (Inter, Roboto, Open Sans, Montserrat).
+
+Role
+Font
+Weight(s)
+Where Used
+Display / Headings
+DM Serif Display
+400 (regular)
+H1 headings, hero text, page titles
+Subheadings
+Plus Jakarta Sans
+600, 700
+H2-H3, nav items, button text, card titles
+Body Text
+Plus Jakarta Sans
+400, 500
+Paragraphs, descriptions, form labels
+Accent / Monospace
+JetBrains Mono
+400
+Pricing numbers, calculator output, code
+
+DM Serif Display gives Alpine a premium, established feel that contrasts with the casual sans-serif approach of most Calgary movers. Plus Jakarta Sans is modern and highly readable at all sizes. Both are free Google Fonts with excellent language support including French characters.
+2.4 Logo Direction
+The logo should work across all contexts: website header, truck signage, business cards, Google Business Profile avatar (which renders at 120x120px), and invoice headers.
+
+Element
+Direction
+Logomark
+Stylized mountain peak using clean geometric lines — not a detailed illustration. Should read clearly at 32px favicon size.
+Wordmark
+DM Serif Display for "Alpine" + Plus Jakarta Sans for "Movers" to create hierarchy.
+Color Versions
+Full color (green + dark), reversed (white on green), monochrome (dark), monochrome (white).
+Favicon
+Mountain peak icon only, no text. Works at 16x16, 32x32, and 180x180 (Apple Touch).
+Truck Livery
+Large wordmark + phone number + tagline. Mountain icon at rear. Green and white scheme.
+
+Action: Commission logo design (Fiverr, 99designs, or local designer). Provide this spec. Budget: $150–$500. Timeline: 5–7 business days.
+
+
+3. Page Wireframes & Layout Specifications
+These wireframes define the structure of every page type. Development should follow these layouts exactly. Each wireframe specifies mobile and desktop behavior.
+3.1 Homepage Wireframe
+The homepage targets the head terms: "movers Calgary" and "moving company Calgary." It must balance SEO content depth (800–1,200 words) with conversion focus.
+
+Section
+Content
+SEO Purpose
+Mobile Behavior
+1. Hero
+H1: "Calgary’s Eco-Friendly Moving Company" | Subhead with value prop | CTA button "Get a Free Quote" | Background: team photo with truck
+Primary keyword in H1, above-fold engagement
+Full-width image, stacked text, sticky CTA bar at bottom
+2. Trust Bar
+Row of badges: BBB | Insured | Google rating | Eco-certified | Bilingual
+E-E-A-T signals, builds immediate credibility
+Horizontal scroll or 2-row grid
+3. Services Grid
+6 cards (Residential, Commercial, Long-Distance, Packing, Piano/Specialty, Same-Day) each with icon + short description + link
+Internal links to service pages, keyword-rich anchor text
+2-column grid, cards stack naturally
+4. Why Alpine
+3 columns: Eco-Friendly | Bilingual | Transparent Pricing. Each with icon, heading, 2–3 sentence description
+Differentiator content, keyword variations
+Single column stack
+5. Areas Served
+Map of Calgary + surrounding towns with clickable regions. Text listing quadrants + key towns
+Internal links to area pages, geo-relevance signals
+Map hidden on mobile, text list visible
+6. Testimonials
+3 review cards with star rating, customer name, review excerpt, service type
+Review schema markup, social proof
+Horizontal carousel
+7. Cost Preview
+"Moving costs starting from $X/hr" with link to pricing page. Brief transparent pricing summary
+Targets cost-query keywords, builds trust
+Full-width section
+8. Blog Preview
+3 latest blog posts with thumbnail, title, excerpt
+Internal links, freshness signal
+Vertical stack
+9. CTA Section
+"Ready to Move?" + phone number + quote form link + brief reassurance copy
+Conversion capture, NAP consistency
+Full-width, prominent phone number
+10. Footer
+Full sitemap links organized by silo (Services, Areas, Resources, Company) + NAP + social links + French language toggle
+Crawl paths to all pages, NAP in schema
+Accordion sections by category
+
+3.2 Service Page Template Wireframe
+All 19 service pages share this template. Content in the body section varies per service (1,000–1,500 words). This structure ensures consistent SEO and conversion patterns.
+
+Section
+Content
+SEO Purpose
+Breadcrumb
+Home > Services > [Service Name]
+BreadcrumbList schema, crawl path
+Hero
+H1 with primary keyword | 1–2 sentence value proposition | "Get a Quote" CTA button
+Keyword in H1, above-fold CTA
+Service Overview
+2–3 paragraphs describing the service, what’s included, who it’s for (200+ words)
+Primary keyword in first 100 words
+Process Steps
+Numbered steps: Book → Prep → Move → Settle. Each with heading + description
+HowTo schema opportunity, user value
+Pricing Guide
+Starting rates, what affects cost, link to pricing page and calculator
+Targets "[service] cost Calgary" queries
+Why Choose Alpine
+3 trust points specific to this service (e.g., piano page: padding methods, insurance coverage, crew training)
+E-E-A-T content, keyword variations
+Areas Served
+List of neighborhoods/towns where this service is available, with links to area pages
+Internal links, geo-relevance
+FAQ Section
+3–5 Q&A pairs specific to this service
+FAQPage schema, PAA targeting
+Related Services
+3 cards linking to related services
+Internal linking, reduces bounce
+CTA Footer
+Quote form or phone CTA
+Conversion capture
+
+3.3 Area Page Template Wireframe
+Used for quadrant hubs, neighborhoods, surrounding towns, and route pages. Body content varies (300–500+ words unique per area).
+
+Section
+Content
+Notes
+Breadcrumb
+Home > Areas > [Area Name]
+For neighborhoods: Home > Areas > [Quadrant] > [Neighborhood]
+Hero
+H1: "Movers in [Area]" | Area photo or map | CTA
+Different hero image per area for uniqueness
+Area Overview
+Unique description of the area: character, common housing types, moving challenges, parking/access notes
+Minimum 300 words of genuinely unique content
+Services Available
+Grid of services offered in this area with links
+Internal links back to service pages
+Neighborhood List
+For quadrant hubs: list of all neighborhoods with links to individual pages
+Only on quadrant hub pages
+Route Info
+For route pages: distance, drive time, cost range, highway info, destination overview
+Route-specific content sections
+Local Reviews
+Testimonials from customers in this specific area
+Builds local relevance
+Nearby Areas
+Links to adjacent area pages
+Internal linking network
+FAQ
+3–5 area-specific Q&A
+FAQPage schema
+CTA
+Quote form mentioning the area by name
+Personalized conversion
+
+3.4 Blog Post Template Wireframe
+Section
+Content
+Breadcrumb
+Home > Blog > [Post Title]
+Header
+H1 (headline) | Published date with <time> element | Category tag | Estimated read time
+Featured Image
+Full-width hero image with descriptive alt text and figcaption
+Body Content
+Rich HTML: H2/H3 subheadings, paragraphs, images, callout boxes. Minimum 800+ words
+Author Box
+Team member name, brief bio, photo — E-E-A-T signal
+Related Service CTA
+Contextual CTA linking to the related service page (e.g., packing guide → packing services page)
+Related Posts
+3 related blog posts
+Sidebar (desktop)
+Table of contents (auto-generated from H2s), quote form, popular posts
+
+
+4. Content Requirements for Launch
+These are the pages that must have real content before go-live. No lorem ipsum should ship to production. Each entry specifies the target keyword, minimum word count, key sections to include, and internal links to embed.
+4.1 Launch-Critical Pages (10 pages)
+
+Page
+Target Keyword
+Min Words
+Key Sections Required
+Internal Links To
+Homepage
+movers Calgary
+1,000
+Hero, trust bar, 6 service cards, why Alpine (eco/bilingual/transparent), areas map, testimonials, cost preview, blog preview
+All 6 featured services, pricing, top 3 areas, blog posts
+/services/residential-moving
+residential movers Calgary
+1,200
+What’s included, home sizes served, process steps, pricing guide, packing add-on mention, areas served
+Packing services, local-moving, 3 area pages, pricing
+/services/commercial-moving
+commercial movers Calgary
+1,200
+Office/retail/warehouse coverage, IT equipment handling, weekend scheduling, insurance details
+Storage solutions, same-day, pricing, downtown area page
+/services/long-distance-moving
+long distance movers Calgary
+1,200
+Alberta/BC/cross-Canada coverage, route overview, storage options, pricing structure, insurance
+3–4 route pages, storage, packing services
+/services/packing-unpacking
+packing services Calgary
+1,000
+Full vs partial packing, materials used (eco-friendly emphasis), fragile item specialty, unpacking service
+Eco-friendly page, residential, commercial, blog packing guide
+/services/piano-moving
+piano movers Calgary
+1,000
+Piano types handled, padding/protection methods, crew training, stairs/elevator logistics, insurance
+Specialty moving, furniture moving, pricing
+/services/bilingual-movers
+French speaking movers Calgary
+800
+Bilingual crew details, why it matters, Francophone community connections, services available in French
+French homepage (/fr/), residential, commercial
+/services/eco-friendly-moving
+eco friendly movers Calgary
+800
+Reusable materials, fuel-efficient fleet, recycling practices, carbon offset info, eco packing options
+Packing services, residential, blog eco tips
+/pricing
+movers cost Calgary
+800
+Hourly rates by crew size, flat-rate options, what’s included/excluded, seasonal pricing notes, no-surprise guarantee
+All service pages, calculator (future), quote page
+/about + /about/licensed-insured
+licensed insured movers Calgary
+600 each
+Company story, team intro, insurance amounts, licenses held, BBB/CAM memberships, community involvement
+Services hub, reviews, contact
+
+4.2 Week 6–8 Expansion Content (26 pages)
+Batch
+Pages
+Content Notes
+Remaining 9 service pages
+Senior, same-day, evening-weekend, small-moves, specialty, furniture, condo, apartment, affordable
+1,000–1,200 words each. Follow service page template.
+5 quadrant hubs + Downtown + Beltline
+NW, NE, SW, SE Calgary, Downtown, Beltline (7 pages)
+300–500 words unique per area. Include neighborhood lists, housing types, access notes.
+6 surrounding towns
+Airdrie, Cochrane, Okotoks, Chestermere, Canmore, Banff
+400–600 words each. Population, character, distance from Calgary, moving considerations.
+4 quick-win route pages
+Calgary to Banff, Airdrie, Cochrane, Canmore
+500+ words each with 4 sections: route overview, cost breakdown, destination guide, FAQ.
+3 blog posts
+Calgary moving checklist, Best time to move, Winter moving tips
+800–1,200 words each. Tier 1 informational keywords (KD 0–10).
+French homepage
+/fr/ with core service summary
+500+ words. Summary of all services in French with links to English detail pages.
+
+4.3 Content Brief Template
+Use this template for every piece of content. Fill it out before writing begins.
+
+Field
+What to Fill In
+Page URL
+The exact URL this content will live at (e.g., /services/piano-moving)
+Primary Keyword
+The #1 keyword this page targets (from keyword research doc)
+Secondary Keywords
+2–4 related keywords to include naturally (e.g., “grand piano movers,” “upright piano moving”)
+Search Intent
+Transactional, commercial investigation, or informational
+Word Count Target
+Minimum word count from the table above
+H1 Tag
+Exact H1 text (must contain primary keyword, differ slightly from meta title)
+Meta Title
+60 chars max. Formula: [Service] Calgary | Alpine Movers
+Meta Description
+155 chars max. Include CTA + phone number.
+Required Sections
+List the H2 sections this page must contain
+Internal Links Out
+3–5 pages this content must link to
+Internal Links In
+Pages that should link TO this content (update after publishing)
+FAQ Questions
+3–5 specific questions with answers for FAQPage schema
+Competitor Pages to Beat
+URLs of competitor pages ranking for this keyword (from competitor research doc)
+Unique Angle
+What makes our page better/different than competitor content
+
+
+5. Laravel Filament Admin Panel Architecture
+Filament v3 is the recommended admin panel. It integrates natively with Tailwind and Alpine.js (the same stack as the frontend), supports all the SEO-enforcement features defined in the technical blueprint, and is free for single-panel use.
+5.1 Filament Resources (CRUD panels)
+Each database model from the technical blueprint maps to a Filament Resource:
+
+Resource
+Model
+Key Features
+ServiceResource
+Service
+SEO fields with character counters, rich text body editor, FAQ repeater, preview button, SEO score badge
+AreaResource
+Area
+Area type selector (quadrant/neighborhood/town/corridor), parent area dropdown, lat/lng fields, Google Maps preview
+RouteResource
+Route
+Origin/destination fields, distance/time auto-lookup, bidirectional toggle, 4-section content editor
+BlogPostResource
+BlogPost
+Markdown or rich text editor, category selector, related service/area pickers, publish scheduling, SEO score
+ReviewResource
+Review
+Star rating, customer name, service/area association, source (Google/HomeStars/direct), display toggle
+FaqResource
+Faq
+Question/answer fields, category grouping, sort order, schema eligibility toggle
+RedirectResource
+Redirect
+From/to path fields, status code selector (301/302), created date, bulk import
+MediaResource
+Media
+Upload with auto-optimization, alt text (required), title, dimensions display, usage tracking
+FrenchPageResource
+FrenchPage
+Slug, SEO fields, body editor, English equivalent URL for hreflang pairing
+SeoMetaResource
+SeoMeta
+Page key selector, meta fields, schema JSON editor, OG image upload
+
+5.2 SEO Enforcement in Filament Forms
+The admin panel must make SEO compliance the default, not an afterthought. Here is how to implement the SEO scoring system from the technical blueprint:
+
+Form Field
+Filament Component
+Validation / UX
+Meta Title
+TextInput with ->maxLength(70)->live() + character counter
+Required. Green <60 chars, yellow 60–70, red >70. Shows Google SERP preview.
+Meta Description
+Textarea with ->maxLength(170)->live() + counter
+Required. Shows how it appears in Google results.
+H1
+TextInput with warning if identical to meta title
+Required. Soft validation: should differ from meta title.
+Slug
+TextInput with ->disabled() after first save + redirect auto-creation
+Auto-generated from name. Locked after publish. Edit triggers redirect creation.
+Body
+RichEditor with ->minLength() word count enforcement
+Minimum varies by model. Live word counter in toolbar.
+FAQ Section
+Repeater with question + answer text fields
+Minimum 3 entries for service pages. Each must have both Q and A.
+Internal Links
+Multi-select relationship picker
+Suggest related pages. Warn if page has zero outbound links.
+SEO Score
+Custom Filament widget in sidebar
+Auto-calculated from all SEO fields. Color badge: green/yellow/red.
+
+5.3 Custom Dashboard Widgets
+Widget
+What It Shows
+Why It Matters
+Content Health
+Count of pages by SEO score (green/yellow/red) + list of pages below 70
+Prevents publishing thin or incomplete content
+Publishing Pipeline
+Draft / scheduled / published counts with quick links
+Tracks content velocity against the editorial calendar
+Review Tracker
+Total reviews, average rating, reviews this month, review velocity chart
+Monitors the #1 local SEO factor
+Missing SEO Fields
+Pages with empty meta descriptions, missing alt text, zero internal links
+Catches SEO gaps before Google finds them
+Redirect Log
+Recent 301 redirects with from/to paths and creation dates
+Audit trail for URL changes
+Keyword Tracker
+Target keyword per page, assigned/unassigned status, link to Search Console
+Ensures every page maps to the keyword strategy
+
+
+6. Quote Form & Lead Workflow
+The quote form is the primary conversion mechanism. Its design and data flow must be defined before development.
+6.1 Form Fields
+Field
+Type
+Required?
+Notes
+Full Name
+Text input
+Yes
+Single field (not split first/last)
+Phone
+Tel input
+Yes
+Primary contact method for movers
+Email
+Email input
+Yes
+For quote delivery and follow-up
+Moving From
+Address autocomplete (Google Places)
+Yes
+Auto-populates city/province
+Moving To
+Address autocomplete
+Yes
+Calculates distance for route-based pricing
+Move Date
+Date picker
+Yes
+Minimum: tomorrow. Flags peak-season dates.
+Move Size
+Select: Studio / 1BR / 2BR / 3BR / 4BR+ / Office
+Yes
+Determines crew size estimate
+Services Needed
+Multi-checkbox: Moving / Packing / Unpacking / Storage / Piano / Other
+Yes
+Multiple selections allowed
+Additional Notes
+Textarea
+No
+Stairs, elevator, special items, access restrictions
+Preferred Language
+Toggle: English / French
+No
+Defaults to current page language
+How Did You Hear About Us?
+Select: Google / Referral / Social / Other
+No
+Attribution tracking
+
+6.2 Lead Delivery
+Quotes should be delivered through multiple channels simultaneously:
+    • Email notification to the operations team with all form data + Google Maps distance estimate
+    • Database storage in a quotes table (viewable in Filament admin)
+    • SMS notification to the owner’s phone via Twilio or Vonage (optional but recommended for fast response)
+    • Auto-reply email to the customer confirming receipt with expected response time
+
+Decision needed: Do you want to integrate with a CRM (e.g., HubSpot free tier, Pipedrive) or manage leads directly in Filament? Filament is simpler to start; CRM adds pipeline tracking and automated follow-ups.
+
+
+7. Pre-Development Timeline (14 Days)
+This timeline assumes one person executing. Adjust if tasks are split between team members.
+
+Day
+Task
+Deliverable
+Depends On
+1–2
+Finalize brand positioning + color palette + typography
+Confirmed palette, fonts, tagline
+This document reviewed
+1–2
+Commission logo design (send spec from Section 2.4)
+Logo brief sent to designer
+Brand direction confirmed
+3–4
+Write content briefs for all 10 launch pages
+10 completed content brief templates
+Keyword research doc
+3–4
+Register domain (alpinemoverscalgary.ca + .com redirect)
+Domains registered
+Business name confirmed
+5–7
+Draft homepage copy (1,000+ words)
+Homepage content ready for dev
+Content brief completed
+5–7
+Draft 4 core service page copy (residential, commercial, long-distance, packing)
+4 service pages ready
+Content briefs completed
+5–7
+Set up DigitalOcean + Forge + Cloudflare
+Server provisioned, SSL active
+Domain registered
+8–9
+Draft remaining 4 launch service pages + pricing + about
+6 more pages ready
+Content briefs completed
+8–9
+Logo received and approved
+Final logo files (SVG, PNG, favicon)
+Designer turnaround
+10–11
+Set up Google Business Profile + initial photo upload
+GBP live and verified
+Business details confirmed
+10–11
+Set up Google Search Console + GA4
+Analytics ready
+Domain + server active
+12–13
+Review all content for SEO compliance (H1, meta tags, word counts, internal links)
+Content audit complete
+All drafts written
+14
+Final review + handoff to development phase
+All pre-dev deliverables confirmed
+Everything above
+
+8. Decisions Needed Before Development
+These are open questions that must be resolved. Each blocks some aspect of development.
+
+#
+Decision
+Options
+Impact If Deferred
+1
+Business phone number
+New 403 number via VoIP (Dialpad, OpenPhone) vs personal cell
+Blocks: GBP, all content (NAP consistency), schema markup, quote form
+2
+Business address
+Home address (hidden on GBP as SAB) vs virtual office vs coworking
+Blocks: GBP verification, citation building, LocalBusiness schema
+3
+CRM vs Filament for leads
+HubSpot Free / Pipedrive / Filament-only
+Blocks: Quote form backend, email workflow, follow-up automation
+4
+Photography
+Professional shoot ($300–$800) vs stock photos vs phone photos to start
+Blocks: Homepage hero, GBP photos, service page visuals, OG images
+5
+Pricing structure
+Hourly rates by crew size / flat-rate packages / hybrid
+Blocks: Pricing page content, schema priceRange, quote form logic
+6
+Service area boundaries
+Exact list of towns/neighborhoods actively served
+Blocks: GBP service areas, area page scope, route page selection
+7
+French service level
+Fully bilingual crew vs basic French communication vs future plan
+Blocks: Bilingual page content depth, French page scope
+8
+Eco-friendly specifics
+What specific green practices are offered (reusable bins, fuel offsets, etc.)
+Blocks: Eco page content, marketing claims, certification badges
+
+Resolve decisions #1–6 before Day 3 of the timeline. Decisions #7–8 can be refined during content writing (Days 5–9) but need at least a directional answer.
+
+
+9. Development Handoff Checklist
+When all items below are checked, development can begin with zero ambiguity.
+
+    • Brand identity confirmed: colors, fonts, tagline
+    • Logo files received: SVG, PNG (all color variants), favicon sizes
+    • All 10 launch page content drafts written and SEO-reviewed
+    • Business phone number active (403 area code)
+    • Business address confirmed for GBP and citations
+    • Pricing structure finalized (rates for pricing page + schema)
+    • Service area boundaries defined (list of served areas)
+    • Domain registered and DNS pointed to DigitalOcean
+    • Server provisioned via Forge (PHP 8.3, MySQL 8, Redis)
+    • Cloudflare configured (DNS proxy, SSL Full Strict, Brotli)
+    • Google Search Console verified
+    • Google Analytics 4 property created
+    • Google Business Profile created (can verify after launch)
+    • Quote form field list and lead delivery method confirmed
+    • 15+ photos ready (team, trucks, moves in progress, Calgary landmarks)
+    • All 8 decisions from Section 8 resolved
+
+Once this checklist is complete, proceed directly to the Pre-Development Technical Blueprint Phase 1 (infrastructure setup) followed by Phase 2 (core build). All design decisions, content, and business requirements will be locked and ready.
