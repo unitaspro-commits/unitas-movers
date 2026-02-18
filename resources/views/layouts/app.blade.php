@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', 'Alpine Movers Calgary — Professional Moving Company')</title>
+    <title>@yield('title', 'Unitas Movers — Professional Moving Company')</title>
     <meta name="description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
 
     @hasSection('canonical')
@@ -31,7 +31,7 @@
                     <div class="w-9 h-9 bg-primary rounded-xl flex items-center justify-center">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
                     </div>
-                    <span class="text-dark font-bold text-xl tracking-tight">Alpine Movers</span>
+                    <span class="text-dark font-bold text-xl tracking-tight">Unitas Movers</span>
                 </a>
 
                 {{-- Desktop Nav --}}
@@ -98,7 +98,7 @@
                         <div class="w-9 h-9 bg-primary rounded-xl flex items-center justify-center">
                             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
                         </div>
-                        <span class="text-white font-bold text-xl tracking-tight">Alpine Movers</span>
+                        <span class="text-white font-bold text-xl tracking-tight">Unitas Movers</span>
                     </div>
                     <p class="text-white/50 text-sm leading-relaxed">Calgary's trusted moving company. Licensed, insured, affordable, and flexible.</p>
                     <div class="flex space-x-3 mt-5">
@@ -168,7 +168,7 @@
                             <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                                 <svg class="w-4 h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
-                            <a href="mailto:info@alpinemovers.ca" class="hover:text-white transition">info@alpinemovers.ca</a>
+                            <a href="mailto:info@unitasmovers.ca" class="hover:text-white transition">info@unitasmovers.ca</a>
                         </li>
                         <li class="flex items-center space-x-3">
                             <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
@@ -182,7 +182,7 @@
 
             {{-- Bottom bar --}}
             <div class="flex flex-col md:flex-row justify-between items-center pt-8 text-sm text-white/30">
-                <p>&copy; {{ date('Y') }} Alpine Movers Calgary. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} Unitas Movers. All rights reserved.</p>
                 <p class="mt-2 md:mt-0">Professional moving solutions for Calgary and area.</p>
             </div>
         </div>
@@ -204,7 +204,7 @@
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
                     </div>
                     <div>
-                        <p class="text-white font-bold text-sm">Alpine Movers</p>
+                        <p class="text-white font-bold text-sm">Unitas Movers</p>
                         <p class="text-white/70 text-xs flex items-center"><span class="w-2 h-2 bg-accent rounded-full mr-1.5"></span>Typically replies in minutes</p>
                     </div>
                 </div>
@@ -232,13 +232,13 @@
                             <p class="text-xs text-gray-500">Response in 2 hours</p>
                         </div>
                     </a>
-                    <a href="mailto:info@alpinemovers.ca" class="flex items-center space-x-3 p-3 rounded-xl border border-gray-100 hover:border-primary/20 hover:bg-primary-50 transition group">
+                    <a href="mailto:info@unitasmovers.ca" class="flex items-center space-x-3 p-3 rounded-xl border border-gray-100 hover:border-primary/20 hover:bg-primary-50 transition group">
                         <div class="w-8 h-8 bg-primary-50 group-hover:bg-primary rounded-lg flex items-center justify-center shrink-0 transition-colors">
                             <svg class="w-4 h-4 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                         </div>
                         <div>
                             <p class="text-sm font-semibold text-dark">Email Us</p>
-                            <p class="text-xs text-gray-500">info@alpinemovers.ca</p>
+                            <p class="text-xs text-gray-500">info@unitasmovers.ca</p>
                         </div>
                     </a>
                 </div>

@@ -1,5 +1,5 @@
 ﻿
-ALPINE MOVERS CALGARY
+UNITAS MOVERS
 ────────────────────────────────────────
 Pre-Development Action Plan
 Branding  ·  Wireframes  ·  Content  ·  Admin Panel  ·  Launch Checklist
@@ -12,7 +12,7 @@ Goal: Complete all items in this plan within 2 weeks, then begin development in 
 2. Brand Identity System
 Every design decision flows from the brand. Locking these down first prevents cascading changes during development.
 2.1 Brand Positioning
-Alpine Movers Calgary needs to own a clear position in the market. Based on the competitor analysis, the strongest available positioning combines three differentiators no competitor occupies simultaneously:
+Unitas Movers needs to own a clear position in the market. Based on the competitor analysis, the strongest available positioning combines three differentiators no competitor occupies simultaneously:
 Differentiator
 Competitor Gap
 Brand Expression
@@ -367,7 +367,7 @@ Minimum word count from the table above
 H1 Tag
 Exact H1 text (must contain primary keyword, differ slightly from meta title)
 Meta Title
-60 chars max. Formula: [Service] Calgary | Alpine Movers
+60 chars max. Formula: [Service] Calgary | Unitas Movers
 Meta Description
 155 chars max. Include CTA + phone number.
 Required Sections
@@ -560,7 +560,7 @@ Write content briefs for all 10 launch pages
 10 completed content brief templates
 Keyword research doc
 3–4
-Register domain (alpinemoverscalgary.ca + .com redirect)
+Register domain (unitasmovers.ca + .com redirect)
 Domains registered
 Business name confirmed
 5–7

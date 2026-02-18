@@ -19,7 +19,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 3.0,
                 'price_range_min' => 1800,
                 'price_range_max' => 5500,
-                'meta_title' => 'Calgary to Edmonton Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Edmonton Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Edmonton moving services. 300 km on Highway 2, from $1,800. Licensed, insured, experienced long-distance crews. Free quotes.',
                 'h1' => 'Calgary to Edmonton Moving Services',
                 'route_overview' => '<p>The Calgary-to-Edmonton corridor is Alberta\'s busiest moving route — a straight 300 km drive north on the Queen Elizabeth II Highway (Highway 2). It\'s a well-maintained, divided highway that our trucks travel multiple times per week.</p>
@@ -56,7 +56,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 1.5,
                 'price_range_min' => 1200,
                 'price_range_max' => 4000,
-                'meta_title' => 'Calgary to Red Deer Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Red Deer Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Red Deer moving company. 150 km, from $1,200. Licensed, insured crews. Fast Highway 2 corridor service. Free quotes.',
                 'h1' => 'Calgary to Red Deer Moving Company',
                 'route_overview' => '<p>Red Deer sits at the midpoint of the Calgary-Edmonton corridor on Highway 2, making it one of our most efficient long-distance routes at just 150 km. The drive takes about 90 minutes under normal conditions, and our trucks make this trip frequently.</p>
@@ -91,7 +91,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 2.5,
                 'price_range_min' => 1500,
                 'price_range_max' => 4500,
-                'meta_title' => 'Calgary to Lethbridge Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Lethbridge Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Lethbridge movers. 215 km south on Highway 2, from $1,500. Licensed, insured. Professional long-distance moving. Free quotes.',
                 'h1' => 'Calgary to Lethbridge Moving Services',
                 'route_overview' => '<p>The Calgary-to-Lethbridge route heads south on Highway 2 through the rolling foothills and southern Alberta prairies. At 215 km, it\'s about a 2.5-hour drive — comfortably completed in a single moving day for most home sizes.</p>
@@ -126,7 +126,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 3.0,
                 'price_range_min' => 1800,
                 'price_range_max' => 5000,
-                'meta_title' => 'Calgary to Medicine Hat Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Medicine Hat Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Medicine Hat movers. 300 km on the Trans-Canada, from $1,800. Insured long-distance crews. Free moving estimates.',
                 'h1' => 'Calgary to Medicine Hat Moving Company',
                 'route_overview' => '<p>The route from Calgary to Medicine Hat follows the Trans-Canada Highway (Highway 1) east across the southern Alberta prairies. At 300 km, it\'s about a 3-hour drive through Strathmore, Bassano, and Brooks before reaching "The Hat."</p>
@@ -160,7 +160,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 7.5,
                 'price_range_min' => 3500,
                 'price_range_max' => 8000,
-                'meta_title' => 'Calgary to Grande Prairie Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Grande Prairie Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Grande Prairie movers. 720 km, professional long-haul crews. Licensed, insured. Competitive pricing. Free estimates.',
                 'h1' => 'Calgary to Grande Prairie Moving Services',
                 'route_overview' => '<p>Grande Prairie is one of northern Alberta\'s largest cities, located 720 km northwest of Calgary. The route follows Highway 2 north to Edmonton, then Highway 43 west through Whitecourt and the Peace Country — about 7.5 hours of driving.</p>
@@ -195,7 +195,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 7.0,
                 'price_range_min' => 3500,
                 'price_range_max' => 8500,
-                'meta_title' => 'Calgary to Fort McMurray Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Fort McMurray Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Fort McMurray movers. 750 km, experienced long-haul crews. Oil sands relocation specialists. Licensed, insured. Free quotes.',
                 'h1' => 'Calgary to Fort McMurray Moving Company',
                 'route_overview' => '<p>Fort McMurray is the hub of Alberta\'s oil sands region, located 750 km northeast of Calgary. The route heads north on Highway 2 to Edmonton, then northeast on Highway 63 — about 7 hours of driving in good conditions.</p>
@@ -232,7 +232,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 1.2,
                 'price_range_min' => 1000,
                 'price_range_max' => 3500,
-                'meta_title' => 'Calgary to Canmore Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Canmore Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Canmore movers. Mountain moving specialists. 100 km via Trans-Canada, from $1,000. Licensed, insured. Free estimates.',
                 'h1' => 'Calgary to Canmore Moving Services',
                 'route_overview' => '<p>The Calgary-to-Canmore route follows the Trans-Canada Highway west through the foothills and into the Rocky Mountains — a scenic 100 km drive that takes just over an hour. It\'s one of our most popular short long-distance routes, driven by the steady stream of Calgarians relocating to mountain living.</p>
@@ -267,7 +267,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 1.5,
                 'price_range_min' => 1200,
                 'price_range_max' => 3500,
-                'meta_title' => 'Calgary to Banff Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Banff Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Banff movers. National park relocation experts. 130 km, from $1,200. Licensed, insured. Free moving quotes.',
                 'h1' => 'Calgary to Banff Moving Company',
                 'route_overview' => '<p>Moving to Banff means relocating within a national park — and that comes with considerations unique to this route. The 130 km drive from Calgary follows the Trans-Canada Highway through the Bow Valley and into Banff National Park, taking about 90 minutes.</p>
@@ -304,7 +304,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 0.4,
                 'price_range_min' => 500,
                 'price_range_max' => 2000,
-                'meta_title' => 'Calgary to Airdrie Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Airdrie Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Airdrie movers. Just 30 km north, from $500. Fast, licensed, insured. Our most popular short-distance route. Free quotes.',
                 'h1' => 'Calgary to Airdrie Moving Services',
                 'route_overview' => '<p>The Calgary-to-Airdrie corridor is our single busiest route. At just 30 km north on Highway 2, Airdrie is the closest major satellite community to Calgary and has been one of Canada\'s fastest-growing cities for over a decade.</p>
@@ -339,7 +339,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 0.5,
                 'price_range_min' => 500,
                 'price_range_max' => 2000,
-                'meta_title' => 'Calgary to Cochrane Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Cochrane Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Cochrane movers. 35 km west, from $500. Foothills town moving specialists. Licensed, insured. Free moving estimates.',
                 'h1' => 'Calgary to Cochrane Moving Company',
                 'route_overview' => '<p>Cochrane sits just 35 km west of Calgary along Highway 1A, nestled in the Bow River valley with stunning Rocky Mountain views. The drive takes about 30 minutes from west Calgary, making it one of our quickest satellite town routes.</p>
@@ -374,7 +374,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 0.5,
                 'price_range_min' => 500,
                 'price_range_max' => 2000,
-                'meta_title' => 'Calgary to Okotoks Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Okotoks Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Okotoks movers. 35 km south, from $500. Growing foothills town. Licensed, insured. Get your free moving estimate.',
                 'h1' => 'Movers from Calgary to Okotoks',
                 'route_overview' => '<p>Okotoks is 35 km south of Calgary along Highway 2A, a pleasant 25-30 minute drive through the foothills. It\'s one of the fastest-growing towns in Alberta, known for its managed growth approach, excellent schools, and strong community values.</p>
@@ -409,7 +409,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 0.3,
                 'price_range_min' => 450,
                 'price_range_max' => 1800,
-                'meta_title' => 'Calgary to Chestermere Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Chestermere Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Chestermere movers. Lake city just 20 km east. From $450. Licensed, insured. Fast, affordable. Free moving quotes.',
                 'h1' => 'Calgary to Chestermere Moving Services',
                 'route_overview' => '<p>Chestermere is the closest city to Calgary — just 20 km east along Chestermere Boulevard (which connects directly to 17th Avenue SE). The drive takes as little as 15 minutes, making this essentially a local move with lake-city benefits.</p>
@@ -446,7 +446,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 10.5,
                 'price_range_min' => 4500,
                 'price_range_max' => 12000,
-                'meta_title' => 'Calgary to Vancouver Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Vancouver Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Vancouver movers. 1,050 km through the Rockies. Professional long-distance crews. Licensed, insured. Free estimates.',
                 'h1' => 'Calgary to Vancouver Moving Services',
                 'route_overview' => '<p>The Calgary-to-Vancouver route is one of Canada\'s most scenic — and most demanding — moving corridors. The 1,050 km journey follows the Trans-Canada Highway through the Rocky Mountains, Rogers Pass, the Columbia Valley, and the Fraser Canyon before descending into the Lower Mainland.</p>
@@ -482,7 +482,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 6.0,
                 'price_range_min' => 3000,
                 'price_range_max' => 7500,
-                'meta_title' => 'Calgary to Kelowna Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Kelowna Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Kelowna movers. 600 km through the Rockies to the Okanagan. Licensed, insured. Professional crews. Free estimates.',
                 'h1' => 'Calgary to Kelowna Moving Company',
                 'route_overview' => '<p>The Calgary-to-Kelowna route crosses the Rocky Mountains into British Columbia\'s Okanagan Valley — one of Canada\'s most popular lifestyle destinations. The 600 km drive takes about 6 hours via Highway 1 through Golden and Revelstoke, then south through Vernon.</p>
@@ -519,7 +519,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 6.0,
                 'price_range_min' => 3000,
                 'price_range_max' => 7000,
-                'meta_title' => 'Calgary to Saskatoon Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Saskatoon Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Saskatoon movers. 625 km across the prairies, from $3,000. Licensed, insured, experienced. Free long-distance quotes.',
                 'h1' => 'Calgary to Saskatoon Moving Services',
                 'route_overview' => '<p>The Calgary-to-Saskatoon route crosses the southern prairies via the Trans-Canada Highway to Medicine Hat, then north through Swift Current and into Saskatchewan. The 625 km drive takes about 6 hours on flat, well-maintained prairie highways.</p>
@@ -555,7 +555,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 5.0,
                 'price_range_min' => 2800,
                 'price_range_max' => 6500,
-                'meta_title' => 'Calgary to Lloydminster Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Lloydminster Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Lloydminster movers. 530 km, border city moves. Licensed, insured, professional crews. Free long-distance estimates.',
                 'h1' => 'Calgary to Lloydminster Moving Company',
                 'route_overview' => '<p>Lloydminster straddles the Alberta-Saskatchewan border, about 530 km northeast of Calgary. The route follows Highway 2 north to Edmonton, then Highway 16 east (the Yellowhead Highway) — approximately 5 hours of driving.</p>
@@ -590,7 +590,7 @@ class RouteSeeder extends Seeder
                 'drive_time_hours' => 2.0,
                 'price_range_min' => 1400,
                 'price_range_max' => 4000,
-                'meta_title' => 'Calgary to Brooks Movers | Alpine Movers',
+                'meta_title' => 'Calgary to Brooks Movers | Unitas Movers',
                 'meta_description' => 'Calgary to Brooks movers. 190 km east on Highway 1, from $1,400. Licensed, insured, affordable. Free moving estimates.',
                 'h1' => 'Calgary to Brooks Moving Services',
                 'route_overview' => '<p>Brooks is a diverse, growing city 190 km east of Calgary on the Trans-Canada Highway. The 2-hour drive is flat, straight, and well-maintained — one of our most efficient routes for the distance.</p>

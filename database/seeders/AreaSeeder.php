@@ -26,7 +26,7 @@ class AreaSeeder extends Seeder
                 'slug' => 'nw-calgary',
                 'name' => 'NW Calgary',
                 'area_type' => 'quadrant',
-                'meta_title' => 'NW Calgary Movers | Alpine Movers Calgary',
+                'meta_title' => 'NW Calgary Movers | Unitas Movers',
                 'meta_description' => 'Trusted movers in NW Calgary. From Kensington to Tuscany, our licensed crews handle every neighbourhood. Free quotes — call today.',
                 'h1' => 'Moving Services in Northwest Calgary',
                 'body' => '<p>Northwest Calgary is one of the city\'s most diverse quadrants, stretching from the trendy inner-city streets of Kensington all the way to the family-oriented suburbs of Tuscany and Royal Oak near the Rocky Mountain foothills.</p>
@@ -34,7 +34,7 @@ class AreaSeeder extends Seeder
 <p>The northwest attracts everyone from young professionals drawn to Kensington\'s walkable cafes and shops, to growing families who want newer homes in communities like Evanston and Sage Hill. The University of Calgary anchors the area\'s centre, making University Heights and Varsity popular with faculty and students alike.</p>
 <h2>What to Expect from Your NW Calgary Move</h2>
 <p>Homes in the inner northwest — Hillhurst, West Hillhurst, and Hounsfield Heights — tend to be older character homes on narrow streets, so our crews arrive with the right-sized trucks and protective gear. Further out, communities like Dalhousie, Edgemont, and Scenic Acres feature wider suburban streets and attached garages that make loading straightforward.</p>
-<p>Whether you\'re upsizing from a Brentwood bungalow to a Tuscany two-storey or downsizing from Bowness to a condo in the core, Alpine Movers knows every corner of the northwest.</p>',
+<p>Whether you\'re upsizing from a Brentwood bungalow to a Tuscany two-storey or downsizing from Bowness to a condo in the core, Unitas Movers knows every corner of the northwest.</p>',
                 'latitude' => 51.0800,
                 'longitude' => -114.1300,
                 'population' => null,
@@ -50,7 +50,7 @@ class AreaSeeder extends Seeder
                 'slug' => 'ne-calgary',
                 'name' => 'NE Calgary',
                 'area_type' => 'quadrant',
-                'meta_title' => 'NE Calgary Movers | Alpine Movers Calgary',
+                'meta_title' => 'NE Calgary Movers | Unitas Movers',
                 'meta_description' => 'Affordable NE Calgary movers. From Bridgeland to Skyview Ranch, we move families and businesses across the northeast. Free estimates.',
                 'h1' => 'Professional Movers in Northeast Calgary',
                 'body' => '<p>Northeast Calgary is the city\'s most culturally vibrant quadrant. From the established inner-city charm of Bridgeland and Renfrew to the rapidly growing master-planned communities along the northern edge, the NE offers some of Calgary\'s most affordable housing and strongest community spirit.</p>
@@ -58,7 +58,7 @@ class AreaSeeder extends Seeder
 <p>The northeast has experienced explosive growth over the past decade. Communities like Skyview Ranch, Cityscape, and Redstone are attracting first-time buyers and newcomers to Canada with brand-new homes at competitive prices. Meanwhile, Bridgeland has transformed into one of Calgary\'s hottest walkable neighbourhoods, with condos, restaurants, and river pathways.</p>
 <h2>NE Calgary Moving Tips</h2>
 <p>Many NE communities are close to the Calgary International Airport, so scheduling around flight paths and traffic patterns on 36 Street and Deerfoot Trail is something our dispatchers plan for. We\'re also experienced with the condo and townhouse complexes common in Saddleridge and Martindale, including elevator bookings and loading dock reservations.</p>
-<p>Alpine Movers serves every NE neighbourhood with the same care and professionalism — no matter the size of the move.</p>',
+<p>Unitas Movers serves every NE neighbourhood with the same care and professionalism — no matter the size of the move.</p>',
                 'latitude' => 51.0800,
                 'longitude' => -114.0000,
                 'population' => null,
@@ -74,7 +74,7 @@ class AreaSeeder extends Seeder
                 'slug' => 'sw-calgary',
                 'name' => 'SW Calgary',
                 'area_type' => 'quadrant',
-                'meta_title' => 'SW Calgary Movers | Alpine Movers Calgary',
+                'meta_title' => 'SW Calgary Movers | Unitas Movers',
                 'meta_description' => 'Expert movers for SW Calgary. Beltline, Marda Loop, Aspen Woods and beyond. Licensed, insured, and affordable. Get a free quote now.',
                 'h1' => 'Trusted Moving Company in Southwest Calgary',
                 'body' => '<p>Southwest Calgary is home to the city\'s most sought-after inner-city neighbourhoods and some of its most prestigious suburban communities. From the urban energy of the Beltline to the luxury estates of Aspen Woods, the SW quadrant offers an enormous range of housing — and moving challenges.</p>
@@ -97,7 +97,7 @@ class AreaSeeder extends Seeder
                 'slug' => 'se-calgary',
                 'name' => 'SE Calgary',
                 'area_type' => 'quadrant',
-                'meta_title' => 'SE Calgary Movers | Alpine Movers Calgary',
+                'meta_title' => 'SE Calgary Movers | Unitas Movers',
                 'meta_description' => 'Reliable SE Calgary movers. Mahogany, Cranston, McKenzie Towne and all SE communities. Insured crews, fair pricing. Book your free quote.',
                 'h1' => 'Movers in Southeast Calgary',
                 'body' => '<p>Southeast Calgary has been one of the city\'s fastest-growing areas for over a decade. Master-planned communities like Mahogany, Auburn Bay, and Cranston have drawn thousands of families with their lakes, pathways, and modern amenities. The SE also includes established areas like Douglasdale and McKenzie Towne that offer mature trees and strong community identity.</p>
@@ -135,13 +135,13 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'kensington',
                 'name' => 'Kensington',
-                'meta_title' => 'Kensington Movers Calgary | Alpine Movers',
+                'meta_title' => 'Kensington Movers Calgary | Unitas Movers',
                 'meta_description' => 'Local movers in Kensington, Calgary. Condos, apartments, and character homes. Licensed and insured. Get your free moving quote today.',
                 'h1' => 'Movers in Kensington, Calgary',
                 'body' => '<p>Kensington is one of Calgary\'s most walkable and vibrant inner-city neighbourhoods, sitting just north of the Bow River and minutes from downtown. Known for its eclectic shops, independent cafes, and tree-lined streets, Kensington draws young professionals, students, and anyone who values an urban lifestyle without the downtown price tag.</p>
 <h2>Moving in Kensington</h2>
-<p>Housing in Kensington ranges from older low-rise apartment buildings and character homes to modern condo developments. Street parking can be limited, especially along Kensington Road and 10th Street NW, so Alpine Movers coordinates parking permits and timing to ensure a smooth move day.</p>
-<h2>Why Choose Alpine Movers for Your Kensington Move</h2>
+<p>Housing in Kensington ranges from older low-rise apartment buildings and character homes to modern condo developments. Street parking can be limited, especially along Kensington Road and 10th Street NW, so Unitas Movers coordinates parking permits and timing to ensure a smooth move day.</p>
+<h2>Why Choose Unitas Movers for Your Kensington Move</h2>
 <p>We\'ve moved hundreds of Kensington residents and know the neighbourhood inside out — from navigating narrow back lanes to protecting hardwood floors in century-old homes. Whether you\'re moving into a studio apartment above a Kensington shop or a renovated character home on a side street, our crews handle it with care.</p>',
                 'latitude' => 51.0530,
                 'longitude' => -114.0900,
@@ -155,7 +155,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'hillhurst',
                 'name' => 'Hillhurst',
-                'meta_title' => 'Hillhurst Movers Calgary | Alpine Movers',
+                'meta_title' => 'Hillhurst Movers Calgary | Unitas Movers',
                 'meta_description' => 'Professional movers in Hillhurst, Calgary. Character homes and infills handled with care. Licensed, insured. Free estimates available.',
                 'h1' => 'Hillhurst Moving Company in Calgary',
                 'body' => '<p>Hillhurst is a mature inner-city neighbourhood adjacent to Kensington, known for its tree-lined streets, character homes dating back to the early 1900s, and a growing number of modern infills. It\'s one of Calgary\'s most desirable communities for families and professionals who want inner-city living with a neighbourhood feel.</p>
@@ -174,7 +174,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'university-heights',
                 'name' => 'University Heights',
-                'meta_title' => 'University Heights Movers | Alpine Movers Calgary',
+                'meta_title' => 'University Heights Movers | Unitas Movers',
                 'meta_description' => 'Movers near the University of Calgary. Student and faculty moves in University Heights. Fast, affordable, licensed. Book online.',
                 'h1' => 'University Heights Moving Services',
                 'body' => '<p>University Heights sits directly adjacent to the University of Calgary campus, making it one of the city\'s most convenient locations for students, faculty, and hospital workers at the nearby Foothills Medical Centre. The neighbourhood is quiet and residential, with a mix of single-family homes and low-rise apartments.</p>
@@ -193,7 +193,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'varsity',
                 'name' => 'Varsity',
-                'meta_title' => 'Varsity Movers Calgary | Alpine Movers',
+                'meta_title' => 'Varsity Movers Calgary | Unitas Movers',
                 'meta_description' => 'Trusted movers in Varsity, Calgary. Bungalows, splits, and townhomes. Close to U of C and Market Mall. Free moving quotes.',
                 'h1' => 'Movers in Varsity, Calgary',
                 'body' => '<p>Varsity is a well-established NW Calgary neighbourhood built primarily in the 1960s and 70s, sitting between the University of Calgary and Market Mall. It\'s popular with families, retirees, and professionals who appreciate mature trees, generous lot sizes, and excellent access to transit and shopping.</p>
@@ -212,12 +212,12 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'brentwood',
                 'name' => 'Brentwood',
-                'meta_title' => 'Brentwood Movers Calgary | Alpine Movers',
+                'meta_title' => 'Brentwood Movers Calgary | Unitas Movers',
                 'meta_description' => 'Moving in Brentwood, Calgary? Licensed movers near U of C and Brentwood Village. Affordable rates, careful crews. Get a free quote.',
                 'h1' => 'Brentwood Calgary Moving Services',
                 'body' => '<p>Brentwood is a mature NW Calgary neighbourhood conveniently located near the University of Calgary, Brentwood Village Mall, and the Brentwood CTrain station. Built mainly in the 1960s, the community is experiencing significant redevelopment as older bungalows make way for modern infills and townhomes.</p>
 <h2>Moving in Brentwood</h2>
-<p>The mix of original bungalows and new builds means Alpine Movers handles a wide variety of moves here — from compact bungalow cleanouts to loading brand-new infills with contemporary furniture. Construction activity on some blocks can affect parking and access, so we scout conditions in advance.</p>
+<p>The mix of original bungalows and new builds means Unitas Movers handles a wide variety of moves here — from compact bungalow cleanouts to loading brand-new infills with contemporary furniture. Construction activity on some blocks can affect parking and access, so we scout conditions in advance.</p>
 <p>The Brentwood CTrain station makes this area popular with commuters, and the nearby shops and schools make it a strong family neighbourhood. Whether you\'re arriving or leaving, our crews know Brentwood\'s streets and can plan an efficient move.</p>',
                 'latitude' => 51.0860,
                 'longitude' => -114.1280,
@@ -231,13 +231,13 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'dalhousie',
                 'name' => 'Dalhousie',
-                'meta_title' => 'Dalhousie Movers Calgary | Alpine Movers',
+                'meta_title' => 'Dalhousie Movers Calgary | Unitas Movers',
                 'meta_description' => 'Reliable movers in Dalhousie, NW Calgary. Family homes, CTrain access. Licensed and insured. Call for a free moving quote.',
                 'h1' => 'Dalhousie Moving Company — NW Calgary',
                 'body' => '<p>Dalhousie is a family-friendly NW Calgary neighbourhood known for its excellent schools, the Dalhousie CTrain station, and easy access to Nose Hill Park. Developed in the 1970s, it offers a mix of single-family homes, townhouses, and apartment buildings at relatively affordable prices for the northwest.</p>
 <h2>What to Know About Moving in Dalhousie</h2>
 <p>Dalhousie\'s residential streets are well-maintained and wide enough for moving trucks. Most homes feature attached or detached garages with back-lane access. The neighbourhood\'s proximity to Crowchild Trail and Shaganappi Trail makes it easy for our trucks to get in and out efficiently.</p>
-<p>Popular moves in Dalhousie include families moving to larger homes in newer NW suburbs and young buyers purchasing their first home here thanks to Dalhousie\'s relative affordability. Whatever your reason for moving, Alpine Movers provides careful, professional service.</p>',
+<p>Popular moves in Dalhousie include families moving to larger homes in newer NW suburbs and young buyers purchasing their first home here thanks to Dalhousie\'s relative affordability. Whatever your reason for moving, Unitas Movers provides careful, professional service.</p>',
                 'latitude' => 51.1050,
                 'longitude' => -114.1570,
                 'population' => 10500,
@@ -250,7 +250,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'edgemont',
                 'name' => 'Edgemont',
-                'meta_title' => 'Edgemont Movers Calgary | Alpine Movers',
+                'meta_title' => 'Edgemont Movers Calgary | Unitas Movers',
                 'meta_description' => 'Professional movers in Edgemont, NW Calgary. Family homes near Nose Hill Park. Affordable, insured. Get your free estimate today.',
                 'h1' => 'Movers in Edgemont, NW Calgary',
                 'body' => '<p>Edgemont is one of NW Calgary\'s most popular family suburbs, perched along the western edge of Nose Hill Park. Developed through the 1980s and 90s, it offers spacious single-family homes, quiet crescents, and some of the best park access in the city.</p>
@@ -269,7 +269,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'tuscany',
                 'name' => 'Tuscany',
-                'meta_title' => 'Tuscany Movers Calgary | Alpine Movers',
+                'meta_title' => 'Tuscany Movers Calgary | Unitas Movers',
                 'meta_description' => 'Movers in Tuscany, NW Calgary. Family-friendly community near the mountains. Licensed, insured, affordable. Free moving quotes.',
                 'h1' => 'Tuscany Calgary Moving Services',
                 'body' => '<p>Tuscany is a master-planned community in Calgary\'s far northwest, bordering the Rocky Mountain foothills. Developed from the late 1990s onward, it\'s one of NW Calgary\'s largest and most popular family suburbs, with its own CTrain station, schools, shopping, and stunning mountain views.</p>
@@ -288,7 +288,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'royal-oak',
                 'name' => 'Royal Oak',
-                'meta_title' => 'Royal Oak Movers Calgary | Alpine Movers',
+                'meta_title' => 'Royal Oak Movers Calgary | Unitas Movers',
                 'meta_description' => 'Royal Oak Calgary movers you can trust. New homes, families, quick access to Stoney Trail. Insured crews. Get a free moving quote.',
                 'h1' => 'Moving Company in Royal Oak, Calgary',
                 'body' => '<p>Royal Oak is a newer NW Calgary community anchored by the Royal Oak shopping district and its own CTrain station. With a mix of single-family homes, townhouses, and condos, it attracts a diverse range of residents — from first-time buyers to established families.</p>
@@ -307,7 +307,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'scenic-acres',
                 'name' => 'Scenic Acres',
-                'meta_title' => 'Scenic Acres Movers Calgary | Alpine Movers',
+                'meta_title' => 'Scenic Acres Movers Calgary | Unitas Movers',
                 'meta_description' => 'Movers in Scenic Acres, NW Calgary. Quiet family neighbourhood, larger homes. Licensed, insured, affordable. Free estimates.',
                 'h1' => 'Scenic Acres Moving Services — NW Calgary',
                 'body' => '<p>Scenic Acres is a quiet, mature NW Calgary suburb tucked between Crowchild Trail and Stoney Trail. Built through the 1980s and 90s, it\'s prized for its tranquil residential streets, spacious lots, and proximity to both the mountains and the city core.</p>
@@ -326,13 +326,13 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'bowness',
                 'name' => 'Bowness',
-                'meta_title' => 'Bowness Movers Calgary | Alpine Movers',
+                'meta_title' => 'Bowness Movers Calgary | Unitas Movers',
                 'meta_description' => 'Affordable movers in Bowness, Calgary. Charming riverside community. Licensed and insured crews. Call for your free moving estimate.',
                 'h1' => 'Professional Movers in Bowness, Calgary',
                 'body' => '<p>Bowness is one of Calgary\'s most distinctive neighbourhoods — a charming, established community along the Bow River with its own main street (Bowness Road), independent shops, and a strong sense of local identity. Originally a separate town before being annexed by Calgary in 1964, Bowness retains a small-town feel.</p>
 <h2>Bowness Moving Considerations</h2>
 <p>The neighbourhood features a wide range of housing, from modest bungalows and wartime-era homes to newer infills and riverside properties. Some Bowness streets are narrow with mature trees creating canopy coverage — our crews are skilled at navigating these conditions.</p>
-<p>Bowness Park and the Bow River pathways make this area incredibly popular, and new residents are drawn by the affordable prices relative to other inner-city areas. Whether you\'re moving into a cozy bungalow or a modern infill, Alpine Movers handles your belongings with care.</p>',
+<p>Bowness Park and the Bow River pathways make this area incredibly popular, and new residents are drawn by the affordable prices relative to other inner-city areas. Whether you\'re moving into a cozy bungalow or a modern infill, Unitas Movers handles your belongings with care.</p>',
                 'latitude' => 51.0850,
                 'longitude' => -114.1920,
                 'population' => 9600,
@@ -357,7 +357,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'bridgeland',
                 'name' => 'Bridgeland',
-                'meta_title' => 'Bridgeland Movers Calgary | Alpine Movers',
+                'meta_title' => 'Bridgeland Movers Calgary | Unitas Movers',
                 'meta_description' => 'Expert movers in Bridgeland, Calgary. Condos, townhomes, character homes near downtown. Licensed, insured. Get a free quote today.',
                 'h1' => 'Movers in Bridgeland, Calgary',
                 'body' => '<p>Bridgeland is one of Calgary\'s most sought-after inner-city neighbourhoods, sitting on a hill overlooking the Bow River just northeast of downtown. Once a quiet working-class community, Bridgeland has transformed into a trendy, walkable neighbourhood packed with restaurants, cafes, boutiques, and stunning river views.</p>
@@ -376,7 +376,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'renfrew',
                 'name' => 'Renfrew',
-                'meta_title' => 'Renfrew Movers Calgary | Alpine Movers',
+                'meta_title' => 'Renfrew Movers Calgary | Unitas Movers',
                 'meta_description' => 'Professional movers in Renfrew, NE Calgary. Infills and character homes near Edmonton Trail. Insured, affordable. Free quotes.',
                 'h1' => 'Renfrew Calgary Moving Services',
                 'body' => '<p>Renfrew is a rapidly evolving inner-city neighbourhood in NE Calgary, centred around Edmonton Trail. Once primarily older bungalows, Renfrew has seen a surge of modern infill development, creating a neighbourhood that blends heritage character with contemporary design. The 9th Avenue corridor provides commercial amenities, and the community is close to Bridgeland and downtown.</p>
@@ -395,13 +395,13 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'marlborough',
                 'name' => 'Marlborough',
-                'meta_title' => 'Marlborough Movers Calgary | Alpine Movers',
+                'meta_title' => 'Marlborough Movers Calgary | Unitas Movers',
                 'meta_description' => 'Affordable movers in Marlborough, NE Calgary. Houses and apartments near Marlborough Mall. Insured crews. Free moving quotes.',
                 'h1' => 'Marlborough Moving Company — NE Calgary',
                 'body' => '<p>Marlborough is a well-established NE Calgary neighbourhood centred around Marlborough Mall and the Marlborough CTrain station. Built in the 1960s and 70s, it offers affordable housing options including single-family homes, townhouses, and apartment complexes — making it one of the most accessible communities in the city.</p>
 <h2>Moving in Marlborough</h2>
 <p>Marlborough\'s straightforward street grid and ample parking make moving logistics simple. Most homes have single or double garages with back-lane access. The neighbourhood is close to major routes including Memorial Drive and 36 Street NE, giving our trucks efficient access to other parts of the city.</p>
-<p>We see many first-time homebuyers and newcomers to Calgary choosing Marlborough for its affordability and transit access. Whatever brings you here, Alpine Movers provides professional, friendly service at competitive rates.</p>',
+<p>We see many first-time homebuyers and newcomers to Calgary choosing Marlborough for its affordability and transit access. Whatever brings you here, Unitas Movers provides professional, friendly service at competitive rates.</p>',
                 'latitude' => 51.0520,
                 'longitude' => -113.9800,
                 'population' => 9100,
@@ -414,7 +414,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'falconridge',
                 'name' => 'Falconridge',
-                'meta_title' => 'Falconridge Movers Calgary | Alpine Movers',
+                'meta_title' => 'Falconridge Movers Calgary | Unitas Movers',
                 'meta_description' => 'Trusted movers in Falconridge, NE Calgary. Family homes near Prairie Winds Park. Licensed, insured. Get your free estimate today.',
                 'h1' => 'Movers in Falconridge, NE Calgary',
                 'body' => '<p>Falconridge is a vibrant, multicultural neighbourhood in NE Calgary, known for its strong community spirit and proximity to Prairie Winds Park. Built in the 1980s, it features primarily single-family homes and townhouses at prices that make it one of the most affordable family communities in the city.</p>
@@ -433,7 +433,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'saddleridge',
                 'name' => 'Saddleridge',
-                'meta_title' => 'Saddleridge Movers Calgary | Alpine Movers',
+                'meta_title' => 'Saddleridge Movers Calgary | Unitas Movers',
                 'meta_description' => 'Reliable movers in Saddleridge, NE Calgary. New homes, growing community. Insured, affordable, professional. Book a free quote today.',
                 'h1' => 'Saddleridge Calgary Moving Company',
                 'body' => '<p>Saddleridge is one of NE Calgary\'s largest and fastest-growing communities, developed from the mid-2000s onward. With affordable new homes, shopping centres, and easy access to Stoney Trail and the airport, it\'s become a top destination for young families and newcomers to Calgary.</p>
@@ -452,13 +452,13 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'skyview-ranch',
                 'name' => 'Skyview Ranch',
-                'meta_title' => 'Skyview Ranch Movers Calgary | Alpine Movers',
+                'meta_title' => 'Skyview Ranch Movers Calgary | Unitas Movers',
                 'meta_description' => 'Moving to Skyview Ranch? Affordable NE Calgary movers. New homes, great value. Licensed, insured crews. Get a free quote.',
                 'h1' => 'Movers in Skyview Ranch, Calgary',
                 'body' => '<p>Skyview Ranch is one of Calgary\'s newest NE communities, located near the city\'s northern boundary along Stoney Trail. Since development began around 2007, it has grown rapidly with affordable single-family homes, townhomes, and condos attracting young families and first-time buyers.</p>
 <h2>Moving in Skyview Ranch</h2>
 <p>As a newer community, Skyview Ranch has wide streets, modern infrastructure, and easy truck access. Most homes have double garages and open layouts that simplify the moving process. The Skyview Ranch LRT station (on the Green Line, under development) will further boost connectivity.</p>
-<p>Alpine Movers has helped hundreds of families settle into Skyview Ranch. We know the community\'s layout, common builders, and any access considerations for specific phases of development.</p>',
+<p>Unitas Movers has helped hundreds of families settle into Skyview Ranch. We know the community\'s layout, common builders, and any access considerations for specific phases of development.</p>',
                 'latitude' => 51.1320,
                 'longitude' => -113.9670,
                 'population' => 15000,
@@ -471,12 +471,12 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'cityscape',
                 'name' => 'Cityscape',
-                'meta_title' => 'Cityscape Movers Calgary | Alpine Movers',
+                'meta_title' => 'Cityscape Movers Calgary | Unitas Movers',
                 'meta_description' => 'Cityscape NE Calgary movers. Brand-new community, new homes. Licensed, insured, affordable moving crews. Book your free quote.',
                 'h1' => 'Cityscape Calgary Moving Services',
                 'body' => '<p>Cityscape is among Calgary\'s newest NE communities, located near Stoney Trail and Airport Trail. Still actively developing, it offers brand-new homes at entry-level prices, making it especially attractive to first-time buyers, young professionals, and growing families.</p>
 <h2>Moving to Cityscape</h2>
-<p>Moving into a brand-new home has unique considerations — coordinating with builders on possession dates, managing timelines for appliance delivery, and sometimes dealing with ongoing construction in nearby lots. Alpine Movers has experience with new-build moves and can work around these factors.</p>
+<p>Moving into a brand-new home has unique considerations — coordinating with builders on possession dates, managing timelines for appliance delivery, and sometimes dealing with ongoing construction in nearby lots. Unitas Movers has experience with new-build moves and can work around these factors.</p>
 <p>Cityscape\'s street design is modern and truck-friendly, with wide roads and generous driveways. As the community continues to build out, access to amenities grows each year, and the airport proximity makes it convenient for frequent travellers.</p>',
                 'latitude' => 51.1350,
                 'longitude' => -113.9450,
@@ -490,7 +490,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'martindale',
                 'name' => 'Martindale',
-                'meta_title' => 'Martindale Movers Calgary | Alpine Movers',
+                'meta_title' => 'Martindale Movers Calgary | Unitas Movers',
                 'meta_description' => 'Professional movers in Martindale, NE Calgary. Family-friendly neighbourhood. Licensed, affordable, careful crews. Free estimates.',
                 'h1' => 'Martindale Moving Company — NE Calgary',
                 'body' => '<p>Martindale is a well-established NE Calgary community developed in the 1990s and 2000s, located near the Saddletowne CTrain station and Genesis Centre. It\'s a diverse, family-oriented neighbourhood with a good mix of single-family homes, townhouses, and condominiums.</p>
@@ -521,14 +521,14 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'beltline',
                 'name' => 'Beltline',
-                'meta_title' => 'Beltline Movers Calgary | Alpine Movers',
+                'meta_title' => 'Beltline Movers Calgary | Unitas Movers',
                 'meta_description' => 'Expert Beltline movers in Calgary. High-rise condos, apartments, 17th Ave. Licensed, insured. Elevator moves our specialty. Free quotes.',
                 'h1' => 'Beltline Calgary Moving Company',
                 'body' => '<p>The Beltline is Calgary\'s most densely populated neighbourhood, stretching along 17th Avenue SW from the Elbow River to 14th Street. It\'s the heart of Calgary\'s urban lifestyle — packed with restaurants, nightlife, boutique shopping, and a booming condo market that ranges from studio apartments to luxury penthouses.</p>
 <h2>Why Beltline Moves Require Specialists</h2>
 <p>Moving in the Beltline is different from anywhere else in Calgary. Most residents live in high-rise or mid-rise buildings that require elevator reservations (often booked weeks in advance), loading dock scheduling, and strict building rules about moving hours and common-area protection. Street parking is metered or permit-based, so truck positioning must be planned carefully.</p>
 <h2>Our Beltline Moving Expertise</h2>
-<p>Alpine Movers has completed more Beltline moves than we can count. We know which buildings have freight elevators, which loading docks are tricky to access, and how to navigate the one-way streets and busy traffic of 17th Avenue. We handle elevator padding, floor protection, and common-area requirements so you don\'t get dinged by your condo board.</p>',
+<p>Unitas Movers has completed more Beltline moves than we can count. We know which buildings have freight elevators, which loading docks are tricky to access, and how to navigate the one-way streets and busy traffic of 17th Avenue. We handle elevator padding, floor protection, and common-area requirements so you don\'t get dinged by your condo board.</p>',
                 'latitude' => 51.0380,
                 'longitude' => -114.0700,
                 'population' => 22000,
@@ -541,7 +541,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'mission',
                 'name' => 'Mission',
-                'meta_title' => 'Mission Movers Calgary | Alpine Movers',
+                'meta_title' => 'Mission Movers Calgary | Unitas Movers',
                 'meta_description' => 'Mission Calgary movers. Condos and character homes along the Elbow River. Licensed, insured crews. Get your free moving quote.',
                 'h1' => 'Moving Services in Mission, Calgary',
                 'body' => '<p>Mission is one of Calgary\'s most desirable inner-city neighbourhoods, situated between 4th Street SW and the Elbow River. With a mix of character homes, modern condos, and historic buildings, Mission offers walkable access to restaurants, shops, the river pathways, and downtown — all with a distinctly neighbourhood-y feel.</p>
@@ -560,7 +560,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'marda-loop',
                 'name' => 'Marda Loop',
-                'meta_title' => 'Marda Loop Movers Calgary | Alpine Movers',
+                'meta_title' => 'Marda Loop Movers Calgary | Unitas Movers',
                 'meta_description' => 'Marda Loop movers you can trust. 33rd Avenue shops and family homes. Licensed, insured, affordable. Free moving estimates.',
                 'h1' => 'Movers in Marda Loop, Calgary',
                 'body' => '<p>Marda Loop is a beloved SW Calgary neighbourhood centred on the bustling 33rd Avenue and 34th Avenue commercial district. Known for its independent shops, craft breweries, restaurants, and strong community identity, Marda Loop attracts young professionals, couples, and families who want urban convenience without living downtown.</p>
@@ -579,7 +579,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'killarney',
                 'name' => 'Killarney',
-                'meta_title' => 'Killarney Movers Calgary | Alpine Movers',
+                'meta_title' => 'Killarney Movers Calgary | Unitas Movers',
                 'meta_description' => 'Professional movers in Killarney, SW Calgary. Bungalows and infills near 17th Avenue. Licensed, insured. Free moving estimates.',
                 'h1' => 'Killarney Calgary Moving Services',
                 'body' => '<p>Killarney is a desirable inner-city SW Calgary neighbourhood experiencing significant transformation as original 1950s bungalows are replaced by modern infill homes. Located south of 17th Avenue and west of Crowchild Trail, Killarney offers a fantastic urban location with quick access to downtown, the Beltline, and Marda Loop.</p>
@@ -598,7 +598,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'altadore',
                 'name' => 'Altadore',
-                'meta_title' => 'Altadore Movers Calgary | Alpine Movers',
+                'meta_title' => 'Altadore Movers Calgary | Unitas Movers',
                 'meta_description' => 'Movers in Altadore, SW Calgary. Infills, bungalows, near River Park. Licensed, insured, affordable crews. Free moving quotes.',
                 'h1' => 'Altadore Moving Company — SW Calgary',
                 'body' => '<p>Altadore is one of SW Calgary\'s most popular inner-city neighbourhoods, known for its proximity to River Park and the Elbow River pathways. Like neighbouring Marda Loop, Altadore has seen extensive infill development, transforming the streetscape with modern homes alongside original bungalows.</p>
@@ -617,7 +617,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'south-calgary',
                 'name' => 'South Calgary',
-                'meta_title' => 'South Calgary Movers | Alpine Movers',
+                'meta_title' => 'South Calgary Movers | Unitas Movers',
                 'meta_description' => 'South Calgary movers near Marda Loop. Affordable inner-city moves. Licensed and insured. Call for your free moving estimate.',
                 'h1' => 'Moving Services in South Calgary',
                 'body' => '<p>South Calgary is a compact inner-city neighbourhood adjacent to Marda Loop, sharing the same 33rd Avenue commercial district. It\'s one of Calgary\'s most affordable inner-city communities, attracting first-time buyers and renters who want walkable urban living at lower price points.</p>
@@ -636,7 +636,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'bankview',
                 'name' => 'Bankview',
-                'meta_title' => 'Bankview Movers Calgary | Alpine Movers',
+                'meta_title' => 'Bankview Movers Calgary | Unitas Movers',
                 'meta_description' => 'Bankview Calgary movers. Apartments and condos with downtown views. Licensed, insured, affordable. Get a free moving quote.',
                 'h1' => 'Professional Movers in Bankview, Calgary',
                 'body' => '<p>Bankview sits on a hill overlooking downtown Calgary, offering some of the best city views from any inner-city neighbourhood. Its mix of apartment buildings, low-rise condos, and older homes makes it popular with young professionals and renters who want proximity to 17th Avenue and downtown without premium prices.</p>
@@ -655,7 +655,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'lakeview',
                 'name' => 'Lakeview',
-                'meta_title' => 'Lakeview Movers Calgary | Alpine Movers',
+                'meta_title' => 'Lakeview Movers Calgary | Unitas Movers',
                 'meta_description' => 'Movers in Lakeview, SW Calgary. Quiet family neighbourhood near Glenmore Reservoir. Licensed, insured. Free moving quotes.',
                 'h1' => 'Lakeview Calgary Moving Company',
                 'body' => '<p>Lakeview is a quiet, established SW Calgary neighbourhood nestled against the Glenmore Reservoir. With tree-lined streets, generous lot sizes, and proximity to North Glenmore Park, it\'s one of the city\'s most peaceful residential communities — yet only 15 minutes from downtown.</p>
@@ -674,7 +674,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'signal-hill',
                 'name' => 'Signal Hill',
-                'meta_title' => 'Signal Hill Movers Calgary | Alpine Movers',
+                'meta_title' => 'Signal Hill Movers Calgary | Unitas Movers',
                 'meta_description' => 'Signal Hill Calgary movers. Family homes near Westhills. Licensed, insured, affordable. Get your free moving quote today.',
                 'h1' => 'Movers in Signal Hill, SW Calgary',
                 'body' => '<p>Signal Hill is a popular SW Calgary suburb developed in the 1980s and 90s, located near the Westhills Towne Centre and Aspen Landing shopping areas. It\'s a well-established family community with excellent schools, parks, and convenient access to Sarcee Trail and Stoney Trail.</p>
@@ -693,7 +693,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'aspen-woods',
                 'name' => 'Aspen Woods',
-                'meta_title' => 'Aspen Woods Movers Calgary | Alpine Movers',
+                'meta_title' => 'Aspen Woods Movers Calgary | Unitas Movers',
                 'meta_description' => 'Aspen Woods moving company. Luxury homes handled with care. Licensed, insured, experienced crews. Get a free estimate today.',
                 'h1' => 'Aspen Woods Moving Services — SW Calgary',
                 'body' => '<p>Aspen Woods is one of SW Calgary\'s most prestigious communities, featuring large executive homes, luxury townhomes, and estate properties. Located near Aspen Landing shopping and the Springbank Hill area, it offers a premium lifestyle with mountain views and quick access to both the city and the foothills.</p>
@@ -712,7 +712,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'discovery-ridge',
                 'name' => 'Discovery Ridge',
-                'meta_title' => 'Discovery Ridge Movers | Alpine Movers Calgary',
+                'meta_title' => 'Discovery Ridge Movers | Unitas Movers',
                 'meta_description' => 'Movers in Discovery Ridge, SW Calgary. Estate homes near the foothills. Licensed, insured. Book your free moving estimate.',
                 'h1' => 'Discovery Ridge Moving Company',
                 'body' => '<p>Discovery Ridge is an exclusive residential community in Calgary\'s far southwest, nestled against the foothills and surrounded by natural parkland. It offers a rare combination of estate-calibre homes with direct access to hiking trails, Griffith Woods, and the Elbow River — all within 20 minutes of downtown.</p>
@@ -743,7 +743,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'douglasdale',
                 'name' => 'Douglasdale',
-                'meta_title' => 'Douglasdale Movers Calgary | Alpine Movers',
+                'meta_title' => 'Douglasdale Movers Calgary | Unitas Movers',
                 'meta_description' => 'Movers in Douglasdale, SE Calgary. Established family neighbourhood. Licensed, insured, affordable. Get a free moving quote.',
                 'h1' => 'Douglasdale Calgary Moving Services',
                 'body' => '<p>Douglasdale is one of SE Calgary\'s most established suburban communities, developed in the 1990s along the banks of the Bow River. With mature trees, winding streets, and a strong family atmosphere, Douglasdale offers the feel of a well-settled neighbourhood with excellent access to Deerfoot Trail and Fish Creek Provincial Park.</p>
@@ -762,7 +762,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'mahogany',
                 'name' => 'Mahogany',
-                'meta_title' => 'Mahogany Movers Calgary | Alpine Movers',
+                'meta_title' => 'Mahogany Movers Calgary | Unitas Movers',
                 'meta_description' => 'Movers in Mahogany, SE Calgary. Lake community, new homes. Licensed, insured, professional. Book your free moving estimate.',
                 'h1' => 'Movers in Mahogany, SE Calgary',
                 'body' => '<p>Mahogany is SE Calgary\'s premier lake community, featuring Calgary\'s largest freshwater lake exclusively for residents. Developed from 2008 onward by Hopewell Residential, Mahogany offers new homes, modern amenities, a vibrant village centre, and a lifestyle centred around its 63-acre lake and beach club.</p>
@@ -781,13 +781,13 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'auburn-bay',
                 'name' => 'Auburn Bay',
-                'meta_title' => 'Auburn Bay Movers Calgary | Alpine Movers',
+                'meta_title' => 'Auburn Bay Movers Calgary | Unitas Movers',
                 'meta_description' => 'Auburn Bay SE Calgary movers. Lake community, family homes. Licensed, insured, affordable. Get your free moving estimate today.',
                 'h1' => 'Auburn Bay Moving Company — SE Calgary',
                 'body' => '<p>Auburn Bay is a popular SE Calgary lake community developed by Brookfield Residential, featuring a 43-acre freshwater lake and beach house exclusively for residents. The community offers a family-friendly lifestyle with excellent schools, parks, and the nearby South Health Campus hospital.</p>
 <h2>Moving in Auburn Bay</h2>
 <p>Auburn Bay homes range from starter townhomes and semi-detached houses to large single-family properties. The community is well-planned with wide streets and good infrastructure that makes moving day straightforward. Properties near the lake may have specific access requirements, which we handle as part of our pre-move planning.</p>
-<p>Many Auburn Bay residents work at the nearby South Health Campus, making this community popular with healthcare professionals. Whether you\'re a young professional buying your first townhome or a family moving into a lakeside home, Alpine Movers provides reliable, careful service.</p>',
+<p>Many Auburn Bay residents work at the nearby South Health Campus, making this community popular with healthcare professionals. Whether you\'re a young professional buying your first townhome or a family moving into a lakeside home, Unitas Movers provides reliable, careful service.</p>',
                 'latitude' => 50.9350,
                 'longitude' => -113.9630,
                 'population' => 13000,
@@ -800,7 +800,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'cranston',
                 'name' => 'Cranston',
-                'meta_title' => 'Cranston Movers Calgary | Alpine Movers',
+                'meta_title' => 'Cranston Movers Calgary | Unitas Movers',
                 'meta_description' => 'Professional movers in Cranston, SE Calgary. Family suburb near Fish Creek Park. Licensed, insured. Free moving quotes.',
                 'h1' => 'Cranston Calgary Moving Services',
                 'body' => '<p>Cranston is a large, established SE Calgary community that borders Fish Creek Provincial Park to the north and offers a mix of family homes, townhomes, and estate properties in Cranston Ridge. Developed from the early 2000s, it\'s one of SE Calgary\'s most complete communities with mature trees, schools, and shopping.</p>
@@ -819,7 +819,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'mckenzie-towne',
                 'name' => 'McKenzie Towne',
-                'meta_title' => 'McKenzie Towne Movers Calgary | Alpine Movers',
+                'meta_title' => 'McKenzie Towne Movers Calgary | Unitas Movers',
                 'meta_description' => 'McKenzie Towne movers in SE Calgary. Charming community, family homes. Licensed, insured, affordable. Book a free estimate.',
                 'h1' => 'Movers in McKenzie Towne, Calgary',
                 'body' => '<p>McKenzie Towne is one of SE Calgary\'s most distinctive communities, designed as a new-urbanist neighbourhood with a traditional small-town feel. Its signature features include the High Street commercial strip, front porches, back lanes, and a community layout that encourages walkability and neighbourhood interaction.</p>
@@ -838,13 +838,13 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'copperfield',
                 'name' => 'Copperfield',
-                'meta_title' => 'Copperfield Movers Calgary | Alpine Movers',
+                'meta_title' => 'Copperfield Movers Calgary | Unitas Movers',
                 'meta_description' => 'Movers in Copperfield, SE Calgary. Growing family community. Licensed, insured, affordable. Get your free moving quote today.',
                 'h1' => 'Copperfield Moving Company — SE Calgary',
                 'body' => '<p>Copperfield is a thriving SE Calgary community developed from the mid-2000s, offering a range of housing from affordable townhomes to spacious single-family homes. Located along 52 Street SE near Stoney Trail, it provides good highway access and a growing list of neighbourhood amenities.</p>
 <h2>Moving in Copperfield</h2>
 <p>Copperfield\'s modern street design and newer homes make for efficient moves. Wide roads, double garages, and open floor plans mean our crews can work quickly and safely. The community\'s proximity to Stoney Trail gives our trucks fast access to other parts of the city.</p>
-<p>We see a lot of first-time buyers moving into Copperfield townhomes and young families upgrading to single-family homes within the community. Whatever your move looks like, Alpine Movers provides professional, careful service at fair prices.</p>',
+<p>We see a lot of first-time buyers moving into Copperfield townhomes and young families upgrading to single-family homes within the community. Whatever your move looks like, Unitas Movers provides professional, careful service at fair prices.</p>',
                 'latitude' => 50.9420,
                 'longitude' => -113.9420,
                 'population' => 10500,
@@ -857,7 +857,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'new-brighton',
                 'name' => 'New Brighton',
-                'meta_title' => 'New Brighton Movers Calgary | Alpine Movers',
+                'meta_title' => 'New Brighton Movers Calgary | Unitas Movers',
                 'meta_description' => 'New Brighton SE Calgary movers. Family community near McKenzie Towne. Licensed, insured. Free estimates. Call today.',
                 'h1' => 'Movers in New Brighton, SE Calgary',
                 'body' => '<p>New Brighton is a family-oriented SE Calgary community developed from 2003 onward, located adjacent to McKenzie Towne and near Stoney Trail. It features a central park, playgrounds, and pathways that give it a strong community feel — plus affordable housing that attracts first-time buyers and growing families.</p>
@@ -876,7 +876,7 @@ class AreaSeeder extends Seeder
             [
                 'slug' => 'walden',
                 'name' => 'Walden',
-                'meta_title' => 'Walden Movers Calgary | Alpine Movers',
+                'meta_title' => 'Walden Movers Calgary | Unitas Movers',
                 'meta_description' => 'Moving to Walden, SE Calgary? Professional movers for this growing community. Licensed, insured. Get your free moving quote.',
                 'h1' => 'Walden Calgary Moving Services',
                 'body' => '<p>Walden is one of SE Calgary\'s newest communities, developed from 2008 onward with a focus on parks, green spaces, and family living. Located south of Shawnessy along Macleod Trail, Walden offers new homes and a growing commercial area while maintaining easy access to Spruce Meadows and the Foothills.</p>
@@ -912,9 +912,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'airdrie',
                 'name' => 'Airdrie',
                 'area_type' => 'town',
-                'meta_title' => 'Airdrie Movers | Alpine Movers Calgary',
+                'meta_title' => 'Airdrie Movers | Unitas Movers',
                 'meta_description' => 'Moving to or from Airdrie? Calgary\'s trusted movers serve Airdrie daily. Licensed, insured, affordable. Free estimates for Airdrie moves.',
-                'h1' => 'Airdrie Moving Company — Alpine Movers',
+                'h1' => 'Airdrie Moving Company — Unitas Movers',
                 'body' => '<p>Airdrie is a fast-growing city just 15 minutes north of Calgary on the Queen Elizabeth II Highway. With a population exceeding 75,000, it\'s Alberta\'s sixth-largest city and one of the most popular destinations for Calgarians looking for more affordable housing while staying close to the city.</p>
 <h2>Calgary to Airdrie Moving Services</h2>
 <p>The Calgary-Airdrie corridor is one of our busiest routes. Many families make this move to get more house for their money — larger lots, newer homes, and a small-city feel while still commuting to Calgary for work. The 20-30 minute drive via Highway 2 makes it practical for daily commuting.</p>
@@ -935,9 +935,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'cochrane',
                 'name' => 'Cochrane',
                 'area_type' => 'town',
-                'meta_title' => 'Cochrane Movers | Alpine Movers Calgary',
+                'meta_title' => 'Cochrane Movers | Unitas Movers',
                 'meta_description' => 'Moving to or from Cochrane? Trusted Calgary movers serving Cochrane weekly. Licensed, insured. Free moving quotes for Cochrane.',
-                'h1' => 'Cochrane Moving Services — Alpine Movers',
+                'h1' => 'Cochrane Moving Services — Unitas Movers',
                 'body' => '<p>Cochrane is a picturesque town nestled in the foothills west of Calgary along Highway 1A. With stunning mountain views, a charming historic main street, and rapid residential growth, Cochrane has become one of the most desirable communities in the Calgary region for families and retirees alike.</p>
 <h2>Calgary to Cochrane Moves</h2>
 <p>The 30-minute drive from Calgary to Cochrane follows the Trans-Canada Highway or Highway 1A through the Bow River valley. We make this trip regularly and know the route well — including seasonal considerations like winter highway conditions that can affect scheduling.</p>
@@ -958,9 +958,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'okotoks',
                 'name' => 'Okotoks',
                 'area_type' => 'town',
-                'meta_title' => 'Okotoks Movers | Alpine Movers Calgary',
+                'meta_title' => 'Okotoks Movers | Unitas Movers',
                 'meta_description' => 'Moving to Okotoks from Calgary? Professional, insured movers. Affordable rates for the Calgary-Okotoks corridor. Free quotes.',
-                'h1' => 'Okotoks Moving Company — Alpine Movers',
+                'h1' => 'Okotoks Moving Company — Unitas Movers',
                 'body' => '<p>Okotoks is a thriving town south of Calgary along the Sheep River, known for its strong community values, excellent schools, and small-town charm. Located about 20 minutes south of Calgary\'s city limits via Highway 2A and Macleod Trail, Okotoks offers a quieter lifestyle while maintaining easy access to the city.</p>
 <h2>Calgary to Okotoks Moves</h2>
 <p>Many families choose Okotoks for its award-winning schools, community programs, and affordable housing relative to Calgary\'s inner suburbs. The move from Calgary is straightforward — Highway 2A and Highway 7 connect the two communities efficiently, and our trucks make the trip regularly.</p>
@@ -980,9 +980,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'chestermere',
                 'name' => 'Chestermere',
                 'area_type' => 'town',
-                'meta_title' => 'Chestermere Movers | Alpine Movers Calgary',
+                'meta_title' => 'Chestermere Movers | Unitas Movers',
                 'meta_description' => 'Chestermere movers you can trust. Lake city east of Calgary. Licensed, insured, affordable. Get your free moving estimate.',
-                'h1' => 'Movers in Chestermere — Alpine Movers',
+                'h1' => 'Movers in Chestermere — Unitas Movers',
                 'body' => '<p>Chestermere is a lake city immediately east of Calgary, centred around Chestermere Lake. The city offers a lakeside lifestyle just 15 minutes from Calgary\'s eastern edge, making it popular with families who want recreational water access without leaving the Calgary region.</p>
 <h2>Calgary to Chestermere Moving</h2>
 <p>The short distance between Calgary and Chestermere makes this one of our quickest inter-city moves. Chestermere Drive connects directly to Calgary\'s 17th Avenue SE, and Rainbow Road provides access from the TransCanada Highway. Our trucks can be there in 20 minutes from most Calgary locations.</p>
@@ -1002,9 +1002,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'strathmore',
                 'name' => 'Strathmore',
                 'area_type' => 'town',
-                'meta_title' => 'Strathmore Movers | Alpine Movers Calgary',
+                'meta_title' => 'Strathmore Movers | Unitas Movers',
                 'meta_description' => 'Moving to Strathmore from Calgary? Affordable, insured movers. 40 minutes east of Calgary on Highway 1. Free estimates.',
-                'h1' => 'Strathmore Moving Services — Alpine Movers',
+                'h1' => 'Strathmore Moving Services — Unitas Movers',
                 'body' => '<p>Strathmore is a town east of Calgary along the Trans-Canada Highway, approximately 40 minutes from the city centre. Known for its Heritage Days festival and small-town Alberta charm, Strathmore offers affordable living with a genuine community atmosphere that\'s hard to find closer to Calgary.</p>
 <h2>Calgary to Strathmore Moves</h2>
 <p>The drive to Strathmore follows the Trans-Canada Highway eastbound — a straightforward, well-maintained route that our trucks travel regularly. While further from Calgary than some satellite towns, Strathmore\'s significantly lower housing costs make the commute worthwhile for many families.</p>
@@ -1024,9 +1024,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'high-river',
                 'name' => 'High River',
                 'area_type' => 'town',
-                'meta_title' => 'High River Movers | Alpine Movers Calgary',
+                'meta_title' => 'High River Movers | Unitas Movers',
                 'meta_description' => 'Moving to High River? Calgary movers serving the Highway 2 south corridor. Licensed, insured. Free estimates for High River.',
-                'h1' => 'High River Moving Company — Alpine Movers',
+                'h1' => 'High River Moving Company — Unitas Movers',
                 'body' => '<p>High River is a historic town south of Calgary along the Highwood River, about 45 minutes from the city centre. Famous as the filming location of the TV show Heartland and for its resilient recovery from the 2013 flood, High River offers genuine small-town Alberta living with beautiful natural surroundings.</p>
 <h2>Calgary to High River Moves</h2>
 <p>The drive south on Highway 2 and Highway 2A to High River is scenic and straightforward. We serve the Calgary-High River corridor regularly, especially as more families discover the town\'s affordable housing, excellent recreation, and strong community spirit.</p>
@@ -1046,7 +1046,7 @@ class AreaSeeder extends Seeder
                 'slug' => 'canmore',
                 'name' => 'Canmore',
                 'area_type' => 'town',
-                'meta_title' => 'Canmore Movers | Alpine Movers Calgary',
+                'meta_title' => 'Canmore Movers | Unitas Movers',
                 'meta_description' => 'Moving to Canmore from Calgary? Mountain town movers you can trust. Licensed, insured. Free quotes for Calgary-Canmore moves.',
                 'h1' => 'Calgary to Canmore Moving Services',
                 'body' => '<p>Canmore is a stunning mountain town in the Bow Valley, nestled between Banff National Park and Kananaskis Country. About 80 minutes west of Calgary via the Trans-Canada Highway, Canmore attracts outdoor enthusiasts, remote workers, and retirees who want to live surrounded by the Rocky Mountains.</p>
@@ -1069,9 +1069,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'banff',
                 'name' => 'Banff',
                 'area_type' => 'town',
-                'meta_title' => 'Banff Movers | Alpine Movers Calgary',
+                'meta_title' => 'Banff Movers | Unitas Movers',
                 'meta_description' => 'Moving to or from Banff? Calgary-based movers serving Banff National Park. Licensed, insured. Free estimates for Banff moves.',
-                'h1' => 'Banff Moving Services — Alpine Movers',
+                'h1' => 'Banff Moving Services — Unitas Movers',
                 'body' => '<p>Banff is Canada\'s most famous mountain town, situated within Banff National Park about 90 minutes west of Calgary. While primarily known as a tourist destination, Banff has a residential community of workers, entrepreneurs, and long-term residents who call this mountain paradise home.</p>
 <h2>Calgary to Banff Moving</h2>
 <p>Moving to or from Banff involves navigating the Trans-Canada Highway through the Rocky Mountains. Parks Canada regulations may apply to certain aspects of moving within the national park boundaries. Our team is familiar with these requirements and plans accordingly.</p>
@@ -1092,9 +1092,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'langdon',
                 'name' => 'Langdon',
                 'area_type' => 'town',
-                'meta_title' => 'Langdon Movers | Alpine Movers Calgary',
+                'meta_title' => 'Langdon Movers | Unitas Movers',
                 'meta_description' => 'Moving to Langdon? Calgary movers serving the hamlet east of the city. Licensed, insured, affordable. Free estimates.',
-                'h1' => 'Langdon Moving Services — Alpine Movers',
+                'h1' => 'Langdon Moving Services — Unitas Movers',
                 'body' => '<p>Langdon is a growing hamlet just east of Calgary, offering a rural small-town atmosphere within easy commuting distance of the city. Located about 20 minutes east of Calgary\'s limits along Highway 560, Langdon attracts families who want larger lots, country living, and a tight-knit community.</p>
 <h2>Calgary to Langdon Moves</h2>
 <p>The commute from Langdon to Calgary is short and manageable — Highway 560 and Highway 22X connect the hamlet to Stoney Trail and the city\'s east side. Many Langdon residents commute to Calgary\'s industrial areas in the south and east.</p>
@@ -1114,9 +1114,9 @@ class AreaSeeder extends Seeder
                 'slug' => 'crossfield',
                 'name' => 'Crossfield',
                 'area_type' => 'town',
-                'meta_title' => 'Crossfield Movers | Alpine Movers Calgary',
+                'meta_title' => 'Crossfield Movers | Unitas Movers',
                 'meta_description' => 'Moving to Crossfield? Calgary movers serving the Highway 2 north corridor. Licensed, insured. Free moving estimates.',
-                'h1' => 'Crossfield Moving Company — Alpine Movers',
+                'h1' => 'Crossfield Moving Company — Unitas Movers',
                 'body' => '<p>Crossfield is a small town on Highway 2 between Calgary and Airdrie, about 30 minutes north of Calgary. With a population of around 3,500, it offers a genuinely small-town Alberta experience with affordable housing, friendly neighbours, and easy highway access to both Calgary and Airdrie.</p>
 <h2>Calgary to Crossfield Moves</h2>
 <p>The Highway 2 corridor makes the drive to Crossfield straightforward, and we serve the town as part of our regular northern Alberta routes. Crossfield\'s compact size means moves within the town are quick, while moves from Calgary involve a short highway trip.</p>

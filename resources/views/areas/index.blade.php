@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Areas Served | Alpine Movers Calgary')
-@section('meta_description', 'Alpine Movers serves all of Calgary and surrounding areas including Airdrie, Cochrane, Okotoks, and more. Find movers near you.')
+@section('title', 'Areas Served | Unitas Movers')
+@section('meta_description', 'Unitas Movers serves all of Calgary and surrounding areas including Airdrie, Cochrane, Okotoks, and more. Find movers near you.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
 @section('content')
-<section class="bg-alpine-green py-12">
+<section class="bg-unitas-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-3xl lg:text-4xl font-serif font-bold text-white">Areas We Serve</h1>
         <p class="mt-4 text-white/80 max-w-2xl mx-auto">Proudly serving Calgary and surrounding communities.</p>

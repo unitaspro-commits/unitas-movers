@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Cache;
 
 class SchemaMarkupService
 {
-    private const COMPANY_NAME = 'Alpine Movers Calgary';
+    private const COMPANY_NAME = 'Unitas Movers';
     private const PHONE = '+1-403-800-2747';
-    private const EMAIL = 'info@alpinemovers.ca';
-    private const SITE_URL = 'https://alpinemovers.ca';
-    private const LOGO_URL = 'https://alpinemovers.ca/images/logo.png';
+    private const EMAIL = 'info@unitasmovers.ca';
+    private const SITE_URL = 'https://unitasmovers.ca';
+    private const LOGO_URL = 'https://unitasmovers.ca/images/logo.png';
 
     public function forHomePage(): array
     {

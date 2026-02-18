@@ -5,7 +5,7 @@
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
 @section('content')
-<section class="bg-alpine-green py-12">
+<section class="bg-unitas-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="text-white/60 text-sm mb-4">
             <a href="{{ route('home') }}" class="hover:text-white">Home</a> &rsaquo;
@@ -37,7 +37,7 @@
         <div class="mt-12 bg-forest rounded-xl p-8 text-center">
             <h2 class="text-2xl font-serif font-bold text-white">Moving in {{ $area->name }}?</h2>
             <p class="mt-2 text-white/80">Get a free quote for your move today.</p>
-            <a href="{{ route('quote.create') }}" class="mt-4 inline-block bg-meadow hover:bg-alpine-green text-white px-8 py-3 rounded-lg font-bold transition">Get Your Free Quote</a>
+            <a href="{{ route('quote.create') }}" class="mt-4 inline-block bg-meadow hover:bg-unitas-green text-white px-8 py-3 rounded-lg font-bold transition">Get Your Free Quote</a>
         </div>
     </div>
 </section>

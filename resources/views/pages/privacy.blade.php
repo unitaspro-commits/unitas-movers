@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'Privacy Policy | Alpine Movers Calgary')
+@section('title', 'Privacy Policy | Unitas Movers')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
 @section('content')
-<section class="bg-alpine-green py-12">
+<section class="bg-unitas-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-3xl lg:text-4xl font-serif font-bold text-white">Privacy Policy</h1>
     </div>
@@ -20,7 +20,7 @@
             <h2>Data Protection</h2>
             <p>We implement appropriate security measures to protect your personal information. We do not sell, trade, or rent your personal information to third parties.</p>
             <h2>Contact Us</h2>
-            <p>For questions about this privacy policy, please contact us at info@alpinemovers.ca or call (403) 800-2747.</p>
+            <p>For questions about this privacy policy, please contact us at info@unitasmovers.ca or call (403) 800-2747.</p>
         </div>
     </div>
 </section>

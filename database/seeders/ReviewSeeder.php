@@ -19,7 +19,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Sarah M.',
                 'rating' => 5,
-                'body' => 'Alpine Movers made our move from Tuscany to Airdrie completely stress-free. The crew arrived on time, wrapped everything carefully, and had us fully moved in by 3 PM. I was especially impressed with how they handled our piano — not a scratch. Will absolutely recommend to friends and family.',
+                'body' => 'Unitas Movers made our move from Tuscany to Airdrie completely stress-free. The crew arrived on time, wrapped everything carefully, and had us fully moved in by 3 PM. I was especially impressed with how they handled our piano — not a scratch. Will absolutely recommend to friends and family.',
                 'service_id' => $services['residential-moving'] ?? null,
                 'area_id' => $areas['tuscany'] ?? null,
                 'source' => 'google',
@@ -28,7 +28,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'James & Priya K.',
                 'rating' => 5,
-                'body' => 'We moved our entire 4-bedroom house from Signal Hill to Mahogany. The Alpine Movers team was professional from the first phone call to the last box. They disassembled and reassembled all our furniture, protected our hardwood floors, and even helped us rearrange the living room twice until we were happy. Outstanding service.',
+                'body' => 'We moved our entire 4-bedroom house from Signal Hill to Mahogany. The Unitas Movers team was professional from the first phone call to the last box. They disassembled and reassembled all our furniture, protected our hardwood floors, and even helped us rearrange the living room twice until we were happy. Outstanding service.',
                 'service_id' => $services['residential-moving'] ?? null,
                 'area_id' => $areas['signal-hill'] ?? null,
                 'source' => 'google',
@@ -37,7 +37,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Marcus T.',
                 'rating' => 5,
-                'body' => 'Hired Alpine Movers for our office relocation downtown. They moved 15 desks, server equipment, and a boardroom table over a weekend so we didn\'t lose any business days. Everything was labelled and placed exactly where we wanted it. The project manager kept us updated throughout. Highly professional.',
+                'body' => 'Hired Unitas Movers for our office relocation downtown. They moved 15 desks, server equipment, and a boardroom table over a weekend so we didn\'t lose any business days. Everything was labelled and placed exactly where we wanted it. The project manager kept us updated throughout. Highly professional.',
                 'service_id' => $services['commercial-moving'] ?? null,
                 'area_id' => $areas['beltline'] ?? null,
                 'source' => 'google',
@@ -46,7 +46,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Linda & Gary P.',
                 'rating' => 5,
-                'body' => 'After 35 years in our Edgemont home, downsizing to a condo was emotional. The Alpine Movers crew was incredibly patient and compassionate. They let us take our time, handled our antiques with genuine care, and even helped us figure out what would fit in the new place. I can\'t say enough good things.',
+                'body' => 'After 35 years in our Edgemont home, downsizing to a condo was emotional. The Unitas Movers crew was incredibly patient and compassionate. They let us take our time, handled our antiques with genuine care, and even helped us figure out what would fit in the new place. I can\'t say enough good things.',
                 'service_id' => $services['senior-moving'] ?? null,
                 'area_id' => $areas['edgemont'] ?? null,
                 'source' => 'homestars',
@@ -55,7 +55,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Emily R.',
                 'rating' => 5,
-                'body' => 'I\'ve used Alpine Movers three times now — two apartment moves in the Beltline and one move to a house in Marda Loop. Consistently excellent. They know the downtown buildings inside out, handle elevator bookings smoothly, and the crews are always friendly and efficient. My go-to movers in Calgary.',
+                'body' => 'I\'ve used Unitas Movers three times now — two apartment moves in the Beltline and one move to a house in Marda Loop. Consistently excellent. They know the downtown buildings inside out, handle elevator bookings smoothly, and the crews are always friendly and efficient. My go-to movers in Calgary.',
                 'service_id' => $services['apartment-moving'] ?? null,
                 'area_id' => $areas['marda-loop'] ?? null,
                 'source' => 'google',
@@ -75,7 +75,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Amandeep S.',
                 'rating' => 5,
-                'body' => 'Our family moved from NE Calgary to Saddleridge and Alpine Movers was fantastic. The crew spoke Punjabi which made my parents feel comfortable. They moved our entire house including a heavy treadmill from the basement — up the stairs without any wall damage. Very impressive.',
+                'body' => 'Our family moved from NE Calgary to Saddleridge and Unitas Movers was fantastic. The crew spoke Punjabi which made my parents feel comfortable. They moved our entire house including a heavy treadmill from the basement — up the stairs without any wall damage. Very impressive.',
                 'service_id' => $services['residential-moving'] ?? null,
                 'area_id' => $areas['saddleridge'] ?? null,
                 'source' => 'google',
@@ -84,7 +84,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Rachel & Mike D.',
                 'rating' => 5,
-                'body' => 'We had a last-minute move after our closing date changed. Alpine Movers fit us in with only 3 days notice and did an amazing job. The crew of three knocked out our 3-bedroom house in Varsity in about 5 hours. Professional, fast, and friendly. Saved us from a very stressful situation.',
+                'body' => 'We had a last-minute move after our closing date changed. Unitas Movers fit us in with only 3 days notice and did an amazing job. The crew of three knocked out our 3-bedroom house in Varsity in about 5 hours. Professional, fast, and friendly. Saved us from a very stressful situation.',
                 'service_id' => $services['same-day-moving'] ?? null,
                 'area_id' => $areas['varsity'] ?? null,
                 'source' => 'homestars',
@@ -93,7 +93,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Chen W.',
                 'rating' => 5,
-                'body' => 'Alpine Movers handled our piano move from Hillhurst to Lakeview. It\'s a 1920s upright that\'s been in the family for generations. They had the right equipment, moved it down a flight of stairs, and delivered it without a single issue. The piano tuner said it was in perfect shape after. Thank you!',
+                'body' => 'Unitas Movers handled our piano move from Hillhurst to Lakeview. It\'s a 1920s upright that\'s been in the family for generations. They had the right equipment, moved it down a flight of stairs, and delivered it without a single issue. The piano tuner said it was in perfect shape after. Thank you!',
                 'service_id' => $services['piano-moving'] ?? null,
                 'area_id' => $areas['hillhurst'] ?? null,
                 'source' => 'direct',
@@ -102,7 +102,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Fatima A.',
                 'rating' => 5,
-                'body' => 'First time using professional movers and I\'m so glad I chose Alpine. Moving from my Skyview Ranch apartment to a new house in Auburn Bay. They packed my kitchen (I hate packing!) and moved everything in one day. The packing was so well done that nothing was damaged. Worth every penny.',
+                'body' => 'First time using professional movers and I\'m so glad I chose Unitas. Moving from my Skyview Ranch apartment to a new house in Auburn Bay. They packed my kitchen (I hate packing!) and moved everything in one day. The packing was so well done that nothing was damaged. Worth every penny.',
                 'service_id' => $services['packing-unpacking'] ?? null,
                 'area_id' => $areas['auburn-bay'] ?? null,
                 'source' => 'google',
@@ -111,7 +111,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Jordan B.',
                 'rating' => 5,
-                'body' => 'Moved from Calgary to Canmore — a mountain move that I was nervous about. The Alpine Movers crew handled the steep driveway and tight garage at the Canmore end like pros. They even wrapped my skis and mountain bikes individually. Everything arrived in perfect condition. Truly know what they\'re doing.',
+                'body' => 'Moved from Calgary to Canmore — a mountain move that I was nervous about. The Unitas Movers crew handled the steep driveway and tight garage at the Canmore end like pros. They even wrapped my skis and mountain bikes individually. Everything arrived in perfect condition. Truly know what they\'re doing.',
                 'service_id' => $services['long-distance-moving'] ?? null,
                 'area_id' => $areas['canmore'] ?? null,
                 'source' => 'google',
@@ -120,7 +120,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Tom & Heather N.',
                 'rating' => 5,
-                'body' => 'We hired Alpine for a full-service move from Discovery Ridge to Cochrane. They packed everything, moved it, and unpacked at the other end. With three kids and a dog, we couldn\'t have managed without them. The house was set up and liveable by bedtime. Exceptional service.',
+                'body' => 'We hired Unitas for a full-service move from Discovery Ridge to Cochrane. They packed everything, moved it, and unpacked at the other end. With three kids and a dog, we couldn\'t have managed without them. The house was set up and liveable by bedtime. Exceptional service.',
                 'service_id' => $services['residential-moving'] ?? null,
                 'area_id' => $areas['discovery-ridge'] ?? null,
                 'source' => 'homestars',
@@ -138,7 +138,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Robert & Nancy H.',
                 'rating' => 5,
-                'body' => 'Alpine Movers moved us from our Scenic Acres home of 22 years to a condo in Brentwood. The amount of stuff we had was embarrassing, but the crew never complained. They were patient, organized, and treated our belongings like their own. A special thank-you to the team lead who helped us decide what would fit.',
+                'body' => 'Unitas Movers moved us from our Scenic Acres home of 22 years to a condo in Brentwood. The amount of stuff we had was embarrassing, but the crew never complained. They were patient, organized, and treated our belongings like their own. A special thank-you to the team lead who helped us decide what would fit.',
                 'service_id' => $services['senior-moving'] ?? null,
                 'area_id' => $areas['scenic-acres'] ?? null,
                 'source' => 'direct',
@@ -147,7 +147,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Kevin O.',
                 'rating' => 5,
-                'body' => 'Had Alpine Movers move some heavy furniture pieces — a pool table, a sectional sofa, and a gun safe — from a house in Dalhousie. Just furniture, no boxes. They knew exactly how to handle each piece and had the right dollies and straps. Quick, professional, and damage-free.',
+                'body' => 'Had Unitas Movers move some heavy furniture pieces — a pool table, a sectional sofa, and a gun safe — from a house in Dalhousie. Just furniture, no boxes. They knew exactly how to handle each piece and had the right dollies and straps. Quick, professional, and damage-free.',
                 'service_id' => $services['furniture-moving'] ?? null,
                 'area_id' => $areas['dalhousie'] ?? null,
                 'source' => 'google',
@@ -156,7 +156,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Stephanie C.',
                 'rating' => 5,
-                'body' => 'We needed an evening move because of work schedules — Alpine was one of the few companies that offered it. The crew arrived at 5 PM and had our 2-bedroom Killarney house loaded and unloaded at the Altadore house by 9:30 PM. Efficient, careful, and accommodating with our schedule.',
+                'body' => 'We needed an evening move because of work schedules — Unitas was one of the few companies that offered it. The crew arrived at 5 PM and had our 2-bedroom Killarney house loaded and unloaded at the Altadore house by 9:30 PM. Efficient, careful, and accommodating with our schedule.',
                 'service_id' => $services['evening-weekend-moving'] ?? null,
                 'area_id' => $areas['killarney'] ?? null,
                 'source' => 'homestars',
@@ -185,7 +185,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Hassan M.',
                 'rating' => 4,
-                'body' => 'Used Alpine Movers for our move from Marlborough to Falconridge. Good value for the price and the crew was hardworking. They wrapped all the furniture in blankets and used floor protection. One small scuff on a wall during the move, but they were upfront about it and took responsibility. Honest company.',
+                'body' => 'Used Unitas Movers for our move from Marlborough to Falconridge. Good value for the price and the crew was hardworking. They wrapped all the furniture in blankets and used floor protection. One small scuff on a wall during the move, but they were upfront about it and took responsibility. Honest company.',
                 'service_id' => $services['local-moving'] ?? null,
                 'area_id' => $areas['falconridge'] ?? null,
                 'source' => 'homestars',
@@ -194,7 +194,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Brittany S.',
                 'rating' => 4,
-                'body' => 'Hired Alpine for a Calgary to Edmonton move. The long-distance process was well-organized — they gave us a detailed flat-rate quote and stuck to it. Everything arrived in good condition. Would have appreciated slightly better communication about the exact delivery window, but overall a solid experience.',
+                'body' => 'Hired Unitas for a Calgary to Edmonton move. The long-distance process was well-organized — they gave us a detailed flat-rate quote and stuck to it. Everything arrived in good condition. Would have appreciated slightly better communication about the exact delivery window, but overall a solid experience.',
                 'service_id' => $services['long-distance-moving'] ?? null,
                 'area_id' => null,
                 'source' => 'google',
@@ -214,7 +214,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Laura T.',
                 'rating' => 5,
-                'body' => 'Alpine Movers helped us relocate from Calgary to Okotoks. The move was seamless — they loaded our 4-bedroom house in the morning and had everything unloaded and placed by mid-afternoon. The crew lead even remembered where each piece of furniture was supposed to go from our walkthrough. Impressed!',
+                'body' => 'Unitas Movers helped us relocate from Calgary to Okotoks. The move was seamless — they loaded our 4-bedroom house in the morning and had everything unloaded and placed by mid-afternoon. The crew lead even remembered where each piece of furniture was supposed to go from our walkthrough. Impressed!',
                 'service_id' => $services['residential-moving'] ?? null,
                 'area_id' => $areas['okotoks'] ?? null,
                 'source' => 'google',
@@ -223,7 +223,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Chris & Danielle B.',
                 'rating' => 5,
-                'body' => 'Just moved into our first home in Walden from a Beltline apartment. Alpine Movers was patient with our condo building\'s strict elevator rules and handled the loading dock like they\'d done it a hundred times (they probably have!). Everything arrived in perfect condition at our new house. Couldn\'t be happier.',
+                'body' => 'Just moved into our first home in Walden from a Beltline apartment. Unitas Movers was patient with our condo building\'s strict elevator rules and handled the loading dock like they\'d done it a hundred times (they probably have!). Everything arrived in perfect condition at our new house. Couldn\'t be happier.',
                 'service_id' => $services['apartment-moving'] ?? null,
                 'area_id' => $areas['walden'] ?? null,
                 'source' => 'google',
@@ -232,7 +232,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Raj P.',
                 'rating' => 5,
-                'body' => 'I run a dental practice and needed to move equipment to a new clinic space in NW Calgary. Alpine Movers handled our sensitive dental chairs, X-ray units, and office furniture with extreme care. They padded and wrapped everything individually. Zero damage. Their specialty moving team clearly knows what they\'re doing.',
+                'body' => 'I run a dental practice and needed to move equipment to a new clinic space in NW Calgary. Unitas Movers handled our sensitive dental chairs, X-ray units, and office furniture with extreme care. They padded and wrapped everything individually. Zero damage. Their specialty moving team clearly knows what they\'re doing.',
                 'service_id' => $services['specialty-moving'] ?? null,
                 'area_id' => $areas['nw-calgary'] ?? null,
                 'source' => 'direct',
@@ -241,7 +241,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Amanda & Steve L.',
                 'rating' => 5,
-                'body' => 'We moved from New Brighton to Chestermere with a hot tub, a home gym, and a workshop full of tools on top of a regular household. Alpine sent a four-person crew and they had everything loaded and unloaded in one day. The hot tub move alone was worth hiring professionals for. Fantastic job.',
+                'body' => 'We moved from New Brighton to Chestermere with a hot tub, a home gym, and a workshop full of tools on top of a regular household. Unitas sent a four-person crew and they had everything loaded and unloaded in one day. The hot tub move alone was worth hiring professionals for. Fantastic job.',
                 'service_id' => $services['specialty-moving'] ?? null,
                 'area_id' => $areas['chestermere'] ?? null,
                 'source' => 'homestars',
@@ -250,7 +250,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Paul V.',
                 'rating' => 5,
-                'body' => 'Needed to put some furniture and boxes in storage while between homes. Alpine Movers loaded everything into a storage unit, organized it so we could access things, and then moved it all out to our new place in Aspen Woods three weeks later. Both moves were smooth and reasonably priced.',
+                'body' => 'Needed to put some furniture and boxes in storage while between homes. Unitas Movers loaded everything into a storage unit, organized it so we could access things, and then moved it all out to our new place in Aspen Woods three weeks later. Both moves were smooth and reasonably priced.',
                 'service_id' => $services['storage-solutions'] ?? null,
                 'area_id' => $areas['aspen-woods'] ?? null,
                 'source' => 'google',
@@ -259,7 +259,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Yuki N.',
                 'rating' => 5,
-                'body' => 'Small move from a furnished room in University Heights to a 1-bedroom apartment in Brentwood. I only had a bed, desk, dresser, and about 10 boxes. Alpine offered their small move rate which was very affordable. Two guys knocked it out in 90 minutes. Perfect for students and small moves.',
+                'body' => 'Small move from a furnished room in University Heights to a 1-bedroom apartment in Brentwood. I only had a bed, desk, dresser, and about 10 boxes. Unitas offered their small move rate which was very affordable. Two guys knocked it out in 90 minutes. Perfect for students and small moves.',
                 'service_id' => $services['small-moves'] ?? null,
                 'area_id' => $areas['university-heights'] ?? null,
                 'source' => 'google',
@@ -268,7 +268,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Doug & Wendy K.',
                 'rating' => 5,
-                'body' => 'We needed help clearing out a deceased relative\'s home in South Calgary. Alpine Movers was incredibly respectful and sensitive to the situation. They helped us move the items we were keeping to our home and coordinated a donation pickup for the rest. Above and beyond what we expected from a moving company.',
+                'body' => 'We needed help clearing out a deceased relative\'s home in South Calgary. Unitas Movers was incredibly respectful and sensitive to the situation. They helped us move the items we were keeping to our home and coordinated a donation pickup for the rest. Above and beyond what we expected from a moving company.',
                 'service_id' => $services['junk-removal'] ?? null,
                 'area_id' => $areas['south-calgary'] ?? null,
                 'source' => 'direct',
@@ -277,7 +277,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Samira E.',
                 'rating' => 5,
-                'body' => 'Recently moved to Calgary from Vancouver and Alpine Movers handled the BC end pickup and delivery here in Douglasdale. The mountain highway drive was a concern but they assured us they do it regularly. Everything arrived on schedule and in perfect condition after 1,000 km through the Rockies. True professionals.',
+                'body' => 'Recently moved to Calgary from Vancouver and Unitas Movers handled the BC end pickup and delivery here in Douglasdale. The mountain highway drive was a concern but they assured us they do it regularly. Everything arrived on schedule and in perfect condition after 1,000 km through the Rockies. True professionals.',
                 'service_id' => $services['long-distance-moving'] ?? null,
                 'area_id' => $areas['douglasdale'] ?? null,
                 'source' => 'google',
@@ -286,7 +286,7 @@ class ReviewSeeder extends Seeder
             [
                 'customer_name' => 'Tyler & Jess W.',
                 'rating' => 5,
-                'body' => 'Saturday afternoon move from Martindale to Cityscape. We needed weekend availability and Alpine was happy to accommodate. The two-person crew was fast and careful. They even helped us hook up the washer and dryer at the new place. Little things like that make a big difference. Five stars, no question.',
+                'body' => 'Saturday afternoon move from Martindale to Cityscape. We needed weekend availability and Unitas was happy to accommodate. The two-person crew was fast and careful. They even helped us hook up the washer and dryer at the new place. Little things like that make a big difference. Five stars, no question.',
                 'service_id' => $services['evening-weekend-moving'] ?? null,
                 'area_id' => $areas['cityscape'] ?? null,
                 'source' => 'google',

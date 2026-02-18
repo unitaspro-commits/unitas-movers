@@ -1,4 +1,4 @@
-# Alpine Movers Calgary — Project Guide
+# Unitas Movers — Project Guide
 
 ## INSTRUCTIONS FOR CLAUDE
 
@@ -14,9 +14,9 @@ Every time a new session starts in this project:
 
 ## Project Overview
 
-**Alpine Movers Calgary** — A professional moving company website + CMS for managing leads, content, and SEO.
+**Unitas Movers** — A professional moving company website + CMS for managing leads, content, and SEO.
 
-- **URL:** alpinemovers.ca (Calgary-based moving company)
+- **URL:** unitasmovers.ca (Calgary-based moving company)
 - **Goal:** Generate quote leads via SEO-optimized pages, manage leads through Filament admin panel
 
 ## Tech Stack

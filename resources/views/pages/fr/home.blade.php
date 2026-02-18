@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('title', 'Alpine Movers Calgary — Déménagement Écologique')
+@section('title', 'Unitas Movers — Déménagement Écologique')
 @section('content')
-<section class="bg-alpine-green py-20">
+<section class="bg-unitas-green py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl lg:text-5xl font-serif font-bold text-white">Déménageurs Écologiques à Calgary</h1>
         <p class="mt-6 text-white/80 text-lg max-w-2xl mx-auto">Déménageurs professionnels, assurés et bilingues. Service en français disponible pour tous vos besoins de déménagement.</p>

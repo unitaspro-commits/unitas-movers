@@ -12,14 +12,14 @@ class FaqSeeder extends Seeder
         $faqs = [
             // ── General / Getting Started ────────────────────────
             [
-                'question' => 'How do I get a moving quote from Alpine Movers?',
-                'answer' => 'You can request a free quote by filling out the form on our Get a Quote page, calling us at (403) 800-2747, or emailing info@alpinemovers.ca. We\'ll ask about your move details — home size, addresses, preferred date, and any special items — and provide a clear estimate, usually within a few hours.',
+                'question' => 'How do I get a moving quote from Unitas Movers?',
+                'answer' => 'You can request a free quote by filling out the form on our Get a Quote page, calling us at (403) 800-2747, or emailing info@unitasmovers.ca. We\'ll ask about your move details — home size, addresses, preferred date, and any special items — and provide a clear estimate, usually within a few hours.',
                 'category' => 'general',
                 'sort_order' => 1,
             ],
             [
                 'question' => 'Are you licensed and insured?',
-                'answer' => 'Yes. Alpine Movers is a fully licensed Calgary moving company with a City of Calgary business licence, commercial vehicle insurance, cargo liability coverage, and Workers\' Compensation Board (WCB) coverage. We\'re happy to provide proof of insurance upon request.',
+                'answer' => 'Yes. Unitas Movers is a fully licensed Calgary moving company with a City of Calgary business licence, commercial vehicle insurance, cargo liability coverage, and Workers\' Compensation Board (WCB) coverage. We\'re happy to provide proof of insurance upon request.',
                 'category' => 'general',
                 'sort_order' => 2,
             ],

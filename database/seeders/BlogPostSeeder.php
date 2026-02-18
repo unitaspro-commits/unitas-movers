@@ -20,7 +20,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'complete-guide-to-moving-in-calgary',
                 'title' => 'The Complete Guide to Moving in Calgary (2026)',
-                'meta_title' => 'Complete Guide to Moving in Calgary | Alpine Movers',
+                'meta_title' => 'Complete Guide to Moving in Calgary | Unitas Movers',
                 'meta_description' => 'Everything you need to know about moving in Calgary. Neighbourhoods, costs, timelines, checklists, and tips from local moving experts.',
                 'excerpt' => 'Your definitive resource for planning a Calgary move — from choosing a neighbourhood to unpacking in your new home.',
                 'category' => 'pillar',
@@ -116,7 +116,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'calgary-moving-costs-guide',
                 'title' => 'Calgary Moving Costs: What You\'ll Really Pay in 2026',
-                'meta_title' => 'Calgary Moving Costs 2026 | Alpine Movers',
+                'meta_title' => 'Calgary Moving Costs 2026 | Unitas Movers',
                 'meta_description' => 'Transparent breakdown of Calgary moving costs. Hourly rates, flat pricing, extras explained. See what your move will really cost.',
                 'excerpt' => 'A transparent, no-BS breakdown of what Calgary moves actually cost — hourly rates, flat pricing, and the extras that affect your bill.',
                 'category' => 'pillar',
@@ -126,8 +126,8 @@ class BlogPostSeeder extends Seeder
                 'published_at' => '2026-01-22 09:00:00',
                 'faq_json' => [
                     ['question' => 'How much do Calgary movers charge per hour?', 'answer' => 'Most Calgary movers charge $120-$170/hour for a two-person crew with truck. Three-person crews typically run $160-$220/hour. These rates usually include the truck, fuel, dollies, and furniture blankets.'],
-                    ['question' => 'Is there a minimum charge for Calgary movers?', 'answer' => 'Most companies have a 2-3 hour minimum. At Alpine Movers, our minimum is 2 hours, which covers most small apartment and condo moves.'],
-                    ['question' => 'Do Calgary movers charge for travel time?', 'answer' => 'Some do. At Alpine Movers, we start the clock when we arrive at your home — not when we leave our depot. There\'s no charge for travel time.'],
+                    ['question' => 'Is there a minimum charge for Calgary movers?', 'answer' => 'Most companies have a 2-3 hour minimum. At Unitas Movers, our minimum is 2 hours, which covers most small apartment and condo moves.'],
+                    ['question' => 'Do Calgary movers charge for travel time?', 'answer' => 'Some do. At Unitas Movers, we start the clock when we arrive at your home — not when we leave our depot. There\'s no charge for travel time.'],
                 ],
                 'body' => '<p>Moving costs are the number one question we get asked — and the number one source of confusion and frustration in the moving industry. This guide breaks down exactly what Calgary moves cost, what affects the price, and how to avoid surprise charges.</p>
 
@@ -201,7 +201,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'how-to-pack-for-a-move',
                 'title' => 'How to Pack for a Move: The Room-by-Room Guide',
-                'meta_title' => 'How to Pack for a Move | Alpine Movers Calgary',
+                'meta_title' => 'How to Pack for a Move | Unitas Movers',
                 'meta_description' => 'Step-by-step packing guide for every room. Expert tips from Calgary movers on boxes, wrapping, labelling, and protecting fragile items.',
                 'excerpt' => 'A step-by-step packing guide that covers every room in your home, from the kitchen to the garage.',
                 'category' => 'guides',
@@ -279,7 +279,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'first-time-homebuyer-moving-checklist',
                 'title' => 'First-Time Homebuyer Moving Checklist for Calgary',
-                'meta_title' => 'First-Time Homebuyer Moving Checklist | Alpine Movers',
+                'meta_title' => 'First-Time Homebuyer Moving Checklist | Unitas Movers',
                 'meta_description' => 'First-time homebuyer in Calgary? Complete moving checklist from possession day prep to settling in. Everything new homeowners need.',
                 'excerpt' => 'Buying your first home is exciting — this checklist makes sure the move goes just as smoothly.',
                 'category' => 'guides',
@@ -348,7 +348,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'how-to-move-with-pets',
                 'title' => 'How to Move with Pets in Calgary: A Stress-Free Guide',
-                'meta_title' => 'Moving with Pets in Calgary | Alpine Movers',
+                'meta_title' => 'Moving with Pets in Calgary | Unitas Movers',
                 'meta_description' => 'Moving with dogs, cats, or other pets? Calgary-specific tips for a smooth, low-stress move for you and your animals.',
                 'excerpt' => 'Your pets feel the stress of a move too. Here\'s how to keep them safe, calm, and comfortable on moving day.',
                 'category' => 'guides',
@@ -399,7 +399,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'piano-moving-guide',
                 'title' => 'Moving a Piano in Calgary: What You Need to Know',
-                'meta_title' => 'Piano Moving Guide Calgary | Alpine Movers',
+                'meta_title' => 'Piano Moving Guide Calgary | Unitas Movers',
                 'meta_description' => 'How to move a piano safely in Calgary. Costs, preparation, and why you need professional piano movers. Free piano moving quotes.',
                 'excerpt' => 'Pianos are heavy, delicate, and expensive. Here\'s everything you need to know about moving one safely.',
                 'category' => 'guides',
@@ -409,7 +409,7 @@ class BlogPostSeeder extends Seeder
                 'published_at' => '2026-02-12 09:00:00',
                 'faq_json' => [
                     ['question' => 'How much does it cost to move a piano in Calgary?', 'answer' => 'Upright pianos typically cost $150-$350 to move locally. Grand pianos range from $300-$600+. Stairs, distance, and piano size all affect the price.'],
-                    ['question' => 'Can regular movers move a piano?', 'answer' => 'Some moving companies have piano-trained crews and equipment. At Alpine Movers, we have the speciality equipment and trained staff to move pianos safely. Not all movers do — always ask.'],
+                    ['question' => 'Can regular movers move a piano?', 'answer' => 'Some moving companies have piano-trained crews and equipment. At Unitas Movers, we have the speciality equipment and trained staff to move pianos safely. Not all movers do — always ask.'],
                     ['question' => 'Should I tune my piano after moving?', 'answer' => 'Yes — always have your piano tuned 2-4 weeks after a move. The change in humidity, temperature, and vibration from transport will affect tuning.'],
                 ],
                 'body' => '<p>A piano is one of the most challenging items to move. An upright piano weighs 300-500 pounds, while a grand piano can exceed 1,000 pounds. Beyond the weight, pianos are precision instruments with thousands of internal components that can be damaged by improper handling.</p>
@@ -452,7 +452,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'long-distance-moving-from-calgary',
                 'title' => 'Long-Distance Moving from Calgary: A Complete Guide',
-                'meta_title' => 'Long-Distance Moving from Calgary | Alpine Movers',
+                'meta_title' => 'Long-Distance Moving from Calgary | Unitas Movers',
                 'meta_description' => 'Planning a long-distance move from Calgary? Routes, costs, timelines, and tips for moves to Edmonton, Vancouver, and beyond.',
                 'excerpt' => 'Everything you need to plan a long-distance move from Calgary — whether you\'re headed to Edmonton, Vancouver, or anywhere in between.',
                 'category' => 'guides',
@@ -513,7 +513,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'tips-to-save-money-on-your-move',
                 'title' => '10 Proven Tips to Save Money on Your Calgary Move',
-                'meta_title' => 'Save Money Moving in Calgary | Alpine Movers',
+                'meta_title' => 'Save Money Moving in Calgary | Unitas Movers',
                 'meta_description' => '10 real tips to reduce your moving costs in Calgary. From timing your move to DIY packing — save hundreds on your next move.',
                 'excerpt' => 'Moving doesn\'t have to break the bank. These 10 tips can save you hundreds on your Calgary move.',
                 'category' => 'tips',
@@ -552,7 +552,7 @@ class BlogPostSeeder extends Seeder
 <p>Get quotes from 2-3 licensed movers and compare what\'s included. The cheapest quote isn\'t always the best value — hidden fees, inadequate insurance, or inexperienced crews can cost more in the long run.</p>
 
 <h2>9. Ask About Off-Peak Discounts</h2>
-<p>Many moving companies offer lower rates during off-peak periods. At Alpine Movers, we keep our rates consistent, but we may have more flexible scheduling during slower months that can work to your advantage.</p>
+<p>Many moving companies offer lower rates during off-peak periods. At Unitas Movers, we keep our rates consistent, but we may have more flexible scheduling during slower months that can work to your advantage.</p>
 
 <h2>10. Take Tax Deductions If Eligible</h2>
 <p>If you\'re moving for work (at least 40 km closer to your new workplace), you may be able to deduct moving expenses on your Canadian tax return. Keep all receipts — moving company invoice, packing supplies, travel costs, and temporary housing. Consult a tax professional for specifics.</p>',
@@ -560,7 +560,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'how-to-choose-a-moving-company',
                 'title' => 'How to Choose the Right Moving Company in Calgary',
-                'meta_title' => 'How to Choose a Moving Company Calgary | Alpine Movers',
+                'meta_title' => 'How to Choose a Moving Company Calgary | Unitas Movers',
                 'meta_description' => 'How to find a trustworthy Calgary moving company. Red flags, questions to ask, and what to look for. Expert advice from local movers.',
                 'excerpt' => 'Not all moving companies are created equal. Here\'s how to find a trustworthy, professional mover in Calgary.',
                 'category' => 'tips',
@@ -626,7 +626,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'apartment-moving-tips',
                 'title' => 'Apartment Moving Tips: Elevators, Building Rules & More',
-                'meta_title' => 'Apartment Moving Tips Calgary | Alpine Movers',
+                'meta_title' => 'Apartment Moving Tips Calgary | Unitas Movers',
                 'meta_description' => 'Moving out of a Calgary apartment? Tips for elevator bookings, building rules, protecting your deposit, and making it smooth.',
                 'excerpt' => 'Apartment moves have their own set of challenges. Elevator rules, parking, and deposit protection — we cover it all.',
                 'category' => 'tips',
@@ -682,7 +682,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'what-to-do-before-moving-day',
                 'title' => 'What to Do Before Moving Day: A 2-Week Countdown',
-                'meta_title' => '2-Week Moving Countdown Checklist | Alpine Movers',
+                'meta_title' => '2-Week Moving Countdown Checklist | Unitas Movers',
                 'meta_description' => 'Your day-by-day countdown to moving day. Everything to pack, cancel, set up, and prepare in the final two weeks before your move.',
                 'excerpt' => 'The final two weeks before a move are critical. This day-by-day countdown keeps you on track.',
                 'category' => 'tips',
@@ -763,7 +763,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'winter-moving-in-calgary',
                 'title' => 'Winter Moving in Calgary: Tips for Cold-Weather Moves',
-                'meta_title' => 'Winter Moving Calgary Tips | Alpine Movers',
+                'meta_title' => 'Winter Moving Calgary Tips | Unitas Movers',
                 'meta_description' => 'Moving in Calgary\'s winter? Expert tips for cold-weather moves. Snow, ice, and frozen pipes — how to handle it all. Free quotes.',
                 'excerpt' => 'Calgary winters don\'t stop moving day. Here\'s how to handle snow, ice, and freezing temperatures during your move.',
                 'category' => 'seasonal',
@@ -821,7 +821,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'summer-moving-season-book-early',
                 'title' => 'Summer Moving Season: Why You Need to Book Early',
-                'meta_title' => 'Summer Moving Season Calgary | Alpine Movers',
+                'meta_title' => 'Summer Moving Season Calgary | Unitas Movers',
                 'meta_description' => 'Summer is Calgary\'s busiest moving season. Why booking early matters, how to save, and what to expect from June to August.',
                 'excerpt' => 'Summer is peak moving season in Calgary. Here\'s why early booking is essential and how to make the most of your summer move.',
                 'category' => 'seasonal',
@@ -870,7 +870,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'spring-decluttering-before-your-move',
                 'title' => 'Spring Decluttering Before Your Move: A Room-by-Room Plan',
-                'meta_title' => 'Decluttering Before a Move | Alpine Movers Calgary',
+                'meta_title' => 'Decluttering Before a Move | Unitas Movers',
                 'meta_description' => 'Moving soon? Declutter first to save time and money. Room-by-room plan for downsizing before your Calgary move.',
                 'excerpt' => 'Less stuff means a faster, cheaper move. Here\'s your room-by-room decluttering plan before moving day.',
                 'category' => 'seasonal',
@@ -935,8 +935,8 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'best-neighbourhoods-in-calgary-for-families',
                 'title' => 'Best Neighbourhoods in Calgary for Families (2026)',
-                'meta_title' => 'Best Calgary Neighbourhoods for Families | Alpine Movers',
-                'meta_description' => 'Top family-friendly Calgary neighbourhoods ranked by schools, parks, safety, and value. Expert local guide from Alpine Movers.',
+                'meta_title' => 'Best Calgary Neighbourhoods for Families | Unitas Movers',
+                'meta_description' => 'Top family-friendly Calgary neighbourhoods ranked by schools, parks, safety, and value. Expert local guide from Unitas Movers.',
                 'excerpt' => 'Looking for the best family neighbourhood in Calgary? We\'ve moved families into every corner of the city — here are our top picks.',
                 'category' => 'local',
                 'target_keyword' => 'best neighbourhoods Calgary families',
@@ -987,7 +987,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'moving-to-calgary-from-another-province',
                 'title' => 'Moving to Calgary from Another Province: What to Know',
-                'meta_title' => 'Moving to Calgary Guide | Alpine Movers',
+                'meta_title' => 'Moving to Calgary Guide | Unitas Movers',
                 'meta_description' => 'Relocating to Calgary from BC, Ontario, or elsewhere? Essential info on licences, healthcare, taxes, and settling in. Welcome guide.',
                 'excerpt' => 'Relocating to Calgary from another province? Here\'s everything you need to know about making Alberta your new home.',
                 'category' => 'local',
@@ -1038,7 +1038,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'calgary-quadrants-guide',
                 'title' => 'A Guide to Calgary\'s Quadrants: NW, NE, SW, SE Explained',
-                'meta_title' => 'Calgary Quadrants Guide NW NE SW SE | Alpine Movers',
+                'meta_title' => 'Calgary Quadrants Guide NW NE SW SE | Unitas Movers',
                 'meta_description' => 'Understand Calgary\'s four quadrants. Character, housing, prices, and lifestyle in NW, NE, SW, and SE Calgary. Local expert guide.',
                 'excerpt' => 'NW, NE, SW, SE — Calgary\'s quadrant system shapes everything from home prices to lifestyle. Here\'s what each one offers.',
                 'category' => 'local',
@@ -1101,7 +1101,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'moving-to-calgary-suburbs',
                 'title' => 'Moving to the Calgary Suburbs: Airdrie, Cochrane, or Okotoks?',
-                'meta_title' => 'Airdrie vs Cochrane vs Okotoks | Alpine Movers',
+                'meta_title' => 'Airdrie vs Cochrane vs Okotoks | Unitas Movers',
                 'meta_description' => 'Thinking about Airdrie, Cochrane, or Okotoks? Compare Calgary\'s top satellite towns — housing, commute, lifestyle, and costs.',
                 'excerpt' => 'Calgary\'s satellite towns offer more house for less money. But which one is right for you? We compare the big three.',
                 'category' => 'local',
@@ -1162,7 +1162,7 @@ class BlogPostSeeder extends Seeder
             [
                 'slug' => 'senior-moving-guide-calgary',
                 'title' => 'Senior Moving in Calgary: A Compassionate Guide',
-                'meta_title' => 'Senior Moving Guide Calgary | Alpine Movers',
+                'meta_title' => 'Senior Moving Guide Calgary | Unitas Movers',
                 'meta_description' => 'Helping a senior move in Calgary? Compassionate guide for downsizing, retirement homes, and making the transition easier.',
                 'excerpt' => 'Moving a parent or elderly loved one? This guide covers downsizing, emotional support, and finding the right help.',
                 'category' => 'guides',

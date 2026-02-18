@@ -1,4 +1,4 @@
-# Alpine Movers Calgary — Product Requirements Document (PRD)
+# Unitas Movers — Product Requirements Document (PRD)
 
 **Last Updated:** 2026-02-18
 **Status:** Active
@@ -7,10 +7,10 @@
 
 ## 1. Product Vision
 
-Alpine Movers Calgary is a professional moving company website designed to **generate quote leads** through SEO-optimized content and establish **brand credibility** as a trusted, affordable, and flexible moving service in Calgary and across Alberta.
+Unitas Movers is a professional moving company website designed to **generate quote leads** through SEO-optimized content and establish **brand credibility** as a trusted, affordable, and flexible moving service in Calgary and across Alberta.
 
 ### Mission Statement
-Make Alpine Movers the go-to choice for residential and commercial moves in Calgary and Alberta by providing a fast, trustworthy, and affordable moving experience — starting with making it effortless for customers to request a quote online.
+Make Unitas Movers the go-to choice for residential and commercial moves in Calgary and Alberta by providing a fast, trustworthy, and affordable moving experience — starting with making it effortless for customers to request a quote online.
 
 ---
 
@@ -106,7 +106,7 @@ Make Alpine Movers the go-to choice for residential and commercial moves in Calg
    - Summary of their quote details (date, from/to, move size)
    - "We'll get back to you as soon as possible"
    - Company contact info (phone, email)
-   - Professional Alpine Movers branding
+   - Professional Unitas Movers branding
 
 **After Submission — Admin Experience:**
 1. Admin receives a **notification email**:
@@ -223,7 +223,7 @@ The homepage must include:
 **About (`/about`)**
 - Company story, mission, values
 - Team photo/description
-- Why choose Alpine Movers
+- Why choose Unitas Movers
 - Differentiators highlighted
 
 **Licensed & Insured (`/about/licensed-insured`)**
@@ -246,7 +246,7 @@ The homepage must include:
 
 ### 5.9 French Pages — REMOVED
 
-~~French pages have been removed from scope. Alpine Movers is not positioning as bilingual or eco-friendly.~~
+~~French pages have been removed from scope. Unitas Movers is not positioning as bilingual or eco-friendly.~~
 This feature is not part of the current project scope.
 
 ---

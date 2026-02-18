@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Alpine Movers Calgary — Professional Moving Company | Free Quotes')
+@section('title', 'Unitas Movers — Professional Moving Company | Free Quotes')
 @section('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')
 
 @section('schema')
@@ -463,14 +463,14 @@ function quoteForm() {
     </div>
 </section>
 
-{{-- Section 5: Why Alpine (unchanged) --}}
+{{-- Section 5: Why Unitas (unchanged) --}}
 <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-                <div x-reveal="right" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Why Alpine Movers</div>
+                <div x-reveal="right" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Why Unitas Movers</div>
                 <h2 x-reveal="right" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight leading-tight">Moving should be exciting,<br><span class="text-primary">not stressful.</span></h2>
-                <p x-reveal="right" x-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We combine professional expertise with affordable pricing and genuine care for your belongings. That's the Alpine difference.</p>
+                <p x-reveal="right" x-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We combine professional expertise with affordable pricing and genuine care for your belongings. That's the Unitas difference.</p>
 
                 <div class="mt-10 space-y-6">
                     @php
@@ -524,7 +524,7 @@ function quoteForm() {
     <div class="bg-dark py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-primary-light text-sm font-semibold mb-4">The Alpine Difference</div>
+                <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-primary-light text-sm font-semibold mb-4">The Unitas Difference</div>
                 <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Moving stress? Not anymore.</h2>
             </div>
             <div x-reveal="scale" class="max-w-4xl mx-auto">
@@ -535,7 +535,7 @@ function quoteForm() {
                             <div class="w-16 h-16 bg-red-500/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                 <svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-4">Without Alpine</h3>
+                            <h3 class="text-xl font-bold text-white mb-4">Without Unitas</h3>
                             <ul class="space-y-3 text-left">
                                 @foreach(['Hidden fees & surprise charges', 'Damaged furniture, no insurance', 'Late arrivals, no communication', 'Stressful, chaotic experience', 'No care for your belongings'] as $item)
                                     <li class="flex items-center text-white/60 text-sm">
@@ -552,7 +552,7 @@ function quoteForm() {
                             <div class="w-16 h-16 bg-accent/15 rounded-2xl flex items-center justify-center mx-auto mb-6">
                                 <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-4">With Alpine Movers</h3>
+                            <h3 class="text-xl font-bold text-white mb-4">With Unitas Movers</h3>
                             <ul class="space-y-3 text-left">
                                 @foreach(['Transparent pricing, no surprises', 'Fully insured, careful handling', 'On time, every time, with updates', 'Smooth, organized experience', 'Your belongings treated like our own'] as $item)
                                     <li class="flex items-center text-white/80 text-sm">
@@ -672,7 +672,7 @@ function quoteForm() {
                 </div>
             @empty
                 @foreach([
-                    ['name' => 'Sarah M.', 'text' => 'Alpine Movers made our move from NW Calgary completely stress-free. The crew was professional, careful with our furniture, and finished ahead of schedule. Highly recommend!'],
+                    ['name' => 'Sarah M.', 'text' => 'Unitas Movers made our move from NW Calgary completely stress-free. The crew was professional, careful with our furniture, and finished ahead of schedule. Highly recommend!'],
                     ['name' => 'James P.', 'text' => 'They handled our piano with incredible care and finished ahead of schedule. The affordable pricing was a bonus we didn\'t expect. Highly recommend!'],
                     ['name' => 'David & Karen T.', 'text' => 'Best movers in Calgary, period. Transparent pricing, no hidden fees, and the crew went above and beyond. Already recommending to all our friends.'],
                 ] as $placeholder)
