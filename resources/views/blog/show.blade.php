@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', $post->meta_title)
 @section('meta_description', $post->meta_description)
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
 @section('content')
 <section class="bg-alpine-green py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,6 +35,8 @@
                 </div>
             </div>
         @endif
+        <x-related-pages :relatedPages="$relatedPages" />
+
         <div class="mt-12 bg-forest rounded-xl p-8 text-center">
             <h2 class="text-2xl font-serif font-bold text-white">Need Help With Your Move?</h2>
             <p class="mt-2 text-white/80">Get a free, no-obligation quote from Alpine Movers today.</p>

@@ -3,19 +3,23 @@
 namespace App\Http\Controllers;
 
 use App\Models\BlogPost;
+use App\Services\InternalLinkService;
+use App\Services\SchemaMarkupService;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index(SchemaMarkupService $schema)
     {
         $posts = BlogPost::published()
             ->latest('published_at')
             ->paginate(12);
 
-        return view('blog.index', compact('posts'));
+        $schemas = $schema->forIndexPage('Blog', route('blog.index'));
+
+        return view('blog.index', compact('posts', 'schemas'));
     }
 
-    public function show(BlogPost $post)
+    public function show(BlogPost $post, SchemaMarkupService $schema, InternalLinkService $links)
     {
         abort_unless($post->is_published, 404);
 
@@ -27,6 +31,9 @@ class BlogController extends Controller
             ->take(3)
             ->get();
 
-        return view('blog.show', compact('post', 'relatedPosts'));
+        $schemas = $schema->forBlogShow($post);
+        $relatedPages = $links->forBlogPost($post);
+
+        return view('blog.show', compact('post', 'relatedPosts', 'schemas', 'relatedPages'));
     }
 }
