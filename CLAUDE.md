@@ -133,7 +133,7 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [ ] **Google Places autocomplete** — Integrate on quote form address fields
 - [ ] **Distance calculation** — Auto-calculate estimated_distance_km from addresses
 - [x] **Sitemap generation** — XML sitemap at /sitemap.xml with ~117 URLs (static + services + areas + routes + blog) — 2026-02-18
-- [ ] **Redirect middleware** — Handle 301/302 redirects from redirects table
+- [x] **Redirect middleware** — HandleRedirects middleware checks redirects table, performs 301/302 redirects with hit tracking — 2026-02-18
 - [ ] **Internal linking system** — Automated cross-page link suggestions
 - [ ] **Image optimization** — Media pipeline for responsive images
 - [ ] **Production deployment** — Server setup, SSL, domain config
