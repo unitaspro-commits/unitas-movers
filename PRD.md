@@ -295,7 +295,7 @@ This feature is not part of the current project scope.
 **Color Palette (Rocky Mountain inspired):**
 | Color | Hex | Usage |
 |-------|-----|-------|
-| Alpine Green (Primary) | #1B4D3E | Logo, headers, primary buttons, nav |
+| Unitas Green (Primary) | #1B4D3E | Logo, headers, primary buttons, nav |
 | Forest (Secondary) | #2D6B4F | Hover states, H2 headings |
 | Meadow (Accent) | #4CAF50 | CTAs, success states |
 | Slate (Neutral Dark) | #2C3E50 | Body text, footer |

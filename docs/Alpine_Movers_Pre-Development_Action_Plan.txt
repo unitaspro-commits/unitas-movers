@@ -28,9 +28,9 @@ Clean design, upfront pricing, tech-forward
 
 Proposed brand tagline options: 
     1. "Moving Calgary Forward" — implies progress, community, and forward-thinking
-    2. "Your Move, Our Mountain" — plays on Alpine name, Calgary landscape
+    2. "Your Move, Our Mission" — implies purpose, reliability, Calgary landscape
     3. "Move Clean. Move Green." — eco positioning front and center
-    4. "Peak Moving Experience" — alpine wordplay with quality promise
+    4. "Peak Moving Experience" — quality promise
 2.2 Color Palette
 The palette draws from the Canadian Rockies: deep evergreens, mountain slate, and warm earth tones. This avoids the generic blue-and-orange that dominates moving company branding (Paramount, Cactus, Two Men and a Truck all use blue or orange).
 
@@ -38,9 +38,9 @@ Color
 Hex Code
 Tailwind Class
 Usage
-Alpine Green (Primary)
+Unitas Green (Primary)
 #1B4D3E
-alpine-green / green-900
+unitas-green / green-900
 Logo, headers, primary buttons, nav background
 Forest (Secondary)
 #2D6B4F
@@ -101,7 +101,7 @@ JetBrains Mono
 400
 Pricing numbers, calculator output, code
 
-DM Serif Display gives Alpine a premium, established feel that contrasts with the casual sans-serif approach of most Calgary movers. Plus Jakarta Sans is modern and highly readable at all sizes. Both are free Google Fonts with excellent language support including French characters.
+DM Serif Display gives Unitas a premium, established feel that contrasts with the casual sans-serif approach of most Calgary movers. Plus Jakarta Sans is modern and highly readable at all sizes. Both are free Google Fonts with excellent language support including French characters.
 2.4 Logo Direction
 The logo should work across all contexts: website header, truck signage, business cards, Google Business Profile avatar (which renders at 120x120px), and invoice headers.
 
@@ -110,7 +110,7 @@ Direction
 Logomark
 Stylized mountain peak using clean geometric lines — not a detailed illustration. Should read clearly at 32px favicon size.
 Wordmark
-DM Serif Display for "Alpine" + Plus Jakarta Sans for "Movers" to create hierarchy.
+DM Serif Display for "Unitas" + Plus Jakarta Sans for "Movers" to create hierarchy.
 Color Versions
 Full color (green + dark), reversed (white on green), monochrome (dark), monochrome (white).
 Favicon
@@ -142,7 +142,7 @@ Horizontal scroll or 2-row grid
 6 cards (Residential, Commercial, Long-Distance, Packing, Piano/Specialty, Same-Day) each with icon + short description + link
 Internal links to service pages, keyword-rich anchor text
 2-column grid, cards stack naturally
-4. Why Alpine
+4. Why Unitas
 3 columns: Eco-Friendly | Bilingual | Transparent Pricing. Each with icon, heading, 2–3 sentence description
 Differentiator content, keyword variations
 Single column stack
@@ -192,7 +192,7 @@ HowTo schema opportunity, user value
 Pricing Guide
 Starting rates, what affects cost, link to pricing page and calculator
 Targets "[service] cost Calgary" queries
-Why Choose Alpine
+Why Choose Unitas
 3 trust points specific to this service (e.g., piano page: padding methods, insurance coverage, crew training)
 E-E-A-T content, keyword variations
 Areas Served
@@ -278,7 +278,7 @@ Internal Links To
 Homepage
 movers Calgary
 1,000
-Hero, trust bar, 6 service cards, why Alpine (eco/bilingual/transparent), areas map, testimonials, cost preview, blog preview
+Hero, trust bar, 6 service cards, why Unitas (affordable/licensed/flexible), areas map, testimonials, cost preview, blog preview
 All 6 featured services, pricing, top 3 areas, blog posts
 /services/residential-moving
 residential movers Calgary
