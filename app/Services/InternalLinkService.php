@@ -6,6 +6,7 @@ use App\Models\Area;
 use App\Models\BlogPost;
 use App\Models\Service;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Cache;
 
 class InternalLinkService
 {
@@ -14,11 +15,13 @@ class InternalLinkService
      */
     public function forService(Service $service): array
     {
-        return [
-            'services' => $this->relatedServices($service),
-            'areas' => $this->randomAreas(6),
-            'blog_posts' => $this->blogPostsForService($service),
-        ];
+        return Cache::remember("internal_links:service:{$service->id}", 3600, function () use ($service) {
+            return [
+                'services' => $this->relatedServices($service),
+                'areas' => $this->randomAreas(6),
+                'blog_posts' => $this->blogPostsForService($service),
+            ];
+        });
     }
 
     /**
@@ -26,11 +29,13 @@ class InternalLinkService
      */
     public function forArea(Area $area): array
     {
-        return [
-            'services' => Service::published()->ordered()->take(6)->get(),
-            'areas' => $this->siblingAreas($area),
-            'blog_posts' => $this->blogPostsForArea($area),
-        ];
+        return Cache::remember("internal_links:area:{$area->id}", 3600, function () use ($area) {
+            return [
+                'services' => Service::published()->ordered()->take(6)->get(),
+                'areas' => $this->siblingAreas($area),
+                'blog_posts' => $this->blogPostsForArea($area),
+            ];
+        });
     }
 
     /**
@@ -38,11 +43,13 @@ class InternalLinkService
      */
     public function forBlogPost(BlogPost $post): array
     {
-        return [
-            'services' => $this->servicesForBlogPost($post),
-            'areas' => $this->areasForBlogPost($post),
-            'blog_posts' => collect(), // blog show already has "Related Articles"
-        ];
+        return Cache::remember("internal_links:blog:{$post->id}", 3600, function () use ($post) {
+            return [
+                'services' => $this->servicesForBlogPost($post),
+                'areas' => $this->areasForBlogPost($post),
+                'blog_posts' => collect(),
+            ];
+        });
     }
 
     private function relatedServices(Service $service): Collection
@@ -62,7 +69,6 @@ class InternalLinkService
     private function siblingAreas(Area $area): Collection
     {
         if (! $area->parent_id) {
-            // Top-level area: show other top-level areas
             return Area::published()
                 ->whereNull('parent_id')
                 ->where('id', '!=', $area->id)

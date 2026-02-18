@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Cache;
 
 class Redirect extends Model
 {
@@ -21,6 +22,12 @@ class Redirect extends Model
             'hit_count' => 'integer',
             'last_hit_at' => 'datetime',
         ];
+    }
+
+    protected static function booted(): void
+    {
+        static::saved(fn () => Cache::forget('redirects'));
+        static::deleted(fn () => Cache::forget('redirects'));
     }
 
     public function recordHit(): void

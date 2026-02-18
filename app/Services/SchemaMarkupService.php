@@ -7,6 +7,7 @@ use App\Models\BlogPost;
 use App\Models\Review;
 use App\Models\SeoMeta;
 use App\Models\Service;
+use Illuminate\Support\Facades\Cache;
 
 class SchemaMarkupService
 {
@@ -170,21 +171,23 @@ class SchemaMarkupService
 
     private function aggregateRating(): array
     {
-        $avgRating = Review::published()->avg('rating') ?: 4.8;
-        $count = Review::published()->count() ?: 30;
+        return Cache::remember('schema:aggregate_rating', 3600, function () {
+            $avgRating = Review::published()->avg('rating') ?: 4.8;
+            $count = Review::published()->count() ?: 30;
 
-        return [
-            '@context' => 'https://schema.org',
-            '@type' => 'MovingCompany',
-            'name' => self::COMPANY_NAME,
-            'aggregateRating' => [
-                '@type' => 'AggregateRating',
-                'ratingValue' => round($avgRating, 1),
-                'bestRating' => 5,
-                'worstRating' => 1,
-                'ratingCount' => $count,
-            ],
-        ];
+            return [
+                '@context' => 'https://schema.org',
+                '@type' => 'MovingCompany',
+                'name' => self::COMPANY_NAME,
+                'aggregateRating' => [
+                    '@type' => 'AggregateRating',
+                    'ratingValue' => round($avgRating, 1),
+                    'bestRating' => 5,
+                    'worstRating' => 1,
+                    'ratingCount' => $count,
+                ],
+            ];
+        });
     }
 
     private function webSite(): array

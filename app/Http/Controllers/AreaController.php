@@ -11,9 +11,9 @@ class AreaController extends Controller
     public function index(SchemaMarkupService $schema)
     {
         $areas = Area::published()->ordered()->get();
-        $quadrants = Area::published()->ofType('quadrant')->ordered()->get();
-        $neighborhoods = Area::published()->ofType('neighborhood')->ordered()->get();
-        $towns = Area::published()->ofType('town')->ordered()->get();
+        $quadrants = $areas->where('area_type', 'quadrant');
+        $neighborhoods = $areas->where('area_type', 'neighborhood');
+        $towns = $areas->where('area_type', 'town');
         $schemas = $schema->forIndexPage('Areas', route('areas.index'));
 
         return view('areas.index', compact('areas', 'quadrants', 'neighborhoods', 'towns', 'schemas'));
