@@ -1,4 +1,2 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://unitasmovers.ca/sitemap.xml
+Disallow: /
