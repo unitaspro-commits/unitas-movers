@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Licensed & Insured Movers Calgary | Alpine Movers')
 @section('meta_description', 'Alpine Movers Calgary is fully licensed and insured. Full liability coverage, WCB coverage, and proper permits for every move.')
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
 @section('content')
 <section class="bg-alpine-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

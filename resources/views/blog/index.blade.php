@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Moving Blog | Tips & Guides | Alpine Movers Calgary')
 @section('meta_description', 'Expert moving tips, guides, and local Calgary advice from the Alpine Movers team.')
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
 @section('content')
 <section class="bg-alpine-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

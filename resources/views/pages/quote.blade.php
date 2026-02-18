@@ -3,6 +3,10 @@
 @section('title', 'Get a Free Moving Quote | Alpine Movers Calgary')
 @section('meta_description', 'Request your free moving quote from Alpine Movers Calgary. Fill out our quick form and we\'ll respond within 2 hours during business hours.')
 
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
+
 @section('content')
 <section class="bg-alpine-green py-12">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

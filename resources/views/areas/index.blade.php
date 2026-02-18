@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Areas Served | Alpine Movers Calgary')
 @section('meta_description', 'Alpine Movers serves all of Calgary and surrounding areas including Airdrie, Cochrane, Okotoks, and more. Find movers near you.')
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
 @section('content')
 <section class="bg-alpine-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

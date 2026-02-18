@@ -6,17 +6,19 @@ use App\Enums\MoveSize;
 use App\Enums\ReferralSource;
 use App\Models\Quote;
 use App\Models\Service;
+use App\Services\SchemaMarkupService;
 use Illuminate\Http\Request;
 
 class QuoteController extends Controller
 {
-    public function create()
+    public function create(SchemaMarkupService $schema)
     {
         $services = Service::published()->ordered()->get();
         $moveSizes = MoveSize::cases();
         $referralSources = ReferralSource::cases();
+        $schemas = $schema->forStaticPage('get-a-quote', 'Get a Free Quote', route('quote.create'));
 
-        return view('pages.quote', compact('services', 'moveSizes', 'referralSources'));
+        return view('pages.quote', compact('services', 'moveSizes', 'referralSources', 'schemas'));
     }
 
     public function store(Request $request)

@@ -3,6 +3,10 @@
 @section('title', 'Alpine Movers Calgary — Professional Moving Company | Free Quotes')
 @section('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')
 
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
+
 @section('content')
 
 {{-- Section 1: Hero — Split layout: blob video + 4-step quote form --}}

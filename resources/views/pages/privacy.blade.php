@@ -1,5 +1,8 @@
 @extends('layouts.app')
 @section('title', 'Privacy Policy | Alpine Movers Calgary')
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
 @section('content')
 <section class="bg-alpine-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

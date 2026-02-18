@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('title', 'Moving Prices Calgary | Transparent Pricing | Alpine Movers')
 @section('meta_description', 'Transparent moving prices in Calgary. No hidden fees. Studio from $350, 1BR from $500, 2BR from $750. Free quotes — call (403) 800-2747.')
+@section('schema')
+    <x-schema-json-ld :schemas="$schemas" />
+@endsection
 @section('content')
 <section class="bg-alpine-green py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
