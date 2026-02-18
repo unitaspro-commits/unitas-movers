@@ -27,15 +27,31 @@ class MediaResource extends Resource
                 Forms\Components\FileUpload::make('path')
                     ->image()
                     ->directory('media')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                     ->required()
                     ->columnSpanFull(),
                 Forms\Components\TextInput::make('alt_text')->required()->maxLength(255),
                 Forms\Components\TextInput::make('title')->maxLength(255),
-                Forms\Components\Select::make('format')
-                    ->options(['webp' => 'WebP', 'jpg' => 'JPG', 'png' => 'PNG']),
-                Forms\Components\TextInput::make('width')->numeric()->suffix('px'),
-                Forms\Components\TextInput::make('height')->numeric()->suffix('px'),
-                Forms\Components\TextInput::make('size_bytes')->numeric()->suffix('bytes'),
+                Forms\Components\TextInput::make('format')
+                    ->disabled()
+                    ->dehydrated()
+                    ->helperText('Auto-detected from upload'),
+                Forms\Components\TextInput::make('width')
+                    ->numeric()
+                    ->suffix('px')
+                    ->disabled()
+                    ->dehydrated(),
+                Forms\Components\TextInput::make('height')
+                    ->numeric()
+                    ->suffix('px')
+                    ->disabled()
+                    ->dehydrated(),
+                Forms\Components\TextInput::make('size_bytes')
+                    ->numeric()
+                    ->suffix('bytes')
+                    ->disabled()
+                    ->dehydrated()
+                    ->formatStateUsing(fn (?int $state) => $state ? number_format($state) : null),
             ])->columns(2),
         ]);
     }

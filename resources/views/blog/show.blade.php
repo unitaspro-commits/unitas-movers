@@ -19,6 +19,11 @@
 </section>
 <section class="py-12 lg:py-16">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        @if($post->featured_image)
+            <div class="mb-8 rounded-xl overflow-hidden">
+                <x-responsive-image :src="$post->featured_image" :alt="$post->title" class="w-full h-auto" sizes="(max-width: 896px) 100vw, 896px" />
+            </div>
+        @endif
         @if($post->body)
             <div class="prose prose-lg max-w-none">{!! $post->body !!}</div>
         @endif

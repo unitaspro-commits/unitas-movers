@@ -18,7 +18,7 @@
                 <a href="{{ route('blog.show', $post) }}" class="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md border border-stone/10 transition">
                     <div class="h-48 bg-alpine-green/5 flex items-center justify-center">
                         @if($post->featured_image)
-                            <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="w-full h-full object-cover">
+                            <x-responsive-image :src="$post->featured_image" :alt="$post->title" class="w-full h-full object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                         @else
                             <svg class="w-12 h-12 text-alpine-green/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path></svg>
                         @endif

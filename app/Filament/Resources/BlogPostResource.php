@@ -56,7 +56,10 @@ class BlogPostResource extends Resource
                     ->helperText(fn (?string $state) => strlen($state ?? '') . '/70 characters'),
                 Forms\Components\TextInput::make('meta_description')->required()->maxLength(170)
                     ->helperText(fn (?string $state) => strlen($state ?? '') . '/170 characters'),
-                Forms\Components\TextInput::make('featured_image')->maxLength(255),
+                Forms\Components\FileUpload::make('featured_image')
+                    ->image()
+                    ->directory('blog')
+                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp']),
                 Forms\Components\TextInput::make('canonical_url')->maxLength(255),
                 Forms\Components\TextInput::make('og_image')->maxLength(255),
             ])->columns(2),

@@ -716,7 +716,7 @@ function quoteForm() {
             @endphp
             @foreach($gallery as $i => $photo)
                 <div x-reveal="scale" x-reveal-delay="{{ min($i + 1, 8) }}" class="gallery-item relative rounded-2xl overflow-hidden bg-gray-200 {{ $photo['span'] }}">
-                    <img src="{{ $photo['img'] }}" alt="{{ $photo['alt'] }}" class="w-full h-full object-cover" loading="lazy">
+                    <x-responsive-image :src="$photo['img']" :alt="$photo['alt']" class="w-full h-full object-cover" />
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent flex items-end p-4">
                         <p class="text-white text-sm font-medium">{{ $photo['alt'] }}</p>
                     </div>
@@ -738,7 +738,7 @@ function quoteForm() {
                 <a href="{{ route('blog.show', $post) }}" x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-primary/20 card-hover-tilt">
                     <div class="h-48 bg-gradient-to-br from-primary/5 to-primary-50 flex items-center justify-center">
                         @if($post->featured_image)
-                            <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <x-responsive-image :src="$post->featured_image" :alt="$post->title" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
                         @else
                             <svg class="w-12 h-12 text-primary/15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path></svg>
                         @endif
