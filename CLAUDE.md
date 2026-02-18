@@ -136,7 +136,7 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [x] **Redirect middleware** — HandleRedirects middleware checks redirects table, performs 301/302 redirects with hit tracking — 2026-02-18
 - [x] **Internal linking system** — InternalLinkService + <x-related-pages> component on service/area/blog detail pages + `php artisan links:generate` audit command (893 links) — 2026-02-18
 - [x] **Image optimization** — Intervention Image v3, on-upload WebP variant generation (thumb/medium/large), `<x-responsive-image>` Blade component, `images:regenerate` artisan command — 2026-02-18
-- [ ] **Production deployment** — Server setup, SSL, domain config
+- [x] **Production deployment** — DigitalOcean droplet (159.203.23.196), Ubuntu 24.04, Nginx, PHP 8.3, MySQL 8, SSL via Let's Encrypt, live at https://unitasmovers.ca — 2026-02-19
 - [ ] **Analytics integration** — Google Analytics / Tag Manager
 - [x] **Schema.org markup** — JSON-LD structured data on all pages: MovingCompany, AggregateRating, WebSite, Service, BlogPosting, FAQPage, BreadcrumbList via SchemaMarkupService + Blade component — 2026-02-18
 - [x] **Performance optimization** — Redirect caching, sitemap caching, aggregate rating cache, internal link caching, N+1 fixes, font preload, ClearsSiteCache trait, `app:optimize` command — 2026-02-19
