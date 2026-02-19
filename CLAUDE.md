@@ -130,7 +130,7 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [x] **Reviews seeder** — 30 placeholder reviews seeded (5 featured, 25/5★ + 5/4★, 16 services, 29 areas) — 2026-02-18
 - [x] **FAQ content** — 35 FAQs seeded across 8 categories (general, pricing, moving-day, services, protection, apartments, booking, restrictions) — 2026-02-18
 - [x] **SEO meta for static pages** — 10 static pages seeded with meta titles, descriptions, canonical URLs, and schema.org JSON — 2026-02-18
-- [ ] **Google Places autocomplete** — Integrate on quote form address fields
+- [x] **Google Places autocomplete** — Integrated on quote form address fields with city auto-extraction, Canada-restricted, graceful degradation — 2026-02-19
 - [ ] **Distance calculation** — Auto-calculate estimated_distance_km from addresses
 - [x] **Sitemap generation** — XML sitemap at /sitemap.xml with ~117 URLs (static + services + areas + routes + blog) — 2026-02-18
 - [x] **Redirect middleware** — HandleRedirects middleware checks redirects table, performs 301/302 redirects with hit tracking — 2026-02-18

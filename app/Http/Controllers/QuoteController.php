@@ -40,6 +40,8 @@ class QuoteController extends Controller
             'additional_notes' => 'nullable|string',
             'preferred_language' => 'nullable|in:en,fr',
             'referral_source' => 'nullable|string',
+            'origin_city' => 'nullable|string|max:100',
+            'destination_city' => 'nullable|string|max:100',
         ]);
 
         $validated['status'] = 'new';

@@ -68,14 +68,16 @@
                     <div>
                         <label for="moving_from" class="block text-sm font-medium text-slate-dark mb-1">Moving From *</label>
                         <input type="text" name="moving_from" id="moving_from" value="{{ old('moving_from') }}" required
-                            placeholder="Enter your current address"
+                            placeholder="Enter your current address" autocomplete="off"
                             class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                        <input type="hidden" name="origin_city" id="origin_city" value="{{ old('origin_city') }}">
                     </div>
                     <div>
                         <label for="moving_to" class="block text-sm font-medium text-slate-dark mb-1">Moving To *</label>
                         <input type="text" name="moving_to" id="moving_to" value="{{ old('moving_to') }}" required
-                            placeholder="Enter your destination address"
+                            placeholder="Enter your destination address" autocomplete="off"
                             class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                        <input type="hidden" name="destination_city" id="destination_city" value="{{ old('destination_city') }}">
                     </div>
                     <div>
                         <label for="move_date" class="block text-sm font-medium text-slate-dark mb-1">Move Date *</label>
@@ -170,4 +172,83 @@
         </form>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+@if(config('services.google.maps_api_key'))
+<style>
+    .pac-container {
+        border-radius: 0.5rem;
+        border: 1px solid rgba(120, 113, 108, 0.2);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        font-family: inherit;
+        margin-top: 4px;
+        z-index: 9999;
+    }
+    .pac-item {
+        padding: 8px 12px;
+        font-size: 0.875rem;
+        cursor: pointer;
+        border-top: 1px solid rgba(120, 113, 108, 0.1);
+    }
+    .pac-item:first-child { border-top: none; }
+    .pac-item:hover, .pac-item-selected { background-color: rgba(34, 87, 47, 0.05); }
+    .pac-icon { display: none; }
+    .pac-item-query { font-size: 0.875rem; color: #1e293b; }
+    .pac-matched { font-weight: 600; }
+</style>
+<script>
+    function initGooglePlacesAutocomplete() {
+        var fields = [
+            { input: 'moving_from', hidden: 'origin_city' },
+            { input: 'moving_to', hidden: 'destination_city' }
+        ];
+
+        fields.forEach(function(field) {
+            var inputEl = document.getElementById(field.input);
+            var hiddenEl = document.getElementById(field.hidden);
+            if (!inputEl) return;
+
+            var autocomplete = new google.maps.places.Autocomplete(inputEl, {
+                componentRestrictions: { country: 'ca' },
+                fields: ['address_components', 'formatted_address'],
+                types: ['address']
+            });
+
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+                if (!place.address_components) return;
+
+                inputEl.value = place.formatted_address || inputEl.value;
+
+                var city = '';
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var component = place.address_components[i];
+                    var types = component.types;
+                    if (types.indexOf('locality') !== -1) {
+                        city = component.long_name;
+                        break;
+                    } else if (types.indexOf('sublocality') !== -1 && !city) {
+                        city = component.long_name;
+                    } else if (types.indexOf('administrative_area_level_2') !== -1 && !city) {
+                        city = component.long_name;
+                    }
+                }
+                hiddenEl.value = city;
+            });
+
+            // Prevent form submit on Enter while autocomplete dropdown is open
+            inputEl.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    var pacContainer = document.querySelector('.pac-container');
+                    if (pacContainer && pacContainer.style.display !== 'none' && pacContainer.offsetHeight > 0) {
+                        e.preventDefault();
+                    }
+                }
+            });
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete" async defer></script>
+@endif
 @endsection
