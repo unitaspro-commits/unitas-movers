@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Enums\MoveSize;
 use App\Enums\ReferralSource;
+use App\Mail\NewQuoteAdmin;
+use App\Mail\QuoteConfirmation;
 use App\Models\Quote;
 use App\Models\Service;
 use App\Services\SchemaMarkupService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class QuoteController extends Controller
 {
@@ -44,7 +48,23 @@ class QuoteController extends Controller
         $validated['utm_medium'] = $request->query('utm_medium');
         $validated['utm_campaign'] = $request->query('utm_campaign');
 
-        Quote::create($validated);
+        $quote = Quote::create($validated);
+
+        // Send email notifications
+        try {
+            Mail::to(config('mail.admin_to'))->send(new NewQuoteAdmin($quote));
+            Mail::to($quote->email)->send(new QuoteConfirmation($quote));
+
+            $quote->activities()->create([
+                'type' => 'email_sent',
+                'summary' => 'Auto-reply confirmation sent to customer',
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Quote email notification failed', [
+                'quote_id' => $quote->id,
+                'error' => $e->getMessage(),
+            ]);
+        }
 
         return redirect()->route('quote.create')
             ->with('success', 'Thank you! Your quote request has been submitted. We\'ll contact you within 2 hours during business hours.');

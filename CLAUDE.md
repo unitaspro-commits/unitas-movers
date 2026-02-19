@@ -142,7 +142,7 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [x] **Performance optimization** — Redirect caching, sitemap caching, aggregate rating cache, internal link caching, N+1 fixes, font preload, ClearsSiteCache trait, `app:optimize` command — 2026-02-19
 
 ### Nice to Have (Future)
-- [ ] Email notifications — Admin notification when new quote arrives + customer auto-reply confirmation
+- [x] Email notifications — Admin notification (NewQuoteAdmin) + customer auto-reply (QuoteConfirmation) on quote submission, activity logging, error handling — 2026-02-19
 - [ ] Online booking/payment integration
 - [ ] Customer portal (track move status)
 - [ ] SMS notifications

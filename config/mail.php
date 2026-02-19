@@ -115,4 +115,16 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Notification Recipient
+    |--------------------------------------------------------------------------
+    |
+    | The email address that receives admin notifications such as new quote
+    | requests. Set via MAIL_ADMIN_TO in your .env file.
+    |
+    */
+
+    'admin_to' => env('MAIL_ADMIN_TO', 'info@unitasmovers.ca'),
+
 ];
