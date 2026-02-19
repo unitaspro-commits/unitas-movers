@@ -151,18 +151,20 @@
                                         <div class="relative">
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                             <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
-                                                placeholder="Your current address"
+                                                placeholder="Your current address" autocomplete="off"
                                                 class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
                                         </div>
+                                        <input type="hidden" name="origin_city" id="hero_origin_city">
                                     </div>
                                     <div>
                                         <label for="hero_moving_to" class="block text-base font-semibold text-dark mb-2">Moving To</label>
                                         <div class="relative">
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                             <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
-                                                placeholder="Your destination address"
+                                                placeholder="Your destination address" autocomplete="off"
                                                 class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
                                         </div>
+                                        <input type="hidden" name="destination_city" id="hero_destination_city">
                                     </div>
                                     <div>
                                         <label for="hero_move_date" class="block text-base font-semibold text-dark mb-2">Move Date</label>
@@ -797,4 +799,83 @@ function quoteForm() {
     </div>
 </section>
 
+@endsection
+
+@section('scripts')
+@if(config('services.google.maps_api_key'))
+<style>
+    .pac-container {
+        border-radius: 0.5rem;
+        border: 1px solid rgba(120, 113, 108, 0.2);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        font-family: inherit;
+        margin-top: 4px;
+        z-index: 9999;
+    }
+    .pac-item {
+        padding: 8px 12px;
+        font-size: 0.875rem;
+        cursor: pointer;
+        border-top: 1px solid rgba(120, 113, 108, 0.1);
+    }
+    .pac-item:first-child { border-top: none; }
+    .pac-item:hover, .pac-item-selected { background-color: rgba(89, 52, 255, 0.05); }
+    .pac-icon { display: none; }
+    .pac-item-query { font-size: 0.875rem; color: #1e293b; }
+    .pac-matched { font-weight: 600; }
+</style>
+<script>
+    function initGooglePlacesAutocomplete() {
+        var fields = [
+            { input: 'hero_moving_from', hidden: 'hero_origin_city' },
+            { input: 'hero_moving_to', hidden: 'hero_destination_city' }
+        ];
+
+        fields.forEach(function(field) {
+            var inputEl = document.getElementById(field.input);
+            var hiddenEl = document.getElementById(field.hidden);
+            if (!inputEl) return;
+
+            var autocomplete = new google.maps.places.Autocomplete(inputEl, {
+                componentRestrictions: { country: 'ca' },
+                fields: ['address_components', 'formatted_address'],
+                types: ['address']
+            });
+
+            autocomplete.addListener('place_changed', function() {
+                var place = autocomplete.getPlace();
+                if (!place.address_components) return;
+
+                inputEl.value = place.formatted_address || inputEl.value;
+                inputEl.dispatchEvent(new Event('input', { bubbles: true }));
+
+                var city = '';
+                for (var i = 0; i < place.address_components.length; i++) {
+                    var component = place.address_components[i];
+                    var types = component.types;
+                    if (types.indexOf('locality') !== -1) {
+                        city = component.long_name;
+                        break;
+                    } else if (types.indexOf('sublocality') !== -1 && !city) {
+                        city = component.long_name;
+                    } else if (types.indexOf('administrative_area_level_2') !== -1 && !city) {
+                        city = component.long_name;
+                    }
+                }
+                hiddenEl.value = city;
+            });
+
+            inputEl.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    var pacContainer = document.querySelector('.pac-container');
+                    if (pacContainer && pacContainer.style.display !== 'none' && pacContainer.offsetHeight > 0) {
+                        e.preventDefault();
+                    }
+                }
+            });
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete" async defer></script>
+@endif
 @endsection
