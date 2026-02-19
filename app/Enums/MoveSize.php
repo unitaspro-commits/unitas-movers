@@ -4,6 +4,7 @@ namespace App\Enums;
 
 enum MoveSize: string
 {
+    case Home = 'home';
     case Studio = 'studio';
     case OneBedroom = '1br';
     case TwoBedroom = '2br';
@@ -14,6 +15,7 @@ enum MoveSize: string
     public function label(): string
     {
         return match ($this) {
+            self::Home => 'Home',
             self::Studio => 'Studio',
             self::OneBedroom => '1 Bedroom',
             self::TwoBedroom => '2 Bedrooms',
