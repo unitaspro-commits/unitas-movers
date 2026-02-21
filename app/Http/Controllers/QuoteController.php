@@ -52,14 +52,14 @@ class QuoteController extends Controller
 
         $quote = Quote::create($validated);
 
-        // Send email notifications
+        // Send email notifications via queue so form responds instantly
         try {
-            Mail::to(config('mail.admin_to'))->send(new NewQuoteAdmin($quote));
-            Mail::to($quote->email)->send(new QuoteConfirmation($quote));
+            Mail::to(config('mail.admin_to'))->queue(new NewQuoteAdmin($quote));
+            Mail::to($quote->email)->queue(new QuoteConfirmation($quote));
 
             $quote->activities()->create([
                 'type' => 'email_sent',
-                'summary' => 'Auto-reply confirmation sent to customer',
+                'summary' => 'Email notifications queued for delivery',
             ]);
         } catch (\Exception $e) {
             Log::error('Quote email notification failed', [
