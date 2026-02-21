@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Mail\Transport\ZeptoMailTransport;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Mail::extend('zeptomail', function (array $config) {
+            return new ZeptoMailTransport($config['api_key']);
+        });
     }
 }

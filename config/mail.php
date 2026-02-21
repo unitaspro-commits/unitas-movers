@@ -97,6 +97,11 @@ return [
             'retry_after' => 60,
         ],
 
+        'zeptomail' => [
+            'transport' => 'zeptomail',
+            'api_key' => env('ZEPTOMAIL_API_KEY'),
+        ],
+
     ],
 
     /*
