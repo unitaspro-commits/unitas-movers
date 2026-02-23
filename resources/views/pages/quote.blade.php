@@ -235,6 +235,9 @@
                     }
                 }
                 hiddenEl.value = city;
+
+                // Blur to dismiss the autocomplete dropdown
+                inputEl.blur();
             });
 
             // Prevent form submit on Enter while autocomplete dropdown is open

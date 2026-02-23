@@ -863,6 +863,9 @@ function quoteForm() {
                     }
                 }
                 hiddenEl.value = city;
+
+                // Blur and refocus to dismiss the autocomplete dropdown
+                inputEl.blur();
             });
 
             inputEl.addEventListener('keydown', function(e) {
