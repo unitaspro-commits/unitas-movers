@@ -172,6 +172,7 @@
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                             <input type="date" name="move_date" id="hero_move_date" x-ref="moveDateInput" x-model="formData.move_date" required
                                                 min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                                                @click="$el.showPicker()"
                                                 class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 transition cursor-pointer">
                                         </div>
                                     </div>
