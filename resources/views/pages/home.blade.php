@@ -152,8 +152,11 @@
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                             <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
                                                 placeholder="Your current address" autocomplete="off"
-                                                class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                                @input="onAddressInput('moving_from')"
+                                                :class="addressErrors.moving_from ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                                class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
+                                        <p x-show="addressErrors.moving_from" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
                                         <input type="hidden" name="origin_city" id="hero_origin_city">
                                     </div>
                                     <div>
@@ -162,8 +165,11 @@
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                             <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
                                                 placeholder="Your destination address" autocomplete="off"
-                                                class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                                @input="onAddressInput('moving_to')"
+                                                :class="addressErrors.moving_to ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                                class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
+                                        <p x-show="addressErrors.moving_to" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
                                         <input type="hidden" name="destination_city" id="hero_destination_city">
                                     </div>
                                     <div>
@@ -293,6 +299,16 @@ function quoteForm() {
             services_needed: [],
             additional_notes: ''
         },
+        addressSelected: { moving_from: false, moving_to: false },
+        addressErrors: { moving_from: false, moving_to: false },
+        markAddressSelected(field) {
+            this.addressSelected[field] = true;
+            this.addressErrors[field] = false;
+        },
+        onAddressInput(field) {
+            this.addressSelected[field] = false;
+            this.addressErrors[field] = false;
+        },
         toggleService(value) {
             const idx = this.formData.services_needed.indexOf(value);
             if (idx > -1) {
@@ -320,6 +336,16 @@ function quoteForm() {
             switch (this.step) {
                 case 1:
                     if (!this.formData.move_size || !this.formData.moving_from || !this.formData.moving_to || !this.formData.move_date) {
+                        this.shake();
+                        return false;
+                    }
+                    if (!this.addressSelected.moving_from) {
+                        this.addressErrors.moving_from = true;
+                        this.shake();
+                        return false;
+                    }
+                    if (!this.addressSelected.moving_to) {
+                        this.addressErrors.moving_to = true;
                         this.shake();
                         return false;
                     }
@@ -855,6 +881,7 @@ function quoteForm() {
                 var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
                 if (alpineData && alpineData.formData) {
                     alpineData.formData[field.model] = address;
+                    alpineData.markAddressSelected(field.model);
                 }
 
                 var city = '';

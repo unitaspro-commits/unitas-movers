@@ -36,7 +36,13 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ route('quote.store') }}" class="space-y-8">
+        <form method="POST" action="{{ route('quote.store') }}" class="space-y-8"
+            x-data="{ addressSelected: { moving_from: {{ old('moving_from') ? 'true' : 'false' }}, moving_to: {{ old('moving_to') ? 'true' : 'false' }} }, addressErrors: { moving_from: false, moving_to: false } }"
+            @submit.prevent="
+                if (!addressSelected.moving_from) { addressErrors.moving_from = true; }
+                if (!addressSelected.moving_to) { addressErrors.moving_to = true; }
+                if (addressSelected.moving_from && addressSelected.moving_to) { $el.submit(); }
+            ">
             @csrf
 
             {{-- Personal Info --}}
@@ -69,14 +75,20 @@
                         <label for="moving_from" class="block text-sm font-medium text-slate-dark mb-1">Moving From *</label>
                         <input type="text" name="moving_from" id="moving_from" value="{{ old('moving_from') }}" required
                             placeholder="Enter your current address" autocomplete="off"
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                            @input="addressSelected.moving_from = false; addressErrors.moving_from = false"
+                            :class="addressErrors.moving_from ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
+                        <p x-show="addressErrors.moving_from" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
                         <input type="hidden" name="origin_city" id="origin_city" value="{{ old('origin_city') }}">
                     </div>
                     <div>
                         <label for="moving_to" class="block text-sm font-medium text-slate-dark mb-1">Moving To *</label>
                         <input type="text" name="moving_to" id="moving_to" value="{{ old('moving_to') }}" required
                             placeholder="Enter your destination address" autocomplete="off"
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                            @input="addressSelected.moving_to = false; addressErrors.moving_to = false"
+                            :class="addressErrors.moving_to ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
+                        <p x-show="addressErrors.moving_to" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
                         <input type="hidden" name="destination_city" id="destination_city" value="{{ old('destination_city') }}">
                     </div>
                     <div>
@@ -220,6 +232,13 @@
                 if (!place.address_components) return;
 
                 inputEl.value = place.formatted_address || inputEl.value;
+
+                // Mark address as selected from dropdown
+                var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
+                if (alpineData && alpineData.addressSelected) {
+                    alpineData.addressSelected[field.input] = true;
+                    alpineData.addressErrors[field.input] = false;
+                }
 
                 var city = '';
                 for (var i = 0; i < place.address_components.length; i++) {
