@@ -37,7 +37,7 @@ class QuoteController extends Controller
 
         $validated = $request->validate([
             'full_name' => 'required|string|min:2|max:150',
-            'phone' => ['required', 'string', 'max:20', 'regex:/\d{10,}/'],
+            'phone' => ['required', 'string', 'max:20', 'regex:/(\d\D*){10}/'],
             'email' => 'required|email|max:255',
             'moving_from' => 'required|string|max:500',
             'moving_to' => 'required|string|max:500',
