@@ -208,6 +208,7 @@
                                         <input type="tel" name="phone" id="hero_phone" x-model="formData.phone" required
                                             placeholder="(403) 000-0000"
                                             @input="clearError('phone')"
+                                            @blur="if (formData.phone && formData.phone.replace(/\D/g,'').length < 10) errors.phone = 'Please enter a valid phone number (at least 10 digits)'"
                                             :class="errors.phone ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                             class="w-full rounded-xl border px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         <p x-show="errors.phone" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.phone"></p>
@@ -217,6 +218,7 @@
                                         <input type="email" name="email" id="hero_email" x-model="formData.email" required
                                             placeholder="john@example.com"
                                             @input="clearError('email')"
+                                            @blur="if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) errors.email = 'Please enter a valid email address'"
                                             :class="errors.email ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                             class="w-full rounded-xl border px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         <p x-show="errors.email" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.email"></p>
@@ -369,7 +371,9 @@ function quoteForm() {
                 case 2:
                     if (!this.formData.full_name) { this.errors.full_name = 'This field is required'; valid = false; }
                     if (!this.formData.phone) { this.errors.phone = 'This field is required'; valid = false; }
+                    else if (this.formData.phone.replace(/\D/g,'').length < 10) { this.errors.phone = 'Please enter a valid phone number (at least 10 digits)'; valid = false; }
                     if (!this.formData.email) { this.errors.email = 'This field is required'; valid = false; }
+                    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.formData.email)) { this.errors.email = 'Please enter a valid email address'; valid = false; }
                     break;
                 case 3:
                     if (this.formData.services_needed.length === 0) { this.errors.services_needed = 'Please select at least one service'; valid = false; }

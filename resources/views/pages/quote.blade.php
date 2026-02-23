@@ -37,11 +37,16 @@
         @endif
 
         <form method="POST" action="{{ route('quote.store') }}" class="space-y-8"
-            x-data="{ addressSelected: { moving_from: {{ old('moving_from') ? 'true' : 'false' }}, moving_to: {{ old('moving_to') ? 'true' : 'false' }} }, addressErrors: { moving_from: false, moving_to: false } }"
+            x-data="{ addressSelected: { moving_from: {{ old('moving_from') ? 'true' : 'false' }}, moving_to: {{ old('moving_to') ? 'true' : 'false' }} }, addressErrors: { moving_from: false, moving_to: false }, fieldErrors: { phone: '', email: '' } }"
             @submit.prevent="
+                fieldErrors.phone = ''; fieldErrors.email = '';
                 if (!addressSelected.moving_from) { addressErrors.moving_from = true; }
                 if (!addressSelected.moving_to) { addressErrors.moving_to = true; }
-                if (addressSelected.moving_from && addressSelected.moving_to) { $el.submit(); }
+                var phoneVal = $el.querySelector('#phone').value;
+                var emailVal = $el.querySelector('#email').value;
+                if (phoneVal && phoneVal.replace(/\D/g,'').length < 10) { fieldErrors.phone = 'Please enter a valid phone number (at least 10 digits)'; }
+                if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { fieldErrors.email = 'Please enter a valid email address'; }
+                if (addressSelected.moving_from && addressSelected.moving_to && !fieldErrors.phone && !fieldErrors.email) { $el.submit(); }
                 else { $nextTick(() => { var e = $el.querySelector('.text-error'); if (e) e.scrollIntoView({ behavior: 'smooth', block: 'center' }); }); }
             ">
             @csrf
@@ -58,12 +63,20 @@
                     <div>
                         <label for="phone" class="block text-sm font-medium text-slate-dark mb-1">Phone Number *</label>
                         <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" required placeholder="(403) 000-0000"
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                            @input="fieldErrors.phone = ''"
+                            @blur="if ($el.value && $el.value.replace(/\D/g,'').length < 10) fieldErrors.phone = 'Please enter a valid phone number (at least 10 digits)'"
+                            :class="fieldErrors.phone ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
+                        <p x-show="fieldErrors.phone" x-cloak class="text-error text-xs font-medium mt-1" x-text="fieldErrors.phone"></p>
                     </div>
                     <div class="md:col-span-2">
                         <label for="email" class="block text-sm font-medium text-slate-dark mb-1">Email Address *</label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}" required
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                            @input="fieldErrors.email = ''"
+                            @blur="if ($el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($el.value)) fieldErrors.email = 'Please enter a valid email address'"
+                            :class="fieldErrors.email ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
+                        <p x-show="fieldErrors.email" x-cloak class="text-error text-xs font-medium mt-1" x-text="fieldErrors.email"></p>
                     </div>
                 </div>
             </div>
