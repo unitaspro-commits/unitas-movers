@@ -271,6 +271,17 @@
                     }
                 }
             });
+
+            // Detect Chrome autofill: re-insert text to trigger Google autocomplete
+            inputEl.addEventListener('change', function() {
+                var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
+                if (inputEl.value && alpineData && !alpineData.addressSelected[field.input]) {
+                    var val = inputEl.value;
+                    inputEl.focus();
+                    inputEl.value = '';
+                    document.execCommand('insertText', false, val);
+                }
+            });
         });
     }
 </script>
