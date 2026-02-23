@@ -23,7 +23,7 @@ class QuoteController extends Controller
         $services = Service::published()->ordered()->get();
         $moveSizes = MoveSize::cases();
         $referralSources = ReferralSource::cases();
-        $schemas = $schema->forStaticPage('get-a-quote', 'Get a Free Quote', route('quote.create'));
+        $schemas = $schema->forStaticPage('quote', 'Get a Free Quote', route('quote.create'));
 
         return view('pages.quote', compact('services', 'moveSizes', 'referralSources', 'schemas'));
     }

@@ -21,14 +21,20 @@ class SchemaMarkupService
     {
         $schemas = [];
 
-        $seo = SeoMeta::forPage('home');
+        $seo = SeoMeta::forPage('homepage');
         if ($seo && $seo->schema_json) {
-            $schemas[] = $seo->schema_json;
+            $company = $seo->schema_json;
         } else {
-            $schemas[] = $this->movingCompany();
+            $company = $this->movingCompany();
         }
 
-        $schemas[] = $this->aggregateRating();
+        // Merge AggregateRating into the MovingCompany entity (avoids duplicate entities)
+        $ratingData = $this->aggregateRating();
+        if (isset($ratingData['aggregateRating'])) {
+            $company['aggregateRating'] = $ratingData['aggregateRating'];
+        }
+
+        $schemas[] = $company;
         $schemas[] = $this->webSite();
 
         return $schemas;
@@ -96,14 +102,23 @@ class SchemaMarkupService
         return $schemas;
     }
 
-    public function forIndexPage(string $name, string $url): array
+    public function forIndexPage(string $name, string $url, ?string $pageKey = null): array
     {
-        return [
-            $this->breadcrumbList([
-                ['name' => 'Home', 'url' => route('home')],
-                ['name' => $name, 'url' => $url],
-            ]),
-        ];
+        $schemas = [];
+
+        if ($pageKey) {
+            $seo = SeoMeta::forPage($pageKey);
+            if ($seo && $seo->schema_json) {
+                $schemas[] = $seo->schema_json;
+            }
+        }
+
+        $schemas[] = $this->breadcrumbList([
+            ['name' => 'Home', 'url' => route('home')],
+            ['name' => $name, 'url' => $url],
+        ]);
+
+        return $schemas;
     }
 
     public function forStaticPage(string $pageKey, string $name, string $url): array

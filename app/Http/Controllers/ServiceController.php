@@ -11,7 +11,7 @@ class ServiceController extends Controller
     public function index(SchemaMarkupService $schema)
     {
         $services = Service::published()->ordered()->get();
-        $schemas = $schema->forIndexPage('Services', route('services.index'));
+        $schemas = $schema->forIndexPage('Services', route('services.index'), 'services-index');
 
         return view('services.index', compact('services', 'schemas'));
     }

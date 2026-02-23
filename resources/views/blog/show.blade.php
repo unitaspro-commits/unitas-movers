@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title', $post->meta_title)
 @section('meta_description', $post->meta_description)
+@section('og_type', 'article')
+@if($post->featured_image)
+@section('og_image', asset($post->featured_image))
+@endif
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

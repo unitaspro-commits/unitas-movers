@@ -9,9 +9,22 @@
     <meta name="description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
     <meta name="robots" content="noindex, nofollow">
 
-    @hasSection('canonical')
-        <link rel="canonical" href="@yield('canonical')">
-    @endif
+    <link rel="canonical" href="@yield('canonical', url()->current())">
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="Unitas Movers">
+    <meta property="og:title" content="@yield('title', 'Unitas Movers — Professional Moving Company')">
+    <meta property="og:description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
+    <meta property="og:url" content="@yield('canonical', url()->current())">
+    <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
+    <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
+
+    {{-- Twitter Card --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', 'Unitas Movers — Professional Moving Company')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
+    <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
     <style>[x-cloak] { display: none !important; }</style>
 

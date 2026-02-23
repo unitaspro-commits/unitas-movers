@@ -14,7 +14,7 @@ class BlogController extends Controller
             ->latest('published_at')
             ->paginate(12);
 
-        $schemas = $schema->forIndexPage('Blog', route('blog.index'));
+        $schemas = $schema->forIndexPage('Blog', route('blog.index'), 'blog-index');
 
         return view('blog.index', compact('posts', 'schemas'));
     }

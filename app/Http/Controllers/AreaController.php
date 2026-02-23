@@ -14,7 +14,7 @@ class AreaController extends Controller
         $quadrants = $areas->where('area_type', 'quadrant');
         $neighborhoods = $areas->where('area_type', 'neighborhood');
         $towns = $areas->where('area_type', 'town');
-        $schemas = $schema->forIndexPage('Areas', route('areas.index'));
+        $schemas = $schema->forIndexPage('Areas', route('areas.index'), 'areas-index');
 
         return view('areas.index', compact('areas', 'quadrants', 'neighborhoods', 'towns', 'schemas'));
     }
