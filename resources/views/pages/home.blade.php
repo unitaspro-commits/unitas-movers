@@ -827,8 +827,8 @@ function quoteForm() {
 <script>
     function initGooglePlacesAutocomplete() {
         var fields = [
-            { input: 'hero_moving_from', hidden: 'hero_origin_city' },
-            { input: 'hero_moving_to', hidden: 'hero_destination_city' }
+            { input: 'hero_moving_from', hidden: 'hero_origin_city', model: 'moving_from' },
+            { input: 'hero_moving_to', hidden: 'hero_destination_city', model: 'moving_to' }
         ];
 
         fields.forEach(function(field) {
@@ -846,7 +846,15 @@ function quoteForm() {
                 var place = autocomplete.getPlace();
                 if (!place.address_components) return;
 
-                inputEl.value = place.formatted_address || inputEl.value;
+                var address = place.formatted_address || inputEl.value;
+                inputEl.value = address;
+
+                // Update Alpine.js data directly (avoids dispatching input event
+                // which would re-trigger Google autocomplete dropdown)
+                var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
+                if (alpineData && alpineData.formData) {
+                    alpineData.formData[field.model] = address;
+                }
 
                 var city = '';
                 for (var i = 0; i < place.address_components.length; i++) {
@@ -863,12 +871,8 @@ function quoteForm() {
                 }
                 hiddenEl.value = city;
 
-                // Blur first to dismiss the dropdown, then sync Alpine.js
-                // via input event after a delay so autocomplete doesn't re-trigger
+                // Blur to dismiss the dropdown
                 inputEl.blur();
-                setTimeout(function() {
-                    inputEl.dispatchEvent(new Event('input', { bubbles: true }));
-                }, 50);
             });
 
             inputEl.addEventListener('keydown', function(e) {
