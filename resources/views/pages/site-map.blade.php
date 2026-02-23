@@ -27,6 +27,7 @@
                     <li><a href="{{ route('home') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Home</a></li>
                     <li><a href="{{ route('services.index') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Services</a></li>
                     <li><a href="{{ route('areas.index') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Areas Served</a></li>
+                    <li><a href="{{ route('routes.index') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Moving Routes</a></li>
                     <li><a href="{{ route('blog.index') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Blog</a></li>
                     <li><a href="{{ route('quote.create') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Get a Free Quote</a></li>
                     <li><a href="{{ route('pricing') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Pricing</a></li>
@@ -99,7 +100,7 @@
                 <h2 class="text-xl font-bold text-dark mb-4 pb-2 border-b border-gray-200">Moving Routes <span class="text-gray-400 font-normal text-sm">({{ $routes->count() }})</span></h2>
                 <ul class="space-y-2.5">
                     @foreach($routes as $route)
-                        <li class="text-gray-600 text-sm font-medium">{{ $route->origin_city }} to {{ $route->dest_city }}</li>
+                        <li><a href="{{ route('routes.show', $route) }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">{{ $route->origin_city }} to {{ $route->dest_city }}</a></li>
                     @endforeach
                 </ul>
             </div>

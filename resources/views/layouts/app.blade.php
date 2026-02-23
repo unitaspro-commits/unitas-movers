@@ -7,7 +7,7 @@
 
     <title>@yield('title', 'Unitas Movers — Professional Moving Company')</title>
     <meta name="description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="@yield('robots', 'noindex, nofollow')">
 
     <link rel="canonical" href="@yield('canonical', url()->current())">
 
@@ -54,6 +54,7 @@
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="{{ route('services.index') }}" class="text-gray-500 hover:text-dark text-[15px] font-medium transition-colors">Services</a>
                     <a href="{{ route('areas.index') }}" class="text-gray-500 hover:text-dark text-[15px] font-medium transition-colors">Areas</a>
+                    <a href="{{ route('routes.index') }}" class="text-gray-500 hover:text-dark text-[15px] font-medium transition-colors">Routes</a>
                     <a href="{{ route('pricing') }}" class="text-gray-500 hover:text-dark text-[15px] font-medium transition-colors">Pricing</a>
                     <a href="{{ route('blog.index') }}" class="text-gray-500 hover:text-dark text-[15px] font-medium transition-colors">Blog</a>
                     <a href="{{ route('about') }}" class="text-gray-500 hover:text-dark text-[15px] font-medium transition-colors">About</a>
@@ -81,6 +82,7 @@
                 <div class="flex flex-col space-y-1 pt-2">
                     <a href="{{ route('services.index') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">Services</a>
                     <a href="{{ route('areas.index') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">Areas</a>
+                    <a href="{{ route('routes.index') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">Routes</a>
                     <a href="{{ route('pricing') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">Pricing</a>
                     <a href="{{ route('blog.index') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">Blog</a>
                     <a href="{{ route('about') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">About</a>

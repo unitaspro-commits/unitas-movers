@@ -39,6 +39,27 @@ class InternalLinkService
     }
 
     /**
+     * Get related pages for a route detail page.
+     */
+    public function forRoute(\App\Models\Route $route): array
+    {
+        return Cache::remember("internal_links:route:{$route->id}", 3600, function () {
+            return [
+                'services' => Service::published()
+                    ->whereIn('slug', ['long-distance-moving', 'packing-services', 'storage-solutions'])
+                    ->ordered()
+                    ->get(),
+                'areas' => $this->randomAreas(4),
+                'blog_posts' => BlogPost::published()
+                    ->where('category', 'guides')
+                    ->latest('published_at')
+                    ->take(3)
+                    ->get(),
+            ];
+        });
+    }
+
+    /**
      * Get related pages for a blog post detail page.
      */
     public function forBlogPost(BlogPost $post): array

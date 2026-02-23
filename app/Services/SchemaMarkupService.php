@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Area;
 use App\Models\BlogPost;
 use App\Models\Review;
+use App\Models\Route;
 use App\Models\SeoMeta;
 use App\Models\Service;
 use Illuminate\Support\Facades\Cache;
@@ -98,6 +99,25 @@ class SchemaMarkupService
         $crumbs[] = ['name' => $area->name, 'url' => route('areas.show', $area)];
 
         $schemas[] = $this->breadcrumbList($crumbs);
+
+        return $schemas;
+    }
+
+    public function forRouteShow(Route $route): array
+    {
+        $schemas = [];
+
+        $schemas[] = $this->routeServiceSchema($route);
+
+        if (!empty($route->faq_json)) {
+            $schemas[] = $this->faqPage($route->faq_json);
+        }
+
+        $schemas[] = $this->breadcrumbList([
+            ['name' => 'Home', 'url' => route('home')],
+            ['name' => 'Routes', 'url' => route('routes.index')],
+            ['name' => $route->origin_city . ' to ' . $route->dest_city, 'url' => route('routes.show', $route)],
+        ]);
 
         return $schemas;
     }
@@ -278,6 +298,31 @@ class SchemaMarkupService
         }
 
         return $schema;
+    }
+
+    private function routeServiceSchema(Route $route): array
+    {
+        if ($route->schema_json) {
+            return $route->schema_json;
+        }
+
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'Service',
+            'name' => 'Moving from ' . $route->origin_city . ' to ' . $route->dest_city,
+            'description' => $route->meta_description,
+            'url' => route('routes.show', $route),
+            'provider' => [
+                '@type' => 'MovingCompany',
+                'name' => self::COMPANY_NAME,
+                'telephone' => self::PHONE,
+                'url' => self::SITE_URL,
+            ],
+            'areaServed' => [
+                ['@type' => 'City', 'name' => $route->origin_city],
+                ['@type' => 'City', 'name' => $route->dest_city],
+            ],
+        ];
     }
 
     private function blogPosting(BlogPost $post): array
