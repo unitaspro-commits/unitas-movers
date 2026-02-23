@@ -131,20 +131,21 @@
                                         <label class="block text-base font-semibold text-dark mb-2">Move Type</label>
                                         <div class="grid grid-cols-2 gap-3">
                                             <label class="relative cursor-pointer">
-                                                <input type="radio" name="move_size" value="home" x-model="formData.move_size" class="peer sr-only">
-                                                <div class="peer-checked:border-primary peer-checked:bg-primary-50 peer-checked:text-primary border-2 border-gray-300 rounded-xl px-3 py-3 text-center transition hover:border-gray-400">
+                                                <input type="radio" name="move_size" value="home" x-model="formData.move_size" @change="clearError('move_size')" class="peer sr-only">
+                                                <div :class="errors.move_size ? 'border-error' : 'border-gray-300'" class="peer-checked:border-primary peer-checked:bg-primary-50 peer-checked:text-primary border-2 rounded-xl px-3 py-3 text-center transition hover:border-gray-400">
                                                     <svg class="w-6 h-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"></path></svg>
                                                     <span class="text-sm font-bold text-dark">Home</span>
                                                 </div>
                                             </label>
                                             <label class="relative cursor-pointer">
-                                                <input type="radio" name="move_size" value="office" x-model="formData.move_size" class="peer sr-only">
-                                                <div class="peer-checked:border-primary peer-checked:bg-primary-50 peer-checked:text-primary border-2 border-gray-300 rounded-xl px-3 py-3 text-center transition hover:border-gray-400">
+                                                <input type="radio" name="move_size" value="office" x-model="formData.move_size" @change="clearError('move_size')" class="peer sr-only">
+                                                <div :class="errors.move_size ? 'border-error' : 'border-gray-300'" class="peer-checked:border-primary peer-checked:bg-primary-50 peer-checked:text-primary border-2 rounded-xl px-3 py-3 text-center transition hover:border-gray-400">
                                                     <svg class="w-6 h-6 mx-auto mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
                                                     <span class="text-sm font-bold text-dark">Office</span>
                                                 </div>
                                             </label>
                                         </div>
+                                        <p x-show="errors.move_size" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.move_size"></p>
                                     </div>
                                     <div>
                                         <span class="block text-base font-semibold text-dark mb-2">Moving From</span>
@@ -153,11 +154,11 @@
                                             <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
                                                 placeholder="Your current address" autocomplete="off"
                                                 @input="onAddressInput('moving_from')"
-                                                @blur="setTimeout(() => { if (formData.moving_from && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
-                                                :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                                @blur="setTimeout(() => { if (formData.moving_from && !addressSelected.moving_from) errors.moving_from = 'Please select an address from the dropdown' }, 300)"
+                                                :class="errors.moving_from ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
-                                        <p x-show="addressErrors.moving_from" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
+                                        <p x-show="errors.moving_from" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.moving_from"></p>
                                         <input type="hidden" name="origin_city" id="hero_origin_city">
                                     </div>
                                     <div>
@@ -167,11 +168,11 @@
                                             <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
                                                 placeholder="Your destination address" autocomplete="off"
                                                 @input="onAddressInput('moving_to')"
-                                                @blur="setTimeout(() => { if (formData.moving_to && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
-                                                :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                                @blur="setTimeout(() => { if (formData.moving_to && !addressSelected.moving_to) errors.moving_to = 'Please select an address from the dropdown' }, 300)"
+                                                :class="errors.moving_to ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
-                                        <p x-show="addressErrors.moving_to" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
+                                        <p x-show="errors.moving_to" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.moving_to"></p>
                                         <input type="hidden" name="destination_city" id="hero_destination_city">
                                     </div>
                                     <div>
@@ -181,8 +182,11 @@
                                             <input type="date" name="move_date" id="hero_move_date" x-ref="moveDateInput" x-model="formData.move_date" required
                                                 min="{{ date('Y-m-d', strtotime('+1 day')) }}"
                                                 @click="$el.showPicker()"
-                                                class="w-full rounded-xl border border-gray-300 pl-10 pr-4 py-3 text-base text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 transition cursor-pointer">
+                                                @change="clearError('move_date')"
+                                                :class="errors.move_date ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                                class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark focus:ring-2 transition cursor-pointer">
                                         </div>
+                                        <p x-show="errors.move_date" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.move_date"></p>
                                     </div>
                                 </div>
                             </div>
@@ -194,19 +198,28 @@
                                         <label for="hero_full_name" class="block text-base font-semibold text-dark mb-2">Full Name</label>
                                         <input type="text" name="full_name" id="hero_full_name" x-model="formData.full_name" required
                                             placeholder="John Doe"
-                                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                            @input="clearError('full_name')"
+                                            :class="errors.full_name ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                            class="w-full rounded-xl border px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
+                                        <p x-show="errors.full_name" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.full_name"></p>
                                     </div>
                                     <div>
                                         <label for="hero_phone" class="block text-base font-semibold text-dark mb-2">Phone Number</label>
                                         <input type="tel" name="phone" id="hero_phone" x-model="formData.phone" required
                                             placeholder="(403) 000-0000"
-                                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                            @input="clearError('phone')"
+                                            :class="errors.phone ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                            class="w-full rounded-xl border px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
+                                        <p x-show="errors.phone" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.phone"></p>
                                     </div>
                                     <div>
                                         <label for="hero_email" class="block text-base font-semibold text-dark mb-2">Email Address</label>
                                         <input type="email" name="email" id="hero_email" x-model="formData.email" required
                                             placeholder="john@example.com"
-                                            class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                                            @input="clearError('email')"
+                                            :class="errors.email ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                            class="w-full rounded-xl border px-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
+                                        <p x-show="errors.email" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.email"></p>
                                     </div>
                                 </div>
                             </div>
@@ -228,13 +241,14 @@
                                             <label class="relative cursor-pointer">
                                                 <input type="checkbox" name="services_needed[]" value="{{ $value }}" class="peer sr-only"
                                                     @change="toggleService('{{ $value }}')">
-                                                <div class="peer-checked:border-primary peer-checked:bg-primary-50 border-2 border-gray-300 rounded-xl p-3.5 transition hover:border-gray-400 flex items-center space-x-2.5">
+                                                <div :class="errors.services_needed ? 'border-error' : 'border-gray-300'" class="peer-checked:border-primary peer-checked:bg-primary-50 border-2 rounded-xl p-3.5 transition hover:border-gray-400 flex items-center space-x-2.5">
                                                     <svg class="w-5 h-5 text-gray-600 peer-checked:text-primary shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $svc['icon'] }}"></path></svg>
                                                     <span class="text-sm font-bold text-dark">{{ $svc['label'] }}</span>
                                                 </div>
                                             </label>
                                         @endforeach
                                     </div>
+                                    <p x-show="errors.services_needed" x-cloak class="text-error text-xs font-medium mt-1" x-text="errors.services_needed"></p>
                                     <div class="mt-4">
                                         <label for="hero_notes" class="block text-base font-semibold text-dark mb-2">Special Instructions or Notes</label>
                                         <textarea name="additional_notes" id="hero_notes" x-model="formData.additional_notes" rows="2"
@@ -302,14 +316,17 @@ function quoteForm() {
             additional_notes: ''
         },
         addressSelected: { moving_from: false, moving_to: false },
-        addressErrors: { moving_from: false, moving_to: false },
+        errors: {},
         markAddressSelected(field) {
             this.addressSelected[field] = true;
-            this.addressErrors[field] = false;
+            delete this.errors[field];
         },
         onAddressInput(field) {
             this.addressSelected[field] = false;
-            this.addressErrors[field] = false;
+            delete this.errors[field];
+        },
+        clearError(field) {
+            delete this.errors[field];
         },
         toggleService(value) {
             const idx = this.formData.services_needed.indexOf(value);
@@ -318,6 +335,7 @@ function quoteForm() {
             } else {
                 this.formData.services_needed.push(value);
             }
+            if (this.formData.services_needed.length > 0) delete this.errors.services_needed;
         },
         nextStep() {
             if (this.validateStep()) {
@@ -335,42 +353,34 @@ function quoteForm() {
             }
         },
         validateStep() {
+            this.errors = {};
+            var valid = true;
             switch (this.step) {
                 case 1:
-                    if (!this.formData.move_size || !this.formData.moving_from || !this.formData.moving_to || !this.formData.move_date) {
-                        this.shake();
-                        return false;
-                    }
-                    var hasAddressError = false;
-                    if (this.formData.moving_from && !this.addressSelected.moving_from) {
-                        this.addressErrors.moving_from = true;
-                        hasAddressError = true;
-                    }
-                    if (this.formData.moving_to && !this.addressSelected.moving_to) {
-                        this.addressErrors.moving_to = true;
-                        hasAddressError = true;
-                    }
-                    if (hasAddressError) {
-                        this.shake();
-                        var firstError = this.$el.querySelector('.text-error');
-                        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        return false;
-                    }
-                    return true;
+                    if (!this.formData.move_size) { this.errors.move_size = 'Please select a move type'; valid = false; }
+                    if (!this.formData.moving_from) { this.errors.moving_from = 'This field is required'; valid = false; }
+                    else if (!this.addressSelected.moving_from) { this.errors.moving_from = 'Please select an address from the dropdown'; valid = false; }
+                    if (!this.formData.moving_to) { this.errors.moving_to = 'This field is required'; valid = false; }
+                    else if (!this.addressSelected.moving_to) { this.errors.moving_to = 'Please select an address from the dropdown'; valid = false; }
+                    if (!this.formData.move_date) { this.errors.move_date = 'Please select a move date'; valid = false; }
+                    break;
                 case 2:
-                    if (!this.formData.full_name || !this.formData.phone || !this.formData.email) {
-                        this.shake();
-                        return false;
-                    }
-                    return true;
+                    if (!this.formData.full_name) { this.errors.full_name = 'This field is required'; valid = false; }
+                    if (!this.formData.phone) { this.errors.phone = 'This field is required'; valid = false; }
+                    if (!this.formData.email) { this.errors.email = 'This field is required'; valid = false; }
+                    break;
                 case 3:
-                    if (this.formData.services_needed.length === 0) {
-                        this.shake();
-                        return false;
-                    }
-                    return true;
+                    if (this.formData.services_needed.length === 0) { this.errors.services_needed = 'Please select at least one service'; valid = false; }
+                    break;
             }
-            return true;
+            if (!valid) {
+                this.shake();
+                this.$nextTick(() => {
+                    var firstError = this.$el.querySelector('.text-error');
+                    if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
+            }
+            return valid;
         },
         shake() {
             const form = this.$el.querySelector('.bg-white');
