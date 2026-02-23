@@ -10,6 +10,7 @@ use App\Models\Quote;
 use App\Models\Service;
 use App\Services\SchemaMarkupService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -35,6 +36,34 @@ class QuoteController extends Controller
                 ->with('success', 'Thank you! Your quote request has been submitted. We\'ll contact you within 2 hours during business hours.');
         }
 
+        // reCAPTCHA v3: verify token if keys are configured
+        $recaptchaSecret = config('services.google.recaptcha_secret_key');
+        if ($recaptchaSecret) {
+            $token = $request->input('recaptcha_token');
+            $pass = false;
+
+            if ($token) {
+                try {
+                    $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                        'secret' => $recaptchaSecret,
+                        'response' => $token,
+                        'remoteip' => $request->ip(),
+                    ]);
+
+                    $result = $response->json();
+                    $pass = !empty($result['success']) && ($result['score'] ?? 0) >= 0.5;
+                } catch (\Exception $e) {
+                    Log::warning('reCAPTCHA verification failed', ['error' => $e->getMessage()]);
+                    $pass = true; // graceful degradation on network error
+                }
+            }
+
+            if (!$pass) {
+                return redirect()->back()
+                    ->with('success', 'Thank you! Your quote request has been submitted. We\'ll contact you within 2 hours during business hours.');
+            }
+        }
+
         $validated = $request->validate([
             'full_name' => ['required', 'string', 'min:2', 'max:150', 'regex:/^[^\r\n]*$/'],
             'phone' => ['required', 'string', 'max:20', 'regex:/(\d\D*){10}/'],
@@ -54,8 +83,10 @@ class QuoteController extends Controller
             'utm_source' => 'nullable|string|max:100',
             'utm_medium' => 'nullable|string|max:100',
             'utm_campaign' => 'nullable|string|max:100',
+            'recaptcha_token' => 'nullable|string',
         ]);
 
+        unset($validated['recaptcha_token']);
         $validated['status'] = 'new';
         // Fallback: use hidden input value, or truncate referrer URL to fit DB column
         if (empty($validated['source_page'])) {

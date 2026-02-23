@@ -142,6 +142,7 @@
                             <div style="position:absolute;left:-9999px;" aria-hidden="true">
                                 <input type="text" name="website" tabindex="-1" autocomplete="off">
                             </div>
+                            <input type="hidden" name="recaptcha_token" id="hero_recaptcha_token">
                             <input type="hidden" name="source_page" value="{{ url()->current() }}">
                             <input type="hidden" name="utm_source" id="hero_utm_source">
                             <input type="hidden" name="utm_medium" id="hero_utm_medium">
@@ -433,7 +434,17 @@ function quoteForm() {
             if (this.submitting) return;
             if (this.validateStep()) {
                 this.submitting = true;
-                event.target.submit();
+                var form = event.target;
+                if (typeof grecaptcha !== 'undefined' && '{{ config('services.google.recaptcha_site_key') }}') {
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('{{ config('services.google.recaptcha_site_key') }}', {action: 'quote'}).then(function(token) {
+                            document.getElementById('hero_recaptcha_token').value = token;
+                            form.submit();
+                        }).catch(function() { form.submit(); });
+                    });
+                } else {
+                    form.submit();
+                }
             }
         }
     };
@@ -890,6 +901,9 @@ function quoteForm() {
 @endsection
 
 @section('scripts')
+@if(config('services.google.recaptcha_site_key'))
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha_site_key') }}"></script>
+@endif
 @if(config('services.google.maps_api_key'))
 <style>
     .pac-container {

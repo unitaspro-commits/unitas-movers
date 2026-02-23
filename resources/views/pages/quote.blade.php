@@ -48,13 +48,25 @@
                 if (phoneVal && phoneVal.replace(/\D/g,'').length < 10) { fieldErrors.phone = 'Please enter a valid phone number (at least 10 digits)'; }
                 if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { fieldErrors.email = 'Please enter a valid email address'; }
                 var addressOk = window._googlePlacesUnavailable || (addressSelected.moving_from && addressSelected.moving_to);
-                if (addressOk && !fieldErrors.phone && !fieldErrors.email) { submitting = true; $el.submit(); }
+                if (addressOk && !fieldErrors.phone && !fieldErrors.email) {
+                    submitting = true;
+                    var form = $el;
+                    if (typeof grecaptcha !== 'undefined' && '{{ config('services.google.recaptcha_site_key') }}') {
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute('{{ config('services.google.recaptcha_site_key') }}', {action: 'quote'}).then(function(token) {
+                                document.getElementById('quote_recaptcha_token').value = token;
+                                form.submit();
+                            }).catch(function() { form.submit(); });
+                        });
+                    } else { form.submit(); }
+                }
                 else { $nextTick(() => { var e = $el.querySelector('.text-error'); if (e) e.scrollIntoView({ behavior: 'smooth', block: 'center' }); }); }
             ">
             @csrf
             <div style="position:absolute;left:-9999px;" aria-hidden="true">
                 <input type="text" name="website" tabindex="-1" autocomplete="off">
             </div>
+            <input type="hidden" name="recaptcha_token" id="quote_recaptcha_token">
             <input type="hidden" name="source_page" value="{{ url()->current() }}">
             <input type="hidden" name="utm_source" id="quote_utm_source">
             <input type="hidden" name="utm_medium" id="quote_utm_medium">
@@ -217,6 +229,9 @@
 @endsection
 
 @section('scripts')
+@if(config('services.google.recaptcha_site_key'))
+<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha_site_key') }}"></script>
+@endif
 @if(config('services.google.maps_api_key'))
 <style>
     .pac-container {
