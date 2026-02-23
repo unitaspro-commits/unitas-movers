@@ -154,7 +154,7 @@
                                             <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
                                                 placeholder="Your current address" autocomplete="off"
                                                 @input="onAddressInput('moving_from')"
-                                                @blur="setTimeout(() => { if (formData.moving_from && !addressSelected.moving_from) errors.moving_from = 'Please select an address from the dropdown' }, 300)"
+                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (formData.moving_from && !addressSelected.moving_from) errors.moving_from = 'Please select an address from the dropdown' }, 300)"
                                                 :class="errors.moving_from ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
@@ -168,7 +168,7 @@
                                             <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
                                                 placeholder="Your destination address" autocomplete="off"
                                                 @input="onAddressInput('moving_to')"
-                                                @blur="setTimeout(() => { if (formData.moving_to && !addressSelected.moving_to) errors.moving_to = 'Please select an address from the dropdown' }, 300)"
+                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (formData.moving_to && !addressSelected.moving_to) errors.moving_to = 'Please select an address from the dropdown' }, 300)"
                                                 :class="errors.moving_to ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
@@ -322,6 +322,7 @@ function quoteForm() {
             delete this.errors[field];
         },
         onAddressInput(field) {
+            if (window._suppressAddressInput && window._suppressAddressInput[field]) return;
             this.addressSelected[field] = false;
             delete this.errors[field];
         },
@@ -875,10 +876,16 @@ function quoteForm() {
             { input: 'hero_moving_to', hidden: 'hero_destination_city', model: 'moving_to' }
         ];
 
+        // Suppression flag: prevents @input handler from resetting addressSelected
+        // during programmatic value changes (Google selection, Chrome autofill re-insert)
+        window._suppressAddressInput = {};
+
         fields.forEach(function(field) {
             var inputEl = document.getElementById(field.input);
             var hiddenEl = document.getElementById(field.hidden);
             if (!inputEl) return;
+
+            window._suppressAddressInput[field.model] = false;
 
             var autocomplete = new google.maps.places.Autocomplete(inputEl, {
                 componentRestrictions: { country: 'ca' },
@@ -890,11 +897,12 @@ function quoteForm() {
                 var place = autocomplete.getPlace();
                 if (!place.address_components) return;
 
+                // Suppress @input and @blur handlers during programmatic update
+                window._suppressAddressInput[field.model] = true;
+
                 var address = place.formatted_address || inputEl.value;
                 inputEl.value = address;
 
-                // Update Alpine.js data directly (avoids dispatching input event
-                // which would re-trigger Google autocomplete dropdown)
                 var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
                 if (alpineData && alpineData.formData) {
                     alpineData.formData[field.model] = address;
@@ -916,8 +924,12 @@ function quoteForm() {
                 }
                 hiddenEl.value = city;
 
-                // Blur to dismiss the dropdown
                 inputEl.blur();
+
+                // Re-enable handlers after all events settle
+                setTimeout(function() {
+                    window._suppressAddressInput[field.model] = false;
+                }, 500);
             });
 
             inputEl.addEventListener('keydown', function(e) {
@@ -929,15 +941,20 @@ function quoteForm() {
                 }
             });
 
-            // Detect Chrome autofill: re-insert text to trigger Google autocomplete
+            // Chrome autofill: re-insert text to trigger Google autocomplete dropdown
             inputEl.addEventListener('change', function() {
                 var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
                 if (inputEl.value && alpineData && !alpineData.addressSelected[field.model]) {
+                    window._suppressAddressInput[field.model] = true;
                     var val = inputEl.value;
                     inputEl.focus();
                     inputEl.value = '';
                     document.execCommand('insertText', false, val);
                     if (alpineData.formData) alpineData.formData[field.model] = val;
+                    // Re-enable after Google autocomplete has time to show
+                    setTimeout(function() {
+                        window._suppressAddressInput[field.model] = false;
+                    }, 500);
                 }
             });
         });

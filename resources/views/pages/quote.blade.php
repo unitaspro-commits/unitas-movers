@@ -76,8 +76,8 @@
                         <label for="moving_from" class="block text-sm font-medium text-slate-dark mb-1">Moving From *</label>
                         <input type="text" name="moving_from" id="moving_from" value="{{ old('moving_from') }}" required
                             placeholder="Enter your current address" autocomplete="off"
-                            @input="addressSelected.moving_from = false; addressErrors.moving_from = false"
-                            @blur="setTimeout(() => { if ($el.value && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
+                            @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_from)) { addressSelected.moving_from = false; addressErrors.moving_from = false; }"
+                            @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if ($el.value && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
                             :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="addressErrors.moving_from" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
@@ -87,8 +87,8 @@
                         <label for="moving_to" class="block text-sm font-medium text-slate-dark mb-1">Moving To *</label>
                         <input type="text" name="moving_to" id="moving_to" value="{{ old('moving_to') }}" required
                             placeholder="Enter your destination address" autocomplete="off"
-                            @input="addressSelected.moving_to = false; addressErrors.moving_to = false"
-                            @blur="setTimeout(() => { if ($el.value && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
+                            @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_to)) { addressSelected.moving_to = false; addressErrors.moving_to = false; }"
+                            @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if ($el.value && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
                             :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="addressErrors.moving_to" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
@@ -214,6 +214,8 @@
 </style>
 <script>
     function initGooglePlacesAutocomplete() {
+        window._suppressAddressInput = window._suppressAddressInput || {};
+
         var fields = [
             { input: 'moving_from', hidden: 'origin_city' },
             { input: 'moving_to', hidden: 'destination_city' }
@@ -223,6 +225,8 @@
             var inputEl = document.getElementById(field.input);
             var hiddenEl = document.getElementById(field.hidden);
             if (!inputEl) return;
+
+            window._suppressAddressInput[field.input] = false;
 
             var autocomplete = new google.maps.places.Autocomplete(inputEl, {
                 componentRestrictions: { country: 'ca' },
@@ -234,9 +238,10 @@
                 var place = autocomplete.getPlace();
                 if (!place.address_components) return;
 
+                window._suppressAddressInput[field.input] = true;
+
                 inputEl.value = place.formatted_address || inputEl.value;
 
-                // Mark address as selected from dropdown
                 var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
                 if (alpineData && alpineData.addressSelected) {
                     alpineData.addressSelected[field.input] = true;
@@ -258,11 +263,10 @@
                 }
                 hiddenEl.value = city;
 
-                // Blur to dismiss the autocomplete dropdown
                 inputEl.blur();
+                setTimeout(function() { window._suppressAddressInput[field.input] = false; }, 500);
             });
 
-            // Prevent form submit on Enter while autocomplete dropdown is open
             inputEl.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
                     var pacContainer = document.querySelector('.pac-container');
@@ -272,14 +276,16 @@
                 }
             });
 
-            // Detect Chrome autofill: re-insert text to trigger Google autocomplete
+            // Chrome autofill: re-insert text to trigger Google autocomplete
             inputEl.addEventListener('change', function() {
                 var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
                 if (inputEl.value && alpineData && !alpineData.addressSelected[field.input]) {
+                    window._suppressAddressInput[field.input] = true;
                     var val = inputEl.value;
                     inputEl.focus();
                     inputEl.value = '';
                     document.execCommand('insertText', false, val);
+                    setTimeout(function() { window._suppressAddressInput[field.input] = false; }, 500);
                 }
             });
         });
