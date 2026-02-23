@@ -154,10 +154,10 @@
                                                 placeholder="Your current address" autocomplete="off"
                                                 @input="onAddressInput('moving_from')"
                                                 @blur="setTimeout(() => { if (formData.moving_from && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
-                                                :class="addressErrors.moving_from ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                                :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
-                                        <p x-show="addressErrors.moving_from" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
+                                        <p x-show="addressErrors.moving_from" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
                                         <input type="hidden" name="origin_city" id="hero_origin_city">
                                     </div>
                                     <div>
@@ -168,10 +168,10 @@
                                                 placeholder="Your destination address" autocomplete="off"
                                                 @input="onAddressInput('moving_to')"
                                                 @blur="setTimeout(() => { if (formData.moving_to && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
-                                                :class="addressErrors.moving_to ? 'border-red-500 focus:border-red-500 focus:ring-red-500/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
+                                                :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
-                                        <p x-show="addressErrors.moving_to" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
+                                        <p x-show="addressErrors.moving_to" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
                                         <input type="hidden" name="destination_city" id="hero_destination_city">
                                     </div>
                                     <div>
@@ -341,14 +341,19 @@ function quoteForm() {
                         this.shake();
                         return false;
                     }
-                    if (!this.addressSelected.moving_from) {
+                    var hasAddressError = false;
+                    if (this.formData.moving_from && !this.addressSelected.moving_from) {
                         this.addressErrors.moving_from = true;
-                        this.shake();
-                        return false;
+                        hasAddressError = true;
                     }
-                    if (!this.addressSelected.moving_to) {
+                    if (this.formData.moving_to && !this.addressSelected.moving_to) {
                         this.addressErrors.moving_to = true;
+                        hasAddressError = true;
+                    }
+                    if (hasAddressError) {
                         this.shake();
+                        var firstError = this.$el.querySelector('.text-error');
+                        if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         return false;
                     }
                     return true;

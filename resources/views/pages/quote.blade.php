@@ -42,6 +42,7 @@
                 if (!addressSelected.moving_from) { addressErrors.moving_from = true; }
                 if (!addressSelected.moving_to) { addressErrors.moving_to = true; }
                 if (addressSelected.moving_from && addressSelected.moving_to) { $el.submit(); }
+                else { $nextTick(() => { var e = $el.querySelector('.text-error'); if (e) e.scrollIntoView({ behavior: 'smooth', block: 'center' }); }); }
             ">
             @csrf
 
@@ -77,9 +78,9 @@
                             placeholder="Enter your current address" autocomplete="off"
                             @input="addressSelected.moving_from = false; addressErrors.moving_from = false"
                             @blur="setTimeout(() => { if ($el.value && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
-                            :class="addressErrors.moving_from ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
-                        <p x-show="addressErrors.moving_from" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
+                        <p x-show="addressErrors.moving_from" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
                         <input type="hidden" name="origin_city" id="origin_city" value="{{ old('origin_city') }}">
                     </div>
                     <div>
@@ -88,9 +89,9 @@
                             placeholder="Enter your destination address" autocomplete="off"
                             @input="addressSelected.moving_to = false; addressErrors.moving_to = false"
                             @blur="setTimeout(() => { if ($el.value && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
-                            :class="addressErrors.moving_to ? 'border-red-500 focus:border-red-500 focus:ring-red-500' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
-                        <p x-show="addressErrors.moving_to" x-cloak class="text-red-500 text-xs mt-1">Please select an address from the dropdown</p>
+                        <p x-show="addressErrors.moving_to" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
                         <input type="hidden" name="destination_city" id="destination_city" value="{{ old('destination_city') }}">
                     </div>
                     <div>
