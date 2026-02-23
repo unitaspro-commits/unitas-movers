@@ -847,7 +847,6 @@ function quoteForm() {
                 if (!place.address_components) return;
 
                 inputEl.value = place.formatted_address || inputEl.value;
-                inputEl.dispatchEvent(new Event('input', { bubbles: true }));
 
                 var city = '';
                 for (var i = 0; i < place.address_components.length; i++) {
@@ -864,8 +863,12 @@ function quoteForm() {
                 }
                 hiddenEl.value = city;
 
-                // Blur and refocus to dismiss the autocomplete dropdown
+                // Blur first to dismiss the dropdown, then sync Alpine.js
+                // via input event after a delay so autocomplete doesn't re-trigger
                 inputEl.blur();
+                setTimeout(function() {
+                    inputEl.dispatchEvent(new Event('input', { bubbles: true }));
+                }, 50);
             });
 
             inputEl.addEventListener('keydown', function(e) {
