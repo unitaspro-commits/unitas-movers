@@ -85,6 +85,23 @@
                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary-50 to-transparent rounded-bl-full"></div>
 
                     <div class="relative">
+                        @if(session('success'))
+                            <div class="mb-4 bg-accent/10 border border-accent/20 rounded-xl p-4 text-center">
+                                <svg class="w-8 h-8 text-accent mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <p class="text-sm font-semibold text-dark">Quote Request Submitted!</p>
+                                <p class="text-xs text-gray-500 mt-1">{{ session('success') }}</p>
+                            </div>
+                        @endif
+                        @if($errors->any())
+                            <div class="mb-4 bg-error/10 border border-error/20 rounded-xl p-4">
+                                <p class="font-semibold text-error text-sm mb-1">Please fix the following:</p>
+                                <ul class="list-disc list-inside text-xs text-error/80 space-y-0.5">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <h2 class="text-xl font-extrabold text-dark mb-1">Get Your Free Quote</h2>
                         <p class="text-gray-600 text-sm mb-6">Fill in the details and we'll respond within 2 hours.</p>
 
@@ -125,6 +142,10 @@
                             <div style="position:absolute;left:-9999px;" aria-hidden="true">
                                 <input type="text" name="website" tabindex="-1" autocomplete="off">
                             </div>
+                            <input type="hidden" name="source_page" value="{{ url()->current() }}">
+                            <input type="hidden" name="utm_source" id="hero_utm_source">
+                            <input type="hidden" name="utm_medium" id="hero_utm_medium">
+                            <input type="hidden" name="utm_campaign" id="hero_utm_campaign">
 
                             <div class="form-steps-container">
                             {{-- Step 1: Move Type + Location + Date --}}
@@ -185,7 +206,7 @@
                                             <input type="date" name="move_date" id="hero_move_date" x-ref="moveDateInput" x-model="formData.move_date" required
                                                 min="{{ date('Y-m-d', strtotime('+1 day')) }}"
                                                 max="{{ date('Y-m-d', strtotime('+2 years')) }}"
-                                                @click="$el.showPicker()"
+                                                @click="try { $el.showPicker() } catch(e) {}"
                                                 @change="clearError('move_date')"
                                                 :class="errors.move_date ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark focus:ring-2 transition cursor-pointer">
@@ -981,8 +1002,8 @@ function quoteForm() {
                     window._suppressAddressInput[field.model] = true;
                     var val = inputEl.value;
                     inputEl.focus();
-                    inputEl.value = '';
-                    document.execCommand('insertText', false, val);
+                    inputEl.value = val;
+                    inputEl.dispatchEvent(new Event('input', { bubbles: true }));
                     if (alpineData.formData) alpineData.formData[field.model] = val;
                     // Re-enable after Google autocomplete has time to show
                     setTimeout(function() {
@@ -1002,6 +1023,15 @@ function quoteForm() {
             window._googlePlacesUnavailable = true;
         }
     }, 5000);
+
+    // Populate UTM hidden inputs from URL params
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        ['utm_source','utm_medium','utm_campaign'].forEach(function(k) {
+            var el = document.getElementById('hero_' + k);
+            if (el && params.get(k)) el.value = params.get(k);
+        });
+    })();
 </script>
 @endif
 @endsection

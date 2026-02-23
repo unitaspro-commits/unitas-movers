@@ -55,6 +55,10 @@
             <div style="position:absolute;left:-9999px;" aria-hidden="true">
                 <input type="text" name="website" tabindex="-1" autocomplete="off">
             </div>
+            <input type="hidden" name="source_page" value="{{ url()->current() }}">
+            <input type="hidden" name="utm_source" id="quote_utm_source">
+            <input type="hidden" name="utm_medium" id="quote_utm_medium">
+            <input type="hidden" name="utm_campaign" id="quote_utm_campaign">
 
             {{-- Personal Info --}}
             <div class="bg-white rounded-xl p-6 shadow-sm border border-stone/10">
@@ -316,8 +320,8 @@
                     window._suppressAddressInput[field.input] = true;
                     var val = inputEl.value;
                     inputEl.focus();
-                    inputEl.value = '';
-                    document.execCommand('insertText', false, val);
+                    inputEl.value = val;
+                    inputEl.dispatchEvent(new Event('input', { bubbles: true }));
                     setTimeout(function() { window._suppressAddressInput[field.input] = false; }, 500);
                 }
             });
@@ -333,6 +337,15 @@
             window._googlePlacesUnavailable = true;
         }
     }, 5000);
+
+    // Populate UTM hidden inputs from URL params
+    (function() {
+        var params = new URLSearchParams(window.location.search);
+        ['utm_source','utm_medium','utm_campaign'].forEach(function(k) {
+            var el = document.getElementById('quote_' + k);
+            if (el && params.get(k)) el.value = params.get(k);
+        });
+    })();
 </script>
 @endif
 @endsection

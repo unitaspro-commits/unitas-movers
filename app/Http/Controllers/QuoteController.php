@@ -12,6 +12,7 @@ use App\Services\SchemaMarkupService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Illuminate\Validation\Rules\Enum;
 
 class QuoteController extends Controller
@@ -30,17 +31,17 @@ class QuoteController extends Controller
     {
         // Honeypot: bots fill hidden "website" field, real users don't
         if ($request->filled('website')) {
-            return redirect()->route('quote.create')
+            return redirect()->back()
                 ->with('success', 'Thank you! Your quote request has been submitted. We\'ll contact you within 2 hours during business hours.');
         }
 
         $validated = $request->validate([
             'full_name' => 'required|string|min:2|max:150',
-            'phone' => 'required|string|max:20',
+            'phone' => ['required', 'string', 'max:20', 'regex:/\d{10,}/'],
             'email' => 'required|email|max:255',
             'moving_from' => 'required|string|max:500',
             'moving_to' => 'required|string|max:500',
-            'move_date' => 'required|date|after:today|before:' . now()->addYears(2)->format('Y-m-d'),
+            'move_date' => 'required|date|after_or_equal:' . now('America/Edmonton')->format('Y-m-d') . '|before:' . now('America/Edmonton')->addYears(2)->format('Y-m-d'),
             'move_size' => ['required', new Enum(MoveSize::class)],
             'services_needed' => 'required|array|min:1',
             'services_needed.*' => 'string|in:moving,packing,unpacking,storage,piano,furniture_assembly,junk_removal,other',
@@ -49,13 +50,17 @@ class QuoteController extends Controller
             'referral_source' => ['nullable', new Enum(ReferralSource::class)],
             'origin_city' => 'nullable|string|max:100',
             'destination_city' => 'nullable|string|max:100',
+            'source_page' => 'nullable|string|max:255',
             'utm_source' => 'nullable|string|max:100',
             'utm_medium' => 'nullable|string|max:100',
             'utm_campaign' => 'nullable|string|max:100',
         ]);
 
         $validated['status'] = 'new';
-        $validated['source_page'] = url()->previous();
+        // Fallback: use hidden input value, or truncate referrer URL to fit DB column
+        if (empty($validated['source_page'])) {
+            $validated['source_page'] = Str::limit(url()->previous(), 252, '...');
+        }
 
         $quote = Quote::create($validated);
 
@@ -75,7 +80,7 @@ class QuoteController extends Controller
             ]);
         }
 
-        return redirect()->route('quote.create')
+        return redirect()->back()
             ->with('success', 'Thank you! Your quote request has been submitted. We\'ll contact you within 2 hours during business hours.');
     }
 }
