@@ -142,7 +142,6 @@
                             <div style="position:absolute;left:-9999px;" aria-hidden="true">
                                 <input type="text" name="website" tabindex="-1" autocomplete="off">
                             </div>
-                            <input type="hidden" name="recaptcha_token" id="hero_recaptcha_token">
                             <input type="hidden" name="source_page" value="{{ url()->current() }}">
                             <input type="hidden" name="utm_source" id="hero_utm_source">
                             <input type="hidden" name="utm_medium" id="hero_utm_medium">
@@ -434,17 +433,7 @@ function quoteForm() {
             if (this.submitting) return;
             if (this.validateStep()) {
                 this.submitting = true;
-                var form = event.target;
-                if (typeof grecaptcha !== 'undefined' && '{{ config('services.google.recaptcha_site_key') }}') {
-                    grecaptcha.ready(function() {
-                        grecaptcha.execute('{{ config('services.google.recaptcha_site_key') }}', {action: 'quote'}).then(function(token) {
-                            document.getElementById('hero_recaptcha_token').value = token;
-                            form.submit();
-                        }).catch(function() { form.submit(); });
-                    });
-                } else {
-                    form.submit();
-                }
+                event.target.submit();
             }
         }
     };
@@ -529,11 +518,9 @@ function quoteForm() {
                 'senior-moving' => 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
                 'same-day-moving' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',
                 'evening-weekend-moving' => 'M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z',
-                'eco-friendly-moving' => 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064',
                 'storage-solutions' => 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4',
                 'junk-removal' => 'M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16',
                 'affordable-moving' => 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-                'bilingual-movers' => 'M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129',
             ];
         @endphp
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -901,9 +888,6 @@ function quoteForm() {
 @endsection
 
 @section('scripts')
-@if(config('services.google.recaptcha_site_key'))
-<script src="https://www.google.com/recaptcha/api.js?render={{ config('services.google.recaptcha_site_key') }}"></script>
-@endif
 @if(config('services.google.maps_api_key'))
 <style>
     .pac-container {
