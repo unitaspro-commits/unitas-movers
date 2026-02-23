@@ -154,7 +154,7 @@
                                             <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
                                                 placeholder="Your current address" autocomplete="off"
                                                 @input="onAddressInput('moving_from')"
-                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (formData.moving_from && !addressSelected.moving_from) errors.moving_from = 'Please select an address from the dropdown' }, 300)"
+                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (document.activeElement === $el) return; if (formData.moving_from && !addressSelected.moving_from) errors.moving_from = 'Please select an address from the dropdown' }, 300)"
                                                 :class="errors.moving_from ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
@@ -168,7 +168,7 @@
                                             <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
                                                 placeholder="Your destination address" autocomplete="off"
                                                 @input="onAddressInput('moving_to')"
-                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (formData.moving_to && !addressSelected.moving_to) errors.moving_to = 'Please select an address from the dropdown' }, 300)"
+                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (document.activeElement === $el) return; if (formData.moving_to && !addressSelected.moving_to) errors.moving_to = 'Please select an address from the dropdown' }, 300)"
                                                 :class="errors.moving_to ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
