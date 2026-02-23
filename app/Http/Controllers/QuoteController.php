@@ -12,6 +12,7 @@ use App\Services\SchemaMarkupService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rules\Enum;
 
 class QuoteController extends Controller
 {
@@ -27,28 +28,34 @@ class QuoteController extends Controller
 
     public function store(Request $request)
     {
+        // Honeypot: bots fill hidden "website" field, real users don't
+        if ($request->filled('website')) {
+            return redirect()->route('quote.create')
+                ->with('success', 'Thank you! Your quote request has been submitted. We\'ll contact you within 2 hours during business hours.');
+        }
+
         $validated = $request->validate([
-            'full_name' => 'required|string|max:150',
+            'full_name' => 'required|string|min:2|max:150',
             'phone' => 'required|string|max:20',
             'email' => 'required|email|max:255',
             'moving_from' => 'required|string|max:500',
             'moving_to' => 'required|string|max:500',
-            'move_date' => 'required|date|after:today',
-            'move_size' => 'required|string',
+            'move_date' => 'required|date|after:today|before:' . now()->addYears(2)->format('Y-m-d'),
+            'move_size' => ['required', new Enum(MoveSize::class)],
             'services_needed' => 'required|array|min:1',
-            'services_needed.*' => 'string',
-            'additional_notes' => 'nullable|string',
+            'services_needed.*' => 'string|in:moving,packing,unpacking,storage,piano,furniture_assembly,junk_removal,other',
+            'additional_notes' => 'nullable|string|max:5000',
             'preferred_language' => 'nullable|in:en,fr',
-            'referral_source' => 'nullable|string',
+            'referral_source' => ['nullable', new Enum(ReferralSource::class)],
             'origin_city' => 'nullable|string|max:100',
             'destination_city' => 'nullable|string|max:100',
+            'utm_source' => 'nullable|string|max:100',
+            'utm_medium' => 'nullable|string|max:100',
+            'utm_campaign' => 'nullable|string|max:100',
         ]);
 
         $validated['status'] = 'new';
         $validated['source_page'] = url()->previous();
-        $validated['utm_source'] = $request->query('utm_source');
-        $validated['utm_medium'] = $request->query('utm_medium');
-        $validated['utm_campaign'] = $request->query('utm_campaign');
 
         $quote = Quote::create($validated);
 

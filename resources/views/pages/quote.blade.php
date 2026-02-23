@@ -37,19 +37,24 @@
         @endif
 
         <form method="POST" action="{{ route('quote.store') }}" class="space-y-8"
-            x-data="{ addressSelected: { moving_from: {{ old('moving_from') ? 'true' : 'false' }}, moving_to: {{ old('moving_to') ? 'true' : 'false' }} }, addressErrors: { moving_from: false, moving_to: false }, fieldErrors: { phone: '', email: '' } }"
+            x-data="{ submitting: false, addressSelected: { moving_from: {{ old('moving_from') ? 'true' : 'false' }}, moving_to: {{ old('moving_to') ? 'true' : 'false' }} }, addressErrors: { moving_from: false, moving_to: false }, fieldErrors: { phone: '', email: '' } }"
             @submit.prevent="
+                if (submitting) return;
                 fieldErrors.phone = ''; fieldErrors.email = '';
-                if (!addressSelected.moving_from) { addressErrors.moving_from = true; }
-                if (!addressSelected.moving_to) { addressErrors.moving_to = true; }
+                if (!window._googlePlacesUnavailable && !addressSelected.moving_from) { addressErrors.moving_from = true; }
+                if (!window._googlePlacesUnavailable && !addressSelected.moving_to) { addressErrors.moving_to = true; }
                 var phoneVal = $el.querySelector('#phone').value;
                 var emailVal = $el.querySelector('#email').value;
                 if (phoneVal && phoneVal.replace(/\D/g,'').length < 10) { fieldErrors.phone = 'Please enter a valid phone number (at least 10 digits)'; }
                 if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { fieldErrors.email = 'Please enter a valid email address'; }
-                if (addressSelected.moving_from && addressSelected.moving_to && !fieldErrors.phone && !fieldErrors.email) { $el.submit(); }
+                var addressOk = window._googlePlacesUnavailable || (addressSelected.moving_from && addressSelected.moving_to);
+                if (addressOk && !fieldErrors.phone && !fieldErrors.email) { submitting = true; $el.submit(); }
                 else { $nextTick(() => { var e = $el.querySelector('.text-error'); if (e) e.scrollIntoView({ behavior: 'smooth', block: 'center' }); }); }
             ">
             @csrf
+            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                <input type="text" name="website" tabindex="-1" autocomplete="off">
+            </div>
 
             {{-- Personal Info --}}
             <div class="bg-white rounded-xl p-6 shadow-sm border border-stone/10">
@@ -62,7 +67,7 @@
                     </div>
                     <div>
                         <label for="phone" class="block text-sm font-medium text-slate-dark mb-1">Phone Number *</label>
-                        <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" required placeholder="(403) 000-0000"
+                        <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" required placeholder="(403) 000-0000" maxlength="20"
                             @input="fieldErrors.phone = ''"
                             @blur="if ($el.value && $el.value.replace(/\D/g,'').length < 10) fieldErrors.phone = 'Please enter a valid phone number (at least 10 digits)'"
                             :class="fieldErrors.phone ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
@@ -90,7 +95,7 @@
                         <input type="text" name="moving_from" id="moving_from" value="{{ old('moving_from') }}" required
                             placeholder="Enter your current address" autocomplete="off"
                             @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_from)) { addressSelected.moving_from = false; addressErrors.moving_from = false; if (window._userTypedAddress) window._userTypedAddress.moving_from = true; }"
-                            @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (document.activeElement === $el) return; if ($el.value && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
+                            @blur="setTimeout(() => { if (window._googlePlacesUnavailable) return; if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (document.activeElement === $el) return; if ($el.value && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
                             :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="addressErrors.moving_from" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
@@ -101,7 +106,7 @@
                         <input type="text" name="moving_to" id="moving_to" value="{{ old('moving_to') }}" required
                             placeholder="Enter your destination address" autocomplete="off"
                             @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_to)) { addressSelected.moving_to = false; addressErrors.moving_to = false; if (window._userTypedAddress) window._userTypedAddress.moving_to = true; }"
-                            @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (document.activeElement === $el) return; if ($el.value && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
+                            @blur="setTimeout(() => { if (window._googlePlacesUnavailable) return; if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (document.activeElement === $el) return; if ($el.value && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
                             :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="addressErrors.moving_to" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
@@ -111,6 +116,7 @@
                         <label for="move_date" class="block text-sm font-medium text-slate-dark mb-1">Move Date *</label>
                         <input type="date" name="move_date" id="move_date" value="{{ old('move_date') }}" required
                             min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                            max="{{ date('Y-m-d', strtotime('+2 years')) }}"
                             class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
                     </div>
                     <div>
@@ -192,8 +198,12 @@
 
             {{-- Submit --}}
             <div class="text-center">
-                <button type="submit" class="bg-unitas-green hover:bg-forest text-white px-10 py-4 rounded-lg font-bold text-lg transition shadow-lg">
-                    Submit Quote Request
+                <button type="submit" :disabled="submitting" class="bg-unitas-green hover:bg-forest text-white px-10 py-4 rounded-lg font-bold text-lg transition shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
+                    <span x-show="!submitting">Submit Quote Request</span>
+                    <span x-show="submitting" x-cloak class="flex items-center justify-center">
+                        <svg class="animate-spin w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                        Submitting...
+                    </span>
                 </button>
                 <p class="mt-3 text-sm text-stone">We'll respond within 2 hours during business hours (Mon–Sat 8am–6pm)</p>
             </div>
@@ -315,5 +325,14 @@
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete" async defer></script>
+<script>
+    // Fallback: if Google Places hasn't loaded within 5s, allow form submission without address selection
+    window._googlePlacesUnavailable = false;
+    setTimeout(function() {
+        if (typeof google === 'undefined' || !google.maps || !google.maps.places) {
+            window._googlePlacesUnavailable = true;
+        }
+    }, 5000);
+</script>
 @endif
 @endsection

@@ -122,6 +122,9 @@
 
                         <form method="POST" action="{{ route('quote.store') }}" @submit.prevent="submitForm($event)">
                             @csrf
+                            <div style="position:absolute;left:-9999px;" aria-hidden="true">
+                                <input type="text" name="website" tabindex="-1" autocomplete="off">
+                            </div>
 
                             <div class="form-steps-container">
                             {{-- Step 1: Move Type + Location + Date --}}
@@ -154,7 +157,7 @@
                                             <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
                                                 placeholder="Your current address" autocomplete="off"
                                                 @input="onAddressInput('moving_from')"
-                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (document.activeElement === $el) return; if (formData.moving_from && !addressSelected.moving_from) errors.moving_from = 'Please select an address from the dropdown' }, 300)"
+                                                @blur="setTimeout(() => { if (window._googlePlacesUnavailable) return; if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (document.activeElement === $el) return; if (formData.moving_from && !addressSelected.moving_from) errors.moving_from = 'Please select an address from the dropdown' }, 300)"
                                                 :class="errors.moving_from ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
@@ -168,7 +171,7 @@
                                             <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
                                                 placeholder="Your destination address" autocomplete="off"
                                                 @input="onAddressInput('moving_to')"
-                                                @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (document.activeElement === $el) return; if (formData.moving_to && !addressSelected.moving_to) errors.moving_to = 'Please select an address from the dropdown' }, 300)"
+                                                @blur="setTimeout(() => { if (window._googlePlacesUnavailable) return; if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (document.activeElement === $el) return; if (formData.moving_to && !addressSelected.moving_to) errors.moving_to = 'Please select an address from the dropdown' }, 300)"
                                                 :class="errors.moving_to ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark placeholder:text-gray-500 focus:ring-2 transition">
                                         </div>
@@ -181,6 +184,7 @@
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                             <input type="date" name="move_date" id="hero_move_date" x-ref="moveDateInput" x-model="formData.move_date" required
                                                 min="{{ date('Y-m-d', strtotime('+1 day')) }}"
+                                                max="{{ date('Y-m-d', strtotime('+2 years')) }}"
                                                 @click="$el.showPicker()"
                                                 @change="clearError('move_date')"
                                                 :class="errors.move_date ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
@@ -206,7 +210,7 @@
                                     <div>
                                         <label for="hero_phone" class="block text-base font-semibold text-dark mb-2">Phone Number</label>
                                         <input type="tel" name="phone" id="hero_phone" x-model="formData.phone" required
-                                            placeholder="(403) 000-0000"
+                                            placeholder="(403) 000-0000" maxlength="20"
                                             @input="clearError('phone')"
                                             @blur="if (formData.phone && formData.phone.replace(/\D/g,'').length < 10) errors.phone = 'Please enter a valid phone number (at least 10 digits)'"
                                             :class="errors.phone ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
@@ -273,10 +277,20 @@
                                     Continue
                                     <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                                 </button>
-                                <button type="submit" x-show="step === 3"
-                                    class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-bold text-sm transition-all shadow-[0_4px_20px_rgba(89,52,255,0.3)] hover:shadow-[0_6px_30px_rgba(89,52,255,0.4)] hover:-translate-y-0.5 flex items-center">
-                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Get Free Quote
+                                <button type="submit" x-show="step === 3" :disabled="submitting"
+                                    class="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-xl font-bold text-sm transition-all shadow-[0_4px_20px_rgba(89,52,255,0.3)] hover:shadow-[0_6px_30px_rgba(89,52,255,0.4)] hover:-translate-y-0.5 flex items-center disabled:opacity-60 disabled:cursor-not-allowed">
+                                    <template x-if="!submitting">
+                                        <span class="flex items-center">
+                                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                                            Get Free Quote
+                                        </span>
+                                    </template>
+                                    <template x-if="submitting">
+                                        <span class="flex items-center">
+                                            <svg class="animate-spin w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
+                                            Submitting...
+                                        </span>
+                                    </template>
                                 </button>
                             </div>
                         </form>
@@ -305,6 +319,7 @@
 function quoteForm() {
     return {
         step: 1,
+        submitting: false,
         stepLabels: ['Move Details', 'Contact', 'Services'],
         formData: {
             moving_from: '',
@@ -363,13 +378,13 @@ function quoteForm() {
                 case 1:
                     if (!this.formData.move_size) { this.errors.move_size = 'Please select a move type'; valid = false; }
                     if (!this.formData.moving_from) { this.errors.moving_from = 'This field is required'; valid = false; }
-                    else if (!this.addressSelected.moving_from) { this.errors.moving_from = 'Please select an address from the dropdown'; valid = false; }
+                    else if (!window._googlePlacesUnavailable && !this.addressSelected.moving_from) { this.errors.moving_from = 'Please select an address from the dropdown'; valid = false; }
                     if (!this.formData.moving_to) { this.errors.moving_to = 'This field is required'; valid = false; }
-                    else if (!this.addressSelected.moving_to) { this.errors.moving_to = 'Please select an address from the dropdown'; valid = false; }
+                    else if (!window._googlePlacesUnavailable && !this.addressSelected.moving_to) { this.errors.moving_to = 'Please select an address from the dropdown'; valid = false; }
                     if (!this.formData.move_date) { this.errors.move_date = 'Please select a move date'; valid = false; }
                     break;
                 case 2:
-                    if (!this.formData.full_name) { this.errors.full_name = 'This field is required'; valid = false; }
+                    if (!this.formData.full_name || this.formData.full_name.trim().length < 2) { this.errors.full_name = 'Please enter your full name'; valid = false; }
                     if (!this.formData.phone) { this.errors.phone = 'This field is required'; valid = false; }
                     else if (this.formData.phone.replace(/\D/g,'').length < 10) { this.errors.phone = 'Please enter a valid phone number (at least 10 digits)'; valid = false; }
                     if (!this.formData.email) { this.errors.email = 'This field is required'; valid = false; }
@@ -394,7 +409,9 @@ function quoteForm() {
             setTimeout(() => form.classList.remove('animate-shake'), 500);
         },
         submitForm(event) {
+            if (this.submitting) return;
             if (this.validateStep()) {
+                this.submitting = true;
                 event.target.submit();
             }
         }
@@ -977,5 +994,14 @@ function quoteForm() {
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete" async defer></script>
+<script>
+    // Fallback: if Google Places hasn't loaded within 5s, allow form submission without address selection
+    window._googlePlacesUnavailable = false;
+    setTimeout(function() {
+        if (typeof google === 'undefined' || !google.maps || !google.maps.places) {
+            window._googlePlacesUnavailable = true;
+        }
+    }, 5000);
+</script>
 @endif
 @endsection

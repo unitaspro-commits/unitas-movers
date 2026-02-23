@@ -17,7 +17,7 @@ Route::get('/', HomeController::class)->name('home');
 
 // Quote
 Route::get('/get-a-quote', [QuoteController::class, 'create'])->name('quote.create');
-Route::post('/get-a-quote', [QuoteController::class, 'store'])->name('quote.store');
+Route::post('/get-a-quote', [QuoteController::class, 'store'])->middleware('throttle:5,1')->name('quote.store');
 
 // Services
 Route::get('/services', [ServiceController::class, 'index'])->name('services.index');
