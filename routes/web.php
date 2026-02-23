@@ -43,11 +43,3 @@ Route::get('/about/licensed-insured', [PageController::class, 'licensedInsured']
 Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy');
 Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms');
 Route::get('/site-map', [PageController::class, 'siteMap'])->name('site-map');
-
-// French routes
-Route::prefix('fr')->name('fr.')->group(function () {
-    Route::get('/', fn () => view('pages.fr.home'))->name('home');
-    Route::get('/soumission', fn () => view('pages.fr.quote'))->name('quote');
-    Route::get('/services', fn () => view('pages.fr.services'))->name('services');
-    Route::get('/a-propos', fn () => view('pages.fr.about'))->name('about');
-});

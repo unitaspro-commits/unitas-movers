@@ -106,16 +106,6 @@
             </div>
             @endif
 
-            {{-- French Pages --}}
-            <div>
-                <h2 class="text-xl font-bold text-dark mb-4 pb-2 border-b border-gray-200">Pages en Fran&ccedil;ais</h2>
-                <ul class="space-y-2.5">
-                    <li><a href="{{ route('fr.home') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Accueil</a></li>
-                    <li><a href="{{ route('fr.services') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Services</a></li>
-                    <li><a href="{{ route('fr.quote') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Soumission Gratuite</a></li>
-                    <li><a href="{{ route('fr.about') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">&Agrave; Propos</a></li>
-                </ul>
-            </div>
 
         </div>
     </div>

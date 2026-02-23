@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Area;
 use App\Models\BlogPost;
-use App\Models\FrenchPage;
 use App\Models\Route as RouteModel;
 use App\Models\Service;
 use App\Services\SchemaMarkupService;
