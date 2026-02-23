@@ -7,7 +7,7 @@
 
     <title>@yield('title', 'Unitas Movers — Professional Moving Company')</title>
     <meta name="description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
-    <meta name="robots" content="@yield('robots', 'noindex, nofollow')">
+    <meta name="robots" content="@yield('robots', 'index, follow')">
 
     <link rel="canonical" href="@yield('canonical', url()->current())">
 
