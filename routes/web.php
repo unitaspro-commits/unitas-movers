@@ -42,4 +42,7 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/about/licensed-insured', [PageController::class, 'licensedInsured'])->name('about.licensed-insured');
 Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy');
 Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms');
+Route::get('/reviews', [PageController::class, 'reviews'])->name('reviews');
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 Route::get('/site-map', [PageController::class, 'siteMap'])->name('site-map');

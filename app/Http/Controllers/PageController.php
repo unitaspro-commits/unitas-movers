@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Area;
 use App\Models\BlogPost;
+use App\Models\Faq;
+use App\Models\Review;
 use App\Models\Route as RouteModel;
 use App\Models\Service;
 use App\Services\SchemaMarkupService;
@@ -44,6 +46,47 @@ class PageController extends Controller
         $schemas = $schema->forStaticPage('terms', 'Terms of Service', route('terms'));
 
         return view('pages.terms', compact('schemas'));
+    }
+
+    public function reviews(SchemaMarkupService $schema)
+    {
+        $featuredReviews = Review::published()->featured()
+            ->with(['service', 'area'])
+            ->latest()
+            ->get();
+
+        $otherReviews = Review::published()
+            ->where('is_featured', false)
+            ->with(['service', 'area'])
+            ->latest()
+            ->get();
+
+        $allPublished = Review::published();
+        $avgRating = (float) Review::published()->avg('rating') ?: 4.8;
+        $totalReviews = Review::published()->count() ?: 30;
+
+        $schemas = $schema->forReviewsPage();
+
+        return view('pages.reviews', compact(
+            'featuredReviews', 'otherReviews', 'avgRating', 'totalReviews', 'schemas'
+        ));
+    }
+
+    public function faq(SchemaMarkupService $schema)
+    {
+        $faqs = Faq::published()->ordered()->get();
+        $faqsByCategory = $faqs->groupBy('category');
+
+        $schemas = $schema->forFaqPage($faqs);
+
+        return view('pages.faq', compact('faqsByCategory', 'schemas'));
+    }
+
+    public function contact(SchemaMarkupService $schema)
+    {
+        $schemas = $schema->forContactPage();
+
+        return view('pages.contact', compact('schemas'));
     }
 
     public function siteMap(SchemaMarkupService $schema)

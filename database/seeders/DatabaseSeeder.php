@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
             ReviewSeeder::class,
             FaqSeeder::class,
             SeoMetaSeeder::class,
+            ReverseRouteSeeder::class,
         ]);
     }
 }

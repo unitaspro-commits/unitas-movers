@@ -141,6 +141,66 @@ class SchemaMarkupService
         return $schemas;
     }
 
+    public function forReviewsPage(): array
+    {
+        $company = $this->movingCompany();
+
+        $ratingData = $this->aggregateRating();
+        if (isset($ratingData['aggregateRating'])) {
+            $company['aggregateRating'] = $ratingData['aggregateRating'];
+        }
+
+        $schemas = [];
+        $schemas[] = $company;
+        $schemas[] = $this->breadcrumbList([
+            ['name' => 'Home', 'url' => route('home')],
+            ['name' => 'Reviews', 'url' => route('reviews')],
+        ]);
+
+        return $schemas;
+    }
+
+    public function forFaqPage($faqs): array
+    {
+        $schemas = [];
+
+        $schemaEligible = $faqs->filter(fn ($faq) => $faq->schema_eligible);
+        $faqItems = $schemaEligible->map(fn ($faq) => [
+            'question' => $faq->question,
+            'answer' => $faq->answer,
+        ])->values()->toArray();
+
+        if (!empty($faqItems)) {
+            $schemas[] = $this->faqPage($faqItems);
+        }
+
+        $schemas[] = $this->breadcrumbList([
+            ['name' => 'Home', 'url' => route('home')],
+            ['name' => 'FAQ', 'url' => route('faq')],
+        ]);
+
+        return $schemas;
+    }
+
+    public function forContactPage(): array
+    {
+        $company = $this->movingCompany();
+
+        $ratingData = $this->aggregateRating();
+        if (isset($ratingData['aggregateRating'])) {
+            $company['aggregateRating'] = $ratingData['aggregateRating'];
+        }
+
+        $schemas = [];
+        $schemas[] = $company;
+        $schemas[] = $this->breadcrumbList([
+            ['name' => 'Home', 'url' => route('home')],
+            ['name' => 'Contact', 'url' => route('contact')],
+        ]);
+
+        return $schemas;
+    }
+
     public function forStaticPage(string $pageKey, string $name, string $url): array
     {
         $schemas = [];

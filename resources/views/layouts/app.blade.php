@@ -165,6 +165,9 @@
                         <li><a href="{{ route('about') }}" class="hover:text-white transition">About Us</a></li>
                         <li><a href="{{ route('about.licensed-insured') }}" class="hover:text-white transition">Licensed & Insured</a></li>
                         <li><a href="{{ route('pricing') }}" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="{{ route('reviews') }}" class="hover:text-white transition">Reviews</a></li>
+                        <li><a href="{{ route('faq') }}" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="{{ route('contact') }}" class="hover:text-white transition">Contact</a></li>
                         <li><a href="{{ route('blog.index') }}" class="hover:text-white transition">Blog</a></li>
                         <li><a href="{{ route('privacy') }}" class="hover:text-white transition">Privacy Policy</a></li>
                         <li><a href="{{ route('terms') }}" class="hover:text-white transition">Terms of Service</a></li>

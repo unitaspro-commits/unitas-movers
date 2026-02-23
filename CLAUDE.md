@@ -134,6 +134,8 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [x] **Google Places autocomplete** — Integrated on quote form address fields with city auto-extraction, Canada-restricted, graceful degradation — 2026-02-19
 - [x] **reCAPTCHA v3** — Invisible score-based bot protection (threshold 0.5) on both quote forms, silent rejection with fake success, graceful degradation — 2026-02-24
 - [x] **Route pages (moving corridors)** — RouteController + index/show views for 17 corridors, quick-facts bar, 3 content sections, FAQ accordion, schema markup, internal linking, nav + site-map updates, noindex — 2026-02-24
+- [x] **FAQ, Contact, Reviews pages** — /faq (35 FAQs grouped by 8 categories), /contact (phone/email/hours), /reviews (aggregate rating + featured/all reviews), schema markup, footer/sitemap/site-map links — 2026-02-24
+- [x] **Bidirectional route pages** — 17 reverse routes seeded (Edmonton→Calgary, Vancouver→Calgary, etc.), total 34 routes, updateOrCreate for safe re-runs — 2026-02-24
 - [ ] **Distance calculation** — Auto-calculate estimated_distance_km from addresses
 - [x] **Sitemap generation** — XML sitemap at /sitemap.xml with ~117 URLs (static + services + areas + routes + blog) — 2026-02-18
 - [x] **Redirect middleware** — HandleRedirects middleware checks redirects table, performs 301/302 redirects with hit tracking — 2026-02-18

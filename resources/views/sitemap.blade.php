@@ -64,6 +64,30 @@
         <priority>0.3</priority>
     </url>
 
+    {{-- Reviews --}}
+    <url>
+        <loc>{{ url('/reviews') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    {{-- FAQ --}}
+    <url>
+        <loc>{{ url('/faq') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+
+    {{-- Contact --}}
+    <url>
+        <loc>{{ url('/contact') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.5</priority>
+    </url>
+
     {{-- Privacy Policy --}}
     <url>
         <loc>{{ url('/privacy-policy') }}</loc>

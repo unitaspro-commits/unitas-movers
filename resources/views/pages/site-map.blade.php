@@ -33,6 +33,9 @@
                     <li><a href="{{ route('pricing') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Pricing</a></li>
                     <li><a href="{{ route('about') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">About Us</a></li>
                     <li><a href="{{ route('about.licensed-insured') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Licensed & Insured</a></li>
+                    <li><a href="{{ route('reviews') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Reviews</a></li>
+                    <li><a href="{{ route('faq') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">FAQ</a></li>
+                    <li><a href="{{ route('contact') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Contact</a></li>
                     <li><a href="{{ route('privacy') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Privacy Policy</a></li>
                     <li><a href="{{ route('terms') }}" class="text-gray-600 hover:text-primary transition text-sm font-medium">Terms of Service</a></li>
                 </ul>
