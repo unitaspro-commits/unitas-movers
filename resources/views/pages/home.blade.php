@@ -147,7 +147,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <label for="hero_moving_from" class="block text-base font-semibold text-dark mb-2">Moving From</label>
+                                        <span class="block text-base font-semibold text-dark mb-2">Moving From</span>
                                         <div class="relative">
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                             <input type="text" name="moving_from" id="hero_moving_from" x-model="formData.moving_from" required
@@ -157,7 +157,7 @@
                                         <input type="hidden" name="origin_city" id="hero_origin_city">
                                     </div>
                                     <div>
-                                        <label for="hero_moving_to" class="block text-base font-semibold text-dark mb-2">Moving To</label>
+                                        <span class="block text-base font-semibold text-dark mb-2">Moving To</span>
                                         <div class="relative">
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                                             <input type="text" name="moving_to" id="hero_moving_to" x-model="formData.moving_to" required
@@ -167,8 +167,8 @@
                                         <input type="hidden" name="destination_city" id="hero_destination_city">
                                     </div>
                                     <div>
-                                        <label for="hero_move_date" class="block text-base font-semibold text-dark mb-2">Move Date</label>
-                                        <div class="relative cursor-pointer" @click="$refs.moveDateInput.showPicker()">
+                                        <span class="block text-base font-semibold text-dark mb-2">Move Date</span>
+                                        <div class="relative">
                                             <svg class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                                             <input type="date" name="move_date" id="hero_move_date" x-ref="moveDateInput" x-model="formData.move_date" required
                                                 min="{{ date('Y-m-d', strtotime('+1 day')) }}"
