@@ -76,7 +76,7 @@
                         <label for="moving_from" class="block text-sm font-medium text-slate-dark mb-1">Moving From *</label>
                         <input type="text" name="moving_from" id="moving_from" value="{{ old('moving_from') }}" required
                             placeholder="Enter your current address" autocomplete="off"
-                            @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_from)) { addressSelected.moving_from = false; addressErrors.moving_from = false; }"
+                            @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_from)) { addressSelected.moving_from = false; addressErrors.moving_from = false; if (window._userTypedAddress) window._userTypedAddress.moving_from = true; }"
                             @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if ($el.value && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
                             :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
@@ -87,7 +87,7 @@
                         <label for="moving_to" class="block text-sm font-medium text-slate-dark mb-1">Moving To *</label>
                         <input type="text" name="moving_to" id="moving_to" value="{{ old('moving_to') }}" required
                             placeholder="Enter your destination address" autocomplete="off"
-                            @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_to)) { addressSelected.moving_to = false; addressErrors.moving_to = false; }"
+                            @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_to)) { addressSelected.moving_to = false; addressErrors.moving_to = false; if (window._userTypedAddress) window._userTypedAddress.moving_to = true; }"
                             @blur="setTimeout(() => { if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if ($el.value && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
                             :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
@@ -215,6 +215,7 @@
 <script>
     function initGooglePlacesAutocomplete() {
         window._suppressAddressInput = window._suppressAddressInput || {};
+        window._userTypedAddress = window._userTypedAddress || {};
 
         var fields = [
             { input: 'moving_from', hidden: 'origin_city' },
@@ -227,6 +228,12 @@
             if (!inputEl) return;
 
             window._suppressAddressInput[field.input] = false;
+            window._userTypedAddress[field.input] = false;
+
+            // Reset typing flag on focus so Chrome autofill detection works fresh
+            inputEl.addEventListener('focus', function() {
+                window._userTypedAddress[field.input] = false;
+            });
 
             var autocomplete = new google.maps.places.Autocomplete(inputEl, {
                 componentRestrictions: { country: 'ca' },
@@ -277,7 +284,10 @@
             });
 
             // Chrome autofill: re-insert text to trigger Google autocomplete
+            // Only runs when Chrome filled the value without user typing (actual autofill)
             inputEl.addEventListener('change', function() {
+                // Skip if user was manually typing — only handle Chrome autofill
+                if (window._userTypedAddress && window._userTypedAddress[field.input]) return;
                 var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
                 if (inputEl.value && alpineData && !alpineData.addressSelected[field.input]) {
                     window._suppressAddressInput[field.input] = true;

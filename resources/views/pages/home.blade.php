@@ -324,6 +324,7 @@ function quoteForm() {
         onAddressInput(field) {
             if (window._suppressAddressInput && window._suppressAddressInput[field]) return;
             this.addressSelected[field] = false;
+            if (window._userTypedAddress) window._userTypedAddress[field] = true;
             delete this.errors[field];
         },
         clearError(field) {
@@ -879,6 +880,8 @@ function quoteForm() {
         // Suppression flag: prevents @input handler from resetting addressSelected
         // during programmatic value changes (Google selection, Chrome autofill re-insert)
         window._suppressAddressInput = {};
+        // Tracks whether user manually typed (vs Chrome autofill filling the value)
+        window._userTypedAddress = {};
 
         fields.forEach(function(field) {
             var inputEl = document.getElementById(field.input);
@@ -886,6 +889,12 @@ function quoteForm() {
             if (!inputEl) return;
 
             window._suppressAddressInput[field.model] = false;
+            window._userTypedAddress[field.model] = false;
+
+            // Reset typing flag on focus so Chrome autofill detection works fresh
+            inputEl.addEventListener('focus', function() {
+                window._userTypedAddress[field.model] = false;
+            });
 
             var autocomplete = new google.maps.places.Autocomplete(inputEl, {
                 componentRestrictions: { country: 'ca' },
@@ -942,7 +951,10 @@ function quoteForm() {
             });
 
             // Chrome autofill: re-insert text to trigger Google autocomplete dropdown
+            // Only runs when Chrome filled the value without user typing (actual autofill)
             inputEl.addEventListener('change', function() {
+                // Skip if user was manually typing — only handle Chrome autofill
+                if (window._userTypedAddress && window._userTypedAddress[field.model]) return;
                 var alpineData = Alpine.$data(inputEl.closest('[x-data]'));
                 if (inputEl.value && alpineData && !alpineData.addressSelected[field.model]) {
                     window._suppressAddressInput[field.model] = true;
