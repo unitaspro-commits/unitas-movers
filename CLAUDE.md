@@ -131,6 +131,7 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [x] **FAQ content** — 35 FAQs seeded across 8 categories (general, pricing, moving-day, services, protection, apartments, booking, restrictions) — 2026-02-18
 - [x] **SEO meta for static pages** — 10 static pages seeded with meta titles, descriptions, canonical URLs, and schema.org JSON — 2026-02-18
 - [x] **Google Places autocomplete** — Integrated on quote form address fields with city auto-extraction, Canada-restricted, graceful degradation — 2026-02-19
+- [x] **reCAPTCHA v3** — Invisible score-based bot protection (threshold 0.5) on both quote forms, silent rejection with fake success, graceful degradation — 2026-02-24
 - [ ] **Distance calculation** — Auto-calculate estimated_distance_km from addresses
 - [x] **Sitemap generation** — XML sitemap at /sitemap.xml with ~117 URLs (static + services + areas + routes + blog) — 2026-02-18
 - [x] **Redirect middleware** — HandleRedirects middleware checks redirects table, performs 301/302 redirects with hit tracking — 2026-02-18
