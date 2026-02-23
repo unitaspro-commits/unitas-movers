@@ -84,11 +84,11 @@ new → contacted → quoted → booked → completed
 app/
 ├── Enums/           → QuoteStatus, MoveSize, ReferralSource
 ├── Filament/        → 11 admin resources (44 files total)
-├── Http/Controllers → 7 controllers (Home, Service, Area, Blog, Page, Quote, base)
+├── Http/Controllers → 8 controllers (Home, Service, Area, Route, Blog, Page, Quote, base)
 ├── Models/          → 14 Eloquent models
 └── Providers/       → Service providers
 
-resources/views/     → 19 Blade templates
+resources/views/     → 21 Blade templates
 ├── layouts/app.blade.php    → Main layout
 ├── pages/home.blade.php     → Homepage
 ├── pages/quote.blade.php    → Quote form
@@ -96,6 +96,7 @@ resources/views/     → 19 Blade templates
 ├── pages/fr/                → French pages (4)
 ├── services/index|show      → Service listing & detail
 ├── areas/index|show         → Area listing & detail
+├── routes/index|show        → Route listing & detail
 └── blog/index|show          → Blog listing & detail
 
 routes/web.php       → All routes (English + French prefix /fr)
@@ -132,6 +133,7 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [x] **SEO meta for static pages** — 10 static pages seeded with meta titles, descriptions, canonical URLs, and schema.org JSON — 2026-02-18
 - [x] **Google Places autocomplete** — Integrated on quote form address fields with city auto-extraction, Canada-restricted, graceful degradation — 2026-02-19
 - [x] **reCAPTCHA v3** — Invisible score-based bot protection (threshold 0.5) on both quote forms, silent rejection with fake success, graceful degradation — 2026-02-24
+- [x] **Route pages (moving corridors)** — RouteController + index/show views for 17 corridors, quick-facts bar, 3 content sections, FAQ accordion, schema markup, internal linking, nav + site-map updates, noindex — 2026-02-24
 - [ ] **Distance calculation** — Auto-calculate estimated_distance_km from addresses
 - [x] **Sitemap generation** — XML sitemap at /sitemap.xml with ~117 URLs (static + services + areas + routes + blog) — 2026-02-18
 - [x] **Redirect middleware** — HandleRedirects middleware checks redirects table, performs 301/302 redirects with hit tracking — 2026-02-18
