@@ -113,8 +113,8 @@
                                         class="step-dot w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all shrink-0"
                                         :class="{
                                             'active border-primary': step === index + 1,
-                                            'completed border-accent': step > index + 1,
-                                            'border-gray-200 text-gray-400 bg-white': step < index + 1
+                                            'completed border-accent cursor-pointer': step > index + 1,
+                                            'border-gray-200 text-gray-400 bg-white cursor-not-allowed opacity-50': step < index + 1
                                         }">
                                         <template x-if="step > index + 1">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
