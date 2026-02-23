@@ -45,6 +45,15 @@
     --color-error: #ef4444;
 }
 
+/* Hide scrollbar but keep scrolling */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
