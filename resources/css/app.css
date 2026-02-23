@@ -415,24 +415,6 @@ html {
 /* =============================================
    FLOATING CHAT WIDGET
    ============================================= */
-@keyframes chat-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-}
-.chat-widget {
-    animation: chat-bounce 3s ease-in-out infinite;
-}
-.chat-widget-tooltip {
-    opacity: 0;
-    transform: translateX(10px);
-    transition: all 0.3s ease;
-    pointer-events: none;
-}
-.chat-widget:hover .chat-widget-tooltip {
-    opacity: 1;
-    transform: translateX(0);
-}
-
 /* =============================================
    VIDEO TESTIMONIAL
    ============================================= */
