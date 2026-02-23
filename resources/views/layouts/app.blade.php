@@ -166,7 +166,7 @@
                         <li><a href="{{ route('blog.index') }}" class="hover:text-white transition">Blog</a></li>
                         <li><a href="{{ route('privacy') }}" class="hover:text-white transition">Privacy Policy</a></li>
                         <li><a href="{{ route('terms') }}" class="hover:text-white transition">Terms of Service</a></li>
-                        <li><a href="{{ route('sitemap') }}" class="hover:text-white transition">Sitemap</a></li>
+                        <li><a href="{{ route('site-map') }}" class="hover:text-white transition">Site Map</a></li>
                     </ul>
                 </div>
 
