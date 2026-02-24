@@ -5,6 +5,7 @@
 
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
+    @verbatim
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -61,6 +62,7 @@
         ]
     }
     </script>
+    @endverbatim
 @endsection
 
 @section('content')
