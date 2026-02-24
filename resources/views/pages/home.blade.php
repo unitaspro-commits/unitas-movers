@@ -1227,7 +1227,7 @@ function quoteForm() {
         });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete&loading=async" async></script>
 <script>
     // Fallback: if Google Places hasn't loaded within 5s, allow form submission without address selection
     window._googlePlacesUnavailable = false;
