@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Enums\MoveSize;
 use App\Enums\ReferralSource;
+use App\Jobs\CalculateQuoteDistance;
 use App\Mail\NewQuoteAdmin;
 use App\Mail\QuoteConfirmation;
 use App\Models\Quote;
@@ -61,6 +62,8 @@ class QuoteController extends Controller
         }
 
         $quote = Quote::create($validated);
+
+        CalculateQuoteDistance::dispatch($quote);
 
         // Send email notifications via queue so form responds instantly
         try {

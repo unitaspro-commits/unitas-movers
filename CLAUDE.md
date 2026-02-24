@@ -136,12 +136,13 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [x] **Route pages (moving corridors)** — RouteController + index/show views for 17 corridors, quick-facts bar, 3 content sections, FAQ accordion, schema markup, internal linking, nav + site-map updates, noindex — 2026-02-24
 - [x] **FAQ, Contact, Reviews pages** — /faq (35 FAQs grouped by 8 categories), /contact (phone/email/hours), /reviews (aggregate rating + featured/all reviews), schema markup, footer/sitemap/site-map links — 2026-02-24
 - [x] **Bidirectional route pages** — 17 reverse routes seeded (Edmonton→Calgary, Vancouver→Calgary, etc.), total 34 routes, updateOrCreate for safe re-runs — 2026-02-24
-- [ ] **Distance calculation** — Auto-calculate estimated_distance_km from addresses
+- [x] **Distance calculation** — Hybrid route-table lookup + Google Distance Matrix API fallback, async job dispatched on quote creation — 2026-02-24
 - [x] **Sitemap generation** — XML sitemap at /sitemap.xml with ~117 URLs (static + services + areas + routes + blog) — 2026-02-18
 - [x] **Redirect middleware** — HandleRedirects middleware checks redirects table, performs 301/302 redirects with hit tracking — 2026-02-18
 - [x] **Internal linking system** — InternalLinkService + <x-related-pages> component on service/area/blog detail pages + `php artisan links:generate` audit command (893 links) — 2026-02-18
 - [x] **Image optimization** — Intervention Image v3, on-upload WebP variant generation (thumb/medium/large), `<x-responsive-image>` Blade component, `images:regenerate` artisan command — 2026-02-18
 - [x] **Production deployment** — DigitalOcean droplet (159.203.23.196), Ubuntu 24.04, Nginx, PHP 8.3, MySQL 8, SSL via Let's Encrypt, live at https://unitasmovers.ca — 2026-02-19
+- [x] **PHPUnit test suite** — 96 tests (8 files), 166 assertions: page responses, quote form validation, SEO markup, sitemap, middleware, model scopes, enum logic, status transitions + live smoke test script — 2026-02-24
 - [ ] **Analytics integration** — Google Analytics / Tag Manager
 - [x] **Schema.org markup** — JSON-LD structured data on all pages: MovingCompany, AggregateRating, WebSite, Service, BlogPosting, FAQPage, BreadcrumbList via SchemaMarkupService + Blade component — 2026-02-18
 - [x] **Performance optimization** — Redirect caching, sitemap caching, aggregate rating cache, internal link caching, N+1 fixes, font preload, ClearsSiteCache trait, `app:optimize` command — 2026-02-19
