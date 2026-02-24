@@ -150,7 +150,6 @@
                             'moving' => 'Moving (Loading & Unloading)',
                             'packing' => 'Packing',
                             'unpacking' => 'Unpacking',
-                            'storage' => 'Storage',
                             'piano' => 'Piano Moving',
                             'furniture_assembly' => 'Furniture Assembly',
                             'junk_removal' => 'Junk Removal',
@@ -178,27 +177,17 @@
                             placeholder="Stairs, elevator, heavy items, special requirements..."
                             class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">{{ old('additional_notes') }}</textarea>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="preferred_language" class="block text-sm font-medium text-dark mb-1">Preferred Language</label>
-                            <select name="preferred_language" id="preferred_language"
-                                class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
-                                <option value="en" {{ old('preferred_language', 'en') === 'en' ? 'selected' : '' }}>English</option>
-                                <option value="fr" {{ old('preferred_language') === 'fr' ? 'selected' : '' }}>Fran&ccedil;ais</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="referral_source" class="block text-sm font-medium text-dark mb-1">How Did You Hear About Us?</label>
-                            <select name="referral_source" id="referral_source"
-                                class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
-                                <option value="">Select...</option>
-                                @foreach($referralSources as $source)
-                                    <option value="{{ $source->value }}" {{ old('referral_source') === $source->value ? 'selected' : '' }}>
-                                        {{ $source->label() }}
-                                    </option>
-                                @endforeach
-                            </select>
-                        </div>
+                    <div>
+                        <label for="referral_source" class="block text-sm font-medium text-dark mb-1">How Did You Hear About Us?</label>
+                        <select name="referral_source" id="referral_source"
+                            class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
+                            <option value="">Select...</option>
+                            @foreach($referralSources as $source)
+                                <option value="{{ $source->value }}" {{ old('referral_source') === $source->value ? 'selected' : '' }}>
+                                    {{ $source->label() }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
             </div>
