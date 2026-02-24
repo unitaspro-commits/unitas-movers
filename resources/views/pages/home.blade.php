@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Unitas Movers — Professional Moving Company | Free Quotes')
-@section('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')
+@section('title', 'Calgary Movers | Affordable Moving Company — Unitas Movers')
+@section('meta_description', 'Calgary movers you can trust. Licensed, insured, affordable local & long-distance moving, packing, and storage. 4.9★ rated, 2,500+ moves. Free quotes — call (403) 800-2747.')
 
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
@@ -26,10 +26,11 @@
                     <span class="text-gray-500 text-sm font-medium">Trusted by 2,500+ Calgary families</span>
                 </div>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-dark leading-[1.1] tracking-tight">
+                <h1 class="sr-only">Calgary Movers — Affordable Local & Long-Distance Moving Company</h1>
+                <p class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-dark leading-[1.1] tracking-tight">
                     Your Smoothest<br>
                     <span class="bg-gradient-to-r from-primary-light via-primary to-accent bg-clip-text text-transparent">Move Yet.</span>
-                </h1>
+                </p>
 
                 <p class="mt-3 text-lg text-gray-500 leading-relaxed max-w-lg">
                     Licensed and insured movers serving Calgary and area. We plan, pack, and move — so you can focus on what matters.
@@ -464,12 +465,23 @@ function quoteForm() {
     </div>
 </section>
 
+{{-- Section 2.5: SEO Intro Content --}}
+<section class="py-16 lg:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div x-reveal="up" class="prose prose-lg max-w-none text-gray-600">
+            <p><strong>Unitas Movers</strong> is a Calgary-based moving company offering affordable local and long-distance moving services across Alberta, British Columbia, and Saskatchewan. Whether you're moving across town or relocating from Calgary to Edmonton, Vancouver, or Kelowna, our licensed and insured crews handle every move with professional care.</p>
+            <p>We specialize in <a href="{{ route('services.index') }}">residential moving</a>, <a href="{{ route('services.index') }}">commercial moving</a>, packing and unpacking, piano moving, junk removal, and storage solutions. Our transparent pricing means no hidden fees — the quote we give is the price you pay. With over 2,500 moves completed and a 4.9-star Google rating, we're one of Calgary's most trusted moving companies.</p>
+            <p>Serving all Calgary quadrants — <a href="{{ route('areas.index') }}">NW, NE, SW, and SE</a> — plus Airdrie, Cochrane, Okotoks, Chestermere, and communities throughout southern Alberta. Same-day, evening, and weekend moves available. <a href="{{ route('quote.create') }}">Get a free quote</a> or call <a href="tel:+14038002747">(403) 800-2747</a>.</p>
+        </div>
+    </div>
+</section>
+
 {{-- Section 3: How It Works --}}
 <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">How It Works</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Three steps to your perfect move</h2>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">How our Calgary moving service works</h2>
             <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Simple, transparent, stress-free. Here's how we get you moved.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -499,8 +511,8 @@ function quoteForm() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Our Services</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Everything you need for your move</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">From local apartment moves to long-distance relocations, we handle it all.</p>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary moving services for every need</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">From local apartment moves to long-distance relocations across Alberta and BC, we handle it all.</p>
         </div>
         @php
             $serviceIcons = [
@@ -557,7 +569,7 @@ function quoteForm() {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
                 <div x-reveal="right" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Why Unitas Movers</div>
-                <h2 x-reveal="right" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight leading-tight">Moving should be exciting,<br><span class="text-primary">not stressful.</span></h2>
+                <h2 x-reveal="right" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight leading-tight">Why Calgary trusts<br><span class="text-primary">Unitas Movers</span></h2>
                 <p x-reveal="right" x-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We combine professional expertise with affordable pricing and genuine care for your belongings. That's the Unitas difference.</p>
 
                 <div class="mt-10 space-y-6">
@@ -613,7 +625,7 @@ function quoteForm() {
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-primary-light text-sm font-semibold mb-4">The Unitas Difference</div>
-                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Moving stress? Not anymore.</h2>
+                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Professional movers vs. the rest</h2>
             </div>
             <div x-reveal="scale" class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-white/10">
@@ -662,8 +674,8 @@ function quoteForm() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Coverage</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Areas we serve</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Proudly serving all of Calgary and surrounding communities.</p>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Moving services across Calgary & area</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Proudly serving all four quadrants and surrounding communities.</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {{-- SVG Map --}}
@@ -734,8 +746,8 @@ function quoteForm() {
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm font-semibold mb-4">Testimonials</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Loved by Calgary families</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/50 max-w-2xl mx-auto text-lg">Real reviews from real customers.</p>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">What Calgary customers say about us</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/50 max-w-2xl mx-auto text-lg">4.9-star rated with 2,500+ moves completed. Real reviews from real customers.</p>
         </div>
 
         {{-- Review Cards --}}
@@ -787,19 +799,19 @@ function quoteForm() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Gallery</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Our team in action</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">See how we handle every move with professionalism and care.</p>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary movers in action</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">See how our professional crews handle every move with care.</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
             @php
                 $gallery = [
-                    ['alt' => 'Professional crew loading truck', 'span' => 'md:row-span-2', 'img' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80'],
-                    ['alt' => 'Careful furniture wrapping', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80'],
-                    ['alt' => 'Moving truck ready to go', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80'],
-                    ['alt' => 'Happy family in new home', 'span' => 'md:col-span-2', 'img' => 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80'],
-                    ['alt' => 'Professional packing materials', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80'],
-                    ['alt' => 'Team photo', 'span' => 'md:col-span-2 md:row-span-2', 'img' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80'],
-                    ['alt' => 'Piano being moved carefully', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=400&q=80'],
+                    ['alt' => 'Unitas Movers crew loading furniture onto moving truck in Calgary', 'span' => 'md:row-span-2', 'img' => 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80'],
+                    ['alt' => 'Professional furniture wrapping and packing service Calgary', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&q=80'],
+                    ['alt' => 'Calgary moving truck ready for local residential move', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=400&q=80'],
+                    ['alt' => 'Happy Calgary family in new home after move with Unitas Movers', 'span' => 'md:col-span-2', 'img' => 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80'],
+                    ['alt' => 'Professional packing materials and moving supplies Calgary', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&q=80'],
+                    ['alt' => 'Unitas Movers professional moving team in Calgary Alberta', 'span' => 'md:col-span-2 md:row-span-2', 'img' => 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600&q=80'],
+                    ['alt' => 'Piano moving specialists carefully handling piano in Calgary home', 'span' => '', 'img' => 'https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=400&q=80'],
                 ];
             @endphp
             @foreach($gallery as $i => $photo)
@@ -819,7 +831,7 @@ function quoteForm() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Resources</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Moving tips & guides</h2>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary moving tips & guides</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             @forelse($blogPosts as $post)
@@ -869,8 +881,8 @@ function quoteForm() {
             <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-[60px] translate-y-1/2 -translate-x-1/2"></div>
 
             <div class="relative">
-                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Ready to move?</h2>
-                <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/70 text-lg max-w-xl mx-auto">Get your free, no-obligation quote in minutes. We respond within 2 hours during business hours.</p>
+                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Get your free moving quote</h2>
+                <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/70 text-lg max-w-xl mx-auto">No-obligation estimates in minutes. We respond within 2 hours during business hours.</p>
                 <div x-reveal="up" x-reveal-delay="3" class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('quote.create') }}" class="bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-lg hover:-translate-y-0.5 animate-pulse-ring">
                         Get Your Free Quote
