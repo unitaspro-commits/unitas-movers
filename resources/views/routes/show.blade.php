@@ -45,8 +45,8 @@
 
 {{-- Quick Facts Bar --}}
 <section class="bg-gray-50 border-b border-gray-100">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
             @if($route->distance_km)
             <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Distance</p><p class="text-xl font-extrabold text-dark mt-1">{{ number_format($route->distance_km) }} km</p></div>
             @endif
@@ -56,8 +56,14 @@
             @if($route->price_range_min && $route->price_range_max)
             <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Price Range</p><p class="text-xl font-extrabold text-primary mt-1">{{ $route->price_range }}</p></div>
             @endif
-            @if($route->is_bidirectional)
-            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Direction</p><p class="text-xl font-extrabold text-dark mt-1">Both Ways</p></div>
+            @if($route->highway_name)
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Highway</p><p class="text-xl font-extrabold text-dark mt-1">{{ $route->highway_number ?? $route->highway_name }}</p></div>
+            @endif
+            @if($route->fuel_cost_estimate)
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Est. Fuel</p><p class="text-xl font-extrabold text-dark mt-1">{{ $route->fuel_estimate_display }}</p></div>
+            @endif
+            @if($route->elevation_change)
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Elevation</p><p class="text-xl font-extrabold text-dark mt-1">{{ $route->elevation_change }}</p></div>
             @endif
         </div>
     </div>
@@ -69,6 +75,93 @@
         <div class="lg:col-span-2">
             @if($route->route_overview)
                 <div class="prose prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline">{!! $route->route_overview !!}</div>
+            @endif
+
+            {{-- Route & Road Information --}}
+            @if($route->highway_name || $route->road_conditions_note)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Route & Road Information</h2>
+                    @if($route->highway_name)
+                        <div class="bg-blue-50 rounded-xl p-5 border border-blue-100 mb-4">
+                            <div class="flex items-center mb-2">
+                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                                <h3 class="font-bold text-dark">{{ $route->highway_name }}</h3>
+                            </div>
+                            <p class="text-gray-600 text-sm">Primary highway connecting {{ $route->origin_city }} and {{ $route->dest_city }}.</p>
+                        </div>
+                    @endif
+                    @if($route->road_conditions_note)
+                        <div class="prose prose-sm max-w-none text-gray-600">
+                            <p>{{ $route->road_conditions_note }}</p>
+                        </div>
+                    @endif
+                </div>
+            @endif
+
+            {{-- Seasonal Moving Tips --}}
+            @if($route->seasonal_tips)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Seasonal Moving Tips — {{ $route->origin_city }} to {{ $route->dest_city }}</h2>
+                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-amber-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                            <p class="text-gray-700 leading-relaxed">{{ $route->seasonal_tips }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Communities Along the Way --}}
+            @if($route->notable_stops)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Communities Along the Way</h2>
+                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-100">
+                        <div class="flex items-start">
+                            <svg class="w-6 h-6 text-primary mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <div>
+                                <p class="text-gray-700 leading-relaxed">{{ $route->notable_stops }}</p>
+                                <p class="mt-2 text-sm text-gray-500">We can arrange pickups or drop-offs at any of these communities along the {{ $route->origin_city }} to {{ $route->dest_city }} route.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Housing Comparison --}}
+            @if($route->origin_housing_data && $route->dest_housing_data)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Housing Comparison: {{ $route->origin_city }} vs {{ $route->dest_city }}</h2>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl p-5 border border-gray-200 shadow-sm">
+                            <h3 class="font-bold text-dark text-lg mb-3">{{ $route->origin_city }}</h3>
+                            <ul class="space-y-2 text-sm">
+                                @if($route->origin_housing_data['avg_price'] ?? false)
+                                <li class="flex justify-between"><span class="text-gray-500">Avg Home Price</span><span class="font-semibold text-dark">{{ $route->origin_housing_data['avg_price'] }}</span></li>
+                                @endif
+                                @if($route->origin_housing_data['dominant_type'] ?? false)
+                                <li class="flex justify-between"><span class="text-gray-500">Common Type</span><span class="font-semibold text-dark">{{ $route->origin_housing_data['dominant_type'] }}</span></li>
+                                @endif
+                                @if($route->origin_housing_data['avg_sqft'] ?? false)
+                                <li class="flex justify-between"><span class="text-gray-500">Avg Size</span><span class="font-semibold text-dark">{{ $route->origin_housing_data['avg_sqft'] }} sq ft</span></li>
+                                @endif
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-xl p-5 border border-primary/20 shadow-sm ring-1 ring-primary/10">
+                            <h3 class="font-bold text-primary text-lg mb-3">{{ $route->dest_city }}</h3>
+                            <ul class="space-y-2 text-sm">
+                                @if($route->dest_housing_data['avg_price'] ?? false)
+                                <li class="flex justify-between"><span class="text-gray-500">Avg Home Price</span><span class="font-semibold text-dark">{{ $route->dest_housing_data['avg_price'] }}</span></li>
+                                @endif
+                                @if($route->dest_housing_data['dominant_type'] ?? false)
+                                <li class="flex justify-between"><span class="text-gray-500">Common Type</span><span class="font-semibold text-dark">{{ $route->dest_housing_data['dominant_type'] }}</span></li>
+                                @endif
+                                @if($route->dest_housing_data['avg_sqft'] ?? false)
+                                <li class="flex justify-between"><span class="text-gray-500">Avg Size</span><span class="font-semibold text-dark">{{ $route->dest_housing_data['avg_sqft'] }} sq ft</span></li>
+                                @endif
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             @endif
 
             @if($route->cost_breakdown)
@@ -149,7 +242,16 @@
                         @if($route->drive_time_hours)<li class="flex justify-between"><span class="text-gray-500">Drive Time</span><span class="font-semibold text-dark">~{{ $route->drive_time_hours }} hrs</span></li>@endif
                         @if($route->price_range_min && $route->price_range_max)<li class="flex justify-between"><span class="text-gray-500">Starting From</span><span class="font-semibold text-primary">{{ $route->price_range }}</span></li>@endif
                         <li class="flex justify-between"><span class="text-gray-500">Service</span><span class="font-semibold text-dark">Door to Door</span></li>
+                        @if($route->popular_move_months)
+                        <li class="flex justify-between"><span class="text-gray-500">Best Months</span><span class="font-semibold text-dark text-xs">{{ $route->popular_move_months }}</span></li>
+                        @endif
                     </ul>
+                    @if($route->backhaul_discount)
+                    <div class="mt-4 bg-green-50 rounded-lg px-3 py-2 text-xs text-green-700 font-medium flex items-center">
+                        <svg class="w-4 h-4 mr-1.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                        Backhaul discount may be available on this route
+                    </div>
+                    @endif
                 </div>
                 @endif
                 <div class="bg-white border border-gray-200 rounded-2xl p-6">

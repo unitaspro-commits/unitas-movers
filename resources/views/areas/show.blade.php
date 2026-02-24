@@ -46,6 +46,28 @@
     </div>
 </section>
 
+{{-- Area at a Glance --}}
+@if($area->avg_home_price || $area->avg_move_cost_2bed || $area->dominant_housing_type || $area->move_complexity)
+<section class="bg-gray-50 border-b border-gray-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            @if($area->avg_home_price)
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Avg Home Price</p><p class="text-xl font-extrabold text-dark mt-1">{{ $area->formatted_home_price }}</p></div>
+            @endif
+            @if($area->avg_move_cost_2bed)
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Avg Move Cost (2-bed)</p><p class="text-xl font-extrabold text-primary mt-1">{{ $area->formatted_move_cost }}</p></div>
+            @endif
+            @if($area->dominant_housing_type)
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Housing Type</p><p class="text-xl font-extrabold text-dark mt-1">{{ $area->dominant_housing_type }}</p></div>
+            @endif
+            @if($area->move_complexity)
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Move Complexity</p><p class="text-xl font-extrabold mt-1 {{ $area->move_complexity === 'easy' ? 'text-green-600' : ($area->move_complexity === 'hard' ? 'text-red-600' : 'text-amber-600') }}">{{ $area->complexity_label }}</p></div>
+            @endif
+        </div>
+    </div>
+</section>
+@endif
+
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
@@ -73,6 +95,68 @@
                                 <h3 class="font-semibold text-dark text-sm group-hover:text-primary transition">{{ $child->name }}</h3>
                             </a>
                         @endforeach
+                    </div>
+                </div>
+            @endif
+
+            {{-- Moving Day Logistics --}}
+            @if($area->parking_restrictions || $area->elevator_booking_required || $area->access_notes)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Moving Day Logistics — {{ $area->name }}</h2>
+                    <div class="bg-blue-50 rounded-xl p-6 border border-blue-100 space-y-4">
+                        @if($area->parking_restrictions)
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+                            <div>
+                                <h3 class="font-bold text-dark text-sm">Parking & Street Access</h3>
+                                <p class="text-gray-600 text-sm mt-1">{{ $area->parking_restrictions }}</p>
+                            </div>
+                        </div>
+                        @endif
+                        @if($area->elevator_booking_required)
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-amber-500 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                            <div>
+                                <h3 class="font-bold text-dark text-sm">Elevator Booking Required</h3>
+                                <p class="text-gray-600 text-sm mt-1">Many buildings in {{ $area->name }} require elevator reservations for moves. We handle the booking process — typically 48-72 hours in advance.</p>
+                            </div>
+                        </div>
+                        @endif
+                        @if($area->access_notes)
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-blue-600 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                            <div>
+                                <h3 class="font-bold text-dark text-sm">Truck Access</h3>
+                                <p class="text-gray-600 text-sm mt-1">{{ $area->access_notes }}</p>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </div>
+            @endif
+
+            {{-- Nearby Landmarks --}}
+            @if($area->nearby_landmarks)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Nearby Landmarks</h2>
+                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-primary mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <p class="text-gray-700 text-sm leading-relaxed">{{ $area->nearby_landmarks }}</p>
+                        </div>
+                    </div>
+                </div>
+            @endif
+
+            {{-- Getting Around --}}
+            @if($area->walkability_notes)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Getting Around {{ $area->name }}</h2>
+                    <div class="bg-green-50 rounded-xl p-5 border border-green-100">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-green-600 mr-3 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            <p class="text-gray-700 text-sm leading-relaxed">{{ $area->walkability_notes }}</p>
+                        </div>
                     </div>
                 </div>
             @endif

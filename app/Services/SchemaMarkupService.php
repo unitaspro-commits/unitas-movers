@@ -357,6 +357,15 @@ class SchemaMarkupService
             ];
         }
 
+        if ($area->avg_move_cost_2bed) {
+            $schema['offers'] = [
+                '@type' => 'Offer',
+                'priceCurrency' => 'CAD',
+                'price' => $area->avg_move_cost_2bed,
+                'description' => 'Average 2-bedroom move cost in ' . $area->name,
+            ];
+        }
+
         return $schema;
     }
 
@@ -366,7 +375,7 @@ class SchemaMarkupService
             return $route->schema_json;
         }
 
-        return [
+        $schema = [
             '@context' => 'https://schema.org',
             '@type' => 'Service',
             'name' => 'Moving from ' . $route->origin_city . ' to ' . $route->dest_city,
@@ -383,6 +392,17 @@ class SchemaMarkupService
                 ['@type' => 'City', 'name' => $route->dest_city],
             ],
         ];
+
+        if ($route->price_range_min && $route->price_range_max) {
+            $schema['offers'] = [
+                '@type' => 'AggregateOffer',
+                'priceCurrency' => 'CAD',
+                'lowPrice' => $route->price_range_min,
+                'highPrice' => $route->price_range_max,
+            ];
+        }
+
+        return $schema;
     }
 
     private function blogPosting(BlogPost $post): array

@@ -24,6 +24,15 @@ class Area extends Model
         'latitude',
         'longitude',
         'population',
+        'avg_home_price',
+        'dominant_housing_type',
+        'parking_restrictions',
+        'elevator_booking_required',
+        'access_notes',
+        'nearby_landmarks',
+        'move_complexity',
+        'avg_move_cost_2bed',
+        'walkability_notes',
         'faq_json',
         'schema_json',
         'canonical_url',
@@ -38,6 +47,7 @@ class Area extends Model
             'faq_json' => 'array',
             'schema_json' => 'array',
             'is_published' => 'boolean',
+            'elevator_booking_required' => 'boolean',
             'latitude' => 'decimal:7',
             'longitude' => 'decimal:7',
         ];
@@ -76,6 +86,34 @@ class Area extends Model
     public function scopeOfType($query, string $type)
     {
         return $query->where('area_type', $type);
+    }
+
+    public function getFormattedHomePriceAttribute(): string
+    {
+        if ($this->avg_home_price) {
+            return '$' . number_format($this->avg_home_price);
+        }
+
+        return 'N/A';
+    }
+
+    public function getFormattedMoveCostAttribute(): string
+    {
+        if ($this->avg_move_cost_2bed) {
+            return '$' . number_format($this->avg_move_cost_2bed);
+        }
+
+        return 'N/A';
+    }
+
+    public function getComplexityLabelAttribute(): string
+    {
+        return match ($this->move_complexity) {
+            'easy' => 'Easy',
+            'medium' => 'Medium',
+            'hard' => 'Hard',
+            default => 'N/A',
+        };
     }
 
     public function getRouteKeyName(): string

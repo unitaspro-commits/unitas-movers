@@ -31,6 +31,17 @@ class Route extends Model
         'is_bidirectional',
         'is_published',
         'sort_order',
+        'highway_name',
+        'highway_number',
+        'seasonal_tips',
+        'fuel_cost_estimate',
+        'popular_move_months',
+        'origin_housing_data',
+        'dest_housing_data',
+        'road_conditions_note',
+        'notable_stops',
+        'backhaul_discount',
+        'elevation_change',
     ];
 
     protected function casts(): array
@@ -38,8 +49,11 @@ class Route extends Model
         return [
             'faq_json' => 'array',
             'schema_json' => 'array',
+            'origin_housing_data' => 'array',
+            'dest_housing_data' => 'array',
             'is_bidirectional' => 'boolean',
             'is_published' => 'boolean',
+            'backhaul_discount' => 'boolean',
             'drive_time_hours' => 'decimal:1',
         ];
     }
@@ -66,6 +80,15 @@ class Route extends Model
         }
 
         return 'Contact for quote';
+    }
+
+    public function getFuelEstimateDisplayAttribute(): string
+    {
+        if ($this->fuel_cost_estimate) {
+            return '$' . number_format($this->fuel_cost_estimate);
+        }
+
+        return 'N/A';
     }
 
     public function getRouteKeyName(): string

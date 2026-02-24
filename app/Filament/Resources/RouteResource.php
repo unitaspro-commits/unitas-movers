@@ -35,6 +35,39 @@ class RouteResource extends Resource
                 Forms\Components\Toggle::make('is_bidirectional'),
             ])->columns(2),
 
+            Forms\Components\Section::make('Route Data')->schema([
+                Forms\Components\TextInput::make('highway_name')->maxLength(150)->label('Highway Name')
+                    ->placeholder('e.g. Queen Elizabeth II Highway (Highway 2)'),
+                Forms\Components\TextInput::make('highway_number')->maxLength(20)->label('Highway #'),
+                Forms\Components\TextInput::make('fuel_cost_estimate')->numeric()->prefix('$')->label('Est. Fuel Cost'),
+                Forms\Components\TextInput::make('elevation_change')->maxLength(100)->label('Elevation Change')
+                    ->placeholder('e.g. 1,045m → 668m'),
+                Forms\Components\TextInput::make('popular_move_months')->maxLength(100)->label('Popular Move Months')
+                    ->placeholder('e.g. Peak: Jun-Aug, Value: Oct-Feb'),
+                Forms\Components\Toggle::make('backhaul_discount')->label('Backhaul Discount Available'),
+            ])->columns(2)->collapsible(),
+
+            Forms\Components\Section::make('Housing Comparison Data')->schema([
+                Forms\Components\KeyValue::make('origin_housing_data')
+                    ->label('Origin City Housing Data')
+                    ->keyLabel('Field')
+                    ->valueLabel('Value')
+                    ->addActionLabel('Add field')
+                    ->helperText('Keys: avg_price, dominant_type, avg_sqft'),
+                Forms\Components\KeyValue::make('dest_housing_data')
+                    ->label('Destination City Housing Data')
+                    ->keyLabel('Field')
+                    ->valueLabel('Value')
+                    ->addActionLabel('Add field')
+                    ->helperText('Keys: avg_price, dominant_type, avg_sqft'),
+            ])->columns(2)->collapsible()->collapsed(),
+
+            Forms\Components\Section::make('Route-Specific Content')->schema([
+                Forms\Components\Textarea::make('seasonal_tips')->label('Seasonal Moving Tips')->rows(3),
+                Forms\Components\Textarea::make('road_conditions_note')->label('Road Conditions Note')->rows(3),
+                Forms\Components\Textarea::make('notable_stops')->label('Notable Stops / Communities Along the Way')->rows(3),
+            ])->collapsible(),
+
             Forms\Components\Section::make('Content')->schema([
                 Forms\Components\RichEditor::make('route_overview')->label('Route Overview'),
                 Forms\Components\RichEditor::make('cost_breakdown')->label('Cost Breakdown'),
