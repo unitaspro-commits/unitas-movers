@@ -240,7 +240,7 @@
             });
         }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('[x-reveal]').forEach(el => observer.observe(el));
+        document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
     });
 
     // Animated counter

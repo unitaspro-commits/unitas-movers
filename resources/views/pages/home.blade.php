@@ -511,7 +511,7 @@ function quoteForm() {
                 ];
             @endphp
             @foreach($trustItems as $item)
-                <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="flex flex-col items-center min-w-[100px]">
+                <div data-reveal="up" data-reveal-delay="{{ $loop->iteration }}" class="flex flex-col items-center min-w-[100px]">
                     <div class="w-10 h-10 bg-primary-50 rounded-xl flex items-center justify-center mb-2 animate-float-gentle" style="animation-delay: {{ $loop->index * 0.3 }}s">
                         <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"></path></svg>
                     </div>
@@ -525,8 +525,8 @@ function quoteForm() {
 {{-- Section 2.5: SEO Content with H1 --}}
 <section class="py-16 lg:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 x-reveal="up" class="text-3xl lg:text-4xl font-extrabold text-dark tracking-tight mb-8">Trusted Movers in Calgary — Affordable Local & Long-Distance Moving Company</h1>
-        <div x-reveal="up" x-reveal-delay="1" class="prose prose-lg max-w-none text-gray-600 space-y-5">
+        <h1 data-reveal="up" class="text-3xl lg:text-4xl font-extrabold text-dark tracking-tight mb-8">Trusted Movers in Calgary — Affordable Local & Long-Distance Moving Company</h1>
+        <div data-reveal="up" data-reveal-delay="1" class="prose prose-lg max-w-none text-gray-600 space-y-5">
             <p>Looking for reliable <strong>movers in Calgary</strong>? Unitas Movers is a fully licensed and insured <strong>moving company in Calgary</strong> with over 10 years of experience helping families, renters, and businesses relocate safely and affordably. Whether you need <a href="{{ route('services.show', 'local-moving') }}">local movers</a> for a cross-town move or a <a href="{{ route('services.show', 'long-distance-moving') }}">long-distance moving company</a> for a Calgary to Edmonton, Calgary to Vancouver, or Calgary to Kelowna relocation, our professional crews handle every job with care.</p>
 
             <p>We offer a full range of <strong>Calgary moving services</strong> including <a href="{{ route('services.show', 'residential-moving') }}">residential moving</a>, <a href="{{ route('services.show', 'apartment-moving') }}">apartment moving</a>, <a href="{{ route('services.show', 'condo-moving') }}">condo moving</a>, <a href="{{ route('services.show', 'commercial-moving') }}">commercial and office relocation</a>, <a href="{{ route('services.show', 'packing-unpacking') }}">professional packing and unpacking</a>, <a href="{{ route('services.show', 'piano-moving') }}">piano moving</a>, <a href="{{ route('services.show', 'senior-moving') }}">senior moving assistance</a>, <a href="{{ route('services.show', 'furniture-moving') }}">furniture delivery</a>, <a href="{{ route('services.show', 'junk-removal') }}">junk removal</a>, and <a href="{{ route('services.show', 'storage-solutions') }}">storage solutions</a>. Need movers fast? We offer <a href="{{ route('services.show', 'same-day-moving') }}">same-day and last-minute moving</a> as well as <a href="{{ route('services.show', 'evening-weekend-moving') }}">evening and weekend availability</a> to work around your schedule.</p>
@@ -541,8 +541,8 @@ function quoteForm() {
 {{-- Homepage FAQ — targets People Also Ask boxes --}}
 <section class="pb-16 lg:pb-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 x-reveal="up" class="text-2xl lg:text-3xl font-extrabold text-dark tracking-tight mb-8">Frequently asked questions about moving in Calgary</h2>
-        <div x-reveal="up" x-reveal-delay="1" class="space-y-4" x-data="{ open: null }">
+        <h2 data-reveal="up" class="text-2xl lg:text-3xl font-extrabold text-dark tracking-tight mb-8">Frequently asked questions about moving in Calgary</h2>
+        <div data-reveal="up" data-reveal-delay="1" class="space-y-4" x-data="{ open: null }">
             @php
                 $homeFaqs = [
                     [
@@ -590,9 +590,9 @@ function quoteForm() {
 <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">How It Works</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">How our Calgary moving service works</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Simple, transparent, stress-free. Here's how we get you moved.</p>
+            <div data-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">How It Works</div>
+            <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">How our Calgary moving service works</h2>
+            <p data-reveal="up" data-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Simple, transparent, stress-free. Here's how we get you moved.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @php
@@ -603,7 +603,7 @@ function quoteForm() {
                 ];
             @endphp
             @foreach($steps as $step)
-                <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="group relative bg-white rounded-3xl p-8 border border-gray-100 hover:border-primary/20 card-hover-tilt">
+                <div data-reveal="up" data-reveal-delay="{{ $loop->iteration }}" class="group relative bg-white rounded-3xl p-8 border border-gray-100 hover:border-primary/20 card-hover-tilt">
                     <div class="text-primary/10 text-6xl font-extrabold absolute top-6 right-8">{{ $step['num'] }}</div>
                     <div class="w-14 h-14 bg-primary-50 group-hover:bg-primary rounded-2xl flex items-center justify-center mb-6 transition-colors">
                         <svg class="w-7 h-7 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $step['icon'] }}"></path></svg>
@@ -620,9 +620,9 @@ function quoteForm() {
 <section class="py-20 lg:py-28 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Our Services</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary moving services for every need</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">From local apartment moves to long-distance relocations across Alberta and BC, we handle it all.</p>
+            <div data-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Our Services</div>
+            <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary moving services for every need</h2>
+            <p data-reveal="up" data-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">From local apartment moves to long-distance relocations across Alberta and BC, we handle it all.</p>
         </div>
         @php
             $serviceIcons = [
@@ -647,7 +647,7 @@ function quoteForm() {
         @endphp
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @forelse($services as $service)
-                <a href="{{ route('services.show', $service) }}" x-reveal="scale" x-reveal-delay="{{ $loop->iteration }}" class="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/20 card-hover-tilt">
+                <a href="{{ route('services.show', $service) }}" data-reveal="scale" data-reveal-delay="{{ $loop->iteration }}" class="group bg-white rounded-2xl p-6 border border-gray-100 hover:border-primary/20 card-hover-tilt">
                     <div class="w-12 h-12 bg-primary-50 group-hover:bg-primary rounded-xl flex items-center justify-center mb-4 transition-colors">
                         <svg class="w-6 h-6 text-primary group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $serviceIcons[$service->slug] ?? 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4' }}"></path></svg>
                     </div>
@@ -678,9 +678,9 @@ function quoteForm() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-                <div x-reveal="right" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Why Unitas Movers</div>
-                <h2 x-reveal="right" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight leading-tight">Why Calgary trusts<br><span class="text-primary">Unitas Movers</span></h2>
-                <p x-reveal="right" x-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We're not just another moving company in Calgary — we combine professional expertise with affordable pricing, eco-friendly practices, and genuine care for your belongings. That's the Unitas difference.</p>
+                <div data-reveal="right" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Why Unitas Movers</div>
+                <h2 data-reveal="right" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight leading-tight">Why Calgary trusts<br><span class="text-primary">Unitas Movers</span></h2>
+                <p data-reveal="right" data-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We're not just another moving company in Calgary — we combine professional expertise with affordable pricing, eco-friendly practices, and genuine care for your belongings. That's the Unitas difference.</p>
 
                 <div class="mt-10 space-y-6">
                     @php
@@ -692,7 +692,7 @@ function quoteForm() {
                         ];
                     @endphp
                     @foreach($features as $feat)
-                        <div x-reveal="right" x-reveal-delay="{{ $loop->iteration + 2 }}" class="flex items-start space-x-4">
+                        <div data-reveal="right" data-reveal-delay="{{ $loop->iteration + 2 }}" class="flex items-start space-x-4">
                             <div class="w-10 h-10 {{ $feat['color'] }} rounded-xl flex items-center justify-center shrink-0 mt-0.5">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                             </div>
@@ -704,22 +704,22 @@ function quoteForm() {
                     @endforeach
                 </div>
             </div>
-            <div class="relative" x-reveal="left">
+            <div class="relative" data-reveal="left">
                 <div class="bg-gradient-to-br from-primary/5 via-primary-50 to-accent/5 rounded-3xl p-8 lg:p-12 animate-gradient-bg">
                     <div class="grid grid-cols-2 gap-6">
-                        <div x-reveal="scale" x-reveal-delay="1" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                        <div data-reveal="scale" data-reveal-delay="1" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
                             <div class="text-3xl font-extrabold text-primary counter-glow">2,500+</div>
                             <div class="text-gray-500 text-sm mt-1">Moves Done</div>
                         </div>
-                        <div x-reveal="scale" x-reveal-delay="2" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                        <div data-reveal="scale" data-reveal-delay="2" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
                             <div class="text-3xl font-extrabold text-primary counter-glow">4.9<span class="text-star">★</span></div>
                             <div class="text-gray-500 text-sm mt-1">Google Rating</div>
                         </div>
-                        <div x-reveal="scale" x-reveal-delay="3" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                        <div data-reveal="scale" data-reveal-delay="3" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
                             <div class="text-3xl font-extrabold text-primary counter-glow">10+</div>
                             <div class="text-gray-500 text-sm mt-1">Years Experience</div>
                         </div>
-                        <div x-reveal="scale" x-reveal-delay="4" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
+                        <div data-reveal="scale" data-reveal-delay="4" class="bg-white rounded-2xl p-6 shadow-sm text-center card-hover-tilt">
                             <div class="text-3xl font-extrabold text-accent counter-glow">100%</div>
                             <div class="text-gray-500 text-sm mt-1">Satisfaction</div>
                         </div>
@@ -735,10 +735,10 @@ function quoteForm() {
     <div class="bg-dark py-20 lg:py-28">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-primary-light text-sm font-semibold mb-4">The Unitas Difference</div>
-                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Professional movers vs. the rest</h2>
+                <div data-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-primary-light text-sm font-semibold mb-4">The Unitas Difference</div>
+                <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Professional movers vs. the rest</h2>
             </div>
-            <div x-reveal="scale" class="max-w-4xl mx-auto">
+            <div data-reveal="scale" class="max-w-4xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0 rounded-3xl overflow-hidden border border-white/10">
                     {{-- Before --}}
                     <div class="bg-gradient-to-br from-red-500/10 to-red-600/5 p-8 lg:p-12 border-b md:border-b-0 md:border-r border-white/10">
@@ -784,13 +784,13 @@ function quoteForm() {
 <section class="py-20 lg:py-28 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Coverage</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Movers serving Calgary, Airdrie, Cochrane & area</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Proudly serving all four Calgary quadrants, surrounding towns, and long-distance routes to Edmonton, Vancouver, and beyond.</p>
+            <div data-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Coverage</div>
+            <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Movers serving Calgary, Airdrie, Cochrane & area</h2>
+            <p data-reveal="up" data-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Proudly serving all four Calgary quadrants, surrounding towns, and long-distance routes to Edmonton, Vancouver, and beyond.</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {{-- SVG Map --}}
-            <div x-reveal="right" class="relative">
+            <div data-reveal="right" class="relative">
                 <svg viewBox="0 0 400 400" class="w-full max-w-md mx-auto" xmlns="http://www.w3.org/2000/svg">
                     {{-- Background circles --}}
                     <circle cx="200" cy="200" r="180" fill="#EEE9FF" opacity="0.3"/>
@@ -826,13 +826,13 @@ function quoteForm() {
             <div>
                 <div class="grid grid-cols-2 gap-4">
                     @forelse($areas as $area)
-                        <a href="{{ route('areas.show', $area) }}" x-reveal="scale" x-reveal-delay="{{ min($loop->iteration, 8) }}" class="group bg-white rounded-2xl p-5 border border-gray-100 hover:border-primary/20 card-hover-tilt text-center">
+                        <a href="{{ route('areas.show', $area) }}" data-reveal="scale" data-reveal-delay="{{ min($loop->iteration, 8) }}" class="group bg-white rounded-2xl p-5 border border-gray-100 hover:border-primary/20 card-hover-tilt text-center">
                             <h3 class="font-bold text-dark group-hover:text-primary transition-colors">{{ $area->name }}</h3>
                             <p class="text-gray-400 text-xs mt-1">{{ ucfirst($area->area_type) }}</p>
                         </a>
                     @empty
                         @foreach(['NW Calgary', 'NE Calgary', 'SW Calgary', 'SE Calgary', 'Airdrie', 'Cochrane', 'Okotoks', 'Chestermere'] as $areaName)
-                            <div x-reveal="scale" x-reveal-delay="{{ $loop->iteration }}" class="bg-white rounded-2xl p-5 border border-gray-100 card-hover-tilt text-center">
+                            <div data-reveal="scale" data-reveal-delay="{{ $loop->iteration }}" class="bg-white rounded-2xl p-5 border border-gray-100 card-hover-tilt text-center">
                                 <h3 class="font-bold text-dark">{{ $areaName }}</h3>
                             </div>
                         @endforeach
@@ -856,15 +856,15 @@ function quoteForm() {
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm font-semibold mb-4">Testimonials</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Rated one of the best movers in Calgary</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/50 max-w-2xl mx-auto text-lg">4.9-star Google rated with 2,500+ successful moves. See what Calgary customers say about our moving company.</p>
+            <div data-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm font-semibold mb-4">Testimonials</div>
+            <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Rated one of the best movers in Calgary</h2>
+            <p data-reveal="up" data-reveal-delay="2" class="mt-4 text-white/50 max-w-2xl mx-auto text-lg">4.9-star Google rated with 2,500+ successful moves. See what Calgary customers say about our moving company.</p>
         </div>
 
         {{-- Review Cards --}}
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             @forelse($reviews as $review)
-                <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="bg-white/5 backdrop-blur-sm rounded-2xl p-7 border border-white/10 hover:border-white/20 transition animate-float-card-{{ $loop->iteration }}">
+                <div data-reveal="up" data-reveal-delay="{{ $loop->iteration }}" class="bg-white/5 backdrop-blur-sm rounded-2xl p-7 border border-white/10 hover:border-white/20 transition animate-float-card-{{ $loop->iteration }}">
                     <div class="flex items-center mb-4">
                         @for($i = 1; $i <= 5; $i++)
                             <svg class="w-5 h-5 {{ $i <= $review->rating ? 'text-star' : 'text-white/10' }}" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -887,7 +887,7 @@ function quoteForm() {
                     ['name' => 'James P.', 'text' => 'They handled our piano with incredible care and finished ahead of schedule. The affordable pricing was a bonus we didn\'t expect. Highly recommend!'],
                     ['name' => 'David & Karen T.', 'text' => 'Best movers in Calgary, period. Transparent pricing, no hidden fees, and the crew went above and beyond. Already recommending to all our friends.'],
                 ] as $placeholder)
-                    <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="bg-white/5 backdrop-blur-sm rounded-2xl p-7 border border-white/10 animate-float-card-{{ $loop->iteration }}">
+                    <div data-reveal="up" data-reveal-delay="{{ $loop->iteration }}" class="bg-white/5 backdrop-blur-sm rounded-2xl p-7 border border-white/10 animate-float-card-{{ $loop->iteration }}">
                         <div class="flex items-center mb-4">
                             @for($i = 1; $i <= 5; $i++)
                                 <svg class="w-5 h-5 text-star" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -909,9 +909,9 @@ function quoteForm() {
 <section class="py-20 lg:py-28 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Gallery</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary movers in action</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">See how our professional crews handle every move with care.</p>
+            <div data-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Gallery</div>
+            <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary movers in action</h2>
+            <p data-reveal="up" data-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">See how our professional crews handle every move with care.</p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
             @php
@@ -926,7 +926,7 @@ function quoteForm() {
                 ];
             @endphp
             @foreach($gallery as $i => $photo)
-                <div x-reveal="scale" x-reveal-delay="{{ min($i + 1, 8) }}" class="gallery-item relative rounded-2xl overflow-hidden bg-gray-200 {{ $photo['span'] }}">
+                <div data-reveal="scale" data-reveal-delay="{{ min($i + 1, 8) }}" class="gallery-item relative rounded-2xl overflow-hidden bg-gray-200 {{ $photo['span'] }}">
                     <x-responsive-image :src="$photo['img']" :alt="$photo['alt']" class="w-full h-full object-cover" />
                     <div class="gallery-overlay absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent flex items-end p-4">
                         <p class="text-white text-sm font-medium">{{ $photo['alt'] }}</p>
@@ -941,12 +941,12 @@ function quoteForm() {
 <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-            <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Resources</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary moving tips & guides</h2>
+            <div data-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Resources</div>
+            <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Calgary moving tips & guides</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             @forelse($blogPosts as $post)
-                <a href="{{ route('blog.show', $post) }}" x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-primary/20 card-hover-tilt">
+                <a href="{{ route('blog.show', $post) }}" data-reveal="up" data-reveal-delay="{{ $loop->iteration }}" class="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-primary/20 card-hover-tilt">
                     <div class="h-48 bg-gradient-to-br from-primary/5 to-primary-50 flex items-center justify-center">
                         @if($post->featured_image)
                             <x-responsive-image :src="$post->featured_image" :alt="$post->title" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" sizes="(max-width: 768px) 100vw, 33vw" />
@@ -968,7 +968,7 @@ function quoteForm() {
                     ['title' => '10 Packing Tips to Save Time & Money', 'cat' => 'tips', 'excerpt' => 'Professional packing tips from our experienced crew.'],
                     ['title' => 'Winter Moving in Calgary', 'cat' => 'seasonal', 'excerpt' => 'Special considerations for moving during Calgary\'s cold months.'],
                 ] as $placeholder)
-                    <div x-reveal="up" x-reveal-delay="{{ $loop->iteration }}" class="bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover-tilt">
+                    <div data-reveal="up" data-reveal-delay="{{ $loop->iteration }}" class="bg-white rounded-2xl overflow-hidden border border-gray-100 card-hover-tilt">
                         <div class="h-48 bg-gradient-to-br from-primary/5 to-primary-50 flex items-center justify-center">
                             <svg class="w-12 h-12 text-primary/15" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2 2 0 00-2-2h-2"></path></svg>
                         </div>
@@ -987,14 +987,14 @@ function quoteForm() {
 {{-- Section 11: Final CTA --}}
 <section class="py-20 lg:py-28">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div x-reveal="scale" class="bg-gradient-cta animate-gradient-bg rounded-3xl p-10 lg:p-16 text-center relative overflow-hidden">
+        <div data-reveal="scale" class="bg-gradient-cta animate-gradient-bg rounded-3xl p-10 lg:p-16 text-center relative overflow-hidden">
             <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2"></div>
             <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-[60px] translate-y-1/2 -translate-x-1/2"></div>
 
             <div class="relative">
-                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Get your free Calgary moving quote</h2>
-                <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/70 text-lg max-w-xl mx-auto">No-obligation estimates from one of Calgary's top-rated moving companies. We respond within 2 hours during business hours.</p>
-                <div x-reveal="up" x-reveal-delay="3" class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <h2 data-reveal="up" data-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Get your free Calgary moving quote</h2>
+                <p data-reveal="up" data-reveal-delay="2" class="mt-4 text-white/70 text-lg max-w-xl mx-auto">No-obligation estimates from one of Calgary's top-rated moving companies. We respond within 2 hours during business hours.</p>
+                <div data-reveal="up" data-reveal-delay="3" class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('quote.create') }}" class="bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-lg hover:-translate-y-0.5 animate-pulse-ring">
                         Get Your Free Quote
                     </a>
