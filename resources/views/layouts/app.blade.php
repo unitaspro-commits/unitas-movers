@@ -11,6 +11,17 @@
 
     <link rel="canonical" href="@yield('canonical', url()->current())">
 
+    {{-- Local SEO Geo Tags --}}
+    <meta name="geo.region" content="CA-AB">
+    <meta name="geo.placename" content="Calgary">
+    <meta name="geo.position" content="51.0447;-114.0719">
+    <meta name="ICBM" content="51.0447, -114.0719">
+
+    {{-- Favicon & Apple Touch Icon --}}
+    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+    <meta name="theme-color" content="#5934ff">
+
     {{-- Open Graph --}}
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:site_name" content="Unitas Movers">
