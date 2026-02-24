@@ -264,7 +264,7 @@
                                             <input type="date" name="move_date" id="hero_move_date" x-ref="moveDateInput" x-model="formData.move_date" required
                                                 min="{{ date('Y-m-d', strtotime('+1 day')) }}"
                                                 max="{{ date('Y-m-d', strtotime('+2 years')) }}"
-                                                @click="try { $el.showPicker() } catch(e) {}"
+                                                @click="$el.showPicker && $el.showPicker()"
                                                 @change="clearError('move_date')"
                                                 :class="errors.move_date ? 'border-error focus:border-error focus:ring-error/20' : 'border-gray-300 focus:border-primary focus:ring-primary/20'"
                                                 class="w-full rounded-xl border pl-10 pr-4 py-3 text-base text-dark focus:ring-2 transition cursor-pointer">
