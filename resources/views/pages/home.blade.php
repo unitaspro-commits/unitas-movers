@@ -48,7 +48,7 @@
                 "name": "Do you offer packing services?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, we offer full and partial packing services using professional-grade materials. Eco-friendly packing options with reusable bins and recyclable materials are also available. Unpacking services are available at your destination."
+                    "text": "Yes, we offer full and partial packing services using professional-grade materials. Our team can pack your entire home or just the fragile and specialty items. Unpacking services are available at your destination."
                 }
             },
             {
