@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Area;
 use App\Models\BlogPost;
+use App\Models\Route;
 use App\Models\Service;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -19,6 +20,7 @@ class InternalLinkService
             return [
                 'services' => $this->relatedServices($service),
                 'areas' => $this->randomAreas(6),
+                'routes' => Route::published()->inRandomOrder()->take(2)->get(),
                 'blog_posts' => $this->blogPostsForService($service),
             ];
         });
@@ -33,6 +35,7 @@ class InternalLinkService
             return [
                 'services' => Service::published()->ordered()->take(6)->get(),
                 'areas' => $this->siblingAreas($area),
+                'routes' => Route::published()->inRandomOrder()->take(2)->get(),
                 'blog_posts' => $this->blogPostsForArea($area),
             ];
         });
@@ -68,7 +71,11 @@ class InternalLinkService
             return [
                 'services' => $this->servicesForBlogPost($post),
                 'areas' => $this->areasForBlogPost($post),
-                'blog_posts' => collect(),
+                'blog_posts' => BlogPost::published()
+                    ->where('id', '!=', $post->id)
+                    ->inRandomOrder()
+                    ->take(3)
+                    ->get(),
             ];
         });
     }

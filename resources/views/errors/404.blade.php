@@ -50,7 +50,7 @@
             </div>
 
             {{-- Truck SVG --}}
-            <svg width="120" height="64" viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-md sm:w-[140px] sm:h-[75px]">
+            <svg width="120" height="64" viewBox="0 0 120 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-md sm:w-[140px] sm:h-[75px]" role="img" aria-label="Unitas Movers moving truck illustration">
                 {{-- Cargo body --}}
                 <rect x="0" y="4" width="72" height="40" rx="4" fill="#5934ff"/>
                 <rect x="4" y="8" width="64" height="32" rx="2" fill="#7B61FF" opacity="0.5"/>

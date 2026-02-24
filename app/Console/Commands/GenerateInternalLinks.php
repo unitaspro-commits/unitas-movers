@@ -6,6 +6,7 @@ use App\Models\InternalLink;
 use App\Services\InternalLinkService;
 use App\Models\Area;
 use App\Models\BlogPost;
+use App\Models\Route;
 use App\Models\Service;
 use Illuminate\Console\Command;
 
@@ -33,6 +34,12 @@ class GenerateInternalLinks extends Command
             $count += $this->insertLinks('area', $area->id, $related);
         }
 
+        $this->info('Processing routes...');
+        foreach (Route::published()->get() as $route) {
+            $related = $linkService->forRoute($route);
+            $count += $this->insertLinks('route', $route->id, $related);
+        }
+
         $this->info('Processing blog posts...');
         foreach (BlogPost::published()->get() as $post) {
             $related = $linkService->forBlogPost($post);
@@ -53,6 +60,7 @@ class GenerateInternalLinks extends Command
                 $url = match (true) {
                     $item instanceof Service => route('services.show', $item),
                     $item instanceof Area => route('areas.show', $item),
+                    $item instanceof Route => route('routes.show', $item),
                     $item instanceof BlogPost => route('blog.show', $item),
                     default => null,
                 };

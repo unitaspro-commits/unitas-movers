@@ -105,7 +105,7 @@
                 {{-- Blob-shaped video --}}
                 <div class="mt-8 relative animate-float-blob">
                     <div class="video-blob-fallback w-full max-w-xl aspect-[16/10] shadow-2xl shadow-primary/15">
-                        <video autoplay muted loop playsinline class="w-full h-full object-cover">
+                        <video autoplay muted loop playsinline preload="metadata" class="w-full h-full object-cover">
                             <source src="{{ asset('videos/unitas-movers-hero.mp4') }}" type="video/mp4">
                         </video>
                     </div>
@@ -1227,15 +1227,31 @@ function quoteForm() {
         });
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete&loading=async" async></script>
 <script>
-    // Fallback: if Google Places hasn't loaded within 5s, allow form submission without address selection
+    // Lazy-load Google Maps Places API on first address field focus
+    (function() {
+        var loaded = false;
+        function loadMaps() {
+            if (loaded) return;
+            loaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://maps.googleapis.com/maps/api/js?key={{ config('services.google.maps_api_key') }}&libraries=places&callback=initGooglePlacesAutocomplete&loading=async';
+            s.async = true;
+            document.head.appendChild(s);
+        }
+        ['hero_moving_from', 'hero_moving_to'].forEach(function(id) {
+            var el = document.getElementById(id);
+            if (el) el.addEventListener('focus', loadMaps, { once: true });
+        });
+    })();
+
+    // Fallback: if Google Places hasn't loaded within 5s of first focus, allow form submission
     window._googlePlacesUnavailable = false;
     setTimeout(function() {
         if (typeof google === 'undefined' || !google.maps || !google.maps.places) {
             window._googlePlacesUnavailable = true;
         }
-    }, 5000);
+    }, 8000);
 
     // Populate UTM hidden inputs from URL params
     (function() {
