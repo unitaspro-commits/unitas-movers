@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Moving Routes | Long-Distance Moving Corridors | Unitas Movers')
 @section('meta_description', 'Explore our long-distance moving routes from Calgary to Edmonton, Vancouver, Toronto, and more. Get pricing, distance, and drive time for each corridor.')
-@section('robots', 'noindex, nofollow')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

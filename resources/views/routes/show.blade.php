@@ -1,102 +1,180 @@
 @extends('layouts.app')
 @section('title', $route->meta_title)
 @section('meta_description', $route->meta_description)
-@section('robots', 'noindex, nofollow')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
 @section('content')
-<section class="bg-unitas-green py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav class="text-white/60 text-sm mb-4">
-            <a href="{{ route('home') }}" class="hover:text-white">Home</a> &rsaquo;
-            <a href="{{ route('routes.index') }}" class="hover:text-white">Routes</a> &rsaquo;
-            <span class="text-white">{{ $route->origin_city }} to {{ $route->dest_city }}</span>
+
+{{-- Hero Section with Breadcrumb --}}
+<section class="bg-gradient-to-br from-primary to-primary-dark py-14 lg:py-20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="text-white/50 text-sm mb-6" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
+                <li><span>&rsaquo;</span></li>
+                <li><a href="{{ route('routes.index') }}" class="hover:text-white transition">Routes</a></li>
+                <li><span>&rsaquo;</span></li>
+                <li class="text-white font-medium">{{ $route->origin_city }} to {{ $route->dest_city }}</li>
+            </ol>
         </nav>
-        <h1 class="text-3xl lg:text-4xl font-serif font-bold text-white">{{ $route->h1 }}</h1>
+        <div class="max-w-3xl">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">{{ $route->h1 }}</h1>
+            <p class="mt-4 text-lg text-white/80 leading-relaxed">Professional long-distance movers from {{ $route->origin_city }} to {{ $route->dest_city }}. Fully licensed, insured, and affordable.</p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <a href="{{ route('quote.create') }}" class="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg shadow-accent/25">Get a Free Quote <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                <a href="tel:+14038002747" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition backdrop-blur-sm"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(403) 800-2747</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- Trust Bar --}}
+<section class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-gray-500">
+            <span class="flex items-center"><svg class="w-4 h-4 text-accent mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Fully Insured</span>
+            <span class="flex items-center"><svg class="w-4 h-4 text-star mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>4.9★ Google Rating</span>
+            <span class="flex items-center"><svg class="w-4 h-4 text-primary mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Same-Day Available</span>
+            <span class="flex items-center"><svg class="w-4 h-4 text-accent mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>No Hidden Fees</span>
+        </div>
     </div>
 </section>
 
 {{-- Quick Facts Bar --}}
-<section class="bg-white border-b border-stone/10">
+<section class="bg-gray-50 border-b border-gray-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
             @if($route->distance_km)
-            <div>
-                <p class="text-sm text-stone">Distance</p>
-                <p class="text-lg font-bold text-slate-dark">{{ number_format($route->distance_km) }} km</p>
-            </div>
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Distance</p><p class="text-xl font-extrabold text-dark mt-1">{{ number_format($route->distance_km) }} km</p></div>
             @endif
             @if($route->drive_time_hours)
-            <div>
-                <p class="text-sm text-stone">Drive Time</p>
-                <p class="text-lg font-bold text-slate-dark">{{ $route->drive_time_hours }} hours</p>
-            </div>
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Drive Time</p><p class="text-xl font-extrabold text-dark mt-1">{{ $route->drive_time_hours }} hours</p></div>
             @endif
             @if($route->price_range_min && $route->price_range_max)
-            <div>
-                <p class="text-sm text-stone">Price Range</p>
-                <p class="text-lg font-bold text-unitas-green">{{ $route->price_range }}</p>
-            </div>
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Price Range</p><p class="text-xl font-extrabold text-primary mt-1">{{ $route->price_range }}</p></div>
             @endif
             @if($route->is_bidirectional)
-            <div>
-                <p class="text-sm text-stone">Direction</p>
-                <p class="text-lg font-bold text-slate-dark">Both Ways</p>
-            </div>
+            <div><p class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Direction</p><p class="text-xl font-extrabold text-dark mt-1">Both Ways</p></div>
             @endif
         </div>
     </div>
 </section>
 
-<section class="py-12 lg:py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+        {{-- Main Content --}}
+        <div class="lg:col-span-2">
+            @if($route->route_overview)
+                <div class="prose prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline">{!! $route->route_overview !!}</div>
+            @endif
 
-        {{-- Route Overview --}}
-        @if($route->route_overview)
-            <div class="prose prose-lg max-w-none">{!! $route->route_overview !!}</div>
-        @endif
+            @if($route->cost_breakdown)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">{{ $route->origin_city }} to {{ $route->dest_city }} Moving Costs</h2>
+                    <div class="prose prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-dark">{!! $route->cost_breakdown !!}</div>
+                </div>
+            @endif
 
-        {{-- Cost Breakdown --}}
-        @if($route->cost_breakdown)
-            <div class="mt-12">
-                <h2 class="text-2xl font-serif font-bold text-slate-dark mb-6">Cost Breakdown</h2>
-                <div class="prose prose-lg max-w-none">{!! $route->cost_breakdown !!}</div>
-            </div>
-        @endif
+            @if($route->destination_guide)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">Moving to {{ $route->dest_city }} — What You Need to Know</h2>
+                    <div class="prose prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-dark">{!! $route->destination_guide !!}</div>
+                </div>
+            @endif
 
-        {{-- Destination Guide --}}
-        @if($route->destination_guide)
-            <div class="mt-12">
-                <h2 class="text-2xl font-serif font-bold text-slate-dark mb-6">Destination Guide</h2>
-                <div class="prose prose-lg max-w-none">{!! $route->destination_guide !!}</div>
-            </div>
-        @endif
-
-        {{-- FAQs --}}
-        @if($route->faq_json && count($route->faq_json) > 0)
-            <div class="mt-12">
-                <h2 class="text-2xl font-serif font-bold text-slate-dark mb-6">Frequently Asked Questions</h2>
-                <div class="space-y-4">
-                    @foreach($route->faq_json as $faq)
-                        <details class="bg-white rounded-lg p-5 shadow-sm border border-stone/10 group">
-                            <summary class="font-semibold text-slate-dark cursor-pointer list-none flex justify-between items-center">
-                                {{ $faq['question'] }}
-                                <svg class="w-5 h-5 text-stone group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </summary>
-                            <p class="mt-3 text-stone">{{ $faq['answer'] }}</p>
-                        </details>
+            {{-- Why Choose Unitas --}}
+            <div class="mt-14">
+                <h2 class="text-2xl font-extrabold text-dark mb-8">Why Choose Unitas for Your {{ $route->origin_city }} to {{ $route->dest_city }} Move</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    @php $distLabel = $route->distance_km ? number_format($route->distance_km) . ' km' : 'long-distance'; @endphp
+                    @foreach([
+                        ['icon' => 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', 'title' => 'Fully Licensed & Insured', 'desc' => "Your belongings are covered by comprehensive insurance for the entire {$distLabel} journey."],
+                        ['icon' => 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Transparent Long-Distance Pricing', 'desc' => 'All-inclusive quotes with no hidden fees, fuel surcharges, or surprise costs on arrival.'],
+                        ['icon' => 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4', 'title' => 'Experienced Long-Distance Crew', 'desc' => 'Professional movers trained in highway transport, careful loading, and long-distance logistics.'],
+                        ['icon' => 'M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4', 'title' => 'Storage Options Available', 'desc' => 'Need temporary storage between move dates? We offer secure solutions to fit your timeline.'],
+                    ] as $item)
+                        <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-dark">{{ $item['title'] }}</h3>
+                            <p class="mt-1 text-gray-500 text-sm leading-relaxed">{{ $item['desc'] }}</p>
+                        </div>
                     @endforeach
                 </div>
             </div>
-        @endif
 
-        <x-related-pages :relatedPages="$relatedPages" />
+            @if($route->faq_json && count($route->faq_json) > 0)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-8">{{ $route->origin_city }} to {{ $route->dest_city }} — Frequently Asked Questions</h2>
+                    <div class="space-y-3" x-data="{ open: null }">
+                        @foreach($route->faq_json as $index => $faq)
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <button @click="open = open === {{ $index }} ? null : {{ $index }}" class="w-full flex justify-between items-center px-6 py-4 text-left hover:bg-gray-50 transition">
+                                    <span class="font-semibold text-dark pr-4">{{ $faq['question'] }}</span>
+                                    <svg class="w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200" :class="{ 'rotate-180': open === {{ $index }} }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div x-show="open === {{ $index }}" x-collapse x-cloak class="px-6 pb-4">
+                                    <p class="text-gray-500 leading-relaxed">{{ $faq['answer'] }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
 
-        <div class="mt-12 bg-forest rounded-xl p-8 text-center">
-            <h2 class="text-2xl font-serif font-bold text-white">Moving from {{ $route->origin_city }} to {{ $route->dest_city }}?</h2>
-            <p class="mt-2 text-white/80">Get a free, no-obligation quote for your long-distance move.</p>
-            <a href="{{ route('quote.create') }}" class="mt-4 inline-block bg-meadow hover:bg-unitas-green text-white px-8 py-3 rounded-lg font-bold transition">Get Your Free Quote</a>
+            <x-related-pages :relatedPages="$relatedPages" />
+        </div>
+
+        {{-- Sidebar --}}
+        <aside class="lg:col-span-1">
+            <div class="lg:sticky lg:top-24 space-y-6">
+                <div class="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-6 text-white">
+                    <h3 class="text-xl font-extrabold">Get Your {{ $route->origin_city }} to {{ $route->dest_city }} Quote</h3>
+                    <p class="mt-2 text-white/80 text-sm">Free, no-obligation estimate. We respond within 2 hours.</p>
+                    <a href="{{ route('quote.create') }}" class="mt-4 block bg-accent hover:bg-accent/90 text-white text-center px-6 py-3 rounded-xl font-bold transition">Request Quote</a>
+                    <div class="mt-4 flex items-center text-white/70 text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        Or call <a href="tel:+14038002747" class="font-semibold text-white ml-1">(403) 800-2747</a>
+                    </div>
+                </div>
+                @if($route->distance_km)
+                <div class="bg-gray-50 rounded-2xl p-6">
+                    <h3 class="font-bold text-dark text-lg mb-4">Route Details</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex justify-between"><span class="text-gray-500">Distance</span><span class="font-semibold text-dark">{{ number_format($route->distance_km) }} km</span></li>
+                        @if($route->drive_time_hours)<li class="flex justify-between"><span class="text-gray-500">Drive Time</span><span class="font-semibold text-dark">~{{ $route->drive_time_hours }} hrs</span></li>@endif
+                        @if($route->price_range_min && $route->price_range_max)<li class="flex justify-between"><span class="text-gray-500">Starting From</span><span class="font-semibold text-primary">{{ $route->price_range }}</span></li>@endif
+                        <li class="flex justify-between"><span class="text-gray-500">Service</span><span class="font-semibold text-dark">Door to Door</span></li>
+                    </ul>
+                </div>
+                @endif
+                <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                    <h3 class="font-bold text-dark text-lg mb-3">Why Unitas Movers?</h3>
+                    <ul class="space-y-3 text-sm text-gray-500">
+                        <li class="flex items-start"><svg class="w-4 h-4 text-accent mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Fully licensed & insured</li>
+                        <li class="flex items-start"><svg class="w-4 h-4 text-accent mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Transparent pricing — no hidden fees</li>
+                        <li class="flex items-start"><svg class="w-4 h-4 text-accent mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Professional packing included</li>
+                        <li class="flex items-start"><svg class="w-4 h-4 text-accent mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>2,500+ moves completed</li>
+                        <li class="flex items-start"><svg class="w-4 h-4 text-accent mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>4.9★ Google rating</li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+{{-- Full-Width Bottom CTA --}}
+<section class="bg-gradient-to-r from-primary to-primary-dark py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold text-white">Ready to Move from {{ $route->origin_city }} to {{ $route->dest_city }}?</h2>
+        <p class="mt-3 text-white/80 text-lg">Get a free, no-obligation quote. We respond within 2 hours during business hours.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{{ route('quote.create') }}" class="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg">Get Your Free Quote</a>
+            <a href="tel:+14038002747" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(403) 800-2747</a>
         </div>
     </div>
 </section>
