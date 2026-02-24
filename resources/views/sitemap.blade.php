@@ -24,6 +24,14 @@
         <priority>0.9</priority>
     </url>
 
+    {{-- Routes index --}}
+    <url>
+        <loc>{{ url('/routes') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
     {{-- Blog index --}}
     <url>
         <loc>{{ url('/blog') }}</loc>
@@ -86,6 +94,14 @@
         <lastmod>{{ now()->toDateString() }}</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
+    </url>
+
+    {{-- HTML Site Map --}}
+    <url>
+        <loc>{{ url('/site-map') }}</loc>
+        <lastmod>{{ now()->toDateString() }}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.3</priority>
     </url>
 
     {{-- Privacy Policy --}}
