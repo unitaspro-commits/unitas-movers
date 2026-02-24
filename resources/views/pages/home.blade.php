@@ -1,10 +1,66 @@
 @extends('layouts.app')
 
-@section('title', 'Calgary Movers | Affordable Moving Company — Unitas Movers')
-@section('meta_description', 'Calgary movers you can trust. Licensed, insured, affordable local & long-distance moving, packing, and storage. 4.9★ rated, 2,500+ moves. Free quotes — call (403) 800-2747.')
+@section('title', 'Movers Calgary | Affordable Local & Long-Distance Moving Company — Unitas Movers')
+@section('meta_description', 'Movers in Calgary from $99/hr. Licensed, insured, affordable local & long-distance moving, packing, piano moving, and storage. 4.9★ rated, 2,500+ moves. Free quotes — call (403) 800-2747.')
 
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much do movers cost in Calgary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The average cost of movers in Calgary ranges from $99 to $149 per hour for a 2-person crew with a truck. A typical local move for a one-bedroom apartment costs $300–$600, while a 3-bedroom house move averages $800–$1,500. Long-distance moves from Calgary to Edmonton start around $1,200–$2,500 depending on volume."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How far in advance should I book movers in Calgary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We recommend booking your Calgary movers at least 2–4 weeks in advance, especially during peak moving season (May through September) and at month-end when demand is highest. Same-day and last-minute moving services are also available based on availability."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Are your movers licensed and insured?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Unitas Movers is a fully licensed and insured moving company in Calgary with comprehensive general liability insurance and cargo coverage. All crew members are covered by Workers' Compensation Board (WCB) insurance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What areas do you serve around Calgary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "We serve all four quadrants of Calgary (NW, NE, SW, SE) and Downtown, plus surrounding communities including Airdrie, Cochrane, Okotoks, Chestermere, Canmore, Banff, Strathmore, and High River. For long-distance moves, we cover routes to Edmonton, Vancouver, Kelowna, Red Deer, Lethbridge, Saskatoon, and Winnipeg."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do you offer packing services?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, we offer full and partial packing services using professional-grade materials. Eco-friendly packing options with reusable bins and recyclable materials are also available. Unpacking services are available at your destination."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the best time to move in Calgary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The cheapest time to move in Calgary is during the off-peak season from October through March, when rates can be 20–30% lower. Mid-week moves (Tuesday to Thursday) and mid-month dates are also typically more affordable. Peak moving season runs from May through September."
+                }
+            }
+        ]
+    }
+    </script>
 @endsection
 
 @section('content')
@@ -26,14 +82,13 @@
                     <span class="text-gray-500 text-sm font-medium">Trusted by 2,500+ Calgary families</span>
                 </div>
 
-                <h1 class="sr-only">Calgary Movers — Affordable Local & Long-Distance Moving Company</h1>
                 <p class="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-dark leading-[1.1] tracking-tight">
                     Your Smoothest<br>
                     <span class="bg-gradient-to-r from-primary-light via-primary to-accent bg-clip-text text-transparent">Move Yet.</span>
                 </p>
 
                 <p class="mt-3 text-lg text-gray-500 leading-relaxed max-w-lg">
-                    Licensed and insured movers serving Calgary and area. We plan, pack, and move — so you can focus on what matters.
+                    Affordable, licensed and insured movers Calgary families trust. Local moves, long-distance relocations, packing, and storage — we handle it all so you can focus on what matters.
                 </p>
 
                 {{-- Phone CTA --}}
@@ -465,13 +520,66 @@ function quoteForm() {
     </div>
 </section>
 
-{{-- Section 2.5: SEO Intro Content --}}
+{{-- Section 2.5: SEO Content with H1 --}}
 <section class="py-16 lg:py-20">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div x-reveal="up" class="prose prose-lg max-w-none text-gray-600">
-            <p><strong>Unitas Movers</strong> is a Calgary-based moving company offering affordable local and long-distance moving services across Alberta, British Columbia, and Saskatchewan. Whether you're moving across town or relocating from Calgary to Edmonton, Vancouver, or Kelowna, our licensed and insured crews handle every move with professional care.</p>
-            <p>We specialize in <a href="{{ route('services.index') }}">residential moving</a>, <a href="{{ route('services.index') }}">commercial moving</a>, packing and unpacking, piano moving, junk removal, and storage solutions. Our transparent pricing means no hidden fees — the quote we give is the price you pay. With over 2,500 moves completed and a 4.9-star Google rating, we're one of Calgary's most trusted moving companies.</p>
-            <p>Serving all Calgary quadrants — <a href="{{ route('areas.index') }}">NW, NE, SW, and SE</a> — plus Airdrie, Cochrane, Okotoks, Chestermere, and communities throughout southern Alberta. Same-day, evening, and weekend moves available. <a href="{{ route('quote.create') }}">Get a free quote</a> or call <a href="tel:+14038002747">(403) 800-2747</a>.</p>
+        <h1 x-reveal="up" class="text-3xl lg:text-4xl font-extrabold text-dark tracking-tight mb-8">Trusted Movers in Calgary — Affordable Local & Long-Distance Moving Company</h1>
+        <div x-reveal="up" x-reveal-delay="1" class="prose prose-lg max-w-none text-gray-600 space-y-5">
+            <p>Looking for reliable <strong>movers in Calgary</strong>? Unitas Movers is a fully licensed and insured <strong>moving company in Calgary</strong> with over 10 years of experience helping families, renters, and businesses relocate safely and affordably. Whether you need <a href="{{ route('services.show', 'local-moving') }}">local movers</a> for a cross-town move or a <a href="{{ route('services.show', 'long-distance-moving') }}">long-distance moving company</a> for a Calgary to Edmonton, Calgary to Vancouver, or Calgary to Kelowna relocation, our professional crews handle every job with care.</p>
+
+            <p>We offer a full range of <strong>Calgary moving services</strong> including <a href="{{ route('services.show', 'residential-moving') }}">residential moving</a>, <a href="{{ route('services.show', 'apartment-moving') }}">apartment moving</a>, <a href="{{ route('services.show', 'condo-moving') }}">condo moving</a>, <a href="{{ route('services.show', 'commercial-moving') }}">commercial and office relocation</a>, <a href="{{ route('services.show', 'packing-unpacking') }}">professional packing and unpacking</a>, <a href="{{ route('services.show', 'piano-moving') }}">piano moving</a>, <a href="{{ route('services.show', 'senior-moving') }}">senior moving assistance</a>, <a href="{{ route('services.show', 'furniture-moving') }}">furniture delivery</a>, <a href="{{ route('services.show', 'junk-removal') }}">junk removal</a>, and <a href="{{ route('services.show', 'storage-solutions') }}">storage solutions</a>. Need movers fast? We offer <a href="{{ route('services.show', 'same-day-moving') }}">same-day and last-minute moving</a> as well as <a href="{{ route('services.show', 'evening-weekend-moving') }}">evening and weekend availability</a> to work around your schedule.</p>
+
+            <p>What makes Unitas one of the <strong>best movers in Calgary</strong>? Our commitment to <a href="{{ route('pricing') }}">transparent, affordable pricing</a> with no hidden fees — the quote we give is the price you pay. We carry comprehensive liability and cargo insurance so your belongings are fully protected. Our team is also one of the few <a href="{{ route('services.show', 'bilingual-movers') }}">bilingual moving crews in Calgary</a>, offering service in both English and French for Calgary's growing Francophone community. We're also committed to <a href="{{ route('services.show', 'eco-friendly-moving') }}">eco-friendly moving practices</a>, using reusable packing materials and fuel-efficient routes to reduce our environmental footprint.</p>
+
+            <p>We proudly serve all Calgary quadrants — <a href="{{ route('areas.show', 'nw-calgary') }}">NW Calgary</a>, <a href="{{ route('areas.show', 'ne-calgary') }}">NE Calgary</a>, <a href="{{ route('areas.show', 'sw-calgary') }}">SW Calgary</a>, <a href="{{ route('areas.show', 'se-calgary') }}">SE Calgary</a>, and <a href="{{ route('areas.show', 'downtown-calgary') }}">Downtown</a> including the <a href="{{ route('areas.show', 'beltline') }}">Beltline</a> — plus surrounding communities like <a href="{{ route('areas.show', 'airdrie') }}">Airdrie</a>, <a href="{{ route('areas.show', 'cochrane') }}">Cochrane</a>, <a href="{{ route('areas.show', 'okotoks') }}">Okotoks</a>, <a href="{{ route('areas.show', 'chestermere') }}">Chestermere</a>, <a href="{{ route('areas.show', 'canmore') }}">Canmore</a>, and <a href="{{ route('areas.show', 'banff') }}">Banff</a>. With over 2,500 moves completed and a 4.9-star Google rating, we're one of Calgary's most trusted and <a href="{{ route('services.show', 'affordable-moving') }}">affordable moving companies</a>. <a href="{{ route('quote.create') }}">Get your free quote</a> online or call <a href="tel:+14038002747">(403) 800-2747</a> today.</p>
+        </div>
+    </div>
+</section>
+
+{{-- Homepage FAQ — targets People Also Ask boxes --}}
+<section class="pb-16 lg:pb-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 x-reveal="up" class="text-2xl lg:text-3xl font-extrabold text-dark tracking-tight mb-8">Frequently asked questions about moving in Calgary</h2>
+        <div x-reveal="up" x-reveal-delay="1" class="space-y-4" x-data="{ open: null }">
+            @php
+                $homeFaqs = [
+                    [
+                        'q' => 'How much do movers cost in Calgary?',
+                        'a' => 'The average cost of movers in Calgary ranges from $99 to $149 per hour for a 2-person crew with a truck. A typical local move for a one-bedroom apartment costs $300–$600, while a 3-bedroom house move averages $800–$1,500. Long-distance moves from Calgary to Edmonton start around $1,200–$2,500 depending on volume. Moving cost depends on distance, volume, and seasonal demand. At Unitas Movers, we provide transparent, all-inclusive quotes with no hidden fees — <a href="' . route('quote.create') . '" class="text-primary hover:underline">request your free estimate</a> to get an exact price.',
+                    ],
+                    [
+                        'q' => 'How far in advance should I book movers in Calgary?',
+                        'a' => 'We recommend booking your Calgary movers at least 2–4 weeks in advance, especially during peak moving season (May through September) and at month-end when demand is highest. However, Unitas Movers also offers <a href="' . route('services.show', 'same-day-moving') . '" class="text-primary hover:underline">same-day and last-minute moving services</a> based on availability. Call us at <a href="tel:+14038002747" class="text-primary hover:underline">(403) 800-2747</a> to check current scheduling.',
+                    ],
+                    [
+                        'q' => 'Are your movers licensed and insured?',
+                        'a' => 'Yes. Unitas Movers is a fully licensed and insured moving company in Calgary. We carry comprehensive general liability insurance and cargo coverage to protect your belongings during every move. All our crew members are trained professionals covered by Workers\' Compensation Board (WCB) insurance. You can learn more on our <a href="' . route('about.licensed-insured') . '" class="text-primary hover:underline">licensed and insured</a> page.',
+                    ],
+                    [
+                        'q' => 'What areas do you serve around Calgary?',
+                        'a' => 'We serve all four quadrants of Calgary (NW, NE, SW, SE) and Downtown, plus surrounding communities including Airdrie, Cochrane, Okotoks, Chestermere, Canmore, Banff, Strathmore, and High River. For long-distance moves, we cover routes to Edmonton, Vancouver, Kelowna, Red Deer, Lethbridge, Saskatoon, and Winnipeg. See our <a href="' . route('areas.index') . '" class="text-primary hover:underline">full service area</a>.',
+                    ],
+                    [
+                        'q' => 'Do you offer packing services?',
+                        'a' => 'Yes, we offer <a href="' . route('services.show', 'packing-unpacking') . '" class="text-primary hover:underline">full and partial packing services</a> using professional-grade materials. Our team can pack your entire home or just the fragile and specialty items. We also offer eco-friendly packing options with reusable bins and recyclable materials. Unpacking services are available at your destination as well.',
+                    ],
+                    [
+                        'q' => 'What is the best time to move in Calgary?',
+                        'a' => 'The cheapest time to move in Calgary is during the off-peak season from October through March, when rates can be 20–30% lower than summer prices. Mid-week moves (Tuesday to Thursday) and mid-month dates are also typically cheaper. Peak moving season runs from May through September, with July being the busiest month. Regardless of when you move, Unitas Movers offers competitive rates year-round.',
+                    ],
+                ];
+            @endphp
+            @foreach($homeFaqs as $i => $faq)
+                <div class="border border-gray-200 rounded-2xl overflow-hidden">
+                    <button @click="open = open === {{ $i }} ? null : {{ $i }}" class="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition">
+                        <span class="font-semibold text-dark pr-4">{{ $faq['q'] }}</span>
+                        <svg class="w-5 h-5 text-gray-400 shrink-0 transition-transform" :class="open === {{ $i }} && 'rotate-180'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div x-show="open === {{ $i }}" x-collapse x-cloak class="px-6 pb-5 text-gray-600 leading-relaxed">
+                        {!! $faq['a'] !!}
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -563,21 +671,22 @@ function quoteForm() {
     </div>
 </section>
 
-{{-- Section 5: Why Unitas (unchanged) --}}
+{{-- Section 5: Why Unitas --}}
 <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
                 <div x-reveal="right" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Why Unitas Movers</div>
                 <h2 x-reveal="right" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight leading-tight">Why Calgary trusts<br><span class="text-primary">Unitas Movers</span></h2>
-                <p x-reveal="right" x-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We combine professional expertise with affordable pricing and genuine care for your belongings. That's the Unitas difference.</p>
+                <p x-reveal="right" x-reveal-delay="2" class="mt-6 text-gray-500 text-lg leading-relaxed">We're not just another moving company in Calgary — we combine professional expertise with affordable pricing, eco-friendly practices, and genuine care for your belongings. That's the Unitas difference.</p>
 
                 <div class="mt-10 space-y-6">
                     @php
                         $features = [
-                            ['title' => 'Affordable Pricing', 'desc' => 'Competitive rates without compromising on quality or care.', 'color' => 'bg-accent/10 text-accent'],
-                            ['title' => 'Transparent Pricing', 'desc' => 'No hidden fees. What we quote is what you pay, guaranteed.', 'color' => 'bg-primary-50 text-primary'],
-                            ['title' => 'Fast & Flexible', 'desc' => 'Same-day, evening, and weekend moves available to fit your schedule.', 'color' => 'bg-star/10 text-star'],
+                            ['title' => 'Affordable & Transparent Pricing', 'desc' => 'Competitive rates starting from $99/hr with no hidden fees. The quote we give is the price you pay — guaranteed.', 'color' => 'bg-accent/10 text-accent'],
+                            ['title' => 'Eco-Friendly Moving Practices', 'desc' => 'Reusable packing materials, fuel-efficient routing, and responsible disposal. We care about Calgary\'s environment.', 'color' => 'bg-green-50 text-green-600'],
+                            ['title' => 'Bilingual Crew (English & French)', 'desc' => 'One of the only moving companies in Calgary with a French-speaking team — proudly serving Calgary\'s Francophone community.', 'color' => 'bg-blue-50 text-blue-600'],
+                            ['title' => 'Same-Day, Evening & Weekend Moves', 'desc' => 'Flexible scheduling including last-minute, evening, and weekend availability to fit around your life.', 'color' => 'bg-primary-50 text-primary'],
                         ];
                     @endphp
                     @foreach($features as $feat)
@@ -674,8 +783,8 @@ function quoteForm() {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-primary-50 text-primary text-sm font-semibold mb-4">Coverage</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Moving services across Calgary & area</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Proudly serving all four quadrants and surrounding communities.</p>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-dark tracking-tight">Movers serving Calgary, Airdrie, Cochrane & area</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">Proudly serving all four Calgary quadrants, surrounding towns, and long-distance routes to Edmonton, Vancouver, and beyond.</p>
         </div>
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {{-- SVG Map --}}
@@ -746,8 +855,8 @@ function quoteForm() {
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
             <div x-reveal="up" class="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white/80 text-sm font-semibold mb-4">Testimonials</div>
-            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">What Calgary customers say about us</h2>
-            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/50 max-w-2xl mx-auto text-lg">4.9-star rated with 2,500+ moves completed. Real reviews from real customers.</p>
+            <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Rated one of the best movers in Calgary</h2>
+            <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/50 max-w-2xl mx-auto text-lg">4.9-star Google rated with 2,500+ successful moves. See what Calgary customers say about our moving company.</p>
         </div>
 
         {{-- Review Cards --}}
@@ -881,8 +990,8 @@ function quoteForm() {
             <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-[60px] translate-y-1/2 -translate-x-1/2"></div>
 
             <div class="relative">
-                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Get your free moving quote</h2>
-                <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/70 text-lg max-w-xl mx-auto">No-obligation estimates in minutes. We respond within 2 hours during business hours.</p>
+                <h2 x-reveal="up" x-reveal-delay="1" class="text-3xl lg:text-5xl font-extrabold text-white tracking-tight">Get your free Calgary moving quote</h2>
+                <p x-reveal="up" x-reveal-delay="2" class="mt-4 text-white/70 text-lg max-w-xl mx-auto">No-obligation estimates from one of Calgary's top-rated moving companies. We respond within 2 hours during business hours.</p>
                 <div x-reveal="up" x-reveal-delay="3" class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="{{ route('quote.create') }}" class="bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-lg hover:-translate-y-0.5 animate-pulse-ring">
                         Get Your Free Quote
