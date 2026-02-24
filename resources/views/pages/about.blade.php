@@ -90,7 +90,7 @@
 
         {{-- Licensed & Insured link --}}
         <div class="mt-10">
-            <a href="{{ route('about.licensed') }}" class="inline-flex items-center text-primary font-bold hover:underline">Read more about our licensing and insurance coverage <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+            <a href="{{ route('about.licensed-insured') }}" class="inline-flex items-center text-primary font-bold hover:underline">Read more about our licensing and insurance coverage <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
         </div>
     </div>
 </div>
