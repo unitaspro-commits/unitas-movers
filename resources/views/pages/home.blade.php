@@ -95,7 +95,7 @@
 
                 {{-- Phone CTA --}}
                 <div class="mt-5 flex items-center space-x-4">
-                    <a href="tel:+14039913206" class="inline-flex items-center bg-primary/10 hover:bg-primary/15 text-primary px-5 py-2.5 rounded-xl font-semibold text-sm transition">
+                    <a href="tel:+14039913206" onclick="trackEvent('phone_click', {location: 'hero'})" class="inline-flex items-center bg-primary/10 hover:bg-primary/15 text-primary px-5 py-2.5 rounded-xl font-semibold text-sm transition">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         (403) 991-3206
                     </a>
@@ -149,6 +149,7 @@
                                 <p class="text-sm font-semibold text-dark">Quote Request Submitted!</p>
                                 <p class="text-xs text-gray-500 mt-1">{{ session('success') }}</p>
                             </div>
+                            <script>trackEvent('quote_submitted', {form: 'hero'});</script>
                         @endif
                         @if($errors->any())
                             <div class="mb-4 bg-error/10 border border-error/20 rounded-xl p-4">
@@ -399,6 +400,7 @@ function quoteForm() {
     return {
         step: 1,
         submitting: false,
+        formStarted: false,
         stepLabels: ['Move Details', 'Contact', 'Services'],
         formData: {
             moving_from: '',
@@ -425,6 +427,7 @@ function quoteForm() {
         },
         clearError(field) {
             delete this.errors[field];
+            if (!this.formStarted) { this.formStarted = true; trackEvent('form_start', {form: 'hero'}); }
         },
         toggleService(value) {
             const idx = this.formData.services_needed.indexOf(value);
@@ -437,6 +440,7 @@ function quoteForm() {
         },
         nextStep() {
             if (this.validateStep()) {
+                trackEvent('form_step_complete', {form: 'hero', step: this.step});
                 this.step = Math.min(this.step + 1, 3);
             }
         },
@@ -490,6 +494,7 @@ function quoteForm() {
         submitForm(event) {
             if (this.submitting) return;
             if (this.validateStep()) {
+                trackEvent('form_submit', {form: 'hero'});
                 this.submitting = true;
                 event.target.submit();
             }

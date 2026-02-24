@@ -23,6 +23,7 @@
                 <h2 class="text-xl font-semibold text-primary">Quote Request Submitted!</h2>
                 <p class="mt-2 text-gray-500">{{ session('success') }}</p>
             </div>
+            <script>trackEvent('quote_submitted', {form: 'quote_page'});</script>
         @endif
 
         @if($errors->any())
@@ -37,7 +38,8 @@
         @endif
 
         <form method="POST" action="{{ route('quote.store') }}" class="space-y-8"
-            x-data="{ submitting: false, addressSelected: { moving_from: {{ old('moving_from') ? 'true' : 'false' }}, moving_to: {{ old('moving_to') ? 'true' : 'false' }} }, addressErrors: { moving_from: false, moving_to: false }, fieldErrors: { phone: '', email: '' } }"
+            x-data="{ submitting: false, formStarted: false, addressSelected: { moving_from: {{ old('moving_from') ? 'true' : 'false' }}, moving_to: {{ old('moving_to') ? 'true' : 'false' }} }, addressErrors: { moving_from: false, moving_to: false }, fieldErrors: { phone: '', email: '' } }"
+            @focusin.once="if (!formStarted) { formStarted = true; trackEvent('form_start', {form: 'quote_page'}); }"
             @submit.prevent="
                 if (submitting) return;
                 fieldErrors.phone = ''; fieldErrors.email = '';
@@ -49,6 +51,7 @@
                 if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) { fieldErrors.email = 'Please enter a valid email address'; }
                 var addressOk = window._googlePlacesUnavailable || (addressSelected.moving_from && addressSelected.moving_to);
                 if (addressOk && !fieldErrors.phone && !fieldErrors.email) {
+                    trackEvent('form_submit', {form: 'quote_page'});
                     submitting = true;
                     $el.submit();
                 }

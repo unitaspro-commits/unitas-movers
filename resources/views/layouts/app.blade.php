@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    @if(config('services.google.gtm_id'))
+    <!-- Google Tag Manager -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ config('services.google.gtm_id') }}');
+    </script>
+    <!-- End Google Tag Manager -->
+    @endif
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -50,6 +62,12 @@
     @yield('schema')
 </head>
 <body class="bg-white text-dark font-sans antialiased">
+    @if(config('services.google.gtm_id'))
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ config('services.google.gtm_id') }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    @endif
+
     {{-- Navbar --}}
     <nav class="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200/50 transition-all" x-data="{ mobileOpen: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,11 +91,11 @@
                 </div>
 
                 <div class="hidden lg:flex items-center space-x-4">
-                    <a href="tel:+14039913206" class="text-dark font-semibold text-sm flex items-center hover:text-primary transition-colors">
+                    <a href="tel:+14039913206" onclick="trackEvent('phone_click', {location: 'navbar'})" class="text-dark font-semibold text-sm flex items-center hover:text-primary transition-colors">
                         <svg class="w-4 h-4 mr-1.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                         (403) 991-3206
                     </a>
-                    <a href="{{ route('quote.create') }}" class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-[0_4px_15px_rgba(89,52,255,0.3)] hover:shadow-[0_6px_20px_rgba(89,52,255,0.4)]">
+                    <a href="{{ route('quote.create') }}" onclick="trackEvent('cta_click', {label: 'nav_quote'})" class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-[0_4px_15px_rgba(89,52,255,0.3)] hover:shadow-[0_6px_20px_rgba(89,52,255,0.4)]">
                         Get Free Quote
                     </a>
                 </div>
@@ -99,11 +117,11 @@
                     <a href="{{ route('blog.index') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">Blog</a>
                     <a href="{{ route('about') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">About</a>
                     <div class="pt-3 px-4 space-y-3">
-                        <a href="tel:+14039913206" class="flex items-center text-primary font-semibold text-sm">
+                        <a href="tel:+14039913206" onclick="trackEvent('phone_click', {location: 'mobile_menu'})" class="flex items-center text-primary font-semibold text-sm">
                             <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             (403) 991-3206
                         </a>
-                        <a href="{{ route('quote.create') }}" class="block bg-primary text-white py-3 rounded-xl font-semibold text-sm text-center shadow-[0_4px_15px_rgba(89,52,255,0.3)]">Get Free Quote</a>
+                        <a href="{{ route('quote.create') }}" onclick="trackEvent('cta_click', {label: 'mobile_menu_quote'})" class="block bg-primary text-white py-3 rounded-xl font-semibold text-sm text-center shadow-[0_4px_15px_rgba(89,52,255,0.3)]">Get Free Quote</a>
                     </div>
                 </div>
             </div>
@@ -195,7 +213,7 @@
                             <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                                 <svg class="w-4 h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             </div>
-                            <a href="tel:+14039913206" class="hover:text-white transition">(403) 991-3206</a>
+                            <a href="tel:+14039913206" onclick="trackEvent('phone_click', {location: 'footer'})" class="hover:text-white transition">(403) 991-3206</a>
                         </li>
                         <li class="flex items-center space-x-3">
                             <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
@@ -224,11 +242,11 @@
     {{-- Mobile Sticky CTA Bar --}}
     <div class="fixed bottom-0 inset-x-0 bg-white lg:hidden z-40 border-t border-gray-200 safe-bottom shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
         <div class="flex">
-            <a href="tel:+14039913206" class="flex-1 flex items-center justify-center py-3.5 text-dark font-semibold text-sm border-r border-gray-100">
+            <a href="tel:+14039913206" onclick="trackEvent('phone_click', {location: 'mobile_bar'})" class="flex-1 flex items-center justify-center py-3.5 text-dark font-semibold text-sm border-r border-gray-100">
                 <svg class="w-4 h-4 mr-1.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 Call Now
             </a>
-            <a href="{{ route('quote.create') }}" class="flex-1 flex items-center justify-center py-3.5 bg-primary text-white font-semibold text-sm">
+            <a href="{{ route('quote.create') }}" onclick="trackEvent('cta_click', {label: 'mobile_bar_quote'})" class="flex-1 flex items-center justify-center py-3.5 bg-primary text-white font-semibold text-sm">
                 <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
                 Free Quote
             </a>
