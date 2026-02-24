@@ -4,9 +4,9 @@
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
 @section('content')
-<section class="bg-unitas-green py-12">
+<section class="bg-primary py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl lg:text-4xl font-serif font-bold text-white">Terms of Service</h1>
+        <h1 class="text-3xl lg:text-4xl font-extrabold text-white">Terms of Service</h1>
     </div>
 </section>
 <section class="py-12 lg:py-16">

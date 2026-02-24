@@ -8,9 +8,9 @@
 @endsection
 
 @section('content')
-<section class="bg-unitas-green py-12">
+<section class="bg-primary py-12">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="text-3xl lg:text-4xl font-serif font-bold text-white">Get Your Free Moving Quote</h1>
+        <h1 class="text-3xl lg:text-4xl font-extrabold text-white">Get Your Free Moving Quote</h1>
         <p class="mt-4 text-white/80">Fill out the form below and we'll get back to you within 2 hours during business hours.</p>
     </div>
 </section>
@@ -18,10 +18,10 @@
 <section class="py-12 lg:py-16">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         @if(session('success'))
-            <div class="mb-8 bg-meadow/10 border border-meadow/20 rounded-xl p-6 text-center">
-                <svg class="w-12 h-12 text-meadow mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <h2 class="text-xl font-semibold text-unitas-green">Quote Request Submitted!</h2>
-                <p class="mt-2 text-stone">{{ session('success') }}</p>
+            <div class="mb-8 bg-primary/10 border border-primary/20 rounded-xl p-6 text-center">
+                <svg class="w-12 h-12 text-accent mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <h2 class="text-xl font-semibold text-primary">Quote Request Submitted!</h2>
+                <p class="mt-2 text-gray-500">{{ session('success') }}</p>
             </div>
         @endif
 
@@ -64,29 +64,29 @@
             <input type="hidden" name="utm_campaign" id="quote_utm_campaign">
 
             {{-- Personal Info --}}
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-stone/10">
-                <h2 class="text-lg font-semibold text-slate-dark mb-4">Your Information</h2>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100/10">
+                <h2 class="text-lg font-semibold text-dark mb-4">Your Information</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="full_name" class="block text-sm font-medium text-slate-dark mb-1">Full Name *</label>
+                        <label for="full_name" class="block text-sm font-medium text-dark mb-1">Full Name *</label>
                         <input type="text" name="full_name" id="full_name" value="{{ old('full_name') }}" required
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                            class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
                     </div>
                     <div>
-                        <label for="phone" class="block text-sm font-medium text-slate-dark mb-1">Phone Number *</label>
+                        <label for="phone" class="block text-sm font-medium text-dark mb-1">Phone Number *</label>
                         <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" required placeholder="(403) 000-0000" maxlength="20"
                             @input="fieldErrors.phone = ''"
                             @blur="if ($el.value && $el.value.replace(/\D/g,'').length < 10) fieldErrors.phone = 'Please enter a valid phone number (at least 10 digits)'"
-                            :class="fieldErrors.phone ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            :class="fieldErrors.phone ? 'border-error focus:border-error focus:ring-error' : 'border-gray-100/30 focus:border-primary focus:ring-primary'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="fieldErrors.phone" x-cloak class="text-error text-xs font-medium mt-1" x-text="fieldErrors.phone"></p>
                     </div>
                     <div class="md:col-span-2">
-                        <label for="email" class="block text-sm font-medium text-slate-dark mb-1">Email Address *</label>
+                        <label for="email" class="block text-sm font-medium text-dark mb-1">Email Address *</label>
                         <input type="email" name="email" id="email" value="{{ old('email') }}" required
                             @input="fieldErrors.email = ''"
                             @blur="if ($el.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test($el.value)) fieldErrors.email = 'Please enter a valid email address'"
-                            :class="fieldErrors.email ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            :class="fieldErrors.email ? 'border-error focus:border-error focus:ring-error' : 'border-gray-100/30 focus:border-primary focus:ring-primary'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="fieldErrors.email" x-cloak class="text-error text-xs font-medium mt-1" x-text="fieldErrors.email"></p>
                     </div>
@@ -94,42 +94,42 @@
             </div>
 
             {{-- Move Details --}}
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-stone/10">
-                <h2 class="text-lg font-semibold text-slate-dark mb-4">Move Details</h2>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100/10">
+                <h2 class="text-lg font-semibold text-dark mb-4">Move Details</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label for="moving_from" class="block text-sm font-medium text-slate-dark mb-1">Moving From *</label>
+                        <label for="moving_from" class="block text-sm font-medium text-dark mb-1">Moving From *</label>
                         <input type="text" name="moving_from" id="moving_from" value="{{ old('moving_from') }}" required
                             placeholder="Enter your current address" autocomplete="off"
                             @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_from)) { addressSelected.moving_from = false; addressErrors.moving_from = false; if (window._userTypedAddress) window._userTypedAddress.moving_from = true; }"
                             @blur="setTimeout(() => { if (window._googlePlacesUnavailable) return; if (window._suppressAddressInput && window._suppressAddressInput.moving_from) return; if (document.activeElement === $el) return; if ($el.value && !addressSelected.moving_from) addressErrors.moving_from = true }, 300)"
-                            :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            :class="addressErrors.moving_from ? 'border-error focus:border-error focus:ring-error' : 'border-gray-100/30 focus:border-primary focus:ring-primary'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="addressErrors.moving_from" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
                         <input type="hidden" name="origin_city" id="origin_city" value="{{ old('origin_city') }}">
                     </div>
                     <div>
-                        <label for="moving_to" class="block text-sm font-medium text-slate-dark mb-1">Moving To *</label>
+                        <label for="moving_to" class="block text-sm font-medium text-dark mb-1">Moving To *</label>
                         <input type="text" name="moving_to" id="moving_to" value="{{ old('moving_to') }}" required
                             placeholder="Enter your destination address" autocomplete="off"
                             @input="if (!(window._suppressAddressInput && window._suppressAddressInput.moving_to)) { addressSelected.moving_to = false; addressErrors.moving_to = false; if (window._userTypedAddress) window._userTypedAddress.moving_to = true; }"
                             @blur="setTimeout(() => { if (window._googlePlacesUnavailable) return; if (window._suppressAddressInput && window._suppressAddressInput.moving_to) return; if (document.activeElement === $el) return; if ($el.value && !addressSelected.moving_to) addressErrors.moving_to = true }, 300)"
-                            :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error' : 'border-stone/30 focus:border-unitas-green focus:ring-unitas-green'"
+                            :class="addressErrors.moving_to ? 'border-error focus:border-error focus:ring-error' : 'border-gray-100/30 focus:border-primary focus:ring-primary'"
                             class="w-full rounded-lg border px-4 py-2.5 text-sm focus:ring-1">
                         <p x-show="addressErrors.moving_to" x-cloak class="text-error text-xs font-medium mt-1">Please select an address from the dropdown</p>
                         <input type="hidden" name="destination_city" id="destination_city" value="{{ old('destination_city') }}">
                     </div>
                     <div>
-                        <label for="move_date" class="block text-sm font-medium text-slate-dark mb-1">Move Date *</label>
+                        <label for="move_date" class="block text-sm font-medium text-dark mb-1">Move Date *</label>
                         <input type="date" name="move_date" id="move_date" value="{{ old('move_date') }}" required
                             min="{{ date('Y-m-d', strtotime('+1 day')) }}"
                             max="{{ date('Y-m-d', strtotime('+2 years')) }}"
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                            class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
                     </div>
                     <div>
-                        <label for="move_size" class="block text-sm font-medium text-slate-dark mb-1">Move Size *</label>
+                        <label for="move_size" class="block text-sm font-medium text-dark mb-1">Move Size *</label>
                         <select name="move_size" id="move_size" required
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                            class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
                             <option value="">Select size...</option>
                             @foreach($moveSizes as $size)
                                 <option value="{{ $size->value }}" {{ old('move_size') === $size->value ? 'selected' : '' }}>
@@ -142,8 +142,8 @@
             </div>
 
             {{-- Services Needed --}}
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-stone/10">
-                <h2 class="text-lg font-semibold text-slate-dark mb-4">Services Needed *</h2>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100/10">
+                <h2 class="text-lg font-semibold text-dark mb-4">Services Needed *</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
                     @php
                         $serviceOptions = [
@@ -158,39 +158,39 @@
                         ];
                     @endphp
                     @foreach($serviceOptions as $value => $label)
-                        <label class="flex items-center space-x-2 bg-snow rounded-lg p-3 cursor-pointer hover:bg-meadow/5 transition border border-stone/10">
+                        <label class="flex items-center space-x-2 bg-gray-50 rounded-lg p-3 cursor-pointer hover:bg-primary/5 transition border border-gray-100/10">
                             <input type="checkbox" name="services_needed[]" value="{{ $value }}"
                                 {{ in_array($value, old('services_needed', [])) ? 'checked' : '' }}
-                                class="rounded border-stone/30 text-unitas-green focus:ring-unitas-green">
-                            <span class="text-sm text-slate-dark">{{ $label }}</span>
+                                class="rounded border-gray-100/30 text-primary focus:ring-primary">
+                            <span class="text-sm text-dark">{{ $label }}</span>
                         </label>
                     @endforeach
                 </div>
             </div>
 
             {{-- Additional Info --}}
-            <div class="bg-white rounded-xl p-6 shadow-sm border border-stone/10">
-                <h2 class="text-lg font-semibold text-slate-dark mb-4">Additional Information</h2>
+            <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100/10">
+                <h2 class="text-lg font-semibold text-dark mb-4">Additional Information</h2>
                 <div class="space-y-4">
                     <div>
-                        <label for="additional_notes" class="block text-sm font-medium text-slate-dark mb-1">Special Instructions or Notes</label>
+                        <label for="additional_notes" class="block text-sm font-medium text-dark mb-1">Special Instructions or Notes</label>
                         <textarea name="additional_notes" id="additional_notes" rows="3"
                             placeholder="Stairs, elevator, heavy items, special requirements..."
-                            class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">{{ old('additional_notes') }}</textarea>
+                            class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">{{ old('additional_notes') }}</textarea>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label for="preferred_language" class="block text-sm font-medium text-slate-dark mb-1">Preferred Language</label>
+                            <label for="preferred_language" class="block text-sm font-medium text-dark mb-1">Preferred Language</label>
                             <select name="preferred_language" id="preferred_language"
-                                class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                                class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
                                 <option value="en" {{ old('preferred_language', 'en') === 'en' ? 'selected' : '' }}>English</option>
                                 <option value="fr" {{ old('preferred_language') === 'fr' ? 'selected' : '' }}>Fran&ccedil;ais</option>
                             </select>
                         </div>
                         <div>
-                            <label for="referral_source" class="block text-sm font-medium text-slate-dark mb-1">How Did You Hear About Us?</label>
+                            <label for="referral_source" class="block text-sm font-medium text-dark mb-1">How Did You Hear About Us?</label>
                             <select name="referral_source" id="referral_source"
-                                class="w-full rounded-lg border border-stone/30 px-4 py-2.5 text-sm focus:border-unitas-green focus:ring-1 focus:ring-unitas-green">
+                                class="w-full rounded-lg border border-gray-100/30 px-4 py-2.5 text-sm focus:border-primary focus:ring-1 focus:ring-primary">
                                 <option value="">Select...</option>
                                 @foreach($referralSources as $source)
                                     <option value="{{ $source->value }}" {{ old('referral_source') === $source->value ? 'selected' : '' }}>
@@ -205,14 +205,14 @@
 
             {{-- Submit --}}
             <div class="text-center">
-                <button type="submit" :disabled="submitting" class="bg-unitas-green hover:bg-forest text-white px-10 py-4 rounded-lg font-bold text-lg transition shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
+                <button type="submit" :disabled="submitting" class="bg-primary hover:bg-primary text-white px-10 py-4 rounded-lg font-bold text-lg transition shadow-lg disabled:opacity-60 disabled:cursor-not-allowed">
                     <span x-show="!submitting">Submit Quote Request</span>
                     <span x-show="submitting" x-cloak class="flex items-center justify-center">
                         <svg class="animate-spin w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path></svg>
                         Submitting...
                     </span>
                 </button>
-                <p class="mt-3 text-sm text-stone">We'll respond within 2 hours during business hours (Mon–Sat 8am–6pm)</p>
+                <p class="mt-3 text-sm text-gray-500">We'll respond within 2 hours during business hours (Mon–Sat 8am–6pm)</p>
             </div>
         </form>
     </div>
