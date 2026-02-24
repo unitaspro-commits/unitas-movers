@@ -1009,7 +1009,7 @@ function quoteForm() {
 @endsection
 
 @section('scripts')
-@if(config('services.google.maps_api_key'))
+<?php if(config('services.google.maps_api_key')): ?>
 <style>
     .pac-container {
         border-radius: 0.5rem;
@@ -1152,5 +1152,5 @@ function quoteForm() {
         });
     })();
 </script>
-@endif
+<?php endif; ?>
 @endsection
