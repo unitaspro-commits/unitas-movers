@@ -14,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\SeoRedirects::class,
             \App\Http\Middleware\HandleRedirects::class,
+            \Spatie\ResponseCache\Middlewares\CacheResponse::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

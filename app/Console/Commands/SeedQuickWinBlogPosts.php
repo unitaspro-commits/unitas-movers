@@ -10,7 +10,7 @@ use Illuminate\Console\Command;
 class SeedQuickWinBlogPosts extends Command
 {
     protected $signature = 'blog:seed-quick-wins';
-    protected $description = 'Insert 3 quick-win SEO blog posts (safe to re-run)';
+    protected $description = 'Insert quick-win SEO blog posts (safe to re-run)';
 
     public function handle(): int
     {
@@ -55,6 +55,18 @@ class SeedQuickWinBlogPosts extends Command
                 'related_area_id' => $areas['banff'] ?? null,
                 'is_pillar' => false,
                 'published_at' => '2026-02-23 09:00:00',
+            ],
+            [
+                'slug' => 'what-to-look-for-moving-company-calgary',
+                'title' => 'What to Look for in a Moving Company in Calgary',
+                'meta_title' => 'What to Look for in a Moving Company Calgary | Unitas Movers',
+                'meta_description' => 'How to choose a moving company in Calgary. Licensing, insurance, written estimates, red flags, questions to ask, and what your quote should include.',
+                'excerpt' => 'Hiring movers in Calgary? Here\'s how to tell a trustworthy moving company from a risky one — licensing checks, red flags, and the questions you should ask before booking.',
+                'category' => 'guides',
+                'target_keyword' => 'what to look for in a moving company Calgary',
+                'related_service_id' => $services['local-moving'] ?? null,
+                'is_pillar' => false,
+                'published_at' => '2026-02-24 09:00:00',
             ],
         ];
 
@@ -309,6 +321,122 @@ class SeedQuickWinBlogPosts extends Command
 
 <h2>Ready to Get a Quote?</h2>
 <p>Every Calgary to Banff move is different. <a href="/get-a-quote">Request a free quote</a> and we\'ll provide an accurate flat-rate price based on your specific move details — home size, access conditions, moving date, and any specialty items.</p>',
+            ],
+            'what-to-look-for-moving-company-calgary' => [
+                'faq_json' => [
+                    ['question' => 'How do I check if a Calgary moving company is licensed?', 'answer' => 'In Alberta, movers operating within the province don\'t need a provincial licence, but they must have a valid municipal business licence and carry proper insurance. For interprovincial moves, the company should have a National Safety Code (NSC) certificate. Ask for proof of both general liability and cargo insurance before booking.'],
+                    ['question' => 'Should I get a written estimate or is a verbal quote enough?', 'answer' => 'Always get a written estimate. A reputable Calgary moving company will provide a detailed quote in writing — either in-person, via video survey, or based on a thorough inventory list. Verbal quotes offer no protection if the price changes on moving day.'],
+                    ['question' => 'What are red flags when hiring a moving company?', 'answer' => 'Major red flags include: demanding a large cash deposit upfront, no written estimate, no proof of insurance, a generic email address instead of a company domain, no physical address, and prices that seem too good to be true. Also be cautious of companies with no online reviews or only perfect 5-star ratings.'],
+                    ['question' => 'What should a moving quote include?', 'answer' => 'A proper moving quote should include: the rate structure (hourly or flat), number of movers and trucks, travel time charges, fuel surcharges, stair or long-carry fees, insurance coverage details, cancellation policy, and any extra charges for specialty items like pianos or hot tubs.'],
+                ],
+                'body' => '<p>Choosing a moving company in Calgary shouldn\'t feel like a gamble. But with dozens of options — from established companies to guys-with-a-truck operations on Kijiji — knowing what separates a trustworthy mover from a risky one can save you money, stress, and broken belongings. Here\'s exactly what to look for.</p>
+
+<h2>Check Licensing and Insurance First</h2>
+<p>This is non-negotiable. Before anything else, verify these two things:</p>
+
+<h3>Business Licence</h3>
+<p>Every legitimate moving company in Calgary should hold a valid City of Calgary business licence. You can verify this through the City\'s online registry. If a company can\'t produce a licence number, walk away.</p>
+
+<h3>Insurance Coverage</h3>
+<p>A professional mover should carry at minimum:</p>
+<ul>
+<li><strong>General liability insurance:</strong> Covers damage to your property (walls, floors, doorframes) during the move. Look for at least $2 million in coverage</li>
+<li><strong>Cargo insurance:</strong> Covers your belongings while they\'re on the truck. Ask what the per-item and per-move limits are</li>
+<li><strong>Workers\' compensation:</strong> Protects you from liability if a mover is injured in your home. In Alberta, this is managed through the Workers\' Compensation Board (WCB)</li>
+</ul>
+<p>Ask for a Certificate of Insurance — any reputable company will provide one without hesitation. At <a href="/licensed-insured">Unitas Movers</a>, we share our insurance documentation upfront because we believe transparency builds trust.</p>
+
+<h2>Written Estimates vs. Verbal Quotes</h2>
+<p>One of the most common ways people get overcharged is by accepting a verbal quote. Here\'s the difference:</p>
+
+<h3>Written Estimate (What You Want)</h3>
+<ul>
+<li>Detailed breakdown of charges: hourly rate, number of movers, truck fee, travel time, fuel surcharge</li>
+<li>Clear terms for additional charges (stairs, long carries, specialty items)</li>
+<li>Cancellation and rescheduling policy</li>
+<li>Insurance coverage details</li>
+<li>Something you can reference if there\'s a dispute</li>
+</ul>
+
+<h3>Verbal Quote (What to Avoid)</h3>
+<ul>
+<li>"It\'ll probably be around $400-$500" — that range can easily become $800 on moving day</li>
+<li>No documentation means no recourse</li>
+<li>Often a sign of an unlicensed operator</li>
+</ul>
+<p>A good moving company will either visit your home, do a video survey, or ask detailed questions about your inventory before quoting. If someone gives you a price after a 30-second phone call, be skeptical.</p>
+
+<h2>How to Read Moving Company Reviews</h2>
+<p>Online reviews are valuable, but you need to read them critically:</p>
+
+<h3>Where to Check</h3>
+<ul>
+<li><strong>Google Business Profile:</strong> The most reliable source — harder to fake, and Google\'s algorithm filters suspicious reviews</li>
+<li><strong>Better Business Bureau (BBB):</strong> Check for complaints and how they were resolved, not just the rating</li>
+<li><strong>HomeStars:</strong> Popular in Calgary for home service reviews</li>
+<li><strong>Facebook:</strong> Useful for seeing how the company responds to both positive and negative feedback</li>
+</ul>
+
+<h3>What to Look For</h3>
+<ul>
+<li><strong>Specific details:</strong> Reviews mentioning crew members by name, specific items moved, or particular challenges overcome are more likely genuine</li>
+<li><strong>Response to negatives:</strong> How a company handles complaints tells you more than their perfect reviews. Look for professional, solution-oriented responses</li>
+<li><strong>Recency:</strong> Reviews from the last 6-12 months matter more than a glowing review from 2019</li>
+<li><strong>Volume:</strong> 50 reviews averaging 4.7 stars is more trustworthy than 5 reviews averaging 5.0 stars</li>
+</ul>
+
+<h2>Red Flags: When to Walk Away</h2>
+<p>Years of experience in Calgary\'s moving industry have taught us the warning signs. Avoid any company that:</p>
+<ul>
+<li><strong>Demands a large cash deposit:</strong> A small deposit or credit card hold is normal. Requiring hundreds of dollars in cash upfront is not</li>
+<li><strong>Won\'t provide a written estimate:</strong> If they won\'t put it in writing, they\'re leaving room to inflate the price</li>
+<li><strong>Has no physical address:</strong> A legitimate moving company has a verifiable business location</li>
+<li><strong>Uses a generic email:</strong> Gmail or Hotmail instead of a company email domain suggests a fly-by-night operation</li>
+<li><strong>Quotes significantly below market rate:</strong> In Calgary, local moves with two movers and a truck typically start around $99-$140/hour. If someone quotes $50/hour, the price will climb on moving day — guaranteed</li>
+<li><strong>Can\'t provide proof of insurance:</strong> This is the single biggest red flag. No insurance means you have no protection</li>
+<li><strong>Pressures you to book immediately:</strong> "This price is only good today" is a sales tactic, not a moving company policy</li>
+</ul>
+
+<h2>Questions to Ask Before Booking</h2>
+<p>Before committing to any Calgary moving company, ask these questions:</p>
+<ol>
+<li><strong>Are you licensed and insured?</strong> Ask for the business licence number and Certificate of Insurance</li>
+<li><strong>How do you charge?</strong> Hourly or flat rate? What\'s included in the rate?</li>
+<li><strong>How many movers and trucks for my move?</strong> Understaffing a move saves the company money but costs you time</li>
+<li><strong>What\'s your cancellation policy?</strong> Life happens — know the terms before you book</li>
+<li><strong>Do you charge travel time?</strong> Most Calgary movers charge travel time from their base to your home and back. Know the rate</li>
+<li><strong>Are there extra charges for stairs, long carries, or heavy items?</strong> These are legitimate surcharges, but they should be disclosed upfront</li>
+<li><strong>What happens if something is damaged?</strong> Understand the claims process before you need it</li>
+<li><strong>Can you provide references?</strong> A company that\'s been in business should have happy customers willing to vouch for them</li>
+</ol>
+
+<h2>What Your Quote Should Include</h2>
+<p>A transparent moving quote from a reputable Calgary company should clearly state:</p>
+<ul>
+<li>Rate per hour (or flat rate for long-distance)</li>
+<li>Number of movers assigned</li>
+<li>Truck size</li>
+<li>Travel time charges</li>
+<li>Fuel surcharge (if applicable)</li>
+<li>Minimum charge (typically 2-3 hours for local moves)</li>
+<li>Stair fees, long-carry fees, or elevator wait charges</li>
+<li>Packing materials costs (if using packing services)</li>
+<li>Insurance coverage included</li>
+<li>Payment methods accepted</li>
+<li>Cancellation and rescheduling terms</li>
+</ul>
+
+<h2>Local vs. National Moving Companies</h2>
+<p>Both have pros and cons for a Calgary move:</p>
+<ul>
+<li><strong>Local companies</strong> (like <a href="/services/local-moving">Unitas Movers</a>) know Calgary\'s neighbourhoods, building access quirks, parking challenges, and weather patterns. They\'re often more flexible on scheduling and pricing</li>
+<li><strong>National chains</strong> offer brand recognition and standardized processes, but may subcontract to local crews you haven\'t vetted. Prices tend to be higher due to corporate overhead</li>
+</ul>
+<p>For local and regional Alberta moves, a well-reviewed Calgary-based company typically offers the best combination of knowledge, pricing, and accountability.</p>
+
+<h2>The Bottom Line</h2>
+<p>Choosing a moving company comes down to three things: verify they\'re legitimate (licensed, insured), get everything in writing, and trust your instincts when something feels off. A few hours of research before booking can save you thousands in damages, overcharges, or lost belongings.</p>
+<p>Ready to work with a company that checks every box? <a href="/get-a-quote">Get a free quote from Unitas Movers</a> — licensed, insured, transparent pricing, and hundreds of happy Calgary customers.</p>',
             ],
         ];
 

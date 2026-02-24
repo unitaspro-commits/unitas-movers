@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Movers Calgary | Affordable Local & Long-Distance Moving Company — Unitas Movers')
+@section('title', 'Movers Calgary | Affordable Moving Company — Unitas Movers')
 @section('meta_description', 'Movers in Calgary from $99/hr. Licensed, insured, affordable local & long-distance moving, packing, piano moving, and storage. 4.9★ rated, 2,500+ moves. Free quotes — call (403) 800-2747.')
 
 @section('schema')

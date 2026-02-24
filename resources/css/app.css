@@ -7,8 +7,6 @@
 
 @theme {
     --font-sans: 'Manrope', 'Inter', ui-sans-serif, system-ui, sans-serif;
-    --font-serif: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
-    --font-mono: 'Fragment Mono', 'JetBrains Mono', ui-monospace, monospace;
 
     /* Relocately-inspired blue palette */
     --color-primary: #5934ff;
