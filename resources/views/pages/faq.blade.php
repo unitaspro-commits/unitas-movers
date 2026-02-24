@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Moving FAQ Calgary | Common Questions | Unitas Movers')
-@section('meta_description', 'Answers to common moving questions — pricing, moving day, insurance, packing, booking & more. Calgary\'s trusted movers. Call (403) 800-2747.')
+@section('meta_description', 'Answers to common moving questions — pricing, moving day, insurance, packing, booking & more. Calgary\'s trusted movers. Call (403) 991-3206.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
@@ -19,7 +19,7 @@
 {{-- SEO Intro --}}
 <section class="py-8 border-b border-gray-100">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p class="text-gray-500 leading-relaxed">Planning a move in Calgary? Whether you're wondering about <a href="{{ route('pricing') }}" class="text-primary font-semibold hover:underline">how much movers cost</a>, what's included in a quote, or how to prepare for moving day, we've compiled answers to the questions we hear most from Calgary homeowners, renters, and businesses. Can't find what you're looking for? <a href="{{ route('contact') }}" class="text-primary font-semibold hover:underline">Contact us</a> or call <a href="tel:+14038002747" class="text-primary font-semibold hover:underline">(403) 800-2747</a> — our team is happy to help.</p>
+        <p class="text-gray-500 leading-relaxed">Planning a move in Calgary? Whether you're wondering about <a href="{{ route('pricing') }}" class="text-primary font-semibold hover:underline">how much movers cost</a>, what's included in a quote, or how to prepare for moving day, we've compiled answers to the questions we hear most from Calgary homeowners, renters, and businesses. Can't find what you're looking for? <a href="{{ route('contact') }}" class="text-primary font-semibold hover:underline">Contact us</a> or call <a href="tel:+14039913206" class="text-primary font-semibold hover:underline">(403) 991-3206</a> — our team is happy to help.</p>
     </div>
 </section>
 
@@ -58,9 +58,9 @@
             <h2 class="text-2xl font-extrabold text-white">Still Have Questions?</h2>
             <p class="mt-2 text-white/80">Give us a call or request a free quote — we're happy to help.</p>
             <div class="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="tel:+14038002747" class="inline-flex items-center bg-white text-primary px-6 py-3 rounded-lg font-bold transition hover:bg-gray-50">
+                <a href="tel:+14039913206" class="inline-flex items-center bg-white text-primary px-6 py-3 rounded-lg font-bold transition hover:bg-gray-50">
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    (403) 800-2747
+                    (403) 991-3206
                 </a>
                 <a href="{{ route('quote.create') }}" class="inline-block bg-white/20 hover:bg-white/30 text-white px-8 py-3 rounded-lg font-bold transition">Get Your Free Quote</a>
             </div>

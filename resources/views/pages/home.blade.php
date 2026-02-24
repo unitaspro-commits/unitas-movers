@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Movers Calgary | Affordable Moving Company — Unitas Movers')
-@section('meta_description', 'Movers in Calgary from $99/hr. Licensed, insured, affordable local & long-distance moving, packing, piano moving, and storage. 4.9★ rated, 2,500+ moves. Free quotes — call (403) 800-2747.')
+@section('meta_description', 'Movers in Calgary from $99/hr. Licensed, insured, affordable local & long-distance moving, packing, piano moving, and storage. 4.9★ rated, 2,500+ moves. Free quotes — call (403) 991-3206.')
 
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
@@ -95,9 +95,9 @@
 
                 {{-- Phone CTA --}}
                 <div class="mt-5 flex items-center space-x-4">
-                    <a href="tel:+14038002747" class="inline-flex items-center bg-primary/10 hover:bg-primary/15 text-primary px-5 py-2.5 rounded-xl font-semibold text-sm transition">
+                    <a href="tel:+14039913206" class="inline-flex items-center bg-primary/10 hover:bg-primary/15 text-primary px-5 py-2.5 rounded-xl font-semibold text-sm transition">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        (403) 800-2747
+                        (403) 991-3206
                     </a>
                     <span class="text-gray-400 text-sm">Free estimate</span>
                 </div>
@@ -533,7 +533,7 @@ function quoteForm() {
 
             <p>What makes Unitas one of the <strong>best movers in Calgary</strong>? Our commitment to <a href="{{ route('pricing') }}">transparent, affordable pricing</a> with no hidden fees — the quote we give is the price you pay. We carry comprehensive liability and cargo insurance so your belongings are fully protected. Our experienced crew handles everything from <a href="{{ route('services.show', 'piano-moving') }}">piano moves</a> to full <a href="{{ route('services.show', 'commercial-moving') }}">office relocations</a>, with the same level of care and professionalism on every job.</p>
 
-            <p>We proudly serve all Calgary quadrants — <a href="{{ route('areas.show', 'nw-calgary') }}">NW Calgary</a>, <a href="{{ route('areas.show', 'ne-calgary') }}">NE Calgary</a>, <a href="{{ route('areas.show', 'sw-calgary') }}">SW Calgary</a>, <a href="{{ route('areas.show', 'se-calgary') }}">SE Calgary</a>, and <a href="{{ route('areas.show', 'downtown-calgary') }}">Downtown</a> including the <a href="{{ route('areas.show', 'beltline') }}">Beltline</a> — plus surrounding communities like <a href="{{ route('areas.show', 'airdrie') }}">Airdrie</a>, <a href="{{ route('areas.show', 'cochrane') }}">Cochrane</a>, <a href="{{ route('areas.show', 'okotoks') }}">Okotoks</a>, <a href="{{ route('areas.show', 'chestermere') }}">Chestermere</a>, <a href="{{ route('areas.show', 'canmore') }}">Canmore</a>, and <a href="{{ route('areas.show', 'banff') }}">Banff</a>. With over 2,500 moves completed and a 4.9-star Google rating, we're one of Calgary's most trusted and <a href="{{ route('services.show', 'affordable-moving') }}">affordable moving companies</a>. <a href="{{ route('quote.create') }}">Get your free quote</a> online or call <a href="tel:+14038002747">(403) 800-2747</a> today.</p>
+            <p>We proudly serve all Calgary quadrants — <a href="{{ route('areas.show', 'nw-calgary') }}">NW Calgary</a>, <a href="{{ route('areas.show', 'ne-calgary') }}">NE Calgary</a>, <a href="{{ route('areas.show', 'sw-calgary') }}">SW Calgary</a>, <a href="{{ route('areas.show', 'se-calgary') }}">SE Calgary</a>, and <a href="{{ route('areas.show', 'downtown-calgary') }}">Downtown</a> including the <a href="{{ route('areas.show', 'beltline') }}">Beltline</a> — plus surrounding communities like <a href="{{ route('areas.show', 'airdrie') }}">Airdrie</a>, <a href="{{ route('areas.show', 'cochrane') }}">Cochrane</a>, <a href="{{ route('areas.show', 'okotoks') }}">Okotoks</a>, <a href="{{ route('areas.show', 'chestermere') }}">Chestermere</a>, <a href="{{ route('areas.show', 'canmore') }}">Canmore</a>, and <a href="{{ route('areas.show', 'banff') }}">Banff</a>. With over 2,500 moves completed and a 4.9-star Google rating, we're one of Calgary's most trusted and <a href="{{ route('services.show', 'affordable-moving') }}">affordable moving companies</a>. <a href="{{ route('quote.create') }}">Get your free quote</a> online or call <a href="tel:+14039913206">(403) 991-3206</a> today.</p>
         </div>
     </div>
 </section>
@@ -551,7 +551,7 @@ function quoteForm() {
                     ],
                     [
                         'q' => 'How far in advance should I book movers in Calgary?',
-                        'a' => 'We recommend booking your Calgary movers at least 2–4 weeks in advance, especially during peak moving season (May through September) and at month-end when demand is highest. However, Unitas Movers also offers <a href="' . route('services.show', 'same-day-moving') . '" class="text-primary hover:underline">same-day and last-minute moving services</a> based on availability. Call us at <a href="tel:+14038002747" class="text-primary hover:underline">(403) 800-2747</a> to check current scheduling.',
+                        'a' => 'We recommend booking your Calgary movers at least 2–4 weeks in advance, especially during peak moving season (May through September) and at month-end when demand is highest. However, Unitas Movers also offers <a href="' . route('services.show', 'same-day-moving') . '" class="text-primary hover:underline">same-day and last-minute moving services</a> based on availability. Call us at <a href="tel:+14039913206" class="text-primary hover:underline">(403) 991-3206</a> to check current scheduling.',
                     ],
                     [
                         'q' => 'Are your movers licensed and insured?',
@@ -1090,8 +1090,8 @@ function quoteForm() {
                     <a href="{{ route('quote.create') }}" class="bg-white hover:bg-gray-50 text-primary px-8 py-4 rounded-2xl font-bold text-lg transition-all shadow-lg hover:-translate-y-0.5 animate-pulse-ring">
                         Get Your Free Quote
                     </a>
-                    <a href="tel:+14038002747" class="border-2 border-white/25 hover:border-white/50 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all hover:bg-white/5">
-                        Call (403) 800-2747
+                    <a href="tel:+14039913206" class="border-2 border-white/25 hover:border-white/50 text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all hover:bg-white/5">
+                        Call (403) 991-3206
                     </a>
                 </div>
                 <p class="mt-6 text-white/40 text-sm">No credit card required. No obligation. Just honest pricing.</p>

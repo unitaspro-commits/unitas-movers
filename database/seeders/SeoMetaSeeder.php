@@ -13,7 +13,7 @@ class SeoMetaSeeder extends Seeder
             [
                 'page_key' => 'homepage',
                 'meta_title' => 'Calgary Movers | Unitas Movers — Licensed & Insured',
-                'meta_description' => 'Professional movers in Calgary. Licensed, insured, affordable. Local and long-distance moving, packing, piano moves. Free quotes — call (403) 800-2747.',
+                'meta_description' => 'Professional movers in Calgary. Licensed, insured, affordable. Local and long-distance moving, packing, piano moves. Free quotes — call (403) 991-3206.',
                 'h1' => 'Calgary\'s Trusted Moving Company',
                 'canonical_url' => 'https://unitasmovers.ca',
                 'schema_json' => [
@@ -22,7 +22,7 @@ class SeoMetaSeeder extends Seeder
                     'name' => 'Unitas Movers',
                     'description' => 'Professional moving company in Calgary, Alberta. Licensed, insured, affordable local and long-distance movers.',
                     'url' => 'https://unitasmovers.ca',
-                    'telephone' => '+1-403-800-2747',
+                    'telephone' => '+1-403-991-3206',
                     'email' => 'info@unitasmovers.ca',
                     'address' => [
                         '@type' => 'PostalAddress',
@@ -66,7 +66,7 @@ class SeoMetaSeeder extends Seeder
             [
                 'page_key' => 'pricing',
                 'meta_title' => 'Moving Prices Calgary | Transparent Rates | Unitas Movers',
-                'meta_description' => 'Calgary moving prices with no hidden fees. 2-person crew from $129/hr. Studios from $350, 3BR from $800. Free quotes — call (403) 800-2747.',
+                'meta_description' => 'Calgary moving prices with no hidden fees. 2-person crew from $129/hr. Studios from $350, 3BR from $800. Free quotes — call (403) 991-3206.',
                 'h1' => 'Transparent Moving Prices in Calgary',
                 'canonical_url' => 'https://unitasmovers.ca/pricing',
                 'schema_json' => [
@@ -91,7 +91,7 @@ class SeoMetaSeeder extends Seeder
                     'mainEntity' => [
                         '@type' => 'MovingCompany',
                         'name' => 'Unitas Movers',
-                        'telephone' => '+1-403-800-2747',
+                        'telephone' => '+1-403-991-3206',
                         'address' => [
                             '@type' => 'PostalAddress',
                             'addressLocality' => 'Calgary',

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Customer Reviews | Calgary Movers | Unitas Movers')
-@section('meta_description', 'Unitas Movers rated ' . number_format($avgRating, 1) . '/5 from ' . $totalReviews . '+ reviews. See why Calgary trusts us with their moves. Call (403) 800-2747.')
+@section('meta_description', 'Unitas Movers rated ' . number_format($avgRating, 1) . '/5 from ' . $totalReviews . '+ reviews. See why Calgary trusts us with their moves. Call (403) 991-3206.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

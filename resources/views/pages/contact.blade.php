@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Contact Unitas Movers Calgary | Free Quotes | (403) 800-2747')
-@section('meta_description', 'Contact Unitas Movers for a free moving quote. Call (403) 800-2747 or email info@unitasmovers.ca. Serving Calgary and surrounding areas.')
+@section('title', 'Contact Unitas Movers Calgary | Free Quotes | (403) 991-3206')
+@section('meta_description', 'Contact Unitas Movers for a free moving quote. Call (403) 991-3206 or email info@unitasmovers.ca. Serving Calgary and surrounding areas.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
@@ -34,7 +34,7 @@
                     <svg class="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 </div>
                 <h2 class="text-lg font-bold text-dark mb-1">Phone</h2>
-                <a href="tel:+14038002747" class="text-primary font-semibold text-lg hover:underline">(403) 800-2747</a>
+                <a href="tel:+14039913206" class="text-primary font-semibold text-lg hover:underline">(403) 991-3206</a>
                 <p class="text-gray-500 text-sm mt-2">Call us for a free estimate or to book your move.</p>
             </div>
 

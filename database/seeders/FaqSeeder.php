@@ -13,7 +13,7 @@ class FaqSeeder extends Seeder
             // ── General / Getting Started ────────────────────────
             [
                 'question' => 'How do I get a moving quote from Unitas Movers?',
-                'answer' => 'You can request a free quote by filling out the form on our Get a Quote page, calling us at (403) 800-2747, or emailing info@unitasmovers.ca. We\'ll ask about your move details — home size, addresses, preferred date, and any special items — and provide a clear estimate, usually within a few hours.',
+                'answer' => 'You can request a free quote by filling out the form on our Get a Quote page, calling us at (403) 991-3206, or emailing info@unitasmovers.ca. We\'ll ask about your move details — home size, addresses, preferred date, and any special items — and provide a clear estimate, usually within a few hours.',
                 'category' => 'general',
                 'sort_order' => 1,
             ],

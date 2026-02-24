@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title', 'Unitas Movers — Professional Moving Company')</title>
-    <meta name="description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
+    <meta name="description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 991-3206.')">
     <meta name="robots" content="@yield('robots', 'index, follow')">
 
     <link rel="canonical" href="@yield('canonical', url()->current())">
@@ -26,7 +26,7 @@
     <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:site_name" content="Unitas Movers">
     <meta property="og:title" content="@yield('title', 'Unitas Movers — Professional Moving Company')">
-    <meta property="og:description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
+    <meta property="og:description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 991-3206.')">
     <meta property="og:url" content="@yield('canonical', url()->current())">
     <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
     <meta property="og:locale" content="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -34,7 +34,7 @@
     {{-- Twitter Card --}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('title', 'Unitas Movers — Professional Moving Company')">
-    <meta name="twitter:description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 800-2747.')">
+    <meta name="twitter:description" content="@yield('meta_description', 'Professional movers in Calgary. Licensed, insured, affordable. Local & long-distance moving, packing, storage. Free quotes — call (403) 991-3206.')">
     <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
     <style>[x-cloak] { display: none !important; }</style>
@@ -72,9 +72,9 @@
                 </div>
 
                 <div class="hidden lg:flex items-center space-x-4">
-                    <a href="tel:+14038002747" class="text-dark font-semibold text-sm flex items-center hover:text-primary transition-colors">
+                    <a href="tel:+14039913206" class="text-dark font-semibold text-sm flex items-center hover:text-primary transition-colors">
                         <svg class="w-4 h-4 mr-1.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        (403) 800-2747
+                        (403) 991-3206
                     </a>
                     <a href="{{ route('quote.create') }}" class="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-xl font-semibold text-sm transition-all shadow-[0_4px_15px_rgba(89,52,255,0.3)] hover:shadow-[0_6px_20px_rgba(89,52,255,0.4)]">
                         Get Free Quote
@@ -98,9 +98,9 @@
                     <a href="{{ route('blog.index') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">Blog</a>
                     <a href="{{ route('about') }}" class="text-gray-700 hover:text-primary hover:bg-primary-50 px-4 py-2.5 rounded-xl text-sm font-medium transition">About</a>
                     <div class="pt-3 px-4 space-y-3">
-                        <a href="tel:+14038002747" class="flex items-center text-primary font-semibold text-sm">
+                        <a href="tel:+14039913206" class="flex items-center text-primary font-semibold text-sm">
                             <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                            (403) 800-2747
+                            (403) 991-3206
                         </a>
                         <a href="{{ route('quote.create') }}" class="block bg-primary text-white py-3 rounded-xl font-semibold text-sm text-center shadow-[0_4px_15px_rgba(89,52,255,0.3)]">Get Free Quote</a>
                     </div>
@@ -194,7 +194,7 @@
                             <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                                 <svg class="w-4 h-4 text-primary-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                             </div>
-                            <a href="tel:+14038002747" class="hover:text-white transition">(403) 800-2747</a>
+                            <a href="tel:+14039913206" class="hover:text-white transition">(403) 991-3206</a>
                         </li>
                         <li class="flex items-center space-x-3">
                             <div class="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
@@ -223,7 +223,7 @@
     {{-- Mobile Sticky CTA Bar --}}
     <div class="fixed bottom-0 inset-x-0 bg-white lg:hidden z-40 border-t border-gray-200 safe-bottom shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
         <div class="flex">
-            <a href="tel:+14038002747" class="flex-1 flex items-center justify-center py-3.5 text-dark font-semibold text-sm border-r border-gray-100">
+            <a href="tel:+14039913206" class="flex-1 flex items-center justify-center py-3.5 text-dark font-semibold text-sm border-r border-gray-100">
                 <svg class="w-4 h-4 mr-1.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
                 Call Now
             </a>

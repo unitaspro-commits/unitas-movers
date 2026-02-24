@@ -22,7 +22,7 @@
             <h2>Liability</h2>
             <p>Unitas Movers carries comprehensive liability insurance. Claims must be reported within 24 hours of move completion. We are not responsible for items packed by the customer unless a packing service was purchased.</p>
             <h2>Contact</h2>
-            <p>For questions about these terms, contact us at info@unitasmovers.ca or call (403) 800-2747.</p>
+            <p>For questions about these terms, contact us at info@unitasmovers.ca or call (403) 991-3206.</p>
         </div>
     </div>
 </section>

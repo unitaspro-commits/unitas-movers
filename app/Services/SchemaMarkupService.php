@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Cache;
 class SchemaMarkupService
 {
     private const COMPANY_NAME = 'Unitas Movers';
-    private const PHONE = '+1-403-800-2747';
+    private const PHONE = '+1-403-991-3206';
     private const EMAIL = 'info@unitasmovers.ca';
     private const SITE_URL = 'https://unitasmovers.ca';
     private const LOGO_URL = 'https://unitasmovers.ca/images/logo.png';

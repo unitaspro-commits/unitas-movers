@@ -20,7 +20,7 @@
             <h2>Data Protection</h2>
             <p>We implement appropriate security measures to protect your personal information. We do not sell, trade, or rent your personal information to third parties.</p>
             <h2>Contact Us</h2>
-            <p>For questions about this privacy policy, please contact us at info@unitasmovers.ca or call (403) 800-2747.</p>
+            <p>For questions about this privacy policy, please contact us at info@unitasmovers.ca or call (403) 991-3206.</p>
         </div>
     </div>
 </section>

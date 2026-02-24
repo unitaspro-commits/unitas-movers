@@ -145,6 +145,11 @@ Quote, Service, Area, Route, BlogPost, Review, Faq, Redirect, Media, FrenchPage,
 - [ ] **Analytics integration** — Google Analytics / Tag Manager
 - [x] **Schema.org markup** — JSON-LD structured data on all pages: MovingCompany, AggregateRating, WebSite, Service, BlogPosting, FAQPage, BreadcrumbList via SchemaMarkupService + Blade component — 2026-02-18
 - [x] **Performance optimization** — Redirect caching, sitemap caching, aggregate rating cache, internal link caching, N+1 fixes, font preload, ClearsSiteCache trait, `app:optimize` command — 2026-02-19
+- [x] **Google Fonts optimization** — Trimmed from 4 families/15 weights to 2 families/9 weights (Manrope + Inter only), removed unused --font-serif and --font-mono CSS variables — 2026-02-24
+- [x] **Alpine.js Vite bundle** — Replaced 3 CDN script tags with Vite-bundled Alpine.js core + intersect + collapse plugins (single 85KB JS file) — 2026-02-24
+- [x] **Homepage title optimization** — Shortened from 79 to 57 chars for SERP display — 2026-02-24
+- [x] **Response caching** — spatie/laravel-responsecache v7.7, caches all public GET requests, auto-clears via ClearsSiteCache trait on model changes — 2026-02-24
+- [x] **Blog post: "What to Look for in a Moving Company Calgary"** — Guides category, licensing/insurance checks, red flags, questions to ask, 4 FAQs, seeded to production — 2026-02-24
 
 ### Nice to Have (Future)
 - [x] Email notifications — Admin notification (NewQuoteAdmin) + customer auto-reply (QuoteConfirmation) on quote submission, activity logging, error handling — 2026-02-19

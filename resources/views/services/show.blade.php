@@ -30,9 +30,9 @@
                     Get a Free Quote
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </a>
-                <a href="tel:+14038002747" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition backdrop-blur-sm">
+                <a href="tel:+14039913206" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition backdrop-blur-sm">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                    (403) 800-2747
+                    (403) 991-3206
                 </a>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <div class="space-y-6">
                     @php
                         $steps = [
-                            ['num' => '1', 'title' => 'Request a Free Quote', 'desc' => 'Fill out our quick form or call (403) 800-2747. We\'ll provide a transparent, no-obligation quote within 2 hours.'],
+                            ['num' => '1', 'title' => 'Request a Free Quote', 'desc' => 'Fill out our quick form or call (403) 991-3206. We\'ll provide a transparent, no-obligation quote within 2 hours.'],
                             ['num' => '2', 'title' => 'We Plan Your Move', 'desc' => 'Our team coordinates logistics, timing, and any special requirements — packing materials, elevator booking, parking permits.'],
                             ['num' => '3', 'title' => 'Moving Day', 'desc' => 'Our licensed, insured crew arrives on time with the right equipment. We protect your belongings with professional wrapping and padding.'],
                             ['num' => '4', 'title' => 'Settle In', 'desc' => 'We place everything where you want it, reassemble furniture, and do a final walkthrough. You only pay the quoted price — no surprises.'],
@@ -176,7 +176,7 @@
                     <a href="{{ route('quote.create') }}" class="mt-4 block bg-accent hover:bg-accent/90 text-white text-center px-6 py-3 rounded-xl font-bold transition">Request Quote</a>
                     <div class="mt-4 flex items-center text-white/70 text-sm">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                        Or call <a href="tel:+14038002747" class="font-semibold text-white ml-1">(403) 800-2747</a>
+                        Or call <a href="tel:+14039913206" class="font-semibold text-white ml-1">(403) 991-3206</a>
                     </div>
                 </div>
                 <div class="bg-gray-50 rounded-2xl p-6">
@@ -206,7 +206,7 @@
         <p class="mt-3 text-white/80 text-lg">Get a free, no-obligation quote. We respond within 2 hours during business hours.</p>
         <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a href="{{ route('quote.create') }}" class="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg">Get Your Free Quote</a>
-            <a href="tel:+14038002747" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(403) 800-2747</a>
+            <a href="tel:+14039913206" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(403) 991-3206</a>
         </div>
     </div>
 </section>

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Moving Costs Calgary | Pricing from $99/hr | Unitas Movers')
-@section('meta_description', 'Calgary movers from $99/hr for 2 movers + truck. Studio from $350, 3BR from $1,200. No hidden fees. Free quotes — (403) 800-2747.')
+@section('meta_description', 'Calgary movers from $99/hr for 2 movers + truck. Studio from $350, 3BR from $1,200. No hidden fees. Free quotes — (403) 991-3206.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
@@ -118,7 +118,7 @@
                     ['q' => 'Is there a minimum charge?', 'a' => 'Yes, our minimum booking is 2 hours for local moves. Most studio and small apartment moves fall within this minimum.'],
                     ['q' => 'Do you charge for travel time?', 'a' => 'No. For local moves within Calgary, there are no travel time charges. Your clock starts when we begin loading and stops when we finish unloading.'],
                     ['q' => 'Are there any hidden fees?', 'a' => 'Absolutely not. The quote we provide includes everything — crew, truck, fuel, equipment, padding, and insurance. No stair fees, no long-carry fees, no surprises.'],
-                    ['q' => 'How do I get an exact quote?', 'a' => 'Request a free quote through our form or call (403) 800-2747. We\'ll ask about your current and new locations, home size, and any special items. Most quotes are provided within 2 hours.'],
+                    ['q' => 'How do I get an exact quote?', 'a' => 'Request a free quote through our form or call (403) 991-3206. We\'ll ask about your current and new locations, home size, and any special items. Most quotes are provided within 2 hours.'],
                     ['q' => 'Is tipping expected?', 'a' => 'Tipping is never required but always appreciated. If you\'re happy with the service, $20–$40 per mover is a common range in Calgary. We never factor tips into our pricing.'],
                     ['q' => 'Do you offer discounts?', 'a' => 'We offer competitive rates year-round. Off-season moves (October–April) and mid-week bookings are naturally more affordable due to lower demand. Contact us for current availability and pricing.'],
                 ] as $index => $faq)
@@ -145,7 +145,7 @@
         <p class="mt-3 text-white/80 text-lg">Free, no-obligation quotes. We respond within 2 hours during business hours.</p>
         <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
             <a href="{{ route('quote.create') }}" class="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg">Get Your Free Quote</a>
-            <a href="tel:+14038002747" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(403) 800-2747</a>
+            <a href="tel:+14039913206" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(403) 991-3206</a>
         </div>
     </div>
 </section>
