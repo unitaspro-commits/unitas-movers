@@ -54,6 +54,11 @@ class Route extends Model
         return $query->orderBy('sort_order');
     }
 
+    public function getNameAttribute(): string
+    {
+        return $this->origin_city . ' to ' . $this->dest_city;
+    }
+
     public function getPriceRangeAttribute(): string
     {
         if ($this->price_range_min && $this->price_range_max) {

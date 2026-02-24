@@ -69,7 +69,10 @@ class GenerateInternalLinks extends Command
                     continue;
                 }
 
-                $anchor = $item->name ?? $item->title;
+                $anchor = match (true) {
+                    $item instanceof Route => $item->origin_city . ' to ' . $item->dest_city,
+                    default => $item->name ?? $item->title,
+                };
 
                 InternalLink::create([
                     'source_page_type' => $sourceType,
