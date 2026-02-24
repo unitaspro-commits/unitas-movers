@@ -136,12 +136,12 @@
                 <div>
                     <h4 class="font-semibold text-xs uppercase tracking-widest text-white/40 mb-5">Services</h4>
                     <ul class="space-y-3 text-sm text-white/60">
-                        <li><a href="{{ route('services.index') }}" class="hover:text-white transition">Local Moving</a></li>
-                        <li><a href="{{ route('services.index') }}" class="hover:text-white transition">Long Distance</a></li>
-                        <li><a href="{{ route('services.index') }}" class="hover:text-white transition">Commercial Moving</a></li>
-                        <li><a href="{{ route('services.index') }}" class="hover:text-white transition">Packing & Unpacking</a></li>
-                        <li><a href="{{ route('services.index') }}" class="hover:text-white transition">Piano Moving</a></li>
-                        <li><a href="{{ route('services.index') }}" class="hover:text-white transition">Storage Solutions</a></li>
+                        <li><a href="{{ route('services.show', 'local-moving') }}" class="hover:text-white transition">Local Moving</a></li>
+                        <li><a href="{{ route('services.show', 'long-distance-moving') }}" class="hover:text-white transition">Long Distance</a></li>
+                        <li><a href="{{ route('services.show', 'commercial-moving') }}" class="hover:text-white transition">Commercial Moving</a></li>
+                        <li><a href="{{ route('services.show', 'packing-unpacking') }}" class="hover:text-white transition">Packing & Unpacking</a></li>
+                        <li><a href="{{ route('services.show', 'piano-moving') }}" class="hover:text-white transition">Piano Moving</a></li>
+                        <li><a href="{{ route('services.show', 'storage-solutions') }}" class="hover:text-white transition">Storage Solutions</a></li>
                     </ul>
                 </div>
 
@@ -149,12 +149,12 @@
                 <div>
                     <h4 class="font-semibold text-xs uppercase tracking-widest text-white/40 mb-5">Areas Served</h4>
                     <ul class="space-y-3 text-sm text-white/60">
-                        <li><a href="{{ route('areas.index') }}" class="hover:text-white transition">NW Calgary</a></li>
-                        <li><a href="{{ route('areas.index') }}" class="hover:text-white transition">NE Calgary</a></li>
-                        <li><a href="{{ route('areas.index') }}" class="hover:text-white transition">SW Calgary</a></li>
-                        <li><a href="{{ route('areas.index') }}" class="hover:text-white transition">SE Calgary</a></li>
-                        <li><a href="{{ route('areas.index') }}" class="hover:text-white transition">Airdrie</a></li>
-                        <li><a href="{{ route('areas.index') }}" class="hover:text-white transition">Cochrane</a></li>
+                        <li><a href="{{ route('areas.show', 'nw-calgary') }}" class="hover:text-white transition">NW Calgary</a></li>
+                        <li><a href="{{ route('areas.show', 'ne-calgary') }}" class="hover:text-white transition">NE Calgary</a></li>
+                        <li><a href="{{ route('areas.show', 'sw-calgary') }}" class="hover:text-white transition">SW Calgary</a></li>
+                        <li><a href="{{ route('areas.show', 'se-calgary') }}" class="hover:text-white transition">SE Calgary</a></li>
+                        <li><a href="{{ route('areas.show', 'airdrie') }}" class="hover:text-white transition">Airdrie</a></li>
+                        <li><a href="{{ route('areas.show', 'cochrane') }}" class="hover:text-white transition">Cochrane</a></li>
                     </ul>
                 </div>
 
@@ -223,8 +223,9 @@
         </div>
     </div>
 
-    {{-- Alpine.js Intersect Plugin + Core --}}
+    {{-- Alpine.js Plugins + Core --}}
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     {{-- Scroll Reveal Observer --}}

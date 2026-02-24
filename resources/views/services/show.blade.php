@@ -5,46 +5,208 @@
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
 @section('content')
-<section class="bg-unitas-green py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav class="text-white/60 text-sm mb-4">
-            <a href="{{ route('home') }}" class="hover:text-white">Home</a> &rsaquo;
-            <a href="{{ route('services.index') }}" class="hover:text-white">Services</a> &rsaquo;
-            <span class="text-white">{{ $service->name }}</span>
+
+{{-- Hero Section with Breadcrumb --}}
+<section class="bg-gradient-to-br from-primary to-primary-dark py-14 lg:py-20 relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav class="text-white/50 text-sm mb-6" aria-label="Breadcrumb">
+            <ol class="flex items-center space-x-2">
+                <li><a href="{{ route('home') }}" class="hover:text-white transition">Home</a></li>
+                <li><span>&rsaquo;</span></li>
+                <li><a href="{{ route('services.index') }}" class="hover:text-white transition">Services</a></li>
+                <li><span>&rsaquo;</span></li>
+                <li class="text-white font-medium">{{ $service->name }}</li>
+            </ol>
         </nav>
-        <h1 class="text-3xl lg:text-4xl font-serif font-bold text-white">{{ $service->h1 }}</h1>
-        @if($service->hero_text)
-            <p class="mt-4 text-white/80 max-w-3xl">{{ $service->hero_text }}</p>
-        @endif
+        <div class="max-w-3xl">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-tight">{{ $service->h1 }}</h1>
+            @if($service->hero_text)
+                <p class="mt-4 text-lg text-white/80 leading-relaxed">{{ $service->hero_text }}</p>
+            @endif
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <a href="{{ route('quote.create') }}" class="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg shadow-accent/25">
+                    Get a Free Quote
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </a>
+                <a href="tel:+14038002747" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition backdrop-blur-sm">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    (403) 800-2747
+                </a>
+            </div>
+        </div>
     </div>
 </section>
-<section class="py-12 lg:py-16">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        @if($service->body)
-            <div class="prose prose-lg max-w-none">{!! $service->body !!}</div>
-        @endif
-        @if($service->faq_json && count($service->faq_json) > 0)
-            <div class="mt-12">
-                <h2 class="text-2xl font-serif font-bold text-slate-dark mb-6">Frequently Asked Questions</h2>
-                <div class="space-y-4">
-                    @foreach($service->faq_json as $faq)
-                        <details class="bg-white rounded-lg p-5 shadow-sm border border-stone/10 group">
-                            <summary class="font-semibold text-slate-dark cursor-pointer list-none flex justify-between items-center">
-                                {{ $faq['question'] }}
-                                <svg class="w-5 h-5 text-stone group-open:rotate-180 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </summary>
-                            <p class="mt-3 text-stone">{{ $faq['answer'] }}</p>
-                        </details>
+
+{{-- Trust Bar --}}
+<section class="bg-white border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-gray-500">
+            <span class="flex items-center"><svg class="w-4 h-4 text-accent mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Fully Insured</span>
+            <span class="flex items-center"><svg class="w-4 h-4 text-star mr-1.5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>4.9★ Google Rating</span>
+            <span class="flex items-center"><svg class="w-4 h-4 text-primary mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>Same-Day Available</span>
+            <span class="flex items-center"><svg class="w-4 h-4 text-accent mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>No Hidden Fees</span>
+        </div>
+    </div>
+</section>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+        {{-- Main Content (2/3 width) --}}
+        <div class="lg:col-span-2">
+
+            {{-- Service Body Content --}}
+            @if($service->body)
+                <div class="prose prose-lg max-w-none prose-headings:font-extrabold prose-headings:text-dark prose-a:text-primary prose-a:no-underline hover:prose-a:underline">{!! $service->body !!}</div>
+            @endif
+
+            {{-- How It Works --}}
+            <div class="mt-14">
+                <h2 class="text-2xl font-extrabold text-dark mb-8">How Our {{ $service->name }} Works</h2>
+                <div class="space-y-6">
+                    @php
+                        $steps = [
+                            ['num' => '1', 'title' => 'Request a Free Quote', 'desc' => 'Fill out our quick form or call (403) 800-2747. We\'ll provide a transparent, no-obligation quote within 2 hours.'],
+                            ['num' => '2', 'title' => 'We Plan Your Move', 'desc' => 'Our team coordinates logistics, timing, and any special requirements — packing materials, elevator booking, parking permits.'],
+                            ['num' => '3', 'title' => 'Moving Day', 'desc' => 'Our licensed, insured crew arrives on time with the right equipment. We protect your belongings with professional wrapping and padding.'],
+                            ['num' => '4', 'title' => 'Settle In', 'desc' => 'We place everything where you want it, reassemble furniture, and do a final walkthrough. You only pay the quoted price — no surprises.'],
+                        ];
+                    @endphp
+                    @foreach($steps as $step)
+                        <div class="flex gap-4">
+                            <div class="shrink-0 w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white font-bold text-sm">{{ $step['num'] }}</div>
+                            <div>
+                                <h3 class="font-bold text-dark text-lg">{{ $step['title'] }}</h3>
+                                <p class="mt-1 text-gray-500 leading-relaxed">{{ $step['desc'] }}</p>
+                            </div>
+                        </div>
                     @endforeach
                 </div>
             </div>
-        @endif
-        <x-related-pages :relatedPages="$relatedPages" />
 
-        <div class="mt-12 bg-forest rounded-xl p-8 text-center">
-            <h2 class="text-2xl font-serif font-bold text-white">Ready to Book Your {{ $service->name }}?</h2>
-            <p class="mt-2 text-white/80">Get a free, no-obligation quote today.</p>
-            <a href="{{ route('quote.create') }}" class="mt-4 inline-block bg-meadow hover:bg-unitas-green text-white px-8 py-3 rounded-lg font-bold transition">Get Your Free Quote</a>
+            {{-- Why Choose Unitas --}}
+            <div class="mt-14">
+                <h2 class="text-2xl font-extrabold text-dark mb-8">Why Choose Unitas for {{ $service->name }}</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    @php
+                        $trustPoints = [
+                            ['icon' => 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', 'title' => 'Fully Licensed & Insured', 'desc' => 'Every move is covered by comprehensive insurance. Your belongings are protected from pickup to delivery.'],
+                            ['icon' => 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Transparent Pricing', 'desc' => 'No hidden fees, no surprise charges. The quote we give you is the price you pay — guaranteed.'],
+                            ['icon' => 'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', 'title' => 'Flexible Scheduling', 'desc' => 'Same-day, evening, and weekend availability. We work around your schedule, not the other way around.'],
+                            ['icon' => 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z', 'title' => 'Experienced Team', 'desc' => 'Our trained crews have completed 2,500+ moves. We handle every situation professionally.'],
+                        ];
+                    @endphp
+                    @foreach($trustPoints as $point)
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-3">
+                                <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $point['icon'] }}"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-dark">{{ $point['title'] }}</h3>
+                            <p class="mt-1 text-gray-500 text-sm leading-relaxed">{{ $point['desc'] }}</p>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            {{-- Customer Reviews --}}
+            @if($reviews->count())
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-8">What Customers Say About Our {{ $service->name }}</h2>
+                    <div class="space-y-4">
+                        @foreach($reviews as $review)
+                            <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+                                <div class="flex items-center gap-1 mb-2">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        <svg class="w-4 h-4 {{ $i <= $review->rating ? 'text-star' : 'text-gray-200' }}" fill="currentColor" viewBox="0 0 24 24"><path d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path></svg>
+                                    @endfor
+                                </div>
+                                <p class="text-gray-600 leading-relaxed">{{ $review->body }}</p>
+                                <p class="mt-3 text-sm font-semibold text-dark">— {{ $review->customer_name }}</p>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="mt-4"><a href="{{ route('reviews') }}" class="text-primary font-semibold text-sm hover:underline">Read all reviews &rarr;</a></div>
+                </div>
+            @endif
+
+            {{-- FAQ Section --}}
+            @if($service->faq_json && count($service->faq_json) > 0)
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-8">{{ $service->name }} — Frequently Asked Questions</h2>
+                    <div class="space-y-3" x-data="{ open: null }">
+                        @foreach($service->faq_json as $index => $faq)
+                            <div class="border border-gray-200 rounded-xl overflow-hidden">
+                                <button @click="open = open === {{ $index }} ? null : {{ $index }}" class="w-full flex justify-between items-center px-6 py-4 text-left hover:bg-gray-50 transition">
+                                    <span class="font-semibold text-dark pr-4">{{ $faq['question'] }}</span>
+                                    <svg class="w-5 h-5 text-gray-400 shrink-0 transition-transform duration-200" :class="{ 'rotate-180': open === {{ $index }} }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </button>
+                                <div x-show="open === {{ $index }}" x-collapse x-cloak class="px-6 pb-4">
+                                    <p class="text-gray-500 leading-relaxed">{{ $faq['answer'] }}</p>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            {{-- Areas Served --}}
+            @if($areasServed->count())
+                <div class="mt-14">
+                    <h2 class="text-2xl font-extrabold text-dark mb-6">{{ $service->name }} Across Calgary & Area</h2>
+                    <p class="text-gray-500 mb-6">We provide {{ strtolower($service->name) }} throughout Calgary and surrounding communities.</p>
+                    <div class="flex flex-wrap gap-2">
+                        @foreach($areasServed as $area)
+                            <a href="{{ route('areas.show', $area) }}" class="inline-block bg-gray-100 hover:bg-primary hover:text-white text-gray-700 text-sm font-medium px-4 py-2 rounded-lg transition">{{ $area->name }}</a>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+
+            <x-related-pages :relatedPages="$relatedPages" />
+        </div>
+
+        {{-- Sidebar --}}
+        <aside class="lg:col-span-1">
+            <div class="lg:sticky lg:top-24 space-y-6">
+                <div class="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-6 text-white">
+                    <h3 class="text-xl font-extrabold">Get a Free Quote</h3>
+                    <p class="mt-2 text-white/80 text-sm">No obligation, no hidden fees. We respond within 2 hours.</p>
+                    <a href="{{ route('quote.create') }}" class="mt-4 block bg-accent hover:bg-accent/90 text-white text-center px-6 py-3 rounded-xl font-bold transition">Request Quote</a>
+                    <div class="mt-4 flex items-center text-white/70 text-sm">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        Or call <a href="tel:+14038002747" class="font-semibold text-white ml-1">(403) 800-2747</a>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-6">
+                    <h3 class="font-bold text-dark text-lg mb-3">Pricing</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Rates depend on move size, distance, and services needed. We provide upfront, transparent pricing with no hidden fees.</p>
+                    <a href="{{ route('pricing') }}" class="mt-3 inline-flex items-center text-primary font-semibold text-sm hover:underline">View pricing details <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg></a>
+                </div>
+                @if($relatedServices->count())
+                    <div class="bg-white border border-gray-200 rounded-2xl p-6">
+                        <h3 class="font-bold text-dark text-lg mb-4">Related Services</h3>
+                        <ul class="space-y-3">
+                            @foreach($relatedServices as $related)
+                                <li><a href="{{ route('services.show', $related) }}" class="flex items-center text-gray-600 hover:text-primary text-sm font-medium transition"><svg class="w-4 h-4 mr-2 text-primary/50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>{{ $related->name }}</a></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </div>
+        </aside>
+    </div>
+</div>
+
+{{-- Full-Width Bottom CTA --}}
+<section class="bg-gradient-to-r from-primary to-primary-dark py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-extrabold text-white">Ready to Book Your {{ $service->name }}?</h2>
+        <p class="mt-3 text-white/80 text-lg">Get a free, no-obligation quote. We respond within 2 hours during business hours.</p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{{ route('quote.create') }}" class="inline-flex items-center justify-center bg-accent hover:bg-accent/90 text-white px-8 py-3.5 rounded-xl font-bold transition shadow-lg">Get Your Free Quote</a>
+            <a href="tel:+14038002747" class="inline-flex items-center justify-center bg-white/10 hover:bg-white/20 text-white px-8 py-3.5 rounded-xl font-bold transition"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>(403) 800-2747</a>
         </div>
     </div>
 </section>
