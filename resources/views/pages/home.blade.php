@@ -846,6 +846,98 @@ function quoteForm() {
                 </div>
             </div>
         </div>
+
+        {{-- Neighborhood Grid — organized by quadrant for SEO --}}
+        <div data-reveal="up" class="mt-16">
+            <h3 class="text-xl font-bold text-dark text-center mb-8">Calgary neighborhoods we serve</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {{-- NW Calgary --}}
+                <div>
+                    <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3">NW Calgary</h4>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li><a href="{{ route('areas.show', 'kensington') }}" class="hover:text-primary transition">Kensington</a></li>
+                        <li><a href="{{ route('areas.show', 'hillhurst') }}" class="hover:text-primary transition">Hillhurst</a></li>
+                        <li><a href="{{ route('areas.show', 'university-heights') }}" class="hover:text-primary transition">University Heights</a></li>
+                        <li><a href="{{ route('areas.show', 'varsity') }}" class="hover:text-primary transition">Varsity</a></li>
+                        <li><a href="{{ route('areas.show', 'brentwood') }}" class="hover:text-primary transition">Brentwood</a></li>
+                        <li><a href="{{ route('areas.show', 'dalhousie') }}" class="hover:text-primary transition">Dalhousie</a></li>
+                        <li><a href="{{ route('areas.show', 'edgemont') }}" class="hover:text-primary transition">Edgemont</a></li>
+                        <li><a href="{{ route('areas.show', 'tuscany') }}" class="hover:text-primary transition">Tuscany</a></li>
+                        <li><a href="{{ route('areas.show', 'royal-oak') }}" class="hover:text-primary transition">Royal Oak</a></li>
+                        <li><a href="{{ route('areas.show', 'scenic-acres') }}" class="hover:text-primary transition">Scenic Acres</a></li>
+                        <li><a href="{{ route('areas.show', 'bowness') }}" class="hover:text-primary transition">Bowness</a></li>
+                    </ul>
+                </div>
+
+                {{-- NE Calgary --}}
+                <div>
+                    <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3">NE Calgary</h4>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li><a href="{{ route('areas.show', 'bridgeland') }}" class="hover:text-primary transition">Bridgeland</a></li>
+                        <li><a href="{{ route('areas.show', 'renfrew') }}" class="hover:text-primary transition">Renfrew</a></li>
+                        <li><a href="{{ route('areas.show', 'marlborough') }}" class="hover:text-primary transition">Marlborough</a></li>
+                        <li><a href="{{ route('areas.show', 'falconridge') }}" class="hover:text-primary transition">Falconridge</a></li>
+                        <li><a href="{{ route('areas.show', 'saddleridge') }}" class="hover:text-primary transition">Saddleridge</a></li>
+                        <li><a href="{{ route('areas.show', 'skyview-ranch') }}" class="hover:text-primary transition">Skyview Ranch</a></li>
+                        <li><a href="{{ route('areas.show', 'cityscape') }}" class="hover:text-primary transition">Cityscape</a></li>
+                        <li><a href="{{ route('areas.show', 'martindale') }}" class="hover:text-primary transition">Martindale</a></li>
+                    </ul>
+                </div>
+
+                {{-- SW Calgary --}}
+                <div>
+                    <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3">SW Calgary</h4>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li><a href="{{ route('areas.show', 'beltline') }}" class="hover:text-primary transition">Beltline</a></li>
+                        <li><a href="{{ route('areas.show', 'mission') }}" class="hover:text-primary transition">Mission</a></li>
+                        <li><a href="{{ route('areas.show', 'marda-loop') }}" class="hover:text-primary transition">Marda Loop</a></li>
+                        <li><a href="{{ route('areas.show', 'killarney') }}" class="hover:text-primary transition">Killarney</a></li>
+                        <li><a href="{{ route('areas.show', 'altadore') }}" class="hover:text-primary transition">Altadore</a></li>
+                        <li><a href="{{ route('areas.show', 'south-calgary') }}" class="hover:text-primary transition">South Calgary</a></li>
+                        <li><a href="{{ route('areas.show', 'bankview') }}" class="hover:text-primary transition">Bankview</a></li>
+                        <li><a href="{{ route('areas.show', 'lakeview') }}" class="hover:text-primary transition">Lakeview</a></li>
+                        <li><a href="{{ route('areas.show', 'signal-hill') }}" class="hover:text-primary transition">Signal Hill</a></li>
+                        <li><a href="{{ route('areas.show', 'aspen-woods') }}" class="hover:text-primary transition">Aspen Woods</a></li>
+                        <li><a href="{{ route('areas.show', 'discovery-ridge') }}" class="hover:text-primary transition">Discovery Ridge</a></li>
+                    </ul>
+                </div>
+
+                {{-- SE Calgary --}}
+                <div>
+                    <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3">SE Calgary</h4>
+                    <ul class="space-y-1.5 text-sm text-gray-600">
+                        <li><a href="{{ route('areas.show', 'douglasdale') }}" class="hover:text-primary transition">Douglasdale</a></li>
+                        <li><a href="{{ route('areas.show', 'mahogany') }}" class="hover:text-primary transition">Mahogany</a></li>
+                        <li><a href="{{ route('areas.show', 'auburn-bay') }}" class="hover:text-primary transition">Auburn Bay</a></li>
+                        <li><a href="{{ route('areas.show', 'cranston') }}" class="hover:text-primary transition">Cranston</a></li>
+                        <li><a href="{{ route('areas.show', 'mckenzie-towne') }}" class="hover:text-primary transition">McKenzie Towne</a></li>
+                        <li><a href="{{ route('areas.show', 'copperfield') }}" class="hover:text-primary transition">Copperfield</a></li>
+                        <li><a href="{{ route('areas.show', 'new-brighton') }}" class="hover:text-primary transition">New Brighton</a></li>
+                        <li><a href="{{ route('areas.show', 'walden') }}" class="hover:text-primary transition">Walden</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            {{-- Surrounding towns --}}
+            <div class="mt-10">
+                <h4 class="font-bold text-primary text-sm uppercase tracking-wider mb-3 text-center">Surrounding Communities</h4>
+                <div class="flex flex-wrap justify-center gap-3">
+                    @php
+                        $towns = [
+                            'airdrie' => 'Airdrie', 'cochrane' => 'Cochrane', 'okotoks' => 'Okotoks',
+                            'chestermere' => 'Chestermere', 'canmore' => 'Canmore', 'banff' => 'Banff',
+                            'strathmore' => 'Strathmore', 'high-river' => 'High River',
+                            'langdon' => 'Langdon', 'crossfield' => 'Crossfield',
+                        ];
+                    @endphp
+                    @foreach($towns as $slug => $name)
+                        <a href="{{ route('areas.show', $slug) }}" class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm text-gray-600 hover:border-primary/30 hover:text-primary transition">{{ $name }}</a>
+                    @endforeach
+                </div>
+            </div>
+
+            <p class="mt-8 text-center text-gray-500 text-sm max-w-3xl mx-auto">Our professional movers provide residential, commercial, and specialty moving services across all Calgary communities. Whether you're relocating from a Beltline condo, a family home in Tuscany, or an office in the Downtown core, Unitas Movers delivers the same careful, insured service at affordable rates. <a href="{{ route('areas.index') }}" class="text-primary hover:underline">View our complete service area</a>.</p>
+        </div>
     </div>
 </section>
 
