@@ -432,3 +432,60 @@ html {
     transform: scale(1.1);
     box-shadow: 0 0 0 12px rgba(89, 52, 255, 0.15);
 }
+
+/* =============================================
+   404 PAGE — MOVING TRUCK ANIMATION
+   ============================================= */
+
+/* Truck drives across the screen */
+@keyframes truck-drive {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(100vw + 300px)); }
+}
+.error-truck {
+    animation: truck-drive 8s linear infinite;
+}
+
+/* Wheel spin synced with truck */
+@keyframes wheel-spin {
+    to { transform: rotate(360deg); }
+}
+.error-wheel {
+    transform-origin: center;
+    animation: wheel-spin 0.6s linear infinite;
+}
+
+/* Floating boxes */
+@keyframes box-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50%      { transform: translateY(-10px) rotate(3deg); }
+}
+.error-box-1 { animation: box-float 4s ease-in-out infinite; }
+.error-box-2 { animation: box-float 5s ease-in-out 0.8s infinite; }
+.error-box-3 { animation: box-float 4.5s ease-in-out 1.6s infinite; }
+
+/* One box tumbles as if fallen off the truck */
+@keyframes box-tumble {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25%      { transform: translateY(-6px) rotate(12deg); }
+    50%      { transform: translateY(2px) rotate(-8deg); }
+    75%      { transform: translateY(-3px) rotate(5deg); }
+}
+.error-box-tumble { animation: box-tumble 3.5s ease-in-out 2.4s infinite; }
+
+/* Dust puffs behind the truck */
+@keyframes dust-fade {
+    0%   { opacity: 0.4; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.8); }
+}
+.error-dust {
+    animation: dust-fade 0.8s ease-out infinite;
+}
+
+/* Responsive: scale down on small screens */
+@media (max-width: 480px) {
+    .error-truck svg {
+        width: 100px;
+        height: 53px;
+    }
+}
