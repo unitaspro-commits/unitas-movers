@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Areas Served | Movers in Calgary & Surrounding Towns | Unitas Movers')
-@section('meta_description', 'Unitas Movers serves all Calgary quadrants (NW, NE, SW, SE), 48 neighborhoods, and surrounding towns — Airdrie, Cochrane, Okotoks, Chestermere, Canmore, Banff. Free quotes — (403) 800-2747.')
+@section('title', 'Areas Served | Calgary & Surrounding Towns | Unitas Movers')
+@section('meta_description', 'Unitas Movers serves all Calgary quadrants, 48 neighborhoods, and surrounding towns — Airdrie, Cochrane, Okotoks, Canmore. Free quotes — (403) 800-2747.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'About Unitas Movers Calgary | Licensed & Insured Moving Company')
-@section('meta_description', 'Unitas Movers is Calgary\'s trusted moving company. Licensed, insured, bilingual English-French crew. 2,500+ moves completed. Eco-friendly practices. Call (403) 800-2747.')
+@section('meta_description', 'Unitas Movers is Calgary\'s trusted moving company. Licensed, insured, 2,500+ moves completed. Transparent pricing from $99/hr. Call (403) 800-2747.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

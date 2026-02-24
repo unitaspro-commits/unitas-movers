@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Licensed & Insured Movers Calgary | Full Coverage | Unitas Movers')
-@section('meta_description', 'Unitas Movers Calgary is fully licensed and insured. Comprehensive liability coverage, WCB protection for every crew member, and proper permits for every move. Call (403) 800-2747.')
+@section('meta_description', 'Unitas Movers is fully licensed and insured. Comprehensive liability coverage, WCB protection for every crew member. Call (403) 800-2747.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

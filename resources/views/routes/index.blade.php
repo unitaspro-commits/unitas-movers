@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title', 'Long-Distance Moving Routes from Calgary | Unitas Movers')
-@section('meta_description', 'Long-distance moving from Calgary to Edmonton, Vancouver, Kelowna, Toronto, and more. Get pricing, distance, and drive times for each corridor. Free quotes — (403) 800-2747.')
+@section('meta_description', 'Long-distance moving from Calgary to Edmonton, Vancouver, Kelowna, Toronto & more. Pricing, distance, and drive times. Free quotes — (403) 800-2747.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

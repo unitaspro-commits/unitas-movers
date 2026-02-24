@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Moving Costs Calgary | Transparent Pricing from $99/hr | Unitas Movers')
-@section('meta_description', 'How much do movers cost in Calgary? Unitas Movers rates start at $99/hr for 2 movers + truck. Studio from $350, 3BR from $1,200. No hidden fees. Free quotes — (403) 800-2747.')
+@section('title', 'Moving Costs Calgary | Pricing from $99/hr | Unitas Movers')
+@section('meta_description', 'Calgary movers from $99/hr for 2 movers + truck. Studio from $350, 3BR from $1,200. No hidden fees. Free quotes — (403) 800-2747.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection

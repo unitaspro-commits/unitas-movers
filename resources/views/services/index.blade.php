@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@section('title', 'Moving Services Calgary | Local, Long-Distance & Specialty | Unitas Movers')
-@section('meta_description', 'Complete moving services in Calgary — local, long-distance, commercial, packing, piano moving, senior moving, same-day, and more. Licensed & insured. Free quotes — (403) 800-2747.')
+@section('title', 'Moving Services Calgary | Local & Long-Distance | Unitas Movers')
+@section('meta_description', 'Calgary moving services — local, long-distance, commercial, packing, piano, senior, and same-day moves. Licensed & insured. Free quotes — (403) 800-2747.')
 @section('schema')
     <x-schema-json-ld :schemas="$schemas" />
 @endsection
