@@ -1,7 +1,2 @@
 User-agent: *
-Disallow: /admin/
-Disallow: /livewire/
-Disallow: /storage/
-Disallow: /fr/
-
-Sitemap: https://unitasmovers.ca/sitemap.xml
+Disallow: /
